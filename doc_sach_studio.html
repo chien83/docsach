@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>DocSach Studio - Nền Tảng Chuyển Đổi Excel ➜ JSON</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <style>
+        :root {
+            --primary: #16a085;
+            --secondary: #2c3e50;
+            --accent: #f1c40f;
+            --bg-color: #f4f6f7;
+            --ok: #27ae60;
+            --bad: #c0392b;
+            --warn: #e67e22;
+        }
+
+        * { box-sizing: border-box; }
+
+        body { 
+            font-family: 'Nunito', sans-serif; 
+            background: var(--bg-color); 
+            color: var(--secondary); 
+            margin: 0; 
+            padding: 30px; 
+            font-size: 16px;
+        }
+
+        .container { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 30px 40px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+            border-top: 8px solid var(--primary);
+        }
+
+        h1 { 
+            color: var(--primary); 
+            margin-top: 0; 
+            border-bottom: 2px dashed #bdc3c7; 
+            padding-bottom: 15px; 
+            font-weight: 900;
+        }
+
+        .alert-info {
+            background: #e8f8f5;
+            color: #117a65;
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            font-weight: bold;
+            border-left: 5px solid var(--primary);
+        }
+        
+        .step { 
+            background: #f8f9fa; 
+            padding: 25px; 
+            border-radius: 16px; 
+            margin-bottom: 25px; 
+            border: 2px solid #e1e8ed;
+            position: relative;
+        }
+        
+        .step h3 { 
+            margin-top: 0; 
+            color: var(--secondary); 
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step-badge {
+            background: var(--secondary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 16px;
+        }
+        
+        input[type="file"] { 
+            display: block; 
+            margin: 15px 0; 
+            padding: 15px; 
+            border: 2px dashed #bdc3c7; 
+            border-radius: 12px; 
+            width: 100%; 
+            cursor: pointer; 
+            background: white;
+            font-family: inherit;
+        }
+
+        input[type="file"]:hover {
+            border-color: var(--primary);
+            background: #fdfefe;
+        }
+        
+        button { 
+            background: var(--primary); 
+            color: white; 
+            border: none; 
+            padding: 14px 28px; 
+            border-radius: 12px; 
+            font-weight: 900; 
+            font-size: 16px; 
+            cursor: pointer; 
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            font-family: 'Nunito', sans-serif; 
+            margin-right: 10px; 
+            box-shadow: 0 4px 0 #117a65;
+        }
+        
+        button:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #117a65; }
+        button:active { transform: translateY(4px); box-shadow: 0 0 0 #117a65; }
+        button:disabled { background: #bdc3c7; box-shadow: 0 4px 0 #95a5a6; cursor: not-allowed; transform: none; }
+        
+        button.download-btn { background: #2980b9; box-shadow: 0 4px 0 #1f618d;}
+        button.download-btn:hover { box-shadow: 0 6px 0 #1f618d; }
+
+        /* Bảng Terminal Log */
+        #logArea { 
+            background: #1e272e; 
+            color: #d2dae2; 
+            padding: 20px; 
+            border-radius: 12px; 
+            font-family: 'Consolas', monospace; 
+            height: 250px; 
+            overflow-y: auto; 
+            font-size: 15px; 
+            margin-top: 15px; 
+            white-space: pre-wrap;
+            line-height: 1.5;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+        }
+        
+        .log-error { color: var(--bad); font-weight: bold; }
+        .log-warn { color: var(--warn); font-weight: bold;}
+        .log-success { color: var(--ok); font-weight: bold; }
+        .log-line { margin-bottom: 5px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px;}
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🛠️ Đọc Sách Studio (Teacher Version)</h1>
+    
+    <div class="alert-info">
+        Công cụ này hoạt động 100% OFFLINE trên máy của bạn (Local First). Nó tự động đọc file Excel (.xlsx) chứa nội dung bài học và dịch thành mã JSON chuẩn hóa (<code>data-snapshot.js</code>) để hệ thống web hiển thị.
+    </div>
+
+    <div class="step">
+        <h3><span class="step-badge">1</span> Nạp Dữ Liệu Excel (XLSX)</h3>
+        <p>Nếu bạn chưa có file Excel chuẩn, hãy tải file mẫu <a href="#" id="downloadTemplate" style="color:var(--primary); font-weight:900; text-decoration: underline;">TẠI ĐÂY</a>.</p>
+        <input type="file" id="excelFile" accept=".xlsx, .xls">
+        <button id="btnCheck">🔍 Đọc File & Bắt Lỗi</button>
+    </div>
+
+    <div class="step">
+        <h3><span class="step-badge">2</span> Bảng Phân Tích Lỗi (Validator)</h3>
+        <div id="logArea">Chưa có dữ liệu. Vui lòng chọn file ở Bước 1...</div>
+    </div>
+
+    <div class="step" style="background: #ebf5fb; border-color: #3498db;">
+        <h3><span class="step-badge" style="background:#2980b9">3</span> Xuất Bản Snapshot</h3>
+        <p>Nếu bảng phân tích báo lỗi màu đỏ, nút này sẽ bị khóa. Hãy sửa file Excel và nạp lại. Nếu màu xanh, bạn có thể tải file về.</p>
+        <button id="btnExport" class="download-btn" disabled>💾 Tải file data-snapshot.js</button>
+        <p style="font-size: 14px; color: #7f8c8d; margin-top: 15px; font-weight:bold">👉 Hướng dẫn: Tải file này về và lưu đè lên file <code style="color:#c0392b">data-snapshot.js</code> cũ trong thư mục code Web (nằm trong thư mục /js/ hoặc thư mục gốc).</p>
+    </div>
+</div>
+
+<script>
+// --- LOGIC PHÂN TÍCH EXCEL VÀ XUẤT JSON ---
+let globalJsonData = {};
+let hasError = false;
+
+const logArea = document.getElementById('logArea');
+const btnExport = document.getElementById('btnExport');
+
+function logMsg(msg, type='normal') {
+    let cssClass = 'log-line';
+    if(type === 'error') { cssClass += ' log-error'; hasError = true; }
+    if(type === 'warning') cssClass += ' log-warn';
+    if(type === 'success') cssClass += ' log-success';
+    
+    logArea.innerHTML += `<div class="${cssClass}">> ${msg}</div>`;
+    logArea.scrollTop = logArea.scrollHeight;
+}
+
+document.getElementById('btnCheck').addEventListener('click', () => {
+    const fileInput = document.getElementById('excelFile');
+    if (!fileInput.files.length) {
+        logMsg("LỖI: Bạn chưa chọn file Excel!", 'error');
+        return;
+    }
+
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+
+    logArea.innerHTML = ''; // Clear log
+    hasError = false;
+    globalJsonData = {};
+    btnExport.disabled = true;
+    
+    logMsg(`⏳ Đang đọc cấu trúc file: [${file.name}]...`);
+
+    reader.onload = function(e) {
+        try {
+            const data = new Uint8Array(e.target.result);
+            const workbook = XLSX.read(data, {type: 'array'});
+            const firstSheetName = workbook.SheetNames[0];
+            const worksheet = workbook.Sheets[firstSheetName];
+            
+            // Ép đọc từ dòng 2 (bỏ qua header) bằng tùy chọn header: 1
+            const rows = XLSX.utils.sheet_to_json(worksheet, {header: 1, defval: ""});
+            
+            if(rows.length <= 1) {
+                logMsg("LỖI CẤU TRÚC: File Excel trống hoặc bị sai định dạng.", 'error');
+                return;
+            }
+
+            logMsg(`Đã nạp thành công ${rows.length - 1} dòng dữ liệu. Đang quét lỗi logic...`);
+            processExcelData(rows.slice(1)); // Bỏ dòng tiêu đề
+        } catch (err) {
+            logMsg(`LỖI HỆ THỐNG: Quá trình đọc file thất bại. Chi tiết: ${err.message}`, 'error');
+        }
+    };
+    reader.readAsArrayBuffer(file);
+});
+
+function processExcelData(rows) {
+    let lessonsMap = {};
+    let errorCount = 0;
+    let warningCount = 0;
+
+    rows.forEach((row, index) => {
+        const lineNum = index + 2; // Số dòng thực tế trên Excel
+        
+        // Map cột chuẩn
+        // 0: Khối Lớp | 1: Loại Sách | 2: Tên Bài | 3: Loại Trạm
+        // 4: Phút | 5: Giây | 6: Nội dung/Đoạn văn | 7: Câu hỏi
+        // 8: Tùy chọn nối bằng dấu | | 9: Đáp án đúng | 10: Gợi ý
+        
+        const gradeStr = String(row[0]).trim();
+        const book = String(row[1]).trim();
+        const title = String(row[2]).trim();
+        const type = String(row[3]).trim().toLowerCase();
+        
+        const minMins = parseInt(row[4]) || 0;
+        const minSecs = parseInt(row[5]) || 0;
+        const totalSeconds = (minMins * 60) + minSecs;
+
+        const textContent = String(row[6]).trim();
+        const question = String(row[7]).trim();
+        const optionsRaw = String(row[8]).trim();
+        const answerRaw = String(row[9]).trim();
+        const hint = String(row[10]).trim();
+
+        if (!title) return; // Bỏ qua dòng trống
+
+        const gradeMatch = gradeStr.match(/\d+/);
+        const grade = gradeMatch ? parseInt(gradeMatch[0]) : 0;
+        
+        if(!grade || !book || !type) {
+            logMsg(`[Dòng ${lineNum}] THIẾU DỮ LIỆU: Bắt buộc phải có Khối Lớp, Loại sách và Loại trạm.`, 'error');
+            errorCount++;
+            return;
+        }
+
+        const lessonKey = `L${grade}_${title.replace(/\s+/g, '_')}`;
+        
+        if (!lessonsMap[lessonKey]) {
+            lessonsMap[lessonKey] = {
+                grade: grade,
+                book: book,
+                title: title,
+                stations: []
+            };
+        }
+
+        let stationObj = { k: type, min: totalSeconds };
+
+        if (type === 'mic') {
+            lessonsMap[lessonKey].mic = textContent;
+            return; 
+        } 
+        
+        if (type === 'tap') {
+            const sentences = textContent.match(/[^.!?]+[.!?]+/g) || [textContent];
+            stationObj.s = sentences.map(s => s.trim());
+            stationObj.q = question;
+            stationObj.a = parseInt(answerRaw) || 0;
+            if (stationObj.a >= stationObj.s.length) {
+                logMsg(`[Dòng ${lineNum}] LỖI LOGIC: Đáp án trạm 'Tìm câu' (tap) có số thứ tự lớn hơn số câu văn trong đoạn.`, 'error');
+                errorCount++;
+            }
+        } 
+        else if (type === 'choice') {
+            stationObj.t = textContent;
+            stationObj.q = question;
+            stationObj.o = optionsRaw.split('|').map(o => o.trim());
+            stationObj.a = parseInt(answerRaw) || 0;
+            stationObj.h = hint;
+            if(stationObj.o.length < 2) {
+                logMsg(`[Dòng ${lineNum}] LỖI CÚ PHÁP: Trắc nghiệm (choice) phải có ít nhất 2 đáp án cách nhau bằng dấu '|'.`, 'error');
+                errorCount++;
+            }
+        }
+        else if (type === 'gold') {
+            stationObj.t = textContent;
+            stationObj.q = question;
+            stationObj.h = hint;
+            if(!textContent.includes('*')) {
+                logMsg(`[Dòng ${lineNum}] CẢNH BÁO: Trạm 'Săn từ' (gold) nhưng trong đoạn văn không có từ nào được bọc dấu sao (*).`, 'warning');
+                warningCount++;
+            }
+        }
+        else if (type === 'match') {
+            stationObj.t = textContent;
+            stationObj.q = question;
+            stationObj.h = hint;
+            
+            const pairs = optionsRaw.split('|').map(p => p.split(':').map(i => i.trim()));
+            stationObj.p = pairs;
+            if(pairs.length === 0 || pairs[0].length !== 2) {
+                logMsg(`[Dòng ${lineNum}] LỖI CÚ PHÁP: Cấu trúc nối (match) sai định dạng. Phải là 'Vế 1:Vế 2 | Vế 3:Vế 4'.`, 'error');
+                errorCount++;
+            }
+        } else {
+            logMsg(`[Dòng ${lineNum}] LỖI: Loại trạm '${type}' không tồn tại. Chỉ hỗ trợ: tap, choice, gold, match, mic.`, 'error');
+            errorCount++;
+        }
+
+        if(type !== 'mic') {
+            lessonsMap[lessonKey].stations.push(stationObj);
+        }
+    });
+
+    logMsg(`--- TỔNG KẾT QUÉT LỖI ---`);
+    logMsg(`> Lỗi (Errors): ${errorCount}`, errorCount > 0 ? 'error' : 'success');
+    logMsg(`> Cảnh báo (Warnings): ${warningCount}`, warningCount > 0 ? 'warning' : 'normal');
+
+    if(errorCount === 0) {
+        globalJsonData = lessonsMap;
+        const totalLessons = Object.keys(lessonsMap).length;
+        logMsg(`✅ THÀNH CÔNG! Đã đóng gói ${totalLessons} bài học chuẩn JSON. Nút Xuất Bản đã được mở khóa!`, 'success');
+        btnExport.disabled = false;
+        btnExport.style.transform = 'scale(1.05)';
+        setTimeout(()=> { btnExport.style.transform = 'scale(1)'; }, 300);
+    } else {
+        logMsg(`❌ HỆ THỐNG TỪ CHỐI XUẤT BẢN. Vui lòng quay lại file Excel sửa các dòng báo lỗi màu đỏ, sau đó lưu lại và nạp file lên đây quét lại.`, 'error');
+    }
+}
+
+// XUẤT FILE .JS
+btnExport.addEventListener('click', () => {
+    const jsonString = JSON.stringify(globalJsonData, null, 4);
+    const fileContent = `// File được tự động sinh ra bởi DocSach Local Studio\n// KHÔNG CHỈNH SỬA THỦ CÔNG FILE NÀY.\n\nwindow.LESSONS = ${jsonString};`;
+    
+    const blob = new Blob([fileContent], { type: "text/javascript;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "data-snapshot.js";
+    link.click();
+    
+    logMsg("💾 Trình duyệt đã tải file data-snapshot.js xuống máy tính của bạn!", "success");
+});
+
+// TẠO FILE EXCEL MẪU
+document.getElementById('downloadTemplate').addEventListener('click', (e) => {
+    e.preventDefault();
+    const ws_data = [
+        ['Khối Lớp', 'Loại Sách', 'Tên Bài Đọc', 'Loại Trạm', 'Phút đọc', 'Giây đọc', 'Nội dung/Đoạn văn', 'Câu hỏi', 'Tùy chọn (Nối bằng dấu |)', 'Đáp án đúng (Chỉ số 0,1,2)', 'Gợi ý khi làm sai'],
+        ['Lớp 3', 'sgk', 'Cậu bé thông minh', 'tap', 0, 10, 'Ngày xưa có vua. Ngài hạ lệnh.', 'Vua đã làm gì?', '', '1', ''],
+        ['Lớp 4', 'vm', 'Tả chú chó Mi-lu', 'choice', 0, 15, 'Mẹ tặng em chú chó.', 'Ai tặng quà?', 'Bố | Mẹ | Bà', '1', 'Chú ý câu đầu'],
+        ['Lớp 4', 'vm', 'Tả chú chó Mi-lu', 'gold', 0, 10, 'Lông chú *vàng_óng và có vài *đốm_đen.', 'Tìm từ tả lông', '', '', 'Gợi ý tả lông'],
+        ['Lớp 4', 'vm', 'Tả chú chó Mi-lu', 'match', 0, 15, 'Mắt tròn xoe. Mũi ươn ướt.', 'Nối đặc điểm', 'Mắt:tròn xoe | Mũi:ươn ướt', '', 'Đọc kỹ ngoại hình'],
+        ['Lớp 4', 'vm', 'Tả chú chó Mi-lu', 'mic', 0, 0, 'Em rất yêu quý chú chó này.', '', '', '', '']
+    ];
+    const ws = XLSX.utils.aoa_to_sheet(ws_data);
+    
+    // Auto fit chiều rộng cột
+    const wscols = [{wch:10},{wch:10},{wch:20},{wch:12},{wch:10},{wch:10},{wch:40},{wch:30},{wch:25},{wch:15},{wch:20}];
+    ws['!cols'] = wscols;
+
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "BaiDoc");
+    XLSX.writeFile(wb, "Mau_Nhap_Lieu_DocSach_V1.xlsx");
+});
+
+</script>
+</body>
+</html>

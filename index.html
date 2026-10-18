@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Vượt Trạm Đọc Sách - Thám Tử Ngôn Từ</title>
+    <title>Vượt Trạm Đọc Sách - Cập Nhật Data Snapshot</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -219,7 +219,7 @@
         .big { font-size: 26px; font-weight: 900; line-height: 1.6; color: var(--pu); margin-bottom: 15px;}
         .big-target { color: #2980b9; background: #ebf5fb; padding: 15px; border-radius: 12px; border: 2px dashed #3498db; text-align: center;}
 
-        /* COOLDOWN OVERLAY (From Thám Tử Ngôn Từ) */
+        /* COOLDOWN OVERLAY */
         .cooldown-overlay {
             display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--cooldown-bg); color: white;
@@ -267,6 +267,10 @@
 
         @media(prefers-reduced-motion: reduce) { * { animation: none!important; transition: none!important; } }
     </style>
+    
+    <!-- !!! ĐÂY LÀ CHỖ KẾT NỐI FILE DATA-SNAPSHOT.JS MỚI !!! -->
+    <script src="data-snapshot.js"></script>
+    
 </head>
 <body>
 <header>
@@ -289,68 +293,41 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>'
 
 // Trạng thái toàn cục
 let DEMO = false, iv = null, S = null;
-const T = n => DEMO ? Math.min(n, 3) : n; // Giảm thời gian chờ nếu đang test demo
+const T = n => DEMO ? Math.min(n, 3) : n; 
 
-/* ===== DỮ LIỆU BÀI HỌC (JSON) ===== */
-const LESSONS = {
-    A: {
-        grade: 3, book: 'sgk', title: 'Cậu bé thông minh',
-        stations: [
-            {k:'tap', min:20, s:['Ngày xưa, có một vị vua muốn thử tài dân chúng trong vùng.','Ngài hạ lệnh cho mỗi làng phải nộp một con gà trống biết đẻ trứng.','Dân làng nghe lệnh thì ai cũng lo lắng.'], q:'Đức vua đã nghĩ ra kế gì để thử tài dân chúng? Em hãy bấm vào câu văn nói lên điều đó!', a:1},
-            {k:'tap', min:20, s:['Cả làng ngồi nghĩ mãi mà không ra cách.','Chỉ có một cậu bé mỉm cười, nói rằng em sẽ giúp làng.','Cậu bé đến gặp sứ giả của nhà vua.'], q:'Ai đã nhận giúp dân làng? Em hãy bấm vào câu văn nói lên điều đó!', a:1},
-            {k:'tap', min:20, s:['Cậu bé tâu rằng: “Cha tôi chưa sinh được em bé thì gà trống làm sao đẻ trứng ạ?”','Nhà vua nghe xong thì rất phục cậu bé.','Ngài ban thưởng cho cậu và cho cả làng được yên.'], q:'Cậu bé đã trả lời nhà vua thế nào? Em hãy bấm vào câu văn nói lên điều đó!', a:0}
-        ],
-        mic: 'Nhà vua nghe xong thì rất phục cậu bé.'
-    },
-    B: {
-        grade: 4, book: 'vm', title: 'Tả chú mèo mướp',
-        stations: [
-            {k:'choice', min:10, t:'Nhà em nuôi một chú mèo mướp rất đáng yêu. Em và chú thân nhau như hai người bạn.', q:'Bạn nhỏ giới thiệu chú mèo theo cách nào?', o:['Giới thiệu ngay chú mèo','Kể kỷ niệm ngày được tặng chú mèo'], a:0, h:'Mở bài'},
-            {k:'gold', min:0, t:'Bộ lông chú *vàng_óng như màu nắng sớm. Đôi mắt *tròn_xoe, *xanh_biếc như hai viên ngọc. Mỗi khi em vuốt ve, chú *mềm_mại cuộn tròn trong lòng em.', q:'Tác giả dùng 4 từ ngữ tả màu sắc và hình dáng rất sinh động. Em hãy bấm vào 4 từ đó để thu hoạch vào giỏ nhé!', h:'Thân bài'},
-            {k:'match', min:15, t:'Cái tai mèo dựng lên như hai chiếc lá quất non. Bộ ria mép oai vệ như một chú hổ con. Bước chân chú đi êm ru như lướt trên đệm bông.', q:'Nối sự vật (cột trái) với hình ảnh so sánh trong bài (cột phải).', p:[['Cái tai mèo','như hai chiếc lá quất non'],['Bộ ria mép','oai vệ như một chú hổ con'],['Bước chân đi','êm ru như lướt trên đệm bông']], h:'So sánh'}
-        ]
-    },
-    D: { // BÀI MỚI THÊM VÀO TỪ YÊU CẦU CỦA BẠN
-        grade: 4, book: 'vm', title: 'Tả chú chó Mi-lu',
-        stations: [
-            {
-                k: 'choice', min: 10, 
-                t: 'Nhân dịp sinh nhật, mẹ có tặng cho em một chú cún rất dễ thương. Vừa nhìn thấy chú cún, em đã thích chú rồi.', 
-                q: 'Bạn nhỏ được mẹ tặng món quà gì nhân dịp sinh nhật?', 
-                o: ['Một chú mèo con','Một chú cún dễ thương','Một con gấu bông'], 
-                a: 1, h: 'Mở bài'
-            },
-            {
-                k: 'gold', min: 0, 
-                t: 'Em đặt tên cho chú là Mi-lu. Mi-lu có bộ lông màu vàng và điểm thêm vài *đốm_đen khiến chú càng thêm đặc biệt. Cái đầu của chú *nhỏ_xinh. Đôi mắt ~tròn và ~sáng như cái đèn pha. Cái mũi *phơn_phớt_hồng, ~ươn_ướt. Cái tai của Mi-lu rất thính, mọi âm thanh từ xa chú đều nghe rất rõ. Bốn cái chân của chú *ngăn_ngắn nhưng rất khỏe khiến chú chạy rất nhanh.', 
-                q: 'Em hãy đọc kĩ đoạn văn và tìm bấm vào 4 từ ngữ (cụm từ) miêu tả ĐẶC ĐIỂM của: bộ lông, cái đầu, cái mũi, và bốn cái chân của Mi-lu nhé!', 
-                h: 'Thân bài - Tả hình dáng'
-            },
-            {
-                k: 'match', min: 15, 
-                t: 'Chú cún rất thích ăn xúc xích và ba tê. Mỗi khi rảnh rỗi, em đều cùng Mi-lu chơi bóng. Mi-lu rất thông minh, chú hiểu rõ những gì em nói. Thỉnh thoảng, khi trời ấm lên, chú lại thích nằm ngoài sân sưởi nắng.', 
-                q: 'Dựa vào đoạn văn trên, em hãy nối thông tin ở hai cột cho đúng nhé.', 
-                p: [
-                    ['Món ăn yêu thích','xúc xích và ba tê'],
-                    ['Hoạt động cùng em','chơi bóng'],
-                    ['Khi trời ấm lên','nằm ngoài sân sưởi nắng']
-                ], 
-                h: 'Thân bài - Tả hoạt động'
+/* ===== SỬ DỤNG DỮ LIỆU TỪ EXTERNAL DATA-SNAPSHOT.JS ===== */
+// Hàm hỗ trợ tương thích ngược (fallback) nếu lỗi chưa load được JS
+function getLessonsData() {
+    if (window.LESSONS && Object.keys(window.LESSONS).length > 0) {
+        return window.LESSONS;
+    } else {
+        console.warn("Chưa tìm thấy file data-snapshot.js hoặc file bị lỗi. Sử dụng dữ liệu mẫu (Cậu bé thông minh).");
+        return {
+            A_Fallback: {
+                grade: 3, book: 'sgk', title: '(Demo) Cậu bé thông minh',
+                stations: [
+                    {k:'tap', min:5, s:['Ngày xưa, có một vị vua muốn thử tài dân chúng trong vùng.','Ngài hạ lệnh cho mỗi làng phải nộp một con gà trống biết đẻ trứng.','Dân làng nghe lệnh thì ai cũng lo lắng.'], q:'Đức vua đã nghĩ ra kế gì để thử tài dân chúng? Em hãy bấm vào câu văn nói lên điều đó!', a:1},
+                    {k:'choice', min:5, t:'Nhà em nuôi một chú mèo mướp rất đáng yêu. Em và chú thân nhau như hai người bạn.', q:'Bạn nhỏ giới thiệu chú mèo theo cách nào?', o:['Giới thiệu ngay chú mèo','Kể kỷ niệm ngày được tặng chú mèo'], a:0, h:'Mở bài'}
+                ],
+                mic: 'Nhà vua nghe xong thì rất phục cậu bé.'
             }
-        ],
-        mic: 'Đó không chỉ là món quà kỉ niệm của mẹ mà còn là một người bạn thân thiết của em.'
+        };
     }
-};
+}
+
+// KHỞI TẠO BIẾN LESSONS TỪ EXTERNAL FILE
+const LESSONS = getLessonsData();
 
 const GRADES = [1, 2, 3, 4, 5];
-const BOOKS = { sgk: 'Sách giáo khoa', vm: 'Sách văn mẫu' };
-const ICON = { sgk: '📖', vm: '📝' };
+const BOOKS = { sgk: 'Sách giáo khoa', vm: 'Sách văn mẫu', nc: 'Sách nâng cao' };
+const ICON = { sgk: '📖', vm: '📝', nc: '🚀' };
+
 const lname = k => `Lớp ${LESSONS[k].grade} · ${LESSONS[k].title}`;
 const L = () => LESSONS[S.lid];
 
-/* ===== QUẢN LÝ LOCALSTORAGE ===== */
-const load = () => { try { return JSON.parse(localStorage.getItem('vtd_v2') || '[]') } catch(e) { return [] } };
-const store = r => { try { localStorage.setItem('vtd_v2', JSON.stringify(r)) } catch(e) {} };
+/* ===== QUẢN LÝ LOCALSTORAGE (Hỗ trợ Local First) ===== */
+const load = () => { try { return JSON.parse(localStorage.getItem('vtd_v3') || '[]') } catch(e) { return [] } };
+const store = r => { try { localStorage.setItem('vtd_v3', JSON.stringify(r)) } catch(e) {} };
 
 function upsert() {
     const rs = load(), n = L().stations.length;
@@ -369,7 +346,7 @@ setInterval(() => {
     if (S && !S.done && !document.hidden && $('#tS').classList.contains('on')) S.secs++;
 }, 1000);
 
-/* ===== ÂM THANH & HIỆU ỨNG (Tích hợp từ file 1) ===== */
+/* ===== ÂM THANH & HIỆU ỨNG ===== */
 function playSound(type) {
     try {
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -429,7 +406,6 @@ function showConfetti() {
     render();
 }
 
-// Logic đếm chữ, chuẩn hóa chuỗi
 const norm = s => s.toLowerCase().replace(/[^\p{L}\s]/gu, '').split(/\s+/).filter(Boolean);
 function sim(a, b) {
     const A = norm(a), pool = norm(b);
@@ -448,19 +424,19 @@ function countdown(sec, el, done) {
     show();
     
     iv = setInterval(() => {
-        if (document.hidden) return; // Dừng đếm nếu ẩn tab
+        if (document.hidden) return;
         n--;
         if (n <= 0) { clearInterval(iv); el.textContent = ''; done(); } 
         else show();
     }, 1000);
 }
 
-/* ===== MÀN HÌNH HỌC SINH (Hệ thống state machine) ===== */
+/* ===== MÀN HÌNH HỌC SINH ===== */
 let NAME = '', GR = null;
 
 function home() {
     clearInterval(iv); S = null;
-    const fx = (location.hash.match(/bai=(\w)/) || [])[1];
+    const fx = (location.hash.match(/bai=(\w+)/) || [])[1];
     const fixed = LESSONS[fx] ? fx : null;
     const rs = load();
     const isDone = k => rs.some(r => r.name === NAME && r.lid === k && r.status === 'Hoàn thành');
@@ -468,7 +444,6 @@ function home() {
     const demo = `<label class="ck"><input type="checkbox" id="dm" ${DEMO?'checked':''}> Bật chế độ Giáo viên xem thử (Nhảy qua đếm giờ)</label>`;
     const nm = `<input id="nm" maxlength="40" autocomplete="off" placeholder="👉 Bấm vào đây để viết tên của em" value="${esc(NAME)}">`;
     
-    // Nếu có link chia sẻ cụ thể
     if (fixed) {
         app.innerHTML = `<div class="card">
             <h2>🔔 Cô giáo giao bài cho em</h2>
@@ -482,11 +457,10 @@ function home() {
         return;
     }
     
-    // Chế độ duyệt tự do
     const kids = GR ? Object.keys(LESSONS).filter(k => LESSONS[k].grade === GR) : [];
     const list = Object.keys(BOOKS).map(b => {
         const ls = kids.filter(k => LESSONS[k].book === b);
-        return ls.length ? `<h3>${ICON[b]} ${BOOKS[b]}</h3>${ls.map(k => 
+        return ls.length ? `<h3>${ICON[b] || '📚'} ${BOOKS[b]}</h3>${ls.map(k => 
             `<button class="opt ls" data-k="${k}">
                 <span>${esc(LESSONS[k].title)} <small style="display:inline; margin-left:10px; color:#7f8c8d; font-weight:normal">(${LESSONS[k].stations.length} trạm)</small></span>
                 ${isDone(k) ? '<span style="color:var(--ok); font-weight:900">✓ Đã xong</span>' : '<span>👉</span>'}
@@ -495,7 +469,12 @@ function home() {
     }).join('');
     
     app.innerHTML = `
-        <div class="card"><h2>1️⃣ Tên của em là gì?</h2>${nm}</div>
+        <div class="card">
+            <div style="background:#fff3cd; color:#856404; padding:15px; border-radius:12px; margin-bottom:20px; font-weight:bold; border-left:5px solid #ffeeba">
+                Hệ thống đã nhận diện được ${Object.keys(LESSONS).length} bài đọc từ file data-snapshot.js.
+            </div>
+            <h2>1️⃣ Tên của em là gì?</h2>${nm}
+        </div>
         <div class="card">
             <h2>2️⃣ Em học lớp mấy?</h2>
             <div class="grades">
@@ -554,7 +533,6 @@ function finishStation(firstOk) {
     };
 }
 
-// Logic phạt Cooldown (Tích hợp từ file 1)
 function triggerCooldown(el, timeSecs, msg) {
     playSound('error');
     shake(el);
@@ -586,7 +564,6 @@ function station() {
     app.innerHTML = `
         <div class="card">
             ${trail()}
-            <!-- Lớp phủ phạt được chèn vào card chứa văn bản -->
             <div class="cooldown-overlay" id="cooldown-screen">
                 <div>⚠️ Ôi, nhầm mất rồi!</div>
                 <div class="cd-subtext" id="cd-msg"></div>
@@ -599,7 +576,6 @@ function station() {
         
     const rd = $('#rd'), act = $('#act');
     
-    // DẠNG 1: TÌM CÂU (TAP)
     if (st.k === 'tap') {
         rd.innerHTML = st.s.map((x, i) => `<span class="sn" data-i="${i}">${esc(x)} </span>`).join('');
         act.innerHTML = '<div class="msg" id="cd" style="text-align:center"></div>';
@@ -624,9 +600,7 @@ function station() {
             });
         });
     }
-    
-    // DẠNG 2: TRẮC NGHIỆM CHỌN (CHOICE)
-    if (st.k === 'choice') {
+    else if (st.k === 'choice') {
         rd.textContent = st.t;
         act.innerHTML = '<div class="msg" id="cd" style="text-align:center"></div>';
         
@@ -649,13 +623,10 @@ function station() {
             });
         });
     }
-    
-    // DẠNG 3: HÁI TỪ VỰNG (GOLD / WORD HUNTER - Tích hợp Logic "Săn từ" tự động)
-    if (st.k === 'gold') {
+    else if (st.k === 'gold') {
         const got = new Set();
         let tot = 0;
         
-        // Parse text giống "Thám tử ngôn từ" nhưng dựa trên syntax '*' (đáp án) và '~' (bẫy lân cận)
         rd.innerHTML = st.t.split(' ').map(tk => {
             const m = tk.match(/^([*~]?)([^.,!?]+)([.,!?]*)$/);
             const g = m[1] === '*' ? 1 : m[1] === '~' ? 2 : 0;
@@ -675,11 +646,9 @@ function station() {
                 if (document.getElementById('cooldown-screen').style.display === 'flex' || sp.classList.contains('got')) return;
                 
                 if (sp.dataset.g === '2') {
-                    // Cảnh báo nhẹ cho từ gần đúng (bẫy)
                     wrong++; S.rush++;
-                    triggerCooldown(sp, 4, `Từ "${sp.dataset.w}" cũng khá hay, nhưng hãy tìm từ miêu tả chính xác hình dáng nhé!`);
+                    triggerCooldown(sp, 4, `Từ "${sp.dataset.w}" cũng khá hay, nhưng hãy tìm từ miêu tả chính xác hơn nhé!`);
                 } else if (sp.dataset.g === '1') {
-                    // Bấm chuẩn từ khóa
                     sp.classList.add('got');
                     got.add(sp.dataset.w);
                     playSound('success');
@@ -689,19 +658,16 @@ function station() {
                     
                     if (got.size === tot) {
                         rd.querySelectorAll('.w').forEach(x => x.onclick = null);
-                        setTimeout(() => finishStation(wrong === 0), 1000); // Đợi popup chip bay xong mới qua bài
+                        setTimeout(() => finishStation(wrong === 0), 1000); 
                     }
                 } else {
-                    // Bấm bừa từ bình thường
                     wrong++; S.rush++;
-                    triggerCooldown(sp, 6, `Từ "${sp.dataset.w}" không phải là từ miêu tả rồi!`);
+                    triggerCooldown(sp, 6, `Từ "${sp.dataset.w}" không phải là đáp án rồi!`);
                 }
             };
         });
     }
-    
-    // DẠNG 4: NỐI TỪ (MATCH)
-    if (st.k === 'match') {
+    else if (st.k === 'match') {
         rd.textContent = st.t;
         act.innerHTML = '<div class="msg" id="cd" style="text-align:center"></div>';
         
@@ -749,7 +715,7 @@ function station() {
     }
 }
 
-/* ===== ĐỌC TO BẰNG MICRO (Web Speech API) ===== */
+/* ===== ĐỌC TO BẰNG MICRO ===== */
 function micStep() {
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
     
@@ -801,7 +767,7 @@ function micStep() {
             
             btn.classList.remove('recording');
             
-            if (p >= 65) { // Đạt chuẩn >=65% (Dễ hơn với trẻ tiểu học ngọng)
+            if (p >= 65) {
                 S.mic = p;
                 ms.className = 'msg ok';
                 ms.innerHTML = `🎉 Giỏi quá! Em đọc chính xác <b>${p}%</b>. (Máy nghe được: <i>"${transcript}"</i>)`;
@@ -877,7 +843,6 @@ function teacher() {
             <h2 style="color: var(--ok)">2. Báo cáo Tình hình học tập</h2>
             <div class="row">
                 <button id="ex" style="background:#27ae60; color:white">📥 Tải file Excel (CSV)</button>
-                <button id="sp" style="background:#fff; box-shadow:none; border:2px solid var(--ln); color: var(--text-main)">Nạp data ảo (Demo)</button>
                 <button id="cl" style="background:var(--bad); color:#fff; box-shadow:none">Xóa sạch dữ liệu</button>
             </div>
             <div class="tw">
@@ -932,15 +897,6 @@ function teacher() {
         try { navigator.clipboard.writeText($('#lk').value); } catch(e) { document.execCommand('copy'); }
         $('#cp').textContent = '✅ Đã Copy';
         setTimeout(() => $('#cp').textContent = '📋 Copy', 2000);
-    };
-    
-    $('#sp').onclick = () => {
-        store([
-            {name: 'Lê Nguyễn Bảo Anh (ảo)', lid: 'D', status: 'Hoàn thành', secs: 310, ok: 3, tot: 3, rush: 0, mic: 85},
-            {name: 'Phạm Minh Trí (ảo)', lid: 'D', status: 'Hoàn thành', secs: 145, ok: 1, tot: 3, rush: 5, mic: 68},
-            {name: 'Trần Gia Hân (ảo)', lid: 'D', status: 'Đang đọc (Trạm 2/3)', secs: 80, ok: 1, tot: 1, rush: 1, mic: null}
-        ]);
-        teacher();
     };
     
     $('#cl').onclick = () => {
