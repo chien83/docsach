@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thám Tử Ngôn Từ - Trải Nghiệm Đọc Tương Tác</title>
-    <!-- Font chữ tròn trịa, dễ đọc cho học sinh tiểu học -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vượt Trạm Đọc Sách - Thám Tử Ngôn Từ</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -14,538 +13,964 @@
             --bg-color: #f0f8ff;
             --text-main: #2c3e50;
             --cooldown-bg: rgba(255, 107, 107, 0.95);
+            
+            --bg: #e8f4ff;
+            --ink: #1d2b53;
+            --sun: #ffc233;
+            --ok: #1fae6b;
+            --bad: #ff5d73;
+            --pu: #5b3fd6;
+            --card: #fff;
+            --ln: #c9dff5;
         }
 
+        * { box-sizing: border-box; }
+        
         body {
-            font-family: 'Nunito', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            display: flex;
-            justify-content: center;
-            padding: 20px;
             margin: 0;
+            font-family: 'Nunito', "Trebuchet MS", sans-serif;
+            background: var(--bg-color);
+            color: var(--text-main);
+            font-size: 18px;
+            padding-bottom: 40px;
         }
 
-        .container {
-            background: white;
-            padding: 30px 40px;
-            border-radius: 24px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-            max-width: 800px;
-            width: 100%;
-            text-align: center;
-        }
-
-        h1 {
-            color: var(--secondary);
-            font-size: 2.5em;
-            text-shadow: 2px 2px 0px var(--accent);
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-
-        .instruction {
-            font-size: 1.3em;
-            color: #16a085;
-            margin-bottom: 25px;
-            font-weight: 700;
-            background: #e8f8f5;
-            padding: 10px;
-            border-radius: 12px;
-        }
-        
-        /* Khu vực văn bản tương tác */
-        .text-box {
-            font-size: 24px; /* Chữ to cho học sinh tiểu học */
-            line-height: 2.2;
-            text-align: justify;
-            padding: 30px;
-            border: 4px dashed var(--primary);
-            border-radius: 20px;
-            background-color: #fafbfc;
-            position: relative;
-            overflow: hidden; /* Để chứa lớp overlay cooldown */
-        }
-
-        /* Định dạng các từ có thể click */
-        .word {
-            cursor: pointer;
-            padding: 2px 6px;
-            border-radius: 8px;
-            transition: all 0.2s ease-in-out;
-            display: inline-block;
-            margin: 0 2px;
-            user-select: none;
-        }
-
-        .word:hover {
-            background-color: #e2e8f0;
-            transform: translateY(-2px);
-        }
-
-        .word.found {
-            background-color: var(--accent);
-            color: #d35400;
-            font-weight: 900;
-            pointer-events: none;
-            transform: scale(1.1);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        /* Màn hình phạt khi click bừa */
-        .cooldown-overlay {
-            display: none;
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--cooldown-bg);
-            color: white;
-            justify-content: center;
+        /* HEADER & NAV */
+        header {
+            display: flex;
             align-items: center;
-            flex-direction: column;
-            z-index: 10;
-            font-size: 28px;
-            font-weight: 900;
-            animation: fadeIn 0.2s ease;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding: 12px 18px;
+            background: var(--pu);
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        .cd-subtext {
-            font-size: 20px;
-            margin-top: 15px;
-            font-weight: 700;
-        }
+        header b { font-size: 24px; font-weight: 900; letter-spacing: 1px; }
+        header nav { display: flex; gap: 6px; }
         
-        /* Khu vực giỏ từ vựng */
-        .basket {
-            margin-top: 35px;
-            padding: 25px;
-            background: var(--accent);
-            border-radius: 20px;
-            border: 4px solid #f1c40f;
-            box-shadow: 0 8px 0 #f1c40f;
-        }
-
-        .basket h2 {
-            margin: 0 0 15px 0;
-            color: #d35400;
-            font-size: 1.8em;
-        }
-
-        .tag {
-            display: inline-block;
-            background: white;
-            padding: 8px 20px;
-            border-radius: 25px;
-            margin: 8px;
-            font-weight: 900;
-            font-size: 1.2em;
-            color: var(--secondary);
-            box-shadow: 0 4px 0 #e0e0e0;
-            opacity: 0.3; /* Mờ khi chưa tìm thấy */
-            transform: scale(0.95);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .tag.active {
-            opacity: 1;
-            transform: scale(1.1);
-            box-shadow: 0 6px 0 var(--secondary);
-            color: #c0392b;
-        }
-
-        /* Khu vực Thu âm giọng đọc */
-        .mic-section {
-            margin-top: 40px;
-            display: none; /* Ẩn cho đến khi hoàn thành Phần 1 */
-            padding: 30px;
-            background: #e8f8f5;
-            border-radius: 20px;
-            border: 4px solid var(--primary);
-            box-shadow: 0 8px 0 var(--primary);
-            animation: slideUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-
-        .target-sentence-box {
-            font-size: 26px;
-            font-weight: 900;
-            color: #2980b9;
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px 0;
-            border: 2px dashed #3498db;
-        }
-
-        .mic-btn {
-            background: var(--secondary);
-            color: white;
-            border: none;
-            padding: 18px 40px;
-            font-size: 22px;
-            border-radius: 40px;
-            cursor: pointer;
-            box-shadow: 0 6px 0 #c0392b;
-            font-weight: 900;
+        button {
             font-family: 'Nunito', sans-serif;
-            transition: all 0.1s;
-            display: inline-flex;
+            cursor: pointer;
+            border: 0;
+            border-radius: 14px;
+            padding: 10px 20px;
+            background: var(--sun);
+            color: var(--ink);
+            font-weight: 800;
+            font-size: 16px;
+            box-shadow: 0 4px 0 #d99a00;
+            transition: all 0.15s ease;
+        }
+        button:active { transform: translateY(4px); box-shadow: 0 0px 0 #d99a00; }
+        button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid var(--pu); outline-offset: 2px; }
+        button:disabled { opacity: 0.5; cursor: not-allowed; box-shadow: none; transform: none; }
+        
+        header button { background: #fff3; color: #fff; box-shadow: none; padding: 8px 16px; border-radius: 20px;}
+        header button.on { background: #fff; color: var(--pu); font-weight: 900; }
+        header button:active { transform: scale(0.95); }
+
+        main { max-width: 860px; margin: 20px auto; padding: 0 18px; }
+
+        /* CARDS */
+        .card {
+            background: var(--card);
+            border: 3px solid var(--ln);
+            border-radius: 24px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden; /* For cooldown overlay in cards */
+        }
+        h2 { margin: 0 0 15px; color: var(--pu); font-weight: 900; font-size: 1.4em;}
+        h3 { margin: 20px 0 10px; font-size: 1.2em; color: #34495e; border-bottom: 2px dashed var(--ln); padding-bottom: 5px;}
+        
+        input, select {
+            font-family: 'Nunito', sans-serif;
+            padding: 12px 16px;
+            border: 3px solid var(--ln);
+            border-radius: 16px;
+            width: 100%;
+            margin: 8px 0 16px;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--ink);
+            transition: border-color 0.2s;
+        }
+        input:focus, select:focus { border-color: var(--pu); outline: none; }
+        
+        label { font-weight: 700; color: #7f8c8d; display: block; }
+        label.ck { display: flex; gap: 8px; align-items: center; font-size: 16px; font-weight: 700; cursor: pointer; color: #95a5a6;}
+        label.ck input { width: 24px; height: 24px; margin: 0; accent-color: var(--pu); cursor: pointer;}
+
+        /* TRAIL (PROGRESS BAR) */
+        .trail {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 25px;
+            justify-content: center;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 20px;
+            border: 2px dashed #dfe6e9;
+        }
+        .dot {
+            width: 42px; height: 42px;
+            border-radius: 50%;
+            background: #fff;
+            border: 4px solid var(--ln);
+            display: grid; place-items: center;
+            font-weight: 900;
+            color: #b2bec3;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 18px;
+        }
+        .trail span { color: #dfe6e9; font-weight: bold; }
+        .dot.now { border-color: var(--pu); background: var(--sun); color: var(--ink); transform: scale(1.15); box-shadow: 0 4px 10px rgba(255, 194, 51, 0.4);}
+        .dot.ok { background: var(--ok); border-color: var(--ok); color: #fff; transform: scale(1.05);}
+
+        /* READING AREA & INTERACTIONS */
+        .read {
+            font-size: 24px; /* Larger font for kids */
+            line-height: 2.2;
+            transition: opacity 0.5s;
+            text-align: justify;
+            padding: 20px;
+            background: #fafbfc;
+            border-radius: 16px;
+            border: 2px solid #e1e8ed;
+        }
+        .read.dim { opacity: 0.15; pointer-events: none; filter: blur(2px); }
+
+        /* Style for 'tap' task */
+        .sn { border-radius: 10px; padding: 2px 4px; transition: all 0.2s;}
+        .sn.tap { cursor: pointer; }
+        .sn.tap:hover { background: #fff1c2; transform: translateY(-2px); display: inline-block;}
+        .sn.good { background: #c9f3dc; font-weight: bold; color: #27ae60;}
+        .sn.hint { background: #ffe3e7; color: #c0392b;}
+
+        /* Style for 'gold' task (Word Hunter) */
+        .w { cursor: pointer; border-radius: 8px; padding: 2px 6px; transition: all 0.2s; display: inline-block; margin: 0 2px; user-select: none;}
+        .w:hover { background: #e2e8f0; transform: translateY(-2px); }
+        .w.got { 
+            background: var(--accent); 
+            color: #d35400; 
+            font-weight: 900; 
+            pointer-events: none; 
+            transform: scale(1.1); 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+        }
+
+        .shake { animation: sh 0.35s; }
+        @keyframes sh { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+
+        .msg { min-height: 32px; font-weight: 800; margin: 15px 0; font-size: 1.1em;}
+        .msg.bad { color: var(--bad); }
+        .msg.ok { color: var(--ok); }
+        .msg#cd { color: #f39c12; font-style: italic; }
+
+        /* BASKET */
+        .basket {
+            border: 4px dashed var(--sun);
+            border-radius: 20px;
+            padding: 15px;
+            margin-top: 20px;
+            min-height: 80px;
+            font-size: 18px;
+            background: #fffcf0;
+            display: flex;
+            flex-wrap: wrap;
             align-items: center;
             gap: 10px;
         }
-
-        .mic-btn:active {
-            transform: translateY(6px);
-            box-shadow: none;
+        .basket .sm { color: #d35400; font-weight: 900; width: 100%; display: block; margin-bottom: 10px;}
+        .chip {
+            display: inline-block;
+            background: var(--sun);
+            border-radius: 25px;
+            padding: 6px 16px;
+            font-weight: 900;
+            color: var(--ink);
+            box-shadow: 0 4px 0 #e0e0e0;
+            animation: pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+        @keyframes pop { from { transform: scale(0.2) translateY(-40px); opacity: 0;} to { transform: none; opacity: 1;} }
 
-        .mic-btn.recording {
-            background: #e74c3c;
-            animation: pulseRecord 1.5s infinite;
+        /* MATCHING & CHOICES */
+        .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .opt {
+            display: block; width: 100%; margin: 8px 0; text-align: center;
+            background: #fff; border: 3px solid var(--ln); box-shadow: 0 4px 0 var(--ln);
+            font-size: 20px; border-radius: 16px; padding: 15px;
         }
+        .opt:hover { background: #f8f9fa; border-color: #b2bec3;}
+        .opt.sel { border-color: var(--pu); background: #efeaff; box-shadow: 0 4px 0 var(--pu); transform: translateY(2px);}
+        .opt.done { background: #c9f3dc; border-color: var(--ok); box-shadow: 0 4px 0 var(--ok); color: #1e8449; pointer-events: none;}
+        
+        #cl .opt { text-align: left; }
+        #cr .opt { text-align: right; }
 
+        .big { font-size: 26px; font-weight: 900; line-height: 1.6; color: var(--pu); margin-bottom: 15px;}
+        .big-target { color: #2980b9; background: #ebf5fb; padding: 15px; border-radius: 12px; border: 2px dashed #3498db; text-align: center;}
+
+        /* COOLDOWN OVERLAY (From Thám Tử Ngôn Từ) */
+        .cooldown-overlay {
+            display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--cooldown-bg); color: white;
+            justify-content: center; align-items: center; flex-direction: column;
+            z-index: 10; font-size: 32px; font-weight: 900;
+            animation: fadeIn 0.2s ease; border-radius: 20px;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .cd-subtext { font-size: 22px; margin-top: 15px; font-weight: 700; text-align: center; padding: 0 20px;}
+
+        /* TEACHER DASHBOARD */
+        table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 15px; border: 2px solid var(--ln); border-radius: 12px; overflow: hidden;}
+        th, td { padding: 12px 15px; text-align: left; vertical-align: middle; border-bottom: 1px solid var(--ln); }
+        th { background: #f1f7ff; font-weight: 900; color: var(--pu); text-transform: uppercase; font-size: 13px; letter-spacing: 0.5px;}
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background-color: #f8f9fa; }
+        
+        .grades { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; }
+        .gr {
+            display: flex; flex-direction: column; align-items: center; padding: 20px 10px;
+            background: #fff; border: 3px solid var(--ln); box-shadow: 0 4px 0 var(--ln);
+            font-size: 22px; border-radius: 16px;
+        }
+        .gr:hover { background: #f1f7ff; }
+        .gr.sel { background: var(--pu); border-color: var(--pu); box-shadow: 0 4px 0 #3a1e9c; color: #fff; }
+        .gr small, .ls small { display: block; font-size: 14px; font-weight: 700; opacity: 0.8; margin-top: 5px; }
+        
+        .ls { text-align: left; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;}
+        .ls small { margin-top: 0; }
+        
+        .tw { overflow-x: auto; margin-top: 15px; border-radius: 12px;}
+        .sm { font-size: 15px; opacity: 0.8; }
+        .row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px;}
+        
+        /* CONFETTI CANVAS */
+        #confetti-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999; display: none; }
+        
+        /* MIC BUTTON ANIMATION */
+        .mic-btn.recording { background: #e74c3c; box-shadow: none; animation: pulseRecord 1.5s infinite; color: white;}
         @keyframes pulseRecord { 
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); } 
             70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(231, 76, 60, 0); } 
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); } 
         }
-        
-        .feedback {
-            font-size: 1.3em;
-            font-weight: bold;
-            margin-top: 20px;
-            min-height: 40px;
-        }
-        .success { color: #27ae60; }
-        .error { color: #e74c3c; }
 
-        #confetti-canvas {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 999; display: none;
-        }
+        @media(prefers-reduced-motion: reduce) { * { animation: none!important; transition: none!important; } }
     </style>
 </head>
 <body>
-    <!-- Canvas vẽ hiệu ứng pháo hoa khi chiến thắng -->
-    <canvas id="confetti-canvas"></canvas>
+<header>
+    <b>📚 Trạm Đọc Thông Minh</b>
+    <nav>
+        <button id="tS" class="on">👩‍🎓 Học sinh</button>
+        <button id="tT">👩‍🏫 Giáo viên</button>
+    </nav>
+</header>
 
-    <div class="container">
-        <h1>🕵️ Thám Tử Ngôn Từ</h1>
-        <div class="instruction" id="main-instruction">
-            📍 Nhiệm vụ 1: Em hãy đọc văn bản và bấm để thu hoạch 4 từ miêu tả đặc điểm của chú mèo nhé!
-        </div>
+<main id="app"></main>
+
+<!-- Canvas cho hiệu ứng pháo hoa -->
+<canvas id="confetti-canvas"></canvas>
+
+<script>
+const $ = s => document.querySelector(s);
+const app = $('#app');
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+// Trạng thái toàn cục
+let DEMO = false, iv = null, S = null;
+const T = n => DEMO ? Math.min(n, 3) : n; // Giảm thời gian chờ nếu đang test demo
+
+/* ===== DỮ LIỆU BÀI HỌC (JSON) ===== */
+const LESSONS = {
+    A: {
+        grade: 3, book: 'sgk', title: 'Cậu bé thông minh',
+        stations: [
+            {k:'tap', min:20, s:['Ngày xưa, có một vị vua muốn thử tài dân chúng trong vùng.','Ngài hạ lệnh cho mỗi làng phải nộp một con gà trống biết đẻ trứng.','Dân làng nghe lệnh thì ai cũng lo lắng.'], q:'Đức vua đã nghĩ ra kế gì để thử tài dân chúng? Em hãy bấm vào câu văn nói lên điều đó!', a:1},
+            {k:'tap', min:20, s:['Cả làng ngồi nghĩ mãi mà không ra cách.','Chỉ có một cậu bé mỉm cười, nói rằng em sẽ giúp làng.','Cậu bé đến gặp sứ giả của nhà vua.'], q:'Ai đã nhận giúp dân làng? Em hãy bấm vào câu văn nói lên điều đó!', a:1},
+            {k:'tap', min:20, s:['Cậu bé tâu rằng: “Cha tôi chưa sinh được em bé thì gà trống làm sao đẻ trứng ạ?”','Nhà vua nghe xong thì rất phục cậu bé.','Ngài ban thưởng cho cậu và cho cả làng được yên.'], q:'Cậu bé đã trả lời nhà vua thế nào? Em hãy bấm vào câu văn nói lên điều đó!', a:0}
+        ],
+        mic: 'Nhà vua nghe xong thì rất phục cậu bé.'
+    },
+    B: {
+        grade: 4, book: 'vm', title: 'Tả chú mèo mướp',
+        stations: [
+            {k:'choice', min:10, t:'Nhà em nuôi một chú mèo mướp rất đáng yêu. Em và chú thân nhau như hai người bạn.', q:'Bạn nhỏ giới thiệu chú mèo theo cách nào?', o:['Giới thiệu ngay chú mèo','Kể kỷ niệm ngày được tặng chú mèo'], a:0, h:'Mở bài'},
+            {k:'gold', min:0, t:'Bộ lông chú *vàng_óng như màu nắng sớm. Đôi mắt *tròn_xoe, *xanh_biếc như hai viên ngọc. Mỗi khi em vuốt ve, chú *mềm_mại cuộn tròn trong lòng em.', q:'Tác giả dùng 4 từ ngữ tả màu sắc và hình dáng rất sinh động. Em hãy bấm vào 4 từ đó để thu hoạch vào giỏ nhé!', h:'Thân bài'},
+            {k:'match', min:15, t:'Cái tai mèo dựng lên như hai chiếc lá quất non. Bộ ria mép oai vệ như một chú hổ con. Bước chân chú đi êm ru như lướt trên đệm bông.', q:'Nối sự vật (cột trái) với hình ảnh so sánh trong bài (cột phải).', p:[['Cái tai mèo','như hai chiếc lá quất non'],['Bộ ria mép','oai vệ như một chú hổ con'],['Bước chân đi','êm ru như lướt trên đệm bông']], h:'So sánh'}
+        ]
+    },
+    D: { // BÀI MỚI THÊM VÀO TỪ YÊU CẦU CỦA BẠN
+        grade: 4, book: 'vm', title: 'Tả chú chó Mi-lu',
+        stations: [
+            {
+                k: 'choice', min: 10, 
+                t: 'Nhân dịp sinh nhật, mẹ có tặng cho em một chú cún rất dễ thương. Vừa nhìn thấy chú cún, em đã thích chú rồi.', 
+                q: 'Bạn nhỏ được mẹ tặng món quà gì nhân dịp sinh nhật?', 
+                o: ['Một chú mèo con','Một chú cún dễ thương','Một con gấu bông'], 
+                a: 1, h: 'Mở bài'
+            },
+            {
+                k: 'gold', min: 0, 
+                t: 'Em đặt tên cho chú là Mi-lu. Mi-lu có bộ lông màu vàng và điểm thêm vài *đốm_đen khiến chú càng thêm đặc biệt. Cái đầu của chú *nhỏ_xinh. Đôi mắt ~tròn và ~sáng như cái đèn pha. Cái mũi *phơn_phớt_hồng, ~ươn_ướt. Cái tai của Mi-lu rất thính, mọi âm thanh từ xa chú đều nghe rất rõ. Bốn cái chân của chú *ngăn_ngắn nhưng rất khỏe khiến chú chạy rất nhanh.', 
+                q: 'Em hãy đọc kĩ đoạn văn và tìm bấm vào 4 từ ngữ (cụm từ) miêu tả ĐẶC ĐIỂM của: bộ lông, cái đầu, cái mũi, và bốn cái chân của Mi-lu nhé!', 
+                h: 'Thân bài - Tả hình dáng'
+            },
+            {
+                k: 'match', min: 15, 
+                t: 'Chú cún rất thích ăn xúc xích và ba tê. Mỗi khi rảnh rỗi, em đều cùng Mi-lu chơi bóng. Mi-lu rất thông minh, chú hiểu rõ những gì em nói. Thỉnh thoảng, khi trời ấm lên, chú lại thích nằm ngoài sân sưởi nắng.', 
+                q: 'Dựa vào đoạn văn trên, em hãy nối thông tin ở hai cột cho đúng nhé.', 
+                p: [
+                    ['Món ăn yêu thích','xúc xích và ba tê'],
+                    ['Hoạt động cùng em','chơi bóng'],
+                    ['Khi trời ấm lên','nằm ngoài sân sưởi nắng']
+                ], 
+                h: 'Thân bài - Tả hoạt động'
+            }
+        ],
+        mic: 'Đó không chỉ là món quà kỉ niệm của mẹ mà còn là một người bạn thân thiết của em.'
+    }
+};
+
+const GRADES = [1, 2, 3, 4, 5];
+const BOOKS = { sgk: 'Sách giáo khoa', vm: 'Sách văn mẫu' };
+const ICON = { sgk: '📖', vm: '📝' };
+const lname = k => `Lớp ${LESSONS[k].grade} · ${LESSONS[k].title}`;
+const L = () => LESSONS[S.lid];
+
+/* ===== QUẢN LÝ LOCALSTORAGE ===== */
+const load = () => { try { return JSON.parse(localStorage.getItem('vtd_v2') || '[]') } catch(e) { return [] } };
+const store = r => { try { localStorage.setItem('vtd_v2', JSON.stringify(r)) } catch(e) {} };
+
+function upsert() {
+    const rs = load(), n = L().stations.length;
+    const rec = {
+        name: S.name, lid: S.lid, 
+        status: S.done ? 'Hoàn thành' : `Đang đọc (Trạm ${Math.min(S.i + 1, n)}/${n})`, 
+        secs: S.secs, ok: S.ok, tot: S.tot, rush: S.rush, mic: S.mic
+    };
+    const i = rs.findIndex(x => x.name === S.name && x.lid === S.lid);
+    i > -1 ? rs[i] = rec : rs.push(rec);
+    store(rs);
+}
+
+// Đếm thời gian thực (Telemetry)
+setInterval(() => {
+    if (S && !S.done && !document.hidden && $('#tS').classList.contains('on')) S.secs++;
+}, 1000);
+
+/* ===== ÂM THANH & HIỆU ỨNG (Tích hợp từ file 1) ===== */
+function playSound(type) {
+    try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gainNode = ctx.createGain();
+        osc.connect(gainNode);
+        gainNode.connect(ctx.destination);
         
-        <div class="text-box" id="reading-area">
-            <!-- Overlay phạt khi click bừa -->
+        if (type === 'success') {
+            osc.type = 'sine'; osc.frequency.setValueAtTime(600, ctx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(1200, ctx.currentTime + 0.1);
+            gainNode.gain.setValueAtTime(0.3, ctx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.2);
+            osc.start(); osc.stop(ctx.currentTime + 0.2);
+        } else if (type === 'error') {
+            osc.type = 'sawtooth'; osc.frequency.setValueAtTime(150, ctx.currentTime);
+            osc.frequency.setValueAtTime(100, ctx.currentTime + 0.3);
+            gainNode.gain.setValueAtTime(0.3, ctx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+            osc.start(); osc.stop(ctx.currentTime + 0.3);
+        } else if (type === 'victory') {
+            [440, 554, 659, 880].forEach((freq, idx) => {
+                const o = ctx.createOscillator(), g = ctx.createGain();
+                o.connect(g); g.connect(ctx.destination);
+                o.type = 'sine'; o.frequency.value = freq;
+                g.gain.setValueAtTime(0, ctx.currentTime);
+                g.gain.linearRampToValueAtTime(0.3, ctx.currentTime + idx*0.1 + 0.05);
+                g.gain.linearRampToValueAtTime(0, ctx.currentTime + idx*0.1 + 0.3);
+                o.start(ctx.currentTime + idx*0.1); o.stop(ctx.currentTime + idx*0.1 + 0.3);
+            });
+        }
+    } catch(e) {}
+}
+
+const shake = el => { el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); };
+
+function showConfetti() {
+    const canvas = document.getElementById('confetti-canvas');
+    canvas.style.display = 'block'; canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+    const ctx = canvas.getContext('2d');
+    const particles = Array.from({length: 150}, () => ({
+        x: canvas.width / 2, y: canvas.height,
+        r: Math.random() * 8 + 4, dx: Math.random() * 16 - 8, dy: Math.random() * -15 - 5,
+        color: `hsl(${Math.random() * 360}, 100%, 50%)`
+    }));
+    function render() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let active = false;
+        particles.forEach(p => {
+            p.dy += 0.3; p.x += p.dx; p.y += p.dy;
+            if (p.y < canvas.height) active = true;
+            ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = p.color; ctx.fill();
+        });
+        if (active) requestAnimationFrame(render); else canvas.style.display = 'none';
+    }
+    render();
+}
+
+// Logic đếm chữ, chuẩn hóa chuỗi
+const norm = s => s.toLowerCase().replace(/[^\p{L}\s]/gu, '').split(/\s+/).filter(Boolean);
+function sim(a, b) {
+    const A = norm(a), pool = norm(b);
+    let h = 0;
+    A.forEach(w => { const i = pool.indexOf(w); if(i > -1) { h++; pool.splice(i, 1); } });
+    return h / A.length;
+}
+const shuf = a => [...a].sort(() => Math.random() - 0.5);
+
+function countdown(sec, el, done) {
+    clearInterval(iv);
+    let n = T(sec);
+    if (n <= 0) { done(); return; }
+    
+    const show = () => el.textContent = `⏳ Em đọc chữ nhé… câu hỏi sẽ xuất hiện sau ${n} giây`;
+    show();
+    
+    iv = setInterval(() => {
+        if (document.hidden) return; // Dừng đếm nếu ẩn tab
+        n--;
+        if (n <= 0) { clearInterval(iv); el.textContent = ''; done(); } 
+        else show();
+    }, 1000);
+}
+
+/* ===== MÀN HÌNH HỌC SINH (Hệ thống state machine) ===== */
+let NAME = '', GR = null;
+
+function home() {
+    clearInterval(iv); S = null;
+    const fx = (location.hash.match(/bai=(\w)/) || [])[1];
+    const fixed = LESSONS[fx] ? fx : null;
+    const rs = load();
+    const isDone = k => rs.some(r => r.name === NAME && r.lid === k && r.status === 'Hoàn thành');
+    
+    const demo = `<label class="ck"><input type="checkbox" id="dm" ${DEMO?'checked':''}> Bật chế độ Giáo viên xem thử (Nhảy qua đếm giờ)</label>`;
+    const nm = `<input id="nm" maxlength="40" autocomplete="off" placeholder="👉 Bấm vào đây để viết tên của em" value="${esc(NAME)}">`;
+    
+    // Nếu có link chia sẻ cụ thể
+    if (fixed) {
+        app.innerHTML = `<div class="card">
+            <h2>🔔 Cô giáo giao bài cho em</h2>
+            <p class="big" style="color:var(--text-main)">${esc(lname(fixed))}</p>
+            <label>Tên của em là gì?</label>${nm}
+            <button id="go" style="font-size:20px; padding: 15px 30px;">🚀 Bắt đầu vượt trạm!</button>
+            <p style="margin-top:20px; border-top: 1px solid var(--ln); padding-top:15px">${demo}</p>
+        </div>`;
+        $('#nm').oninput = e => NAME = e.target.value.trim();
+        $('#go').onclick = () => begin(fixed);
+        return;
+    }
+    
+    // Chế độ duyệt tự do
+    const kids = GR ? Object.keys(LESSONS).filter(k => LESSONS[k].grade === GR) : [];
+    const list = Object.keys(BOOKS).map(b => {
+        const ls = kids.filter(k => LESSONS[k].book === b);
+        return ls.length ? `<h3>${ICON[b]} ${BOOKS[b]}</h3>${ls.map(k => 
+            `<button class="opt ls" data-k="${k}">
+                <span>${esc(LESSONS[k].title)} <small style="display:inline; margin-left:10px; color:#7f8c8d; font-weight:normal">(${LESSONS[k].stations.length} trạm)</small></span>
+                ${isDone(k) ? '<span style="color:var(--ok); font-weight:900">✓ Đã xong</span>' : '<span>👉</span>'}
+            </button>`
+        ).join('')}` : '';
+    }).join('');
+    
+    app.innerHTML = `
+        <div class="card"><h2>1️⃣ Tên của em là gì?</h2>${nm}</div>
+        <div class="card">
+            <h2>2️⃣ Em học lớp mấy?</h2>
+            <div class="grades">
+                ${GRADES.map(g => {
+                    const n = Object.values(LESSONS).filter(l => l.grade === g).length;
+                    return `<button class="gr ${g===GR?'sel':''}" data-g="${g}" ${n?'':'disabled'}>
+                                Lớp ${g}<small>${n ? n+' bài' : 'Sắp có'}</small>
+                            </button>`;
+                }).join('')}
+            </div>
+        </div>
+        <div class="card">
+            <h2>3️⃣ Chọn bài để đọc ${GR ? '(Lớp '+GR+')' : ''}</h2>
+            ${GR ? (list || '<p class="sm">Khối lớp này đang được các thầy cô biên soạn bài, em đợi nhé!</p>') : '<p class="sm" style="color:#e74c3c; font-weight:bold">☝️ Em chọn tên và khối lớp ở trên trước đã nhé.</p>'}
+        </div>
+        <div class="card">${demo}</div>`;
+        
+    $('#nm').oninput = e => NAME = e.target.value.trim();
+    app.querySelectorAll('.gr').forEach(b => b.onclick = () => { GR = +b.dataset.g; home(); });
+    app.querySelectorAll('.ls').forEach(b => b.onclick = () => begin(b.dataset.k));
+}
+
+function begin(k) {
+    NAME = $('#nm').value.trim();
+    DEMO = $('#dm') ? $('#dm').checked : DEMO;
+    if (!NAME) { $('#nm').focus(); $('#nm').style.borderColor = 'var(--bad)'; return; }
+    
+    S = { name: NAME, lid: k, i: 0, secs: 0, ok: 0, tot: 0, rush: 0, mic: null, done: false };
+    upsert();
+    station();
+}
+
+function trail() {
+    const n = L().stations.length;
+    return `<div class="trail">
+        ${L().stations.map((s, i) => `<div class="dot ${i < S.i ? 'ok' : i === S.i ? 'now' : ''}">${i < S.i ? '✓' : i + 1}</div>`).join('<span>―</span>')}
+        ${L().mic ? `<span>―</span><div class="dot ${S.i >= n ? 'now' : ''}">🎤</div>` : ''}
+    </div>`;
+}
+
+function finishStation(firstOk) {
+    S.tot++; if (firstOk) S.ok++; S.i++; upsert();
+    const last = S.i >= L().stations.length;
+    
+    $('#act').innerHTML = `<div class="msg ok" style="font-size:24px; text-align:center">🎉 Tuyệt vời! Em đã vượt qua trạm này.</div>
+                           <div style="text-align:center"><button id="nx" style="font-size: 20px; padding: 15px 30px;">${last ? (L().mic ? 'Đến trạm cuối: Đọc To 🎤' : 'Nhận Thẻ Bài Tri Thức ⭐') : 'Sang Trạm Tiếp Theo ➜'}</button></div>`;
+    playSound('success');
+    
+    $('#nx').onclick = () => {
+        if(last) {
+            L().mic ? micStep() : finish();
+        } else {
+            station();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    };
+}
+
+// Logic phạt Cooldown (Tích hợp từ file 1)
+function triggerCooldown(el, timeSecs, msg) {
+    playSound('error');
+    shake(el);
+    const overlay = document.getElementById('cooldown-screen');
+    const timeSpan = document.getElementById('cd-time');
+    const msgEl = document.getElementById('cd-msg');
+    
+    overlay.style.display = 'flex';
+    msgEl.textContent = msg;
+    
+    let timeLeft = T(timeSecs);
+    timeSpan.innerText = timeLeft;
+    
+    const timer = setInterval(() => {
+        timeLeft--;
+        timeSpan.innerText = timeLeft;
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            overlay.style.display = 'none';
+        }
+    }, 1000);
+}
+
+
+function station() {
+    const st = L().stations[S.i];
+    let wrong = 0;
+    
+    app.innerHTML = `
+        <div class="card">
+            ${trail()}
+            <!-- Lớp phủ phạt được chèn vào card chứa văn bản -->
             <div class="cooldown-overlay" id="cooldown-screen">
                 <div>⚠️ Ôi, nhầm mất rồi!</div>
-                <div class="cd-subtext">Từ này không gợi tả đặc điểm.</div>
-                <div class="cd-subtext">Hãy bình tĩnh đọc kỹ lại. Đợi <span id="cd-time" style="color: #ffe66d; font-size: 1.5em;">5</span> giây nhé!</div>
+                <div class="cd-subtext" id="cd-msg"></div>
+                <div class="cd-subtext">Đợi <span id="cd-time" style="color: #ffe66d; font-size: 1.5em;"></span> giây và đọc kĩ lại nhé!</div>
             </div>
-            <!-- Nội dung văn bản được JS render vào đây -->
-            <div id="text-content"></div>
-        </div>
-
-        <div class="basket" id="word-basket">
-            <h2>🧺 Giỏ Từ Vựng Của Em</h2>
-            <div id="tags-container"></div>
-        </div>
-
-        <div class="mic-section" id="mic-area">
-            <h2 style="color: #16a085; margin-top: 0;">🎤 Nhiệm Vụ 2: Đọc To Rõ Ràng</h2>
-            <p style="font-size: 1.2em; font-weight: bold;">Em hãy bấm nút Micro và đọc to câu văn sau để nhận phần thưởng nhé:</p>
-            <div class="target-sentence-box" id="target-sentence">
-                Đôi mắt chú tròn xoe và xanh biếc như hai hòn bi ve.
-            </div>
-            <button class="mic-btn" id="btn-record">
-                <span>🎙️ Bấm để bắt đầu đọc</span>
-            </button>
-            <div class="feedback" id="mic-feedback"></div>
-        </div>
-    </div>
-
-    <script>
-        // Dữ liệu đầu vào: Giáo viên chỉ cần gõ Text, bọc từ khóa bằng ngoặc vuông [...]
-        const rawText = "Chú mèo nhà em có bộ lông màu [vàng óng] mượt như nhung. Hai cái tai [vểnh ngược] luôn nghe ngóng mọi tiếng động. Đôi mắt chú [tròn xoe] và [xanh biếc] như hai hòn bi ve.";
+            
+            <div id="rd" class="read"></div>
+            <div id="act"></div>
+        </div>`;
         
-        // State Machine Variables
-        const targetWords = [];
-        let foundCount = 0;
-        let isCooldown = false;
-
-        /**
-         * 1. Khởi tạo và Parse văn bản (Regex)
-         */
-        function init() {
-            const textContent = document.getElementById('text-content');
-            const tagsContainer = document.getElementById('tags-container');
-            
-            let html = "";
-            
-            // Chia chuỗi để lấy các từ khóa nằm trong [...] và các từ bình thường
-            const parts = rawText.split(/(\[[^\]]+\]|\s+)/);
-            
-            parts.forEach(part => {
-                if (!part) return;
-                
-                if (part.startsWith('[') && part.endsWith(']')) {
-                    // Xử lý Từ khóa (Target)
-                    const word = part.slice(1, -1);
-                    targetWords.push(word);
-                    html += `<span class="word target" data-word="${word}">${word}</span>`;
-                    
-                    // Tạo Tag mờ trong giỏ từ vựng
-                    const tagId = 'tag-' + word.replace(/\s+/g, '');
-                    tagsContainer.innerHTML += `<div class="tag" id="${tagId}">${word}</div>`;
-                    
-                } else if (part.trim().length > 0 && !part.match(/^\s+$/)) {
-                    // Xử lý từ bình thường: Tách theo dấu câu để bọc span (Clickable)
-                    const words = part.split(/([.,!?]+)/);
-                    words.forEach(w => {
-                        if (w.trim().length > 0 && !w.match(/^[.,!?]+$/)) {
-                            html += `<span class="word normal">${w}</span>`;
-                        } else if (w.match(/^[.,!?]+$/)) {
-                            html += w; // Giữ nguyên dấu câu, không bọc span
-                        }
-                    });
-                } else {
-                    html += part; // Giữ nguyên khoảng trắng
-                }
-            });
-
-            textContent.innerHTML = html;
-
-            // Gắn sự kiện Click cho mọi từ trong đoạn văn
-            document.querySelectorAll('.word').forEach(el => {
-                el.addEventListener('click', () => handleWordClick(el));
-            });
-            
-            // Gắn sự kiện nút Micro
-            document.getElementById('btn-record').addEventListener('click', startSpeechRecognition);
-        }
-
-        /**
-         * 2. Xử lý logic Săn tìm từ & Phạt Cooldown
-         */
-        function handleWordClick(el) {
-            if (isCooldown) return; // Khóa click nếu đang bị phạt
-            
-            if (el.classList.contains('target')) {
-                // HỌC SINH CHỌN ĐÚNG
-                if (!el.classList.contains('found')) {
-                    el.classList.add('found');
-                    const wordStr = el.getAttribute('data-word');
-                    
-                    // Sáng Tag trong giỏ từ
-                    const tagEl = document.getElementById('tag-' + wordStr.replace(/\s+/g, ''));
-                    tagEl.classList.add('active');
-                    
-                    foundCount++;
-                    playSound('success'); // Âm thanh ting!
-                    
-                    // Kiểm tra hoàn thành chặng 1
-                    if (foundCount === targetWords.length) {
-                        setTimeout(completePhase1, 800);
+    const rd = $('#rd'), act = $('#act');
+    
+    // DẠNG 1: TÌM CÂU (TAP)
+    if (st.k === 'tap') {
+        rd.innerHTML = st.s.map((x, i) => `<span class="sn" data-i="${i}">${esc(x)} </span>`).join('');
+        act.innerHTML = '<div class="msg" id="cd" style="text-align:center"></div>';
+        
+        countdown(st.min, $('#cd'), () => {
+            act.innerHTML = `<div class="big">🔍 ${esc(st.q)}</div><div class="msg" id="ms"></div>`;
+            rd.querySelectorAll('.sn').forEach(sp => {
+                sp.classList.add('tap');
+                sp.onclick = () => {
+                    if (document.getElementById('cooldown-screen').style.display === 'flex') return;
+                    const i = +sp.dataset.i;
+                    if (i === st.a) {
+                        sp.classList.add('good');
+                        rd.querySelectorAll('.sn').forEach(x => x.onclick = null);
+                        finishStation(wrong === 0);
+                    } else {
+                        wrong++; S.rush++;
+                        triggerCooldown(sp, 5, 'Câu này không chứa đáp án rồi.');
+                        sp.classList.add('hint');
                     }
-                }
-            } else if (el.classList.contains('normal')) {
-                // HỌC SINH BẤM BỪA (CHỌN SAI) -> KÍCH HOẠT COOLDOWN
-                triggerCooldown();
-            }
-        }
-
-        function triggerCooldown() {
-            isCooldown = true;
-            playSound('error');
-            const overlay = document.getElementById('cooldown-screen');
-            const timeSpan = document.getElementById('cd-time');
-            overlay.style.display = 'flex';
+                };
+            });
+        });
+    }
+    
+    // DẠNG 2: TRẮC NGHIỆM CHỌN (CHOICE)
+    if (st.k === 'choice') {
+        rd.textContent = st.t;
+        act.innerHTML = '<div class="msg" id="cd" style="text-align:center"></div>';
+        
+        countdown(st.min, $('#cd'), () => {
+            act.innerHTML = `<div class="big">🤔 ${esc(st.q)}</div>
+                             ${st.o.map((o, i) => `<button class="opt" data-i="${i}">${esc(o)}</button>`).join('')}
+                             <div class="msg" id="ms"></div>`;
+            act.querySelectorAll('.opt').forEach(b => {
+                b.onclick = () => {
+                    if (document.getElementById('cooldown-screen').style.display === 'flex') return;
+                    if (+b.dataset.i === st.a) {
+                        b.classList.add('done');
+                        act.querySelectorAll('.opt').forEach(x => x.disabled = true);
+                        finishStation(wrong === 0);
+                    } else {
+                        wrong++; S.rush++;
+                        triggerCooldown(b, 5, 'Đáp án này chưa chính xác.');
+                    }
+                };
+            });
+        });
+    }
+    
+    // DẠNG 3: HÁI TỪ VỰNG (GOLD / WORD HUNTER - Tích hợp Logic "Săn từ" tự động)
+    if (st.k === 'gold') {
+        const got = new Set();
+        let tot = 0;
+        
+        // Parse text giống "Thám tử ngôn từ" nhưng dựa trên syntax '*' (đáp án) và '~' (bẫy lân cận)
+        rd.innerHTML = st.t.split(' ').map(tk => {
+            const m = tk.match(/^([*~]?)([^.,!?]+)([.,!?]*)$/);
+            const g = m[1] === '*' ? 1 : m[1] === '~' ? 2 : 0;
+            if (g === 1) tot++;
+            const w = m[2].replace(/_/g, ' ');
+            return `<span class="w" data-g="${g}" data-w="${esc(w)}">${esc(w)}</span>${esc(m[3])} `;
+        }).join('');
+        
+        act.innerHTML = `
+            <div class="big" style="color:#e67e22">🧺 ${esc(st.q)}</div>
+            <div class="basket" id="bk">
+                <span class="sm">Giỏ từ vựng của em (0/${tot})</span>
+            </div>`;
             
-            let timeLeft = 6; // Phạt 6 giây
-            timeSpan.innerText = timeLeft;
-            
-            const timer = setInterval(() => {
-                timeLeft--;
-                timeSpan.innerText = timeLeft;
-                if (timeLeft <= 0) {
-                    clearInterval(timer);
-                    overlay.style.display = 'none';
-                    isCooldown = false;
-                }
-            }, 1000);
-        }
-
-        function completePhase1() {
-            const instruct = document.getElementById('main-instruction');
-            instruct.innerHTML = "🎉 Tuyệt vời! Em đã thu thập đủ các từ miêu tả đặc sắc.";
-            instruct.style.color = "#27ae60";
-            instruct.style.background = "#d5f5e3";
-            
-            // Hiện khu vực phần 2 (Đọc thành tiếng)
-            const micArea = document.getElementById('mic-area');
-            micArea.style.display = 'block';
-            
-            // Cuộn mượt mà xuống phần 2
-            micArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-
-        /**
-         * 3. Xử lý Nhận diện Giọng nói (Web Speech API)
-         */
-        function startSpeechRecognition() {
-            const btn = document.getElementById('btn-record');
-            const feedback = document.getElementById('mic-feedback');
-            
-            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-            if (!SpeechRecognition) {
-                feedback.innerHTML = '<span class="error">⚠️ Trình duyệt chưa hỗ trợ Micro. (Thầy/Cô hãy cho học sinh dùng Google Chrome nhé).</span>';
-                return;
-            }
-
-            const recognition = new SpeechRecognition();
-            recognition.lang = 'vi-VN'; // Đặt chuẩn Tiếng Việt
-            recognition.interimResults = false;
-            
-            recognition.onstart = () => {
-                btn.classList.add('recording');
-                btn.innerHTML = "<span>🎧 Đang nghe em đọc...</span>";
-                feedback.innerHTML = '<span style="color:#f39c12">Hãy đọc to câu chữ màu xanh ở trên nhé!</span>';
-            };
-
-            recognition.onresult = (event) => {
-                const transcript = event.results[0][0].transcript.toLowerCase().trim();
-                // Câu đích (loại bỏ dấu câu để so sánh dễ hơn)
-                const target = "đôi mắt chú tròn xoe và xanh biếc như hai hòn bi ve";
+        rd.querySelectorAll('.w').forEach(sp => {
+            sp.onclick = () => {
+                if (document.getElementById('cooldown-screen').style.display === 'flex' || sp.classList.contains('got')) return;
                 
-                // Thuật toán so khớp từ đơn giản (Word Overlap)
-                const targetWordsList = target.split(' ');
-                const spokenWords = transcript.split(' ');
-                
-                let matches = 0;
-                targetWordsList.forEach(w => {
-                    if (spokenWords.includes(w)) matches++;
-                });
-                
-                // Tỷ lệ chính xác
-                const accuracy = (matches / targetWordsList.length) * 100;
-                
-                if (accuracy >= 65) { 
-                    // Chấp nhận đúng >= 65% (Dành cho trẻ nhỏ có thể phát âm ngọng)
-                    feedback.innerHTML = `<span class="success">🎉 Xuất sắc! Hệ thống đã nghe rõ: <i>"${transcript}"</i></span>`;
-                    btn.innerHTML = "<span>🌟 NHIỆM VỤ HOÀN THÀNH</span>";
-                    btn.style.background = "#2ecc71";
-                    btn.style.boxShadow = "0 6px 0 #27ae60";
-                    btn.style.pointerEvents = "none"; // Khóa nút
-                    playSound('victory');
-                    showConfetti();
+                if (sp.dataset.g === '2') {
+                    // Cảnh báo nhẹ cho từ gần đúng (bẫy)
+                    wrong++; S.rush++;
+                    triggerCooldown(sp, 4, `Từ "${sp.dataset.w}" cũng khá hay, nhưng hãy tìm từ miêu tả chính xác hình dáng nhé!`);
+                } else if (sp.dataset.g === '1') {
+                    // Bấm chuẩn từ khóa
+                    sp.classList.add('got');
+                    got.add(sp.dataset.w);
+                    playSound('success');
+                    
+                    $('#bk').insertAdjacentHTML('beforeend', `<span class="chip">${sp.dataset.w}</span>`);
+                    $('#bk').querySelector('.sm').textContent = `Giỏ từ vựng của em (${got.size}/${tot})`;
+                    
+                    if (got.size === tot) {
+                        rd.querySelectorAll('.w').forEach(x => x.onclick = null);
+                        setTimeout(() => finishStation(wrong === 0), 1000); // Đợi popup chip bay xong mới qua bài
+                    }
                 } else {
-                    feedback.innerHTML = `<span class="error">😅 Em đọc to hơn một chút nhé. Máy mới nghe được: <i>"${transcript}"</i></span>`;
+                    // Bấm bừa từ bình thường
+                    wrong++; S.rush++;
+                    triggerCooldown(sp, 6, `Từ "${sp.dataset.w}" không phải là từ miêu tả rồi!`);
                 }
             };
-
-            recognition.onerror = (event) => {
-                if (event.error === 'not-allowed') {
-                    feedback.innerHTML = `<span class="error">⚠️ Máy tính chưa cho phép bật Micro. Hãy ấn "Cho phép / Allow" trên góc trình duyệt nhé.</span>`;
-                } else {
-                    feedback.innerHTML = `<span class="error">⚠️ Có lỗi xảy ra. Em bấm lại nút nhé!</span>`;
-                }
-            };
-
-            recognition.onend = () => {
-                btn.classList.remove('recording');
-                if(!btn.innerHTML.includes("HOÀN THÀNH")) {
-                    btn.innerHTML = "<span>🎙️ Bấm để thử đọc lại</span>";
-                }
-            };
-
-            recognition.start();
-        }
-
-        /**
-         * 4. Các hàm tiện ích (Âm thanh Web Audio API & Hiệu ứng)
-         */
-        function playSound(type) {
-            const ctx = new (window.AudioContext || window.webkitAudioContext)();
-            const osc = ctx.createOscillator();
-            const gainNode = ctx.createGain();
+        });
+    }
+    
+    // DẠNG 4: NỐI TỪ (MATCH)
+    if (st.k === 'match') {
+        rd.textContent = st.t;
+        act.innerHTML = '<div class="msg" id="cd" style="text-align:center"></div>';
+        
+        countdown(st.min, $('#cd'), () => {
+            rd.classList.add('dim');
+            const L2 = st.p.map((p, i) => [p[0], i]);
+            const R = shuf(st.p.map((p, i) => [p[1], i]));
+            let sel = null, done = 0;
             
-            osc.connect(gainNode);
-            gainNode.connect(ctx.destination);
+            act.innerHTML = `
+                <div class="big">🔗 ${esc(st.q)}</div>
+                <div class="cols">
+                    <div id="cl">${L2.map(x => `<button class="opt" data-i="${x[1]}">${esc(x[0])}</button>`).join('')}</div>
+                    <div id="cr">${R.map(x => `<button class="opt" data-i="${x[1]}">${esc(x[0])}</button>`).join('')}</div>
+                </div>`;
+                
+            const bl = [...$('#cl').children], br = [...$('#cr').children];
             
-            if (type === 'success') {
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(600, ctx.currentTime);
-                osc.frequency.exponentialRampToValueAtTime(1200, ctx.currentTime + 0.1);
-                gainNode.gain.setValueAtTime(0.3, ctx.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.2);
-                osc.start(); osc.stop(ctx.currentTime + 0.2);
-            } else if (type === 'error') {
-                osc.type = 'sawtooth';
-                osc.frequency.setValueAtTime(150, ctx.currentTime);
-                osc.frequency.setValueAtTime(100, ctx.currentTime + 0.3);
-                gainNode.gain.setValueAtTime(0.3, ctx.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
-                osc.start(); osc.stop(ctx.currentTime + 0.3);
-            } else if (type === 'victory') {
-                // Chuỗi âm thanh chiến thắng
-                [440, 554, 659, 880].forEach((freq, idx) => {
-                    const o = ctx.createOscillator();
-                    const g = ctx.createGain();
-                    o.connect(g); g.connect(ctx.destination);
-                    o.type = 'sine';
-                    o.frequency.value = freq;
-                    g.gain.setValueAtTime(0, ctx.currentTime);
-                    g.gain.linearRampToValueAtTime(0.3, ctx.currentTime + idx*0.1 + 0.05);
-                    g.gain.linearRampToValueAtTime(0, ctx.currentTime + idx*0.1 + 0.3);
-                    o.start(ctx.currentTime + idx*0.1);
-                    o.stop(ctx.currentTime + idx*0.1 + 0.3);
-                });
-            }
-        }
-
-        // Hiệu ứng pháo hoa khi hoàn thành
-        function showConfetti() {
-            const canvas = document.getElementById('confetti-canvas');
-            canvas.style.display = 'block';
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            const ctx = canvas.getContext('2d');
+            bl.forEach(b => {
+                b.onclick = () => {
+                    if (b.classList.contains('done')) return;
+                    bl.forEach(x => x.classList.remove('sel'));
+                    b.classList.add('sel');
+                    sel = b;
+                };
+            });
             
-            const particles = [];
-            for(let i=0; i<150; i++) {
-                particles.push({
-                    x: canvas.width / 2,
-                    y: canvas.height,
-                    r: Math.random() * 8 + 4,
-                    dx: Math.random() * 16 - 8,
-                    dy: Math.random() * -15 - 5,
-                    color: `hsl(${Math.random() * 360}, 100%, 50%)`
-                });
-            }
+            br.forEach(b => {
+                b.onclick = () => {
+                    if (!sel || b.classList.contains('done') || document.getElementById('cooldown-screen').style.display === 'flex') return;
+                    
+                    if (sel.dataset.i === b.dataset.i) {
+                        sel.classList.remove('sel'); sel.classList.add('done');
+                        b.classList.add('done');
+                        sel = null;
+                        playSound('success');
+                        if (++done === st.p.length) finishStation(wrong === 0);
+                    } else {
+                        wrong++; S.rush++;
+                        triggerCooldown(b, 5, 'Hai thông tin này chưa khớp với nhau rồi.');
+                    }
+                };
+            });
+        });
+    }
+}
 
-            function render() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                let active = false;
-                particles.forEach(p => {
-                    p.dy += 0.3; // Trọng lực
-                    p.x += p.dx;
-                    p.y += p.dy;
-                    if (p.y < canvas.height) active = true;
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                    ctx.fillStyle = p.color;
-                    ctx.fill();
-                });
-                if (active) requestAnimationFrame(render);
-                else canvas.style.display = 'none';
+/* ===== ĐỌC TO BẰNG MICRO (Web Speech API) ===== */
+function micStep() {
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    
+    app.innerHTML = `
+        <div class="card">
+            ${trail()}
+            <h2 style="color:#16a085; font-size:30px">🎤 Đọc Vang Mở Khóa!</h2>
+            <p style="font-weight:bold; font-size:18px">Phần thi cuối cùng: Em hãy bấm nút Micro và đọc to, rõ ràng câu văn sau nhé:</p>
+            
+            <div class="big-target" id="tg">${esc(L().mic)}</div>
+            
+            <div style="text-align:center; margin: 30px 0;">
+                ${SR ? `<button id="mc" class="mic-btn" style="font-size:24px; padding: 20px 40px; border-radius:40px;">🎙️ Bấm để bắt đầu đọc</button>` : ''}
+            </div>
+            
+            <div class="msg" id="ms" style="text-align:center; font-size: 22px; min-height: 40px"></div>
+            
+            <div style="margin-top:40px; border-top: 2px dashed var(--ln); padding-top:20px; text-align:center">
+                <button id="pr" style="background:#fff; box-shadow:none; border:2px solid var(--ln); color:#7f8c8d">👨‍👩‍👧 Con đã tự đọc to cho bố/mẹ nghe (Phụ huynh xác nhận ấn vào đây)</button>
+            </div>
+            
+            ${SR ? '' : '<p class="sm" style="color:var(--bad)">⚠️ Máy tính/điện thoại này chưa hỗ trợ thu âm (Nên dùng Google Chrome).</p>'}
+        </div>`;
+        
+    $('#pr').onclick = () => { S.mic = 'Bố/mẹ xác nhận'; finish(); };
+    
+    if (!SR) return;
+    
+    $('#mc').onclick = () => {
+        const btn = $('#mc');
+        const ms = $('#ms');
+        const r = new SR();
+        
+        r.lang = 'vi-VN';
+        r.maxAlternatives = 1;
+        r.interimResults = false;
+        
+        r.onstart = () => {
+            btn.classList.add('recording');
+            btn.innerHTML = "🎧 Đang nghe em đọc...";
+            ms.className = 'msg';
+            ms.style.color = '#f39c12';
+            ms.textContent = 'Em đọc to lên nhé!';
+        };
+        
+        r.onresult = e => {
+            const transcript = e.results[0][0].transcript;
+            const p = Math.round(sim(L().mic, transcript) * 100);
+            
+            btn.classList.remove('recording');
+            
+            if (p >= 65) { // Đạt chuẩn >=65% (Dễ hơn với trẻ tiểu học ngọng)
+                S.mic = p;
+                ms.className = 'msg ok';
+                ms.innerHTML = `🎉 Giỏi quá! Em đọc chính xác <b>${p}%</b>. (Máy nghe được: <i>"${transcript}"</i>)`;
+                btn.innerHTML = "🌟 ĐÃ HOÀN THÀNH";
+                btn.style.background = "#2ecc71";
+                btn.style.pointerEvents = "none";
+                playSound('victory');
+                showConfetti();
+                setTimeout(finish, 4000);
+            } else {
+                ms.className = 'msg bad';
+                ms.innerHTML = `😅 Em đọc to và chậm lại một chút nhé! (Mới đúng ${p}% - Máy nghe được: <i>"${transcript}"</i>)`;
+                btn.innerHTML = "🎙️ Thử đọc lại lần nữa";
             }
-            render();
-        }
+        };
+        
+        r.onerror = (e) => {
+            btn.classList.remove('recording');
+            btn.innerHTML = "🎙️ Bấm để thử lại";
+            ms.className = 'msg bad';
+            ms.textContent = e.error === 'not-allowed' ? '⚠️ Em chưa cho phép bật Micro trên trình duyệt rồi!' : 'Không nghe được âm thanh. Em kiểm tra Micro nhé!';
+        };
+        
+        try { r.start(); } catch(e) {}
+    };
+}
 
-        // Bắt đầu chạy script khi trang tải xong
-        window.onload = init;
-    </script>
+function finish() {
+    S.done = true; upsert();
+    const r = S.tot ? S.ok / S.tot : 0;
+    const stars = r >= 0.7 ? 3 : r >= 0.4 ? 2 : 1;
+    
+    app.innerHTML = `
+        <div class="card" style="text-align:center; padding: 40px 20px">
+            <h2 style="font-size: 36px">🏅 Chúc mừng ${esc(S.name)}!</h2>
+            <div style="font-size:70px; margin: 20px 0; letter-spacing: 10px;">${'⭐'.repeat(stars)}</div>
+            <p class="big">${stars === 3 ? 'Tuyệt vời! Em đọc bài rất kỹ và rất hiểu bài.' : 'Em đã hoàn thành! Lần sau cố gắng đọc kĩ hơn để không bấm nhầm nhé.'}</p>
+            <p style="font-size: 20px; color: #7f8c8d; margin-bottom: 30px">${esc(lname(S.lid))}</p>
+            <button id="again" style="font-size: 20px; padding: 15px 40px">Về trang chủ chọn bài khác</button>
+        </div>`;
+    
+    playSound('victory');
+    showConfetti();
+    $('#again').onclick = home;
+}
+
+/* ===== MÀN HÌNH GIÁO VIÊN ===== */
+const mmss = s => `${Math.floor(s / 60)} phút ${String(s % 60).padStart(2, '0')} giây`;
+const okLbl = p => p >= 80 ? '(Rất tốt)' : p >= 50 ? '(Đạt)' : '(Đọc ẩu)';
+const micLbl = m => m == null ? 'Chưa đọc' : typeof m === 'string' ? m : `${m}% ${m >= 80 ? '(Rõ ràng)' : '(Cần luyện)'}`;
+
+function teacher() {
+    clearInterval(iv);
+    const rs = load();
+    const base = location.href.split('#')[0];
+    
+    app.innerHTML = `
+        <div class="card" style="border-color: var(--secondary)">
+            <h2 style="color: var(--secondary)">1. Giao bài đọc về nhà</h2>
+            <div class="cols">
+                <label>Khối lớp: <select id="ag">${GRADES.filter(g => Object.values(LESSONS).some(l => l.grade === g)).map(g => `<option value="${g}">Lớp ${g}</option>`).join('')}</select></label>
+                <label>Tên bài: <select id="al"></select></label>
+            </div>
+            <label style="margin-top: 10px">Copy link dưới đây gửi vào nhóm Zalo phụ huynh:
+                <div style="display:flex; gap:10px; margin-top:5px">
+                    <input id="lk" readonly style="margin:0; background:#f8f9fa">
+                    <button id="cp" style="background:var(--secondary); color:white; white-space:nowrap">📋 Copy</button>
+                </div>
+            </label>
+        </div>
+        
+        <div class="card" style="border-color: var(--ok)">
+            <h2 style="color: var(--ok)">2. Báo cáo Tình hình học tập</h2>
+            <div class="row">
+                <button id="ex" style="background:#27ae60; color:white">📥 Tải file Excel (CSV)</button>
+                <button id="sp" style="background:#fff; box-shadow:none; border:2px solid var(--ln); color: var(--text-main)">Nạp data ảo (Demo)</button>
+                <button id="cl" style="background:var(--bad); color:#fff; box-shadow:none">Xóa sạch dữ liệu</button>
+            </div>
+            <div class="tw">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tên học sinh</th>
+                            <th>Tên Bài học</th>
+                            <th>Trạng thái</th>
+                            <th>Thời gian đọc</th>
+                            <th>Tỷ lệ đúng ngay lần đầu</th>
+                            <th>Số lần bấm ẩu/nhầm</th>
+                            <th>Đọc thành tiếng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${rs.length ? rs.sort((a,b) => b.secs - a.secs).map(r => {
+                            const p = r.tot ? Math.round(r.ok / r.tot * 100) : 0;
+                            return `<tr>
+                                <td style="font-weight:bold">${esc(r.name)}</td>
+                                <td>${esc(LESSONS[r.lid] ? lname(r.lid) : r.lid)}</td>
+                                <td>
+                                    <span style="display:inline-block; padding: 4px 8px; border-radius: 12px; font-size:12px; font-weight:bold; 
+                                        background: ${r.status === 'Hoàn thành' ? '#c9f3dc' : '#ffe3e7'}; 
+                                        color: ${r.status === 'Hoàn thành' ? '#27ae60' : '#c0392b'}">
+                                        ${esc(r.status)}
+                                    </span>
+                                </td>
+                                <td>${mmss(r.secs)}</td>
+                                <td><b style="color:${p>=80?'#27ae60':p>=50?'#f39c12':'#c0392b'}">${r.tot ? p+'%' : '—'}</b> <span class="sm">${r.tot ? okLbl(p) : ''}</span></td>
+                                <td style="color:${r.rush>=3?'#c0392b':'inherit'}"><b>${r.rush}</b> lỗi ${r.rush >= 3 ? '⚠️' : ''}</td>
+                                <td>${micLbl(r.mic)}</td>
+                            </tr>`;
+                        }).join('') : '<tr><td colspan="7" style="text-align:center; padding: 30px; color:#7f8c8d">Chưa có học sinh nào làm bài.</td></tr>'}
+                    </tbody>
+                </table>
+            </div>
+        </div>`;
+        
+    const sync = () => $('#lk').value = `${base}#bai=${$('#al').value}`;
+    const fill = () => {
+        $('#al').innerHTML = Object.keys(LESSONS).filter(k => LESSONS[k].grade == $('#ag').value).map(k => `<option value="${k}">${ICON[LESSONS[k].book]} ${esc(LESSONS[k].title)}</option>`).join('');
+        sync();
+    };
+    
+    $('#ag').onchange = fill;
+    $('#al').onchange = sync;
+    fill();
+    
+    $('#cp').onclick = () => {
+        $('#lk').select();
+        try { navigator.clipboard.writeText($('#lk').value); } catch(e) { document.execCommand('copy'); }
+        $('#cp').textContent = '✅ Đã Copy';
+        setTimeout(() => $('#cp').textContent = '📋 Copy', 2000);
+    };
+    
+    $('#sp').onclick = () => {
+        store([
+            {name: 'Lê Nguyễn Bảo Anh (ảo)', lid: 'D', status: 'Hoàn thành', secs: 310, ok: 3, tot: 3, rush: 0, mic: 85},
+            {name: 'Phạm Minh Trí (ảo)', lid: 'D', status: 'Hoàn thành', secs: 145, ok: 1, tot: 3, rush: 5, mic: 68},
+            {name: 'Trần Gia Hân (ảo)', lid: 'D', status: 'Đang đọc (Trạm 2/3)', secs: 80, ok: 1, tot: 1, rush: 1, mic: null}
+        ]);
+        teacher();
+    };
+    
+    $('#cl').onclick = () => {
+        if(confirm('Toàn bộ báo cáo trên máy này sẽ bị xóa. Thầy/Cô có chắc chắn không?')) { store([]); teacher(); }
+    };
+    
+    $('#ex').onclick = () => {
+        const h = ['Hoc sinh', 'Bai', 'Trang thai', 'Giay doc', 'Dung lan dau (%)', 'Bam ẩu', 'Diem doc to (%)'];
+        const q = v => `"${String(v).replace(/"/g, '""')}"`;
+        const rows = rs.map(r => [
+            r.name, LESSONS[r.lid] ? lname(r.lid) : r.lid, r.status, r.secs, 
+            r.tot ? Math.round(r.ok / r.tot * 100) : '', r.rush, typeof r.mic === 'number' ? r.mic : (r.mic || '')
+        ].map(q).join(','));
+        
+        const csvContent = '\ufeff' + [h.map(q).join(','), ...rows].join('\n');
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "Bao_Cao_Doc_Sach.csv";
+        link.click();
+    };
+}
+
+/* ===== ĐIỀU HƯỚNG TỔNG ===== */
+$('#tS').onclick = () => { $('#tS').classList.add('on'); $('#tT').classList.remove('on'); (!S || S.done) ? home() : S.i >= L().stations.length ? (L().mic ? micStep() : finish()) : station(); };
+$('#tT').onclick = () => { $('#tT').classList.add('on'); $('#tS').classList.remove('on'); teacher(); };
+
+// Khởi chạy
+home();
+
+</script>
 </body>
 </html>
