@@ -3,274 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Vượt Trạm Đọc Sách - Cập Nhật Data Snapshot</title>
+    <title>Trạm Đọc Thông Minh</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #4ecdc4;
-            --secondary: #ff6b6b;
-            --accent: #ffe66d;
-            --bg-color: #f0f8ff;
-            --text-main: #2c3e50;
-            --cooldown-bg: rgba(255, 107, 107, 0.95);
-            
-            --bg: #e8f4ff;
-            --ink: #1d2b53;
-            --sun: #ffc233;
-            --ok: #1fae6b;
-            --bad: #ff5d73;
-            --pu: #5b3fd6;
-            --card: #fff;
-            --ln: #c9dff5;
-        }
-
-        * { box-sizing: border-box; }
-        
-        body {
-            margin: 0;
-            font-family: 'Nunito', "Trebuchet MS", sans-serif;
-            background: var(--bg-color);
-            color: var(--text-main);
-            font-size: 18px;
-            padding-bottom: 40px;
-        }
-
-        /* HEADER & NAV */
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            flex-wrap: wrap;
-            padding: 12px 18px;
-            background: var(--pu);
-            color: #fff;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        header b { font-size: 24px; font-weight: 900; letter-spacing: 1px; }
-        header nav { display: flex; gap: 6px; }
-        
-        button {
-            font-family: 'Nunito', sans-serif;
-            cursor: pointer;
-            border: 0;
-            border-radius: 14px;
-            padding: 10px 20px;
-            background: var(--sun);
-            color: var(--ink);
-            font-weight: 800;
-            font-size: 16px;
-            box-shadow: 0 4px 0 #d99a00;
-            transition: all 0.15s ease;
-        }
-        button:active { transform: translateY(4px); box-shadow: 0 0px 0 #d99a00; }
-        button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid var(--pu); outline-offset: 2px; }
-        button:disabled { opacity: 0.5; cursor: not-allowed; box-shadow: none; transform: none; }
-        
-        header button { background: #fff3; color: #fff; box-shadow: none; padding: 8px 16px; border-radius: 20px;}
-        header button.on { background: #fff; color: var(--pu); font-weight: 900; }
-        header button:active { transform: scale(0.95); }
-
-        main { max-width: 860px; margin: 20px auto; padding: 0 18px; }
-
-        /* CARDS */
-        .card {
-            background: var(--card);
-            border: 3px solid var(--ln);
-            border-radius: 24px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            position: relative;
-            overflow: hidden; /* For cooldown overlay in cards */
-        }
-        h2 { margin: 0 0 15px; color: var(--pu); font-weight: 900; font-size: 1.4em;}
-        h3 { margin: 20px 0 10px; font-size: 1.2em; color: #34495e; border-bottom: 2px dashed var(--ln); padding-bottom: 5px;}
-        
-        input, select {
-            font-family: 'Nunito', sans-serif;
-            padding: 12px 16px;
-            border: 3px solid var(--ln);
-            border-radius: 16px;
-            width: 100%;
-            margin: 8px 0 16px;
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--ink);
-            transition: border-color 0.2s;
-        }
-        input:focus, select:focus { border-color: var(--pu); outline: none; }
-        
-        label { font-weight: 700; color: #7f8c8d; display: block; }
-        label.ck { display: flex; gap: 8px; align-items: center; font-size: 16px; font-weight: 700; cursor: pointer; color: #95a5a6;}
-        label.ck input { width: 24px; height: 24px; margin: 0; accent-color: var(--pu); cursor: pointer;}
-
-        /* TRAIL (PROGRESS BAR) */
-        .trail {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            margin-bottom: 25px;
-            justify-content: center;
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 20px;
-            border: 2px dashed #dfe6e9;
-        }
-        .dot {
-            width: 42px; height: 42px;
-            border-radius: 50%;
-            background: #fff;
-            border: 4px solid var(--ln);
-            display: grid; place-items: center;
-            font-weight: 900;
-            color: #b2bec3;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            font-size: 18px;
-        }
-        .trail span { color: #dfe6e9; font-weight: bold; }
-        .dot.now { border-color: var(--pu); background: var(--sun); color: var(--ink); transform: scale(1.15); box-shadow: 0 4px 10px rgba(255, 194, 51, 0.4);}
-        .dot.ok { background: var(--ok); border-color: var(--ok); color: #fff; transform: scale(1.05);}
-
-        /* READING AREA & INTERACTIONS */
-        .read {
-            font-size: 24px; /* Larger font for kids */
-            line-height: 2.2;
-            transition: opacity 0.5s;
-            text-align: justify;
-            padding: 20px;
-            background: #fafbfc;
-            border-radius: 16px;
-            border: 2px solid #e1e8ed;
-        }
-        .read.dim { opacity: 0.15; pointer-events: none; filter: blur(2px); }
-
-        /* Style for 'tap' task */
-        .sn { border-radius: 10px; padding: 2px 4px; transition: all 0.2s;}
-        .sn.tap { cursor: pointer; }
-        .sn.tap:hover { background: #fff1c2; transform: translateY(-2px); display: inline-block;}
-        .sn.good { background: #c9f3dc; font-weight: bold; color: #27ae60;}
-        .sn.hint { background: #ffe3e7; color: #c0392b;}
-
-        /* Style for 'gold' task (Word Hunter) */
-        .w { cursor: pointer; border-radius: 8px; padding: 2px 6px; transition: all 0.2s; display: inline-block; margin: 0 2px; user-select: none;}
-        .w:hover { background: #e2e8f0; transform: translateY(-2px); }
-        .w.got { 
-            background: var(--accent); 
-            color: #d35400; 
-            font-weight: 900; 
-            pointer-events: none; 
-            transform: scale(1.1); 
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-        }
-
-        .shake { animation: sh 0.35s; }
-        @keyframes sh { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
-
-        .msg { min-height: 32px; font-weight: 800; margin: 15px 0; font-size: 1.1em;}
-        .msg.bad { color: var(--bad); }
-        .msg.ok { color: var(--ok); }
-        .msg#cd { color: #f39c12; font-style: italic; }
-
-        /* BASKET */
-        .basket {
-            border: 4px dashed var(--sun);
-            border-radius: 20px;
-            padding: 15px;
-            margin-top: 20px;
-            min-height: 80px;
-            font-size: 18px;
-            background: #fffcf0;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 10px;
-        }
-        .basket .sm { color: #d35400; font-weight: 900; width: 100%; display: block; margin-bottom: 10px;}
-        .chip {
-            display: inline-block;
-            background: var(--sun);
-            border-radius: 25px;
-            padding: 6px 16px;
-            font-weight: 900;
-            color: var(--ink);
-            box-shadow: 0 4px 0 #e0e0e0;
-            animation: pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        @keyframes pop { from { transform: scale(0.2) translateY(-40px); opacity: 0;} to { transform: none; opacity: 1;} }
-
-        /* MATCHING & CHOICES */
-        .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .opt {
-            display: block; width: 100%; margin: 8px 0; text-align: center;
-            background: #fff; border: 3px solid var(--ln); box-shadow: 0 4px 0 var(--ln);
-            font-size: 20px; border-radius: 16px; padding: 15px;
-        }
-        .opt:hover { background: #f8f9fa; border-color: #b2bec3;}
-        .opt.sel { border-color: var(--pu); background: #efeaff; box-shadow: 0 4px 0 var(--pu); transform: translateY(2px);}
-        .opt.done { background: #c9f3dc; border-color: var(--ok); box-shadow: 0 4px 0 var(--ok); color: #1e8449; pointer-events: none;}
-        
-        #cl .opt { text-align: left; }
-        #cr .opt { text-align: right; }
-
-        .big { font-size: 26px; font-weight: 900; line-height: 1.6; color: var(--pu); margin-bottom: 15px;}
-        .big-target { color: #2980b9; background: #ebf5fb; padding: 15px; border-radius: 12px; border: 2px dashed #3498db; text-align: center;}
-
-        /* COOLDOWN OVERLAY */
-        .cooldown-overlay {
-            display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--cooldown-bg); color: white;
-            justify-content: center; align-items: center; flex-direction: column;
-            z-index: 10; font-size: 32px; font-weight: 900;
-            animation: fadeIn 0.2s ease; border-radius: 20px;
-        }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .cd-subtext { font-size: 22px; margin-top: 15px; font-weight: 700; text-align: center; padding: 0 20px;}
-
-        /* TEACHER DASHBOARD */
-        table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 15px; border: 2px solid var(--ln); border-radius: 12px; overflow: hidden;}
-        th, td { padding: 12px 15px; text-align: left; vertical-align: middle; border-bottom: 1px solid var(--ln); }
-        th { background: #f1f7ff; font-weight: 900; color: var(--pu); text-transform: uppercase; font-size: 13px; letter-spacing: 0.5px;}
-        tr:last-child td { border-bottom: none; }
-        tr:hover { background-color: #f8f9fa; }
-        
-        .grades { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; }
-        .gr {
-            display: flex; flex-direction: column; align-items: center; padding: 20px 10px;
-            background: #fff; border: 3px solid var(--ln); box-shadow: 0 4px 0 var(--ln);
-            font-size: 22px; border-radius: 16px;
-        }
-        .gr:hover { background: #f1f7ff; }
-        .gr.sel { background: var(--pu); border-color: var(--pu); box-shadow: 0 4px 0 #3a1e9c; color: #fff; }
-        .gr small, .ls small { display: block; font-size: 14px; font-weight: 700; opacity: 0.8; margin-top: 5px; }
-        
-        .ls { text-align: left; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;}
-        .ls small { margin-top: 0; }
-        
-        .tw { overflow-x: auto; margin-top: 15px; border-radius: 12px;}
-        .sm { font-size: 15px; opacity: 0.8; }
-        .row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px;}
-        
-        /* CONFETTI CANVAS */
-        #confetti-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999; display: none; }
-        
-        /* MIC BUTTON ANIMATION */
-        .mic-btn.recording { background: #e74c3c; box-shadow: none; animation: pulseRecord 1.5s infinite; color: white;}
-        @keyframes pulseRecord { 
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); } 
-            70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(231, 76, 60, 0); } 
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); } 
-        }
-
-        @media(prefers-reduced-motion: reduce) { * { animation: none!important; transition: none!important; } }
-    </style>
-    
-    <!-- !!! ĐÂY LÀ CHỖ KẾT NỐI FILE DATA-SNAPSHOT.JS MỚI !!! -->
+    <link rel="stylesheet" href="styles.css">
     <script src="data-snapshot.js"></script>
-    
 </head>
 <body>
 <header>
@@ -282,58 +18,36 @@
 </header>
 
 <main id="app"></main>
-
-<!-- Canvas cho hiệu ứng pháo hoa -->
 <canvas id="confetti-canvas"></canvas>
 
 <script>
 const $ = s => document.querySelector(s);
 const app = $('#app');
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const NL = String.fromCharCode(10);
 
-// Trạng thái toàn cục
 let DEMO = false, iv = null, S = null;
-const T = n => DEMO ? Math.min(n, 3) : n; 
+let NAME = '', GR = null;
+const T = n => DEMO ? Math.min(n, 3) : n;
 
-/* ===== SỬ DỤNG DỮ LIỆU TỪ EXTERNAL DATA-SNAPSHOT.JS ===== */
-// Hàm hỗ trợ tương thích ngược (fallback) nếu lỗi chưa load được JS
-function getLessonsData() {
-    if (window.LESSONS && Object.keys(window.LESSONS).length > 0) {
-        return window.LESSONS;
-    } else {
-        console.warn("Chưa tìm thấy file data-snapshot.js hoặc file bị lỗi. Sử dụng dữ liệu mẫu (Cậu bé thông minh).");
-        return {
-            A_Fallback: {
-                grade: 3, book: 'sgk', title: '(Demo) Cậu bé thông minh',
-                stations: [
-                    {k:'tap', min:5, s:['Ngày xưa, có một vị vua muốn thử tài dân chúng trong vùng.','Ngài hạ lệnh cho mỗi làng phải nộp một con gà trống biết đẻ trứng.','Dân làng nghe lệnh thì ai cũng lo lắng.'], q:'Đức vua đã nghĩ ra kế gì để thử tài dân chúng? Em hãy bấm vào câu văn nói lên điều đó!', a:1},
-                    {k:'choice', min:5, t:'Nhà em nuôi một chú mèo mướp rất đáng yêu. Em và chú thân nhau như hai người bạn.', q:'Bạn nhỏ giới thiệu chú mèo theo cách nào?', o:['Giới thiệu ngay chú mèo','Kể kỷ niệm ngày được tặng chú mèo'], a:0, h:'Mở bài'}
-                ],
-                mic: 'Nhà vua nghe xong thì rất phục cậu bé.'
-            }
-        };
-    }
-}
-
-// KHỞI TẠO BIẾN LESSONS TỪ EXTERNAL FILE
-const LESSONS = getLessonsData();
-
+const LESSONS = window.LESSONS || {};
 const GRADES = [1, 2, 3, 4, 5];
-const BOOKS = { sgk: 'Sách giáo khoa', vm: 'Sách văn mẫu', nc: 'Sách nâng cao' };
+const BOOKS = { sgk: 'Sách giáo khoa Tiếng Việt', vm: 'Sách văn mẫu', nc: 'Sách nâng cao' };
 const ICON = { sgk: '📖', vm: '📝', nc: '🚀' };
 
-const lname = k => `Lớp ${LESSONS[k].grade} · ${LESSONS[k].title}`;
+const lname = k => LESSONS[k] ? `Lớp ${LESSONS[k].grade} · ${LESSONS[k].title}` : k;
 const L = () => LESSONS[S.lid];
 
-/* ===== QUẢN LÝ LOCALSTORAGE (Hỗ trợ Local First) ===== */
-const load = () => { try { return JSON.parse(localStorage.getItem('vtd_v3') || '[]') } catch(e) { return [] } };
-const store = r => { try { localStorage.setItem('vtd_v3', JSON.stringify(r)) } catch(e) {} };
+/* ===== LƯU TRỮ LOCALSTORAGE ===== */
+const load = () => { try { return JSON.parse(localStorage.getItem('vtd_v4') || '[]'); } catch(e) { return []; } };
+const store = r => { try { localStorage.setItem('vtd_v4', JSON.stringify(r)); } catch(e) {} };
 
 function upsert() {
+    if (!S || !L()) return;
     const rs = load(), n = L().stations.length;
     const rec = {
-        name: S.name, lid: S.lid, 
-        status: S.done ? 'Hoàn thành' : `Đang đọc (Trạm ${Math.min(S.i + 1, n)}/${n})`, 
+        name: S.name, lid: S.lid,
+        status: S.done ? 'Hoàn thành' : `Đang đọc (Trạm ${Math.min(S.i + 1, n)}/${n})`,
         secs: S.secs, ok: S.ok, tot: S.tot, rush: S.rush, mic: S.mic
     };
     const i = rs.findIndex(x => x.name === S.name && x.lid === S.lid);
@@ -341,7 +55,6 @@ function upsert() {
     store(rs);
 }
 
-// Đếm thời gian thực (Telemetry)
 setInterval(() => {
     if (S && !S.done && !document.hidden && $('#tS').classList.contains('on')) S.secs++;
 }, 1000);
@@ -350,32 +63,30 @@ setInterval(() => {
 function playSound(type) {
     try {
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const osc = ctx.createOscillator();
-        const gainNode = ctx.createGain();
-        osc.connect(gainNode);
-        gainNode.connect(ctx.destination);
-        
         if (type === 'success') {
-            osc.type = 'sine'; osc.frequency.setValueAtTime(600, ctx.currentTime);
-            osc.frequency.exponentialRampToValueAtTime(1200, ctx.currentTime + 0.1);
-            gainNode.gain.setValueAtTime(0.3, ctx.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.2);
-            osc.start(); osc.stop(ctx.currentTime + 0.2);
+            const osc = ctx.createOscillator(), g = ctx.createGain();
+            osc.connect(g); g.connect(ctx.destination);
+            osc.frequency.setValueAtTime(600, ctx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(1200, ctx.currentTime + 0.12);
+            g.gain.setValueAtTime(0.25, ctx.currentTime);
+            g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.25);
+            osc.start(); osc.stop(ctx.currentTime + 0.25);
         } else if (type === 'error') {
-            osc.type = 'sawtooth'; osc.frequency.setValueAtTime(150, ctx.currentTime);
-            osc.frequency.setValueAtTime(100, ctx.currentTime + 0.3);
-            gainNode.gain.setValueAtTime(0.3, ctx.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+            const osc = ctx.createOscillator(), g = ctx.createGain();
+            osc.type = 'sawtooth'; osc.connect(g); g.connect(ctx.destination);
+            osc.frequency.setValueAtTime(150, ctx.currentTime);
+            g.gain.setValueAtTime(0.25, ctx.currentTime);
+            g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
             osc.start(); osc.stop(ctx.currentTime + 0.3);
         } else if (type === 'victory') {
             [440, 554, 659, 880].forEach((freq, idx) => {
                 const o = ctx.createOscillator(), g = ctx.createGain();
                 o.connect(g); g.connect(ctx.destination);
-                o.type = 'sine'; o.frequency.value = freq;
+                o.frequency.value = freq;
                 g.gain.setValueAtTime(0, ctx.currentTime);
-                g.gain.linearRampToValueAtTime(0.3, ctx.currentTime + idx*0.1 + 0.05);
-                g.gain.linearRampToValueAtTime(0, ctx.currentTime + idx*0.1 + 0.3);
-                o.start(ctx.currentTime + idx*0.1); o.stop(ctx.currentTime + idx*0.1 + 0.3);
+                g.gain.linearRampToValueAtTime(0.25, ctx.currentTime + idx * 0.1 + 0.05);
+                g.gain.linearRampToValueAtTime(0, ctx.currentTime + idx * 0.1 + 0.3);
+                o.start(ctx.currentTime + idx * 0.1); o.stop(ctx.currentTime + idx * 0.1 + 0.3);
             });
         }
     } catch(e) {}
@@ -384,12 +95,12 @@ function playSound(type) {
 const shake = el => { el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); };
 
 function showConfetti() {
-    const canvas = document.getElementById('confetti-canvas');
+    const canvas = $('#confetti-canvas');
     canvas.style.display = 'block'; canvas.width = window.innerWidth; canvas.height = window.innerHeight;
     const ctx = canvas.getContext('2d');
-    const particles = Array.from({length: 150}, () => ({
+    const particles = Array.from({length: 120}, () => ({
         x: canvas.width / 2, y: canvas.height,
-        r: Math.random() * 8 + 4, dx: Math.random() * 16 - 8, dy: Math.random() * -15 - 5,
+        r: Math.random() * 7 + 4, dx: Math.random() * 14 - 7, dy: Math.random() * -14 - 5,
         color: `hsl(${Math.random() * 360}, 100%, 50%)`
     }));
     function render() {
@@ -410,8 +121,8 @@ const norm = s => s.toLowerCase().replace(/[^\p{L}\s]/gu, '').split(/\s+/).filte
 function sim(a, b) {
     const A = norm(a), pool = norm(b);
     let h = 0;
-    A.forEach(w => { const i = pool.indexOf(w); if(i > -1) { h++; pool.splice(i, 1); } });
-    return h / A.length;
+    A.forEach(w => { const i = pool.indexOf(w); if (i > -1) { h++; pool.splice(i, 1); } });
+    return A.length ? h / A.length : 0;
 }
 const shuf = a => [...a].sort(() => Math.random() - 0.5);
 
@@ -419,60 +130,66 @@ function countdown(sec, el, done) {
     clearInterval(iv);
     let n = T(sec);
     if (n <= 0) { done(); return; }
-    
-    const show = () => el.textContent = `⏳ Em đọc chữ nhé… câu hỏi sẽ xuất hiện sau ${n} giây`;
+    const show = () => el.textContent = `⏳ Em đọc kỹ bài nhé… câu hỏi mở khóa sau ${n} giây`;
     show();
-    
     iv = setInterval(() => {
         if (document.hidden) return;
         n--;
-        if (n <= 0) { clearInterval(iv); el.textContent = ''; done(); } 
+        if (n <= 0) { clearInterval(iv); el.textContent = ''; done(); }
         else show();
     }, 1000);
 }
 
-/* ===== MÀN HÌNH HỌC SINH ===== */
-let NAME = '', GR = null;
+/* ===== HÀM HIỂN THỊ KHỔ THƠ CHIA 2 CỘT NHƯ SÁCH GIÁO KHOA ===== */
+function formatPoemStanzasHTML(rawText, lineRenderer) {
+    const normalized = String(rawText).replace(/\r\n/g, NL);
+    const stanzas = normalized.split(/\n\s*\n|\s*\/\/\s*/).filter(s => s.trim() !== '');
+    const wrapClass = stanzas.length > 1 ? 'poem-grid' : 'poem-single';
+    const stanzasHTML = stanzas.map((stanza, sIdx) => {
+        const lines = stanza.split(/\r?\n/).filter(l => l.trim() !== '');
+        const linesHTML = lines.map((line, lIdx) => lineRenderer(line.trim(), sIdx, lIdx)).join('');
+        return `<div class="stanza">${linesHTML}</div>`;
+    }).join('');
+    return `<div class="${wrapClass}">${stanzasHTML}</div>`;
+}
 
+/* ===== MÀN HÌNH HỌC SINH ===== */
 function home() {
     clearInterval(iv); S = null;
-    const fx = (location.hash.match(/bai=(\w+)/) || [])[1];
+    const fx = (location.hash.match(/bai=([^&]+)/) || [])[1];
     const fixed = LESSONS[fx] ? fx : null;
     const rs = load();
     const isDone = k => rs.some(r => r.name === NAME && r.lid === k && r.status === 'Hoàn thành');
-    
-    const demo = `<label class="ck"><input type="checkbox" id="dm" ${DEMO?'checked':''}> Bật chế độ Giáo viên xem thử (Nhảy qua đếm giờ)</label>`;
-    const nm = `<input id="nm" maxlength="40" autocomplete="off" placeholder="👉 Bấm vào đây để viết tên của em" value="${esc(NAME)}">`;
-    
+
+    const demo = `<label class="ck"><input type="checkbox" id="dm" ${DEMO ? 'checked' : ''}> Chế độ Giáo viên xem thử (rút ngắn thời gian chờ xuống 3 giây)</label>`;
+    const nm = `<input id="nm" maxlength="40" autocomplete="off" placeholder="👉 Nhập tên của em vào đây..." value="${esc(NAME)}">`;
+
     if (fixed) {
         app.innerHTML = `<div class="card">
-            <h2>🔔 Cô giáo giao bài cho em</h2>
-            <p class="big" style="color:var(--text-main)">${esc(lname(fixed))}</p>
+            <h2>🔔 Cô giáo giao bài đọc cho em</h2>
+            <p class="big">${esc(lname(fixed))}</p>
             <label>Tên của em là gì?</label>${nm}
-            <button id="go" style="font-size:20px; padding: 15px 30px;">🚀 Bắt đầu vượt trạm!</button>
-            <p style="margin-top:20px; border-top: 1px solid var(--ln); padding-top:15px">${demo}</p>
+            <button id="go">🚀 Bắt đầu vượt trạm!</button>
+            <p style="margin-top:16px">${demo}</p>
         </div>`;
         $('#nm').oninput = e => NAME = e.target.value.trim();
         $('#go').onclick = () => begin(fixed);
         return;
     }
-    
+
     const kids = GR ? Object.keys(LESSONS).filter(k => LESSONS[k].grade === GR) : [];
     const list = Object.keys(BOOKS).map(b => {
         const ls = kids.filter(k => LESSONS[k].book === b);
-        return ls.length ? `<h3>${ICON[b] || '📚'} ${BOOKS[b]}</h3>${ls.map(k => 
+        return ls.length ? `<h3>${ICON[b] || '📚'} ${BOOKS[b]}</h3>` + ls.map(k =>
             `<button class="opt ls" data-k="${k}">
-                <span>${esc(LESSONS[k].title)} <small style="display:inline; margin-left:10px; color:#7f8c8d; font-weight:normal">(${LESSONS[k].stations.length} trạm)</small></span>
-                ${isDone(k) ? '<span style="color:var(--ok); font-weight:900">✓ Đã xong</span>' : '<span>👉</span>'}
+                <span>${esc(LESSONS[k].title)} <small style="color:#7f8c8d">(${LESSONS[k].stations.length} trạm${LESSONS[k].isPoem ? ' · Bài thơ' : ''})</small></span>
+                ${isDone(k) ? '<span style="color:var(--ok);font-weight:900">✓ Đã xong</span>' : '<span>👉 Vào đọc</span>'}
             </button>`
-        ).join('')}` : '';
+        ).join('') : '';
     }).join('');
-    
+
     app.innerHTML = `
         <div class="card">
-            <div style="background:#fff3cd; color:#856404; padding:15px; border-radius:12px; margin-bottom:20px; font-weight:bold; border-left:5px solid #ffeeba">
-                Hệ thống đã nhận diện được ${Object.keys(LESSONS).length} bài đọc từ file data-snapshot.js.
-            </div>
             <h2>1️⃣ Tên của em là gì?</h2>${nm}
         </div>
         <div class="card">
@@ -480,18 +197,18 @@ function home() {
             <div class="grades">
                 ${GRADES.map(g => {
                     const n = Object.values(LESSONS).filter(l => l.grade === g).length;
-                    return `<button class="gr ${g===GR?'sel':''}" data-g="${g}" ${n?'':'disabled'}>
-                                Lớp ${g}<small>${n ? n+' bài' : 'Sắp có'}</small>
-                            </button>`;
+                    return `<button class="gr ${g === GR ? 'sel' : ''}" data-g="${g}" ${n ? '' : 'disabled'}>
+                        Lớp ${g}<small>${n ? n + ' bài' : 'Sắp có'}</small>
+                    </button>`;
                 }).join('')}
             </div>
         </div>
         <div class="card">
-            <h2>3️⃣ Chọn bài để đọc ${GR ? '(Lớp '+GR+')' : ''}</h2>
-            ${GR ? (list || '<p class="sm">Khối lớp này đang được các thầy cô biên soạn bài, em đợi nhé!</p>') : '<p class="sm" style="color:#e74c3c; font-weight:bold">☝️ Em chọn tên và khối lớp ở trên trước đã nhé.</p>'}
+            <h2>3️⃣ Chọn bài đọc ${GR ? '(Lớp ' + GR + ')' : ''}</h2>
+            ${GR ? (list || '<p class="sm">Lớp này chưa có bài.</p>') : '<p class="sm" style="color:var(--bad);font-weight:700">☝️ Em chọn khối lớp ở bước 2 trước nhé.</p>'}
         </div>
         <div class="card">${demo}</div>`;
-        
+
     $('#nm').oninput = e => NAME = e.target.value.trim();
     app.querySelectorAll('.gr').forEach(b => b.onclick = () => { GR = +b.dataset.g; home(); });
     app.querySelectorAll('.ls').forEach(b => b.onclick = () => begin(b.dataset.k));
@@ -501,7 +218,6 @@ function begin(k) {
     NAME = $('#nm').value.trim();
     DEMO = $('#dm') ? $('#dm').checked : DEMO;
     if (!NAME) { $('#nm').focus(); $('#nm').style.borderColor = 'var(--bad)'; return; }
-    
     S = { name: NAME, lid: k, i: 0, secs: 0, ok: 0, tot: 0, rush: 0, mic: null, done: false };
     upsert();
     station();
@@ -510,7 +226,7 @@ function begin(k) {
 function trail() {
     const n = L().stations.length;
     return `<div class="trail">
-        ${L().stations.map((s, i) => `<div class="dot ${i < S.i ? 'ok' : i === S.i ? 'now' : ''}">${i < S.i ? '✓' : i + 1}</div>`).join('<span>―</span>')}
+        ${L().stations.map((_, i) => `<div class="dot ${i < S.i ? 'ok' : i === S.i ? 'now' : ''}">${i < S.i ? '✓' : i + 1}</div>`).join('<span>―</span>')}
         ${L().mic ? `<span>―</span><div class="dot ${S.i >= n ? 'now' : ''}">🎤</div>` : ''}
     </div>`;
 }
@@ -518,34 +234,21 @@ function trail() {
 function finishStation(firstOk) {
     S.tot++; if (firstOk) S.ok++; S.i++; upsert();
     const last = S.i >= L().stations.length;
-    
-    $('#act').innerHTML = `<div class="msg ok" style="font-size:24px; text-align:center">🎉 Tuyệt vời! Em đã vượt qua trạm này.</div>
-                           <div style="text-align:center"><button id="nx" style="font-size: 20px; padding: 15px 30px;">${last ? (L().mic ? 'Đến trạm cuối: Đọc To 🎤' : 'Nhận Thẻ Bài Tri Thức ⭐') : 'Sang Trạm Tiếp Theo ➜'}</button></div>`;
+    $('#act').innerHTML = `<div class="msg ok" style="font-size:22px;text-align:center">🎉 Giỏi lắm! Em đã vượt qua trạm này.</div>
+        <div style="text-align:center"><button id="nx">${last ? (L().mic ? 'Đến trạm Đọc To 🎤' : 'Nhận Thẻ Bài ⭐') : 'Sang Trạm Tiếp Theo ➜'}</button></div>`;
     playSound('success');
-    
-    $('#nx').onclick = () => {
-        if(last) {
-            L().mic ? micStep() : finish();
-        } else {
-            station();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    };
+    $('#nx').onclick = () => last ? (L().mic ? micStep() : finish()) : station();
 }
 
 function triggerCooldown(el, timeSecs, msg) {
     playSound('error');
-    shake(el);
-    const overlay = document.getElementById('cooldown-screen');
-    const timeSpan = document.getElementById('cd-time');
-    const msgEl = document.getElementById('cd-msg');
-    
+    if (el) shake(el);
+    const overlay = $('#cooldown-screen');
+    const timeSpan = $('#cd-time');
+    $('#cd-msg').textContent = msg;
     overlay.style.display = 'flex';
-    msgEl.textContent = msg;
-    
     let timeLeft = T(timeSecs);
     timeSpan.innerText = timeLeft;
-    
     const timer = setInterval(() => {
         timeLeft--;
         timeSpan.innerText = timeLeft;
@@ -556,160 +259,165 @@ function triggerCooldown(el, timeSecs, msg) {
     }, 1000);
 }
 
-
 function station() {
     const st = L().stations[S.i];
+    const isPoem = !!L().isPoem;
     let wrong = 0;
-    
-    app.innerHTML = `
-        <div class="card">
-            ${trail()}
-            <div class="cooldown-overlay" id="cooldown-screen">
-                <div>⚠️ Ôi, nhầm mất rồi!</div>
-                <div class="cd-subtext" id="cd-msg"></div>
-                <div class="cd-subtext">Đợi <span id="cd-time" style="color: #ffe66d; font-size: 1.5em;"></span> giây và đọc kĩ lại nhé!</div>
-            </div>
-            
-            <div id="rd" class="read"></div>
-            <div id="act"></div>
-        </div>`;
-        
+
+    app.innerHTML = `<div class="card">
+        ${trail()}
+        <div class="cooldown-overlay" id="cooldown-screen">
+            <div>⚠️ Chưa chính xác rồi!</div>
+            <div class="cd-subtext" id="cd-msg"></div>
+            <div class="cd-subtext">Em hãy đọc kỹ lại bài và đợi <span id="cd-time" style="color:#ffe66d;font-size:1.4em"></span> giây nhé!</div>
+        </div>
+        <div id="rd" class="read ${isPoem ? 'is-poem' : ''}"></div>
+        <div id="act"></div>
+    </div>`;
+
     const rd = $('#rd'), act = $('#act');
-    
+
+    // 1. DẠNG TAP (Tìm câu văn / khổ thơ)
     if (st.k === 'tap') {
-        rd.innerHTML = st.s.map((x, i) => `<span class="sn" data-i="${i}">${esc(x)} </span>`).join('');
+        if (isPoem) {
+            const wrapClass = st.s.length > 2 ? 'poem-grid' : 'poem-single';
+            rd.innerHTML = `<div class="${wrapClass}">` + st.s.map((x, i) => {
+                const lines = esc(x).split(/\r?\n/).map(l => `<span class="verse-line">${l}</span>`).join('');
+                return `<div class="stanza sn" data-i="${i}">${lines}</div>`;
+            }).join('') + `</div>`;
+        } else {
+            rd.innerHTML = st.s.map((x, i) => `<span class="sn" data-i="${i}">${esc(x)} </span>`).join('');
+        }
         act.innerHTML = '<div class="msg" id="cd" style="text-align:center"></div>';
-        
         countdown(st.min, $('#cd'), () => {
-            act.innerHTML = `<div class="big">🔍 ${esc(st.q)}</div><div class="msg" id="ms"></div>`;
+            act.innerHTML = `<div class="big">🔍 ${esc(st.q)}</div>`;
             rd.querySelectorAll('.sn').forEach(sp => {
                 sp.classList.add('tap');
                 sp.onclick = () => {
-                    if (document.getElementById('cooldown-screen').style.display === 'flex') return;
-                    const i = +sp.dataset.i;
-                    if (i === st.a) {
+                    if ($('#cooldown-screen').style.display === 'flex') return;
+                    if (+sp.dataset.i === st.a) {
                         sp.classList.add('good');
                         rd.querySelectorAll('.sn').forEach(x => x.onclick = null);
                         finishStation(wrong === 0);
                     } else {
                         wrong++; S.rush++;
-                        triggerCooldown(sp, 5, 'Câu này không chứa đáp án rồi.');
                         sp.classList.add('hint');
+                        triggerCooldown(sp, 5, 'Đoạn/câu này chưa phải là đáp án đúng.');
                     }
                 };
             });
         });
     }
+
+    // 2. DẠNG CHOICE (Trắc nghiệm)
     else if (st.k === 'choice') {
-        rd.textContent = st.t;
+        if (isPoem) {
+            rd.innerHTML = formatPoemStanzasHTML(st.t, line => `<span class="verse-line">${esc(line)}</span>`);
+        } else {
+            rd.textContent = st.t;
+        }
         act.innerHTML = '<div class="msg" id="cd" style="text-align:center"></div>';
-        
         countdown(st.min, $('#cd'), () => {
-            act.innerHTML = `<div class="big">🤔 ${esc(st.q)}</div>
-                             ${st.o.map((o, i) => `<button class="opt" data-i="${i}">${esc(o)}</button>`).join('')}
-                             <div class="msg" id="ms"></div>`;
+            act.innerHTML = `<div class="big">🤔 ${esc(st.q)}</div>` +
+                st.o.map((o, i) => `<button class="opt" data-i="${i}">${esc(o)}</button>`).join('');
             act.querySelectorAll('.opt').forEach(b => {
                 b.onclick = () => {
-                    if (document.getElementById('cooldown-screen').style.display === 'flex') return;
+                    if ($('#cooldown-screen').style.display === 'flex') return;
                     if (+b.dataset.i === st.a) {
                         b.classList.add('done');
                         act.querySelectorAll('.opt').forEach(x => x.disabled = true);
                         finishStation(wrong === 0);
                     } else {
                         wrong++; S.rush++;
-                        triggerCooldown(b, 5, 'Đáp án này chưa chính xác.');
+                        triggerCooldown(b, 5, 'Đáp án này chưa đúng với nội dung bài đọc.');
                     }
                 };
             });
         });
     }
+
+    // 3. DẠNG GOLD (Săn từ vựng bỏ vào giỏ)
     else if (st.k === 'gold') {
         const got = new Set();
         let tot = 0;
-        
-        rd.innerHTML = st.t.split(' ').map(tk => {
-            const m = tk.match(/^([*~]?)([^.,!?]+)([.,!?]*)$/);
+        const tokenizeLine = line => line.split(/\s+/).filter(Boolean).map(tk => {
+            const m = tk.match(/^([*~]?)([^.,!?;:"“”()]+)([.,!?;:"“”()]*)$/);
+            if (!m) return esc(tk);
             const g = m[1] === '*' ? 1 : m[1] === '~' ? 2 : 0;
             if (g === 1) tot++;
             const w = m[2].replace(/_/g, ' ');
-            return `<span class="w" data-g="${g}" data-w="${esc(w)}">${esc(w)}</span>${esc(m[3])} `;
-        }).join('');
-        
-        act.innerHTML = `
-            <div class="big" style="color:#e67e22">🧺 ${esc(st.q)}</div>
-            <div class="basket" id="bk">
-                <span class="sm">Giỏ từ vựng của em (0/${tot})</span>
-            </div>`;
-            
+            return `<span class="w" data-g="${g}" data-w="${esc(w)}">${esc(w)}</span>${esc(m[3])}`;
+        }).join(' ');
+
+        if (isPoem) {
+            rd.innerHTML = formatPoemStanzasHTML(st.t, line => `<span class="verse-line">${tokenizeLine(line)}</span>`);
+        } else {
+            rd.innerHTML = tokenizeLine(st.t);
+        }
+
+        act.innerHTML = `<div class="big" style="color:#d35400">🧺 ${esc(st.q)}</div>
+            <div class="basket" id="bk"><span class="sm">Giỏ từ vựng của em (0/${tot})</span></div>`;
+
         rd.querySelectorAll('.w').forEach(sp => {
             sp.onclick = () => {
-                if (document.getElementById('cooldown-screen').style.display === 'flex' || sp.classList.contains('got')) return;
-                
+                if ($('#cooldown-screen').style.display === 'flex' || sp.classList.contains('got')) return;
                 if (sp.dataset.g === '2') {
                     wrong++; S.rush++;
-                    triggerCooldown(sp, 4, `Từ "${sp.dataset.w}" cũng khá hay, nhưng hãy tìm từ miêu tả chính xác hơn nhé!`);
+                    triggerCooldown(sp, 4, `Từ "${sp.dataset.w}" cũng hay, nhưng em hãy tìm đúng từ theo câu hỏi nhé!`);
                 } else if (sp.dataset.g === '1') {
                     sp.classList.add('got');
                     got.add(sp.dataset.w);
                     playSound('success');
-                    
-                    $('#bk').insertAdjacentHTML('beforeend', `<span class="chip">${sp.dataset.w}</span>`);
+                    $('#bk').insertAdjacentHTML('beforeend', `<span class="chip">${esc(sp.dataset.w)}</span>`);
                     $('#bk').querySelector('.sm').textContent = `Giỏ từ vựng của em (${got.size}/${tot})`;
-                    
                     if (got.size === tot) {
                         rd.querySelectorAll('.w').forEach(x => x.onclick = null);
-                        setTimeout(() => finishStation(wrong === 0), 1000); 
+                        setTimeout(() => finishStation(wrong === 0), 600);
                     }
                 } else {
                     wrong++; S.rush++;
-                    triggerCooldown(sp, 6, `Từ "${sp.dataset.w}" không phải là đáp án rồi!`);
+                    triggerCooldown(sp, 6, `Từ "${sp.dataset.w}" chưa phải từ cần thu hoạch rồi!`);
                 }
             };
         });
     }
+
+    // 4. DẠNG MATCH (Nối 2 cột)
     else if (st.k === 'match') {
-        rd.textContent = st.t;
+        if (isPoem) {
+            rd.innerHTML = formatPoemStanzasHTML(st.t, line => `<span class="verse-line">${esc(line)}</span>`);
+        } else {
+            rd.textContent = st.t;
+        }
         act.innerHTML = '<div class="msg" id="cd" style="text-align:center"></div>';
-        
         countdown(st.min, $('#cd'), () => {
             rd.classList.add('dim');
             const L2 = st.p.map((p, i) => [p[0], i]);
             const R = shuf(st.p.map((p, i) => [p[1], i]));
             let sel = null, done = 0;
-            
-            act.innerHTML = `
-                <div class="big">🔗 ${esc(st.q)}</div>
+            act.innerHTML = `<div class="big">🔗 ${esc(st.q)}</div>
                 <div class="cols">
                     <div id="cl">${L2.map(x => `<button class="opt" data-i="${x[1]}">${esc(x[0])}</button>`).join('')}</div>
                     <div id="cr">${R.map(x => `<button class="opt" data-i="${x[1]}">${esc(x[0])}</button>`).join('')}</div>
                 </div>`;
-                
             const bl = [...$('#cl').children], br = [...$('#cr').children];
-            
-            bl.forEach(b => {
-                b.onclick = () => {
-                    if (b.classList.contains('done')) return;
-                    bl.forEach(x => x.classList.remove('sel'));
-                    b.classList.add('sel');
-                    sel = b;
-                };
+            bl.forEach(b => b.onclick = () => {
+                if (b.classList.contains('done')) return;
+                bl.forEach(x => x.classList.remove('sel'));
+                b.classList.add('sel');
+                sel = b;
             });
-            
-            br.forEach(b => {
-                b.onclick = () => {
-                    if (!sel || b.classList.contains('done') || document.getElementById('cooldown-screen').style.display === 'flex') return;
-                    
-                    if (sel.dataset.i === b.dataset.i) {
-                        sel.classList.remove('sel'); sel.classList.add('done');
-                        b.classList.add('done');
-                        sel = null;
-                        playSound('success');
-                        if (++done === st.p.length) finishStation(wrong === 0);
-                    } else {
-                        wrong++; S.rush++;
-                        triggerCooldown(b, 5, 'Hai thông tin này chưa khớp với nhau rồi.');
-                    }
-                };
+            br.forEach(b => b.onclick = () => {
+                if (!sel || b.classList.contains('done') || $('#cooldown-screen').style.display === 'flex') return;
+                if (sel.dataset.i === b.dataset.i) {
+                    sel.classList.remove('sel'); sel.classList.add('done');
+                    b.classList.add('done'); sel = null;
+                    playSound('success');
+                    if (++done === st.p.length) finishStation(wrong === 0);
+                } else {
+                    wrong++; S.rush++;
+                    triggerCooldown(b, 5, 'Hai vế này chưa khớp với bài đọc rồi!');
+                }
             });
         });
     }
@@ -718,79 +426,47 @@ function station() {
 /* ===== ĐỌC TO BẰNG MICRO ===== */
 function micStep() {
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-    
-    app.innerHTML = `
-        <div class="card">
-            ${trail()}
-            <h2 style="color:#16a085; font-size:30px">🎤 Đọc Vang Mở Khóa!</h2>
-            <p style="font-weight:bold; font-size:18px">Phần thi cuối cùng: Em hãy bấm nút Micro và đọc to, rõ ràng câu văn sau nhé:</p>
-            
-            <div class="big-target" id="tg">${esc(L().mic)}</div>
-            
-            <div style="text-align:center; margin: 30px 0;">
-                ${SR ? `<button id="mc" class="mic-btn" style="font-size:24px; padding: 20px 40px; border-radius:40px;">🎙️ Bấm để bắt đầu đọc</button>` : ''}
-            </div>
-            
-            <div class="msg" id="ms" style="text-align:center; font-size: 22px; min-height: 40px"></div>
-            
-            <div style="margin-top:40px; border-top: 2px dashed var(--ln); padding-top:20px; text-align:center">
-                <button id="pr" style="background:#fff; box-shadow:none; border:2px solid var(--ln); color:#7f8c8d">👨‍👩‍👧 Con đã tự đọc to cho bố/mẹ nghe (Phụ huynh xác nhận ấn vào đây)</button>
-            </div>
-            
-            ${SR ? '' : '<p class="sm" style="color:var(--bad)">⚠️ Máy tính/điện thoại này chưa hỗ trợ thu âm (Nên dùng Google Chrome).</p>'}
-        </div>`;
-        
-    $('#pr').onclick = () => { S.mic = 'Bố/mẹ xác nhận'; finish(); };
-    
+    app.innerHTML = `<div class="card">
+        ${trail()}
+        <h2 style="color:#16a085">🎤 Đọc Vang Mở Khóa!</h2>
+        <p>Em hãy bấm Micro và đọc to, rõ ràng câu dưới đây nhé:</p>
+        <div class="big-target">${esc(L().mic)}</div>
+        <div style="text-align:center;margin:24px 0">
+            ${SR ? `<button id="mc" class="mic-btn" style="font-size:20px;padding:15px 32px">🎙️ Bấm để đọc</button>` : ''}
+        </div>
+        <div class="msg" id="ms" style="text-align:center"></div>
+        <div style="text-align:center;margin-top:20px">
+            <button id="pr" style="background:#fff;border:2px solid var(--ln);box-shadow:none">👨‍👩‍👧 Con đã đọc to cho bố/mẹ nghe (Phụ huynh xác nhận)</button>
+        </div>
+    </div>`;
+
+    $('#pr').onclick = () => { S.mic = 'PH xác nhận'; finish(); };
     if (!SR) return;
-    
+
     $('#mc').onclick = () => {
-        const btn = $('#mc');
         const ms = $('#ms');
         const r = new SR();
-        
-        r.lang = 'vi-VN';
-        r.maxAlternatives = 1;
-        r.interimResults = false;
-        
-        r.onstart = () => {
-            btn.classList.add('recording');
-            btn.innerHTML = "🎧 Đang nghe em đọc...";
-            ms.className = 'msg';
-            ms.style.color = '#f39c12';
-            ms.textContent = 'Em đọc to lên nhé!';
-        };
-        
+        r.lang = 'vi-VN'; r.maxAlternatives = 3;
+        r.onstart = () => { ms.textContent = '🎧 Đang nghe em đọc...'; };
         r.onresult = e => {
-            const transcript = e.results[0][0].transcript;
-            const p = Math.round(sim(L().mic, transcript) * 100);
-            
-            btn.classList.remove('recording');
-            
+            let best = 0, text = '';
+            for (const alt of e.results[0]) {
+                const score = sim(L().mic, alt.transcript);
+                if (score >= best) { best = score; text = alt.transcript; }
+            }
+            const p = Math.round(best * 100);
             if (p >= 65) {
                 S.mic = p;
                 ms.className = 'msg ok';
-                ms.innerHTML = `🎉 Giỏi quá! Em đọc chính xác <b>${p}%</b>. (Máy nghe được: <i>"${transcript}"</i>)`;
-                btn.innerHTML = "🌟 ĐÃ HOÀN THÀNH";
-                btn.style.background = "#2ecc71";
-                btn.style.pointerEvents = "none";
-                playSound('victory');
-                showConfetti();
-                setTimeout(finish, 4000);
+                ms.textContent = `🎉 Em đọc rất rõ ràng (${p}%)!`;
+                playSound('victory'); showConfetti();
+                setTimeout(finish, 1800);
             } else {
                 ms.className = 'msg bad';
-                ms.innerHTML = `😅 Em đọc to và chậm lại một chút nhé! (Mới đúng ${p}% - Máy nghe được: <i>"${transcript}"</i>)`;
-                btn.innerHTML = "🎙️ Thử đọc lại lần nữa";
+                ms.textContent = `😅 Máy mới nghe được ${p}% ("${text}"). Em đọc to và rõ hơn nhé!`;
             }
         };
-        
-        r.onerror = (e) => {
-            btn.classList.remove('recording');
-            btn.innerHTML = "🎙️ Bấm để thử lại";
-            ms.className = 'msg bad';
-            ms.textContent = e.error === 'not-allowed' ? '⚠️ Em chưa cho phép bật Micro trên trình duyệt rồi!' : 'Không nghe được âm thanh. Em kiểm tra Micro nhé!';
-        };
-        
+        r.onerror = () => { ms.className = 'msg bad'; ms.textContent = '⚠️ Không nhận được Micro. Em kiểm tra quyền Micro nhé!'; };
         try { r.start(); } catch(e) {}
     };
 }
@@ -799,134 +475,105 @@ function finish() {
     S.done = true; upsert();
     const r = S.tot ? S.ok / S.tot : 0;
     const stars = r >= 0.7 ? 3 : r >= 0.4 ? 2 : 1;
-    
-    app.innerHTML = `
-        <div class="card" style="text-align:center; padding: 40px 20px">
-            <h2 style="font-size: 36px">🏅 Chúc mừng ${esc(S.name)}!</h2>
-            <div style="font-size:70px; margin: 20px 0; letter-spacing: 10px;">${'⭐'.repeat(stars)}</div>
-            <p class="big">${stars === 3 ? 'Tuyệt vời! Em đọc bài rất kỹ và rất hiểu bài.' : 'Em đã hoàn thành! Lần sau cố gắng đọc kĩ hơn để không bấm nhầm nhé.'}</p>
-            <p style="font-size: 20px; color: #7f8c8d; margin-bottom: 30px">${esc(lname(S.lid))}</p>
-            <button id="again" style="font-size: 20px; padding: 15px 40px">Về trang chủ chọn bài khác</button>
-        </div>`;
-    
-    playSound('victory');
-    showConfetti();
+    app.innerHTML = `<div class="card" style="text-align:center;padding:36px 20px">
+        <h2>🏅 Chúc mừng ${esc(S.name)}!</h2>
+        <div style="font-size:64px;margin:15px 0">${'⭐'.repeat(stars)}</div>
+        <p class="big">${stars === 3 ? 'Tuyệt vời! Em đọc bài rất kỹ và hiểu bài sâu sắc.' : 'Em đã hoàn thành bài đọc!'}</p>
+        <p class="sm">${esc(lname(S.lid))}</p>
+        <button id="again">📚 Đọc bài khác</button>
+    </div>`;
+    playSound('victory'); showConfetti();
     $('#again').onclick = home;
 }
 
 /* ===== MÀN HÌNH GIÁO VIÊN ===== */
 const mmss = s => `${Math.floor(s / 60)} phút ${String(s % 60).padStart(2, '0')} giây`;
-const okLbl = p => p >= 80 ? '(Rất tốt)' : p >= 50 ? '(Đạt)' : '(Đọc ẩu)';
-const micLbl = m => m == null ? 'Chưa đọc' : typeof m === 'string' ? m : `${m}% ${m >= 80 ? '(Rõ ràng)' : '(Cần luyện)'}`;
+const okLbl = p => p >= 80 ? '(Rất tốt)' : p >= 50 ? '(Đạt)' : '(Đọc vội)';
+const micLbl = m => m == null ? 'Chưa đọc' : typeof m === 'string' ? m : `${m}%`;
 
 function teacher() {
     clearInterval(iv);
     const rs = load();
     const base = location.href.split('#')[0];
-    
-    app.innerHTML = `
-        <div class="card" style="border-color: var(--secondary)">
-            <h2 style="color: var(--secondary)">1. Giao bài đọc về nhà</h2>
-            <div class="cols">
-                <label>Khối lớp: <select id="ag">${GRADES.filter(g => Object.values(LESSONS).some(l => l.grade === g)).map(g => `<option value="${g}">Lớp ${g}</option>`).join('')}</select></label>
-                <label>Tên bài: <select id="al"></select></label>
-            </div>
-            <label style="margin-top: 10px">Copy link dưới đây gửi vào nhóm Zalo phụ huynh:
-                <div style="display:flex; gap:10px; margin-top:5px">
-                    <input id="lk" readonly style="margin:0; background:#f8f9fa">
-                    <button id="cp" style="background:var(--secondary); color:white; white-space:nowrap">📋 Copy</button>
-                </div>
-            </label>
+    const gradesWithLessons = GRADES.filter(g => Object.values(LESSONS).some(l => l.grade === g));
+
+    app.innerHTML = `<div class="card">
+        <h2>1. Giao bài đọc về nhà</h2>
+        <div class="cols">
+            <label>Khối lớp:<select id="ag">${gradesWithLessons.map(g => `<option value="${g}">Lớp ${g}</option>`).join('')}</select></label>
+            <label>Chọn bài:<select id="al"></select></label>
         </div>
-        
-        <div class="card" style="border-color: var(--ok)">
-            <h2 style="color: var(--ok)">2. Báo cáo Tình hình học tập</h2>
-            <div class="row">
-                <button id="ex" style="background:#27ae60; color:white">📥 Tải file Excel (CSV)</button>
-                <button id="cl" style="background:var(--bad); color:#fff; box-shadow:none">Xóa sạch dữ liệu</button>
+        <label>Đường link gửi học sinh / nhóm Zalo phụ huynh:
+            <div style="display:flex;gap:10px;margin-top:6px">
+                <input id="lk" readonly style="margin:0;background:#f8f9fa">
+                <button id="cp">📋 Sao chép</button>
             </div>
-            <div class="tw">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Tên học sinh</th>
-                            <th>Tên Bài học</th>
-                            <th>Trạng thái</th>
-                            <th>Thời gian đọc</th>
-                            <th>Tỷ lệ đúng ngay lần đầu</th>
-                            <th>Số lần bấm ẩu/nhầm</th>
-                            <th>Đọc thành tiếng</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${rs.length ? rs.sort((a,b) => b.secs - a.secs).map(r => {
-                            const p = r.tot ? Math.round(r.ok / r.tot * 100) : 0;
-                            return `<tr>
-                                <td style="font-weight:bold">${esc(r.name)}</td>
-                                <td>${esc(LESSONS[r.lid] ? lname(r.lid) : r.lid)}</td>
-                                <td>
-                                    <span style="display:inline-block; padding: 4px 8px; border-radius: 12px; font-size:12px; font-weight:bold; 
-                                        background: ${r.status === 'Hoàn thành' ? '#c9f3dc' : '#ffe3e7'}; 
-                                        color: ${r.status === 'Hoàn thành' ? '#27ae60' : '#c0392b'}">
-                                        ${esc(r.status)}
-                                    </span>
-                                </td>
-                                <td>${mmss(r.secs)}</td>
-                                <td><b style="color:${p>=80?'#27ae60':p>=50?'#f39c12':'#c0392b'}">${r.tot ? p+'%' : '—'}</b> <span class="sm">${r.tot ? okLbl(p) : ''}</span></td>
-                                <td style="color:${r.rush>=3?'#c0392b':'inherit'}"><b>${r.rush}</b> lỗi ${r.rush >= 3 ? '⚠️' : ''}</td>
-                                <td>${micLbl(r.mic)}</td>
-                            </tr>`;
-                        }).join('') : '<tr><td colspan="7" style="text-align:center; padding: 30px; color:#7f8c8d">Chưa có học sinh nào làm bài.</td></tr>'}
-                    </tbody>
-                </table>
-            </div>
-        </div>`;
-        
-    const sync = () => $('#lk').value = `${base}#bai=${$('#al').value}`;
+        </label>
+    </div>
+    <div class="card">
+        <h2>2. Báo cáo kết quả đọc hiểu</h2>
+        <div class="row">
+            <button id="ex" style="background:var(--ok);color:#fff;box-shadow:none">📥 Xuất file CSV (Excel)</button>
+            <button id="sp" style="background:#fff;border:2px solid var(--ln);box-shadow:none">🧪 Nạp dữ liệu mẫu</button>
+            <button id="cl" style="background:var(--bad);color:#fff;box-shadow:none">🗑️ Xóa dữ liệu máy này</button>
+        </div>
+        <div class="tw">
+            <table>
+                <thead><tr><th>Học sinh</th><th>Bài đọc</th><th>Trạng thái</th><th>Thời gian</th><th>Đúng lần đầu</th><th>Bấm vội</th><th>Đọc to</th></tr></thead>
+                <tbody>
+                    ${rs.length ? rs.map(r => {
+                        const p = r.tot ? Math.round(r.ok / r.tot * 100) : 0;
+                        return `<tr>
+                            <td><b>${esc(r.name)}</b></td>
+                            <td>${esc(lname(r.lid))}</td>
+                            <td>${esc(r.status)}</td>
+                            <td>${mmss(r.secs)}</td>
+                            <td>${r.tot ? p + '% ' + okLbl(p) : '—'}</td>
+                            <td>${r.rush} lỗi</td>
+                            <td>${micLbl(r.mic)}</td>
+                        </tr>`;
+                    }).join('') : '<tr><td colspan="7" style="text-align:center;padding:24px">Chưa có dữ liệu học sinh làm bài.</td></tr>'}
+                </tbody>
+            </table>
+        </div>
+    </div>`;
+
+    const sync = () => { if ($('#al').value) $('#lk').value = `${base}#bai=${$('#al').value}`; };
     const fill = () => {
-        $('#al').innerHTML = Object.keys(LESSONS).filter(k => LESSONS[k].grade == $('#ag').value).map(k => `<option value="${k}">${ICON[LESSONS[k].book]} ${esc(LESSONS[k].title)}</option>`).join('');
+        $('#al').innerHTML = Object.keys(LESSONS).filter(k => LESSONS[k].grade == $('#ag').value)
+            .map(k => `<option value="${k}">${ICON[LESSONS[k].book] || '📚'} ${esc(LESSONS[k].title)}</option>`).join('');
         sync();
     };
-    
-    $('#ag').onchange = fill;
-    $('#al').onchange = sync;
-    fill();
-    
+    if (gradesWithLessons.length) { $('#ag').onchange = fill; $('#al').onchange = sync; fill(); }
+
     $('#cp').onclick = () => {
-        $('#lk').select();
-        try { navigator.clipboard.writeText($('#lk').value); } catch(e) { document.execCommand('copy'); }
-        $('#cp').textContent = '✅ Đã Copy';
-        setTimeout(() => $('#cp').textContent = '📋 Copy', 2000);
+        navigator.clipboard && navigator.clipboard.writeText($('#lk').value);
+        $('#cp').textContent = '✅ Đã chép!';
     };
-    
-    $('#cl').onclick = () => {
-        if(confirm('Toàn bộ báo cáo trên máy này sẽ bị xóa. Thầy/Cô có chắc chắn không?')) { store([]); teacher(); }
+    $('#sp').onclick = () => {
+        store([
+            {name: 'Nguyễn Hồng Thắng', lid: 'L4_Dieu_ki_dieu', status: 'Hoàn thành', secs: 165, ok: 3, tot: 3, rush: 0, mic: 94},
+            {name: 'Lê Bảo Anh', lid: 'L4_Ta_chu_cho_Mi_lu', status: 'Hoàn thành', secs: 210, ok: 2, tot: 3, rush: 1, mic: 88}
+        ]);
+        teacher();
     };
-    
+    $('#cl').onclick = () => { if (confirm('Xóa toàn bộ dữ liệu trên máy này?')) { store([]); teacher(); } };
     $('#ex').onclick = () => {
-        const h = ['Hoc sinh', 'Bai', 'Trang thai', 'Giay doc', 'Dung lan dau (%)', 'Bam ẩu', 'Diem doc to (%)'];
+        const h = ['Hoc sinh', 'Bai doc', 'Trang thai', 'Giay doc', 'Dung lan dau (%)', 'Bam voi', 'Doc to'];
         const q = v => `"${String(v).replace(/"/g, '""')}"`;
-        const rows = rs.map(r => [
-            r.name, LESSONS[r.lid] ? lname(r.lid) : r.lid, r.status, r.secs, 
-            r.tot ? Math.round(r.ok / r.tot * 100) : '', r.rush, typeof r.mic === 'number' ? r.mic : (r.mic || '')
-        ].map(q).join(','));
-        
-        const csvContent = '\ufeff' + [h.map(q).join(','), ...rows].join('\n');
-        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = "Bao_Cao_Doc_Sach.csv";
-        link.click();
+        const rows = rs.map(r => [r.name, lname(r.lid), r.status, r.secs, r.tot ? Math.round(r.ok / r.tot * 100) : '', r.rush, r.mic ?? ''].map(q).join(','));
+        const csvContent = '\uFEFF' + [h.map(q).join(','), ...rows].join(NL);
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob([csvContent], {type: 'text/csv;charset=utf-8;'}));
+        a.download = 'Bao_Cao_Doc_Sach.csv';
+        a.click();
     };
 }
 
-/* ===== ĐIỀU HƯỚNG TỔNG ===== */
 $('#tS').onclick = () => { $('#tS').classList.add('on'); $('#tT').classList.remove('on'); (!S || S.done) ? home() : S.i >= L().stations.length ? (L().mic ? micStep() : finish()) : station(); };
 $('#tT').onclick = () => { $('#tT').classList.add('on'); $('#tS').classList.remove('on'); teacher(); };
 
-// Khởi chạy
 home();
-
 </script>
 </body>
 </html>
