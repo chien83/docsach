@@ -3,30 +3,35 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>DocSach Studio V4 - Excel & TSV to data-snapshot.js</title>
+    <title>DocSach Studio V5.5 - Xuất Snapshot chuẩn cho Index V5.1</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
     <style>
         body { font-family: 'Nunito', sans-serif; background: #f4f6f7; color: #2c3e50; margin: 0; padding: 25px; }
-        .container { max-width: 1000px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-top: 8px solid #16a085; }
+        .container { max-width: 1020px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-top: 8px solid #16a085; }
         h1 { color: #16a085; margin-top: 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
         .step { background: #f8f9fa; padding: 20px; border-radius: 14px; margin-bottom: 20px; border: 2px solid #e1e8ed; }
         button { background: #16a085; color: #fff; border: 0; padding: 11px 22px; border-radius: 10px; font-weight: 900; font-size: 15px; cursor: pointer; font-family: inherit; margin-right: 8px; margin-top: 6px; }
         button:disabled { background: #bdc3c7; cursor: not-allowed; }
         input[type="file"], textarea { display: block; margin: 10px 0; padding: 12px; border: 2px dashed #bdc3c7; border-radius: 10px; width: 100%; background: #fff; font-family: Consolas, monospace; font-size: 14px; }
-        #logArea { background: #1e272e; color: #d2dae2; padding: 16px; border-radius: 10px; font-family: Consolas, monospace; height: 200px; overflow-y: auto; font-size: 14px; }
+        #logArea { background: #1e272e; color: #d2dae2; padding: 16px; border-radius: 10px; font-family: Consolas, monospace; height: 220px; overflow-y: auto; font-size: 14px; }
         .err { color: #ff6b6b; font-weight: bold; }
         .ok { color: #2ecc71; font-weight: bold; }
         .warn { color: #f1c40f; font-weight: bold; }
+        .badge-list { font-size: 14px; background: #e8f8f5; padding: 12px; border-radius: 10px; margin-bottom: 16px; line-height: 1.7; }
     </style>
-    <script src="data-snapshot.js"></script>
 </head>
 <body>
 <div class="container">
     <h1>
-        <span>🛠️ Đọc Sách Studio V4.0</span>
+        <span>🛠️ Đọc Sách Studio V5.5</span>
         <button id="downloadTemplate" style="background:#2980b9">📥 Tải File Excel Mẫu (.xlsx)</button>
     </h1>
+
+    <div class="badge-list">
+        <b>Bản này đã được chỉnh sửa để xuất file <code>data-snapshot.js</code> TƯƠNG THÍCH HOÀN TOÀN với <code>index_5.1</code>.</b><br>
+        Hỗ trợ 8 trạm: <code>tap, choice, multi, gold, group, fill, match, order</code>.
+    </div>
 
     <div class="step">
         <h3>Cách 1: Nạp từ File Excel (.xlsx / .xls)</h3>
@@ -35,12 +40,9 @@
     </div>
 
     <div class="step">
-        <h3>Cách 2: Nhập nhanh TSV (Copy bảng từ AI dán thẳng vào đây)</h3>
+        <h3>Cách 2: Nhập nhanh TSV</h3>
         <textarea id="tsvInput" rows="4" placeholder="Dán các dòng TSV (ngăn cách bằng phím Tab) do AI tạo vào đây..."></textarea>
         <button id="btnCheckTSV" style="background:#8e44ad">⚡ Phân Tích Nhanh TSV</button>
-        <label style="display:inline-flex;align-items:center;gap:6px;margin-left:12px;font-weight:700">
-            <input type="checkbox" id="mergeCurrent" checked> Gộp thêm vào các bài hiện có trong data-snapshot.js
-        </label>
     </div>
 
     <div class="step">
@@ -50,7 +52,7 @@
 
     <div class="step" style="background:#ebf5fb;border-color:#3498db">
         <h3>Xuất Bản Dữ Liệu</h3>
-        <button id="btnExport" disabled style="background:#2980b9">💾 Xuất file data-snapshot.js</button>
+        <button id="btnExport" disabled style="background:#2980b9">💾 Tải file data-snapshot.js chuẩn</button>
     </div>
 </div>
 
@@ -95,13 +97,11 @@ document.getElementById('btnCheckTSV').onclick = () => {
 };
 
 function processRows(rows) {
-    const merge = document.getElementById('mergeCurrent').checked;
-    const map = merge && window.LESSONS ? JSON.parse(JSON.stringify(window.LESSONS)) : {};
-    const touchedKeys = new Set();
+    const map = {};
     let errors = 0;
 
     rows.forEach((r, idx) => {
-        const line = idx + 1;
+        const line = idx + 2;
         const grade = parseInt(String(r[0] || '').match(/\d+/)?.[0] || '0');
         const book = String(r[1] || 'sgk').trim().toLowerCase();
         const title = String(r[2] || '').trim();
@@ -109,7 +109,10 @@ function processRows(rows) {
         const isPoem = (genre === 'thơ' || genre === 'tho' || genre === 'poem');
         const type = String(r[4] || '').trim().toLowerCase();
         const totalSecs = (parseInt(r[5]) || 0) * 60 + (parseInt(r[6]) || 0);
-        const text = String(r[7] || '').replace(/\\n/g, NL).replace(/<br\s*\/?>/gi, NL).trim();
+        
+        let text = String(r[7] || '').trim();
+        text = text.replace(/\\n/g, '\n').replace(/<br\s*\/?>/gi, '\n');
+        
         const q = String(r[8] || '').trim();
         const opts = String(r[9] || '').trim();
         const ans = String(r[10] || '').trim();
@@ -119,12 +122,12 @@ function processRows(rows) {
         if (!grade || !type) { logMsg(`Dòng ${line}: Thiếu Lớp hoặc Loại trạm`, 'err'); errors++; return; }
 
         const key = toSafeKey(grade, title);
-        if (!touchedKeys.has(key)) {
+        if (!map[key]) {
             map[key] = { grade, book, title, isPoem, stations: [] };
-            touchedKeys.add(key);
         }
 
         if (type === 'mic') { map[key].mic = text; return; }
+        if (type === 'glossary') { map[key].glossary = text; return; }
 
         const st = { k: type, min: totalSecs };
         if (type === 'tap') {
@@ -135,10 +138,19 @@ function processRows(rows) {
         } else if (type === 'choice') {
             st.t = text; st.q = q; st.o = opts.split('|').map(x => x.trim()).filter(Boolean);
             st.a = parseInt(ans) || 0; st.h = hint;
-            if (st.o.length < 2) { logMsg(`Dòng ${line}: Choice cần ít nhất 2 phương án ngăn cách bởi dấu |`, 'err'); errors++; }
+        } else if (type === 'multi') {
+            st.t = text; st.q = q; st.o = opts.split('|').map(x => x.trim()).filter(Boolean);
+            st.a = ans.split(',').map(x => parseInt(x.trim())).filter(n => !isNaN(n));
         } else if (type === 'gold') {
             st.t = text; st.q = q; st.h = hint;
-            if (!text.includes('*')) logMsg(`Dòng ${line}: Cảnh báo trạm gold chưa có từ khóa đánh dấu *`, 'warn');
+        } else if (type === 'group') {
+            st.t = text; st.q = q;
+            st.cats = opts.split('|').map(x => x.trim()).filter(Boolean);
+        } else if (type === 'fill') {
+            st.t = text; st.q = q;
+        } else if (type === 'order') {
+            st.t = text; st.q = q;
+            st.items = opts.split('|').map(x => x.trim()).filter(Boolean);
         } else if (type === 'match') {
             st.t = text; st.q = q; st.h = hint;
             st.p = opts.split('|').map(p => p.split(':').map(x => x.trim()));
@@ -150,31 +162,35 @@ function processRows(rows) {
 
     if (errors === 0) {
         globalJsonData = map;
-        logMsg(`✅ Hợp lệ 100%! Tổng cộng ${Object.keys(map).length} bài đọc trong Snapshot.`, 'ok');
+        logMsg(`✅ Hợp lệ! Đã nạp xong ${Object.keys(map).length} bài đọc.`, 'ok');
         btnExport.disabled = false;
     }
 }
 
+// Hàm xuất quan trọng nhất: Chỉ xuất biến window.LESSONS
 btnExport.onclick = () => {
-    const content = `// File dữ liệu bài học (Tạo tự động từ DocSach Studio)` + NL + `window.LESSONS = ${JSON.stringify(globalJsonData, null, 4)};` + NL;
+    let jsonDataStr = JSON.stringify(globalJsonData, null, 4);
+    
+    // Đã thay đổi: Tạo file y hệt file data-snapshot-ok.js
+    let output = "// File dữ liệu bài học V5.5 (Tạo tự động từ DocSach Studio)\n";
+    output += "window.LESSONS = " + jsonDataStr + ";\n";
+
     const a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([content], {type: 'text/javascript;charset=utf-8'}));
+    a.href = URL.createObjectURL(new Blob([output], {type: 'text/javascript;charset=utf-8'}));
     a.download = 'data-snapshot.js';
     a.click();
-    logMsg('💾 Đã tải file data-snapshot.js!', 'ok');
+    logMsg('💾 Đã tải file data-snapshot.js chuẩn cho index_5.1!', 'ok');
 };
 
 document.getElementById('downloadTemplate').onclick = () => {
     const data = [
-        ['Khối Lớp', 'Loại Sách (sgk/vm)', 'Tên Bài Đọc', 'Thể Loại (Văn/Thơ)', 'Loại Trạm (tap/choice/gold/match/mic)', 'Phút đọc', 'Giây đọc', 'Nội dung (Thơ: cách khổ bằng //)', 'Câu hỏi', 'Tùy chọn (Ngăn cách bằng |)', 'Đáp án đúng (0,1,2...)', 'Gợi ý'],
-        ['Lớp 4', 'sgk', 'Điều kì diệu (Thơ)', 'Thơ', 'tap', 0, 12, 'Bạn có thấy lạ không\nMỗi đứa mình một khác // Cùng ngân nga câu hát\nChẳng giọng nào giống nhau. // Có bạn thích đứng đầu\nCó bạn hay giận dỗi // Có bạn thích thay đổi\nCó bạn nhiều ước mơ.', 'Dù khác nhau nhưng các bạn cùng làm điều gì? Bấm vào cặp câu thơ đó!', '', '1', ''],
-        ['Lớp 4', 'sgk', 'Điều kì diệu (Thơ)', 'Thơ', 'gold', 0, 0, 'Bạn có nghĩ *vu_vơ\nMình khác nhau nhiều thế\nNếu mỗi người một vẻ\nLiệu mình có ~cách_xa? // Tớ bỗng phát hiện ra\nTrong vườn hoa của mẹ\n*Lung_linh màu sắc thế\nTừng bông hoa *tươi_xinh.', 'Bấm chọn 3 từ gợi tả: vu vơ, lung linh, tươi xinh', '', '', ''],
-        ['Lớp 4', 'sgk', 'Điều kì diệu (Thơ)', 'Thơ', 'mic', 0, 0, 'Và khi giọng hoà quyện, dàn đồng ca vang lừng.', '', '', '', '']
+        ['Khối Lớp', 'Loại Sách (sgk/vm)', 'Tên Bài Đọc', 'Thể Loại (Văn/Thơ)', 'Loại Trạm (tap/choice/multi/gold/group/fill/match/order/mic/glossary)', 'Phút đọc', 'Giây đọc', 'Nội dung', 'Câu hỏi', 'Tùy chọn / Các giỏ / Các bước (Ngăn cách bằng |)', 'Đáp án đúng', 'Gợi ý'],
+        ['Lớp 4', 'sgk', 'Bài 5: Thằn lằn xanh và tắc kè', 'Văn', 'fill', 0, 0, 'Buổi sáng, mặt trời toả {nắng} gay gắt. Bỗng {mây} đen kéo tới. {Gió} cuồn cuộn thổi.', 'Điền danh từ chỉ hiện tượng tự nhiên thay cho bông hoa', '', '', ''],
     ];
     const ws = XLSX.utils.aoa_to_sheet(data);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'BaiDoc');
-    XLSX.writeFile(wb, 'Mau_DocSach_V4.xlsx');
+    XLSX.writeFile(wb, 'Mau_DocSach_V5.xlsx');
 };
 </script>
 </body>
