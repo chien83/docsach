@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Trạm Đọc Thông Minh V6.0</title>
+    <title>Trạm Đọc Thông Minh V6.2</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     
@@ -25,11 +25,12 @@
     <style>
         /* CSS BỔ SUNG CHO THƠ CHIA CỘT VÀ TỐI ƯU HIỂN THỊ (GHI ĐÈ CSS CŨ) */
         
+        /* Khôi phục độ rộng giao diện tiêu chuẩn */
         main { 
-        max-width: 1020px !important; 
-        margin: 20px auto; 
-        padding: 0 18px; 
-         }
+            max-width: 860px !important; 
+            margin: 20px auto; 
+            padding: 0 18px; 
+        }
 
         .read.is-poem {
             display: block !important;
@@ -88,6 +89,82 @@
             font-style: normal;
         }
 
+        
+        /* CSS FIX TRẠM ĐIỀN TỪ (FILL) */
+        .blank-slot {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            min-width: 60px;
+            padding: 4px 10px;
+            margin: 2px 4px;
+            border: 2px dashed #5b3fd6;
+            border-radius: 8px;
+            background: #efeaff;
+            color: #5b3fd6;
+            font-weight: 900;
+            cursor: pointer;
+            vertical-align: middle;
+            font-size: 0.9em;
+            box-shadow: 0 2px 0 rgba(91, 63, 214, 0.2);
+            transition: all 0.2s;
+        }
+        .blank-slot.active {
+            background: #ffc233;
+            border: 2px solid #d99a00;
+            color: #1d2b53;
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(255, 194, 51, 0.4);
+        }
+        .blank-slot.filled {
+            background: #c9f3dc;
+            border: 2px solid #1fae6b;
+            color: #1e8449;
+            cursor: default;
+            box-shadow: none;
+        }
+        .word-bank {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 16px;
+            border: 2px dashed #bdc3c7;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .bank-chip {
+            background: #fff;
+            border: 2px solid #5b3fd6;
+            color: #5b3fd6;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 4px 0 #c9dff5;
+            transition: all 0.2s;
+            font-size: 16px;
+        }
+        .bank-chip:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #c9dff5;
+        }
+        .bank-chip:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #c9dff5;
+        }
+        .bank-chip.used {
+            opacity: 0.3;
+            pointer-events: none;
+            background: #f1f2f6;
+            border-color: #bdc3c7;
+            color: #7f8c8d;
+            box-shadow: none;
+            transform: none;
+        }
+
         /* Tối ưu giao diện trên thiết bị di động */
         @media (max-width: 768px) {
             .poem-grid { grid-template-columns: 1fr !important; }
@@ -102,7 +179,7 @@
 </head>
 <body>
 <header id="main-header">
-    <b>📚 Trạm Đọc Thông Minh V6.0</b>
+    <b>📚 Trạm Đọc Thông Minh V6.2</b>
     <nav id="main-nav">
         <button id="tS" class="on">👩‍🎓 Học sinh</button>
         <button id="tT">👩‍🏫 Giáo viên</button>
@@ -126,7 +203,6 @@ const NL = String.fromCharCode(10);
 
 let DEMO = false, iv = null, S = null;
 let NAME = '', GR = null;
-let isAdmin = false; // Thêm biến này để nhớ trạng thái đăng nhập Admin
 const T = n => DEMO ? Math.min(n, 3) : n;
 
 const GRADES = [1, 2, 3, 4, 5];
@@ -825,7 +901,7 @@ function micStep() {
         trail() +
         '<h2 style="color:#16a085">🎤 Đọc Vang Mở Khóa!</h2>' +
         '<p>Em hãy bấm Micro và đọc to, rõ ràng câu dưới đây nhé:</p>' +
-        '<div class="big-target">' + esc(L().mic) + '</div>' +
+        '<div id="mic-target-box" class="big-target"></div>' +
         '<div style="text-align:center;margin:24px 0">' +
             (SR ? '<button id="mc" class="mic-btn" style="font-size:20px;padding:15px 32px;border-radius:12px;cursor:pointer;border:none;background:var(--sun);font-weight:bold;box-shadow:0 4px 0 #d99a00;">🎙️ Bấm để đọc</button>' : '') +
         '</div>' +
@@ -835,6 +911,15 @@ function micStep() {
         '</div>' +
     '</div>';
 
+    
+    let micContentHTML = '';
+    if (L().isPoem && (L().mic.includes('\n') || L().mic.includes('//'))) {
+        micContentHTML = formatPoemStanzasHTML(L().mic, line => '<span class="verse-line">' + esc(line) + '</span>');
+    } else {
+        micContentHTML = esc(L().mic);
+    }
+
+    $('#mic-target-box').innerHTML = micContentHTML;
     $('#pr').onclick = () => { S.mic = 'PH xác nhận'; finish(); };
     if (!SR) return;
 
@@ -901,19 +986,23 @@ function micStep() {
         };
         
         r.onresult = e => {
-            let interimTranscript = '';
-            fullTranscript = '';
+            let finalText = '';
+            let interimText = '';
             
-            for (let i = e.resultIndex; i < e.results.length; ++i) {
+            // Duyệt toàn bộ mảng kết quả từ đầu đến cuối phiên ghi âm
+            for (let i = 0; i < e.results.length; ++i) {
                 if (e.results[i].isFinal) {
-                    fullTranscript += e.results[i][0].transcript + ' ';
+                    finalText += e.results[i][0].transcript + ' ';
                 } else {
-                    interimTranscript += e.results[i][0].transcript + ' ';
+                    interimText += e.results[i][0].transcript + ' ';
                 }
             }
             
-            // Hiển thị chữ đang đọc trực tiếp lên màn hình để học sinh an tâm
-            const displayText = fullTranscript + interimTranscript;
+            // Cập nhật biến fullTranscript để dùng lúc chấm điểm
+            fullTranscript = finalText.trim();
+            
+            // Hiển thị chữ đang đọc trực tiếp lên màn hình
+            const displayText = finalText + interimText;
             if (displayText.trim() !== '') {
                 ms.innerHTML = '<span style="color:#2c3e50; font-weight:normal; font-style:italic;">"' + esc(displayText) + '"</span>';
             }
@@ -990,39 +1079,6 @@ function finish() {
     $('#btn-pdf').onclick = () => printStudentPDF(S);
     $('#again').onclick = home;
 }
-
-/* ===== MÀN HÌNH ĐĂNG NHẬP ADMIN ===== */
-function showLogin() {
-    clearInterval(iv);
-    app.innerHTML = '<div class="card" style="max-width: 450px; margin: 40px auto; text-align: center;">' +
-        '<h2 style="color:var(--secondary)">🔒 Vùng Quản Trị</h2>' +
-        '<p class="sm" style="margin-bottom:25px">Vui lòng nhập tài khoản Giáo viên để tiếp tục</p>' +
-        '<input id="adm-user" type="text" placeholder="Tài khoản" autocomplete="off">' +
-        '<input id="adm-pass" type="password" placeholder="Mật khẩu">' +
-        '<div id="login-err" style="color:var(--bad); font-weight:bold; margin: 10px 0; display:none;">Sai tài khoản hoặc mật khẩu!</div>' +
-        '<button id="btn-login" style="width:100%; font-size:18px; padding:14px; margin-top:10px; background:var(--pu); color:#fff; box-shadow:0 4px 0 #3a1ea3;">Đăng nhập</button>' +
-    '</div>';
-
-    $('#btn-login').onclick = () => {
-        const u = $('#adm-user').value.trim();
-        const p = $('#adm-pass').value.trim();
-        
-        // BẠN CÓ THỂ ĐỔI TÀI KHOẢN VÀ MẬT KHẨU Ở ĐÂY
-        if (u === 'admin' && p === '123456') { 
-            isAdmin = true;
-            playSound('success');
-            teacher(); // Gọi màn hình giáo viên ra
-        } else {
-            $('#login-err').style.display = 'block';
-            shake($('#btn-login')); // Hiệu ứng rung nút báo lỗi
-            playSound('error');
-        }
-    };
-
-    // Bấm Enter ở ô mật khẩu để đăng nhập nhanh
-    $('#adm-pass').onkeypress = e => { if (e.key === 'Enter') $('#btn-login').click(); };
-}
-
 
 /* ===== MÀN HÌNH GIÁO VIÊN ===== */
 function teacher() {
@@ -1116,15 +1172,7 @@ function teacher() {
 }
 
 $('#tS').onclick = () => { $('#tS').classList.add('on'); $('#tT').classList.remove('on'); (!S || S.done) ? home() : S.i >= L().stations.length ? (L().mic ? micStep() : finish()) : station(); };
-$('#tT').onclick = () => { 
-    $('#tT').classList.add('on'); 
-    $('#tS').classList.remove('on'); 
-    if (isAdmin) {
-        teacher();
-    } else {
-        showLogin();
-    }
-};
+$('#tT').onclick = () => { $('#tT').classList.add('on'); $('#tS').classList.remove('on'); teacher(); };
 
 function initApp() {
     const script = document.createElement('script');
