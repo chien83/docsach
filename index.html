@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Trạm Đọc Thông Minh V6.5</title>
+    <title>Trạm Đọc Thông Minh V6.6</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     
@@ -179,7 +179,7 @@
 </head>
 <body>
 <header id="main-header">
-    <b>📚 Trạm Đọc Thông Minh V6.5</b>
+    <b>📚 Trạm Đọc Thông Minh V6.6</b>
     <nav id="main-nav">
         <button id="tS" class="on">👩‍🎓 Học sinh</button>
         <button id="tT">👩‍🏫 Giáo viên</button>
@@ -440,7 +440,7 @@ function home() {
     const rs = load();
     const isDone = k => rs.some(r => r.name === NAME && r.lid === k && r.status === 'Hoàn thành');
 
-    const demo = '<label class="ck"><input type="checkbox" id="dm" ' + (DEMO ? 'checked' : '') + '> Chế độ Giáo viên xem thử (rút ngắn thời gian chờ xuống 3 giây)</label>';
+    const demo = isAdmin ? '<label class="ck"><input type="checkbox" id="dm" ' + (DEMO ? 'checked' : '') + '> Chế độ Giáo viên xem thử (rút ngắn thời gian chờ xuống 3 giây)</label>' : '';
     const nm = '<input id="nm" maxlength="40" autocomplete="off" placeholder="👉 Nhập họ và tên của em vào đây..." value="' + esc(NAME) + '">';
 
     if (fixed) {
@@ -486,7 +486,7 @@ function home() {
         '<div class="card"><h2>3️⃣ Chọn bài đọc ' + (GR ? '(Lớp ' + GR + ')' : '') + '</h2>' +
             (GR ? (list || '<p class="sm">Lớp này chưa có bài.</p>') : '<p class="sm" style="color:var(--bad);font-weight:700">☝️ Em chọn khối lớp ở bước 2 trước nhé.</p>') +
         '</div>' +
-        '<div class="card">' + demo + '</div>';
+        (demo ? '<div class="card">' + demo + '</div>' : '');
 
     $('#nm').oninput = e => NAME = e.target.value.trim();
     app.querySelectorAll('.gr').forEach(b => b.onclick = () => { GR = +b.dataset.g; home(); });
