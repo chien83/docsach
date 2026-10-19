@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Trạm Đọc Thông Minh V6.6</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <script>
+        window.LESSONS_DATA = {};
+        let dataLoaded = false;
+        
+        function loadDataSnapshot(data) {
+            window.LESSONS_DATA = data;
+            dataLoaded = true;
+            console.log("Đã tải dữ liệu thành công qua JSONP!");
+            const loaderMsg = document.getElementById('loader-msg');
+            if (loaderMsg) loaderMsg.style.display = 'none';
+            if (typeof home === 'function') home();
+        }
+    </script>
+    <script src="data-snapshot.js"></script>
+    
+    <style>
+        /* CSS BỔ SUNG CHO THƠ CHIA CỘT VÀ TỐI ƯU HIỂN THỊ (GHI ĐÈ CSS CŨ) */
+        
+        /* Khôi phục độ rộng giao diện tiêu chuẩn */
+        main { 
+            max-width: 1200px !important; 
+            margin: 20px auto; 
+            padding: 0 18px; 
+        }
+
+        .read.is-poem {
+            display: block !important;
+            padding: 20px;
+        }
+        
+        .poem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            align-items: start;
+        }
+
+        .poem-single {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .stanza {
+            background: #fbfcfe;
+            border: 2px dashed #aed6f1;
+            padding: 15px 25px;
+            border-radius: 16px;
+            transition: all 0.2s;
+            line-height: 1.8;
+            font-size: 19px;
+            color: #2c3e50;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            text-align: left;
+        }
+        
+        .stanza:hover {
+            border-color: #3498db;
+            background: #f1f8ff;
+        }
+
+        .verse-line {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .stanza.sn.tap .verse-line {
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+        }
+        .stanza.sn.tap .verse-line:hover {
+            background: #fff3cd;
+            border-color: #ffe69c;
+        }
+
+        .read.is-poem .w {
+            font-style: normal;
+        }
+
+        
+        /* CSS FIX TRẠM ĐIỀN TỪ (FILL) */
+        .blank-slot {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            min-width: 60px;
+            padding: 4px 10px;
+            margin: 2px 4px;
+            border: 2px dashed #5b3fd6;
+            border-radius: 8px;
+            background: #efeaff;
+            color: #5b3fd6;
+            font-weight: 900;
+            cursor: pointer;
+            vertical-align: middle;
+            font-size: 0.9em;
+            box-shadow: 0 2px 0 rgba(91, 63, 214, 0.2);
+            transition: all 0.2s;
+        }
+        .blank-slot.active {
+            background: #ffc233;
+            border: 2px solid #d99a00;
+            color: #1d2b53;
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(255, 194, 51, 0.4);
+        }
+        .blank-slot.filled {
+            background: #c9f3dc;
+            border: 2px solid #1fae6b;
+            color: #1e8449;
+            cursor: default;
+            box-shadow: none;
+        }
+        .word-bank {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 16px;
+            border: 2px dashed #bdc3c7;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .bank-chip {
+            background: #fff;
+            border: 2px solid #5b3fd6;
+            color: #5b3fd6;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 4px 0 #c9dff5;
+            transition: all 0.2s;
+            font-size: 16px;
+        }
+        .bank-chip:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #c9dff5;
+        }
+        .bank-chip:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #c9dff5;
+        }
+        .bank-chip.used {
+            opacity: 0.3;
+            pointer-events: none;
+            background: #f1f2f6;
+            border-color: #bdc3c7;
+            color: #7f8c8d;
+            box-shadow: none;
+            transform: none;
+        }
+
+        /* Tối ưu giao diện trên thiết bị di động */
+        @media (max-width: 768px) {
+            .poem-grid { grid-template-columns: 1fr !important; }
+            main { padding: 0 10px !important; margin-top: 10px !important; }
+            .card { padding: 15px !important; border-radius: 16px !important; margin-bottom: 15px !important; }
+            header { padding: 10px !important; flex-direction: column; text-align: center; }
+            header nav { justify-content: center; width: 100%; margin-top: 10px; }
+            .cols { grid-template-columns: 1fr !important; }
+            .read { font-size: 20px !important; padding: 15px !important; }
+        }
+    </style>
+</head>
+<body>
+<header id="main-header">
+    <b>📚 Trạm Đọc Thông Minh V6.6</b>
+    <nav id="main-nav">
+        <button id="tS" class="on">👩‍🎓 Học sinh</button>
+        <button id="tT">👩‍🏫 Giáo viên</button>
+    </nav>
+</header>
+
+<main id="app">
+    <div id="loader-msg" style="margin-top: 50px; text-align: center;">
+        <h2 style="color: var(--secondary)">Đang tải dữ liệu bài học...</h2>
+    </div>
+</main>
+<div id="print-area"></div>
+<canvas id="confetti-canvas"></canvas>
+
+<script>
+const $ = s => document.querySelector(s);
+const app = $('#app');
+const printArea = $('#print-area');
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const NL = String.fromCharCode(10);
+
+let DEMO = false, iv = null, S = null;
+let NAME = '', GR = null;
+let isAdmin = false;
+const T = n => DEMO ? Math.min(n, 3) : n;
+
+const GRADES = [1, 2, 3, 4, 5];
+const BOOKS = { sgk: 'Sách giáo khoa Tiếng Việt', vm: 'Sách văn mẫu', nc: 'Sách nâng cao' };
+const ICON = { sgk: '📖', vm: '📝', nc: '🚀' };
+
+const lname = k => {
+    if (!window.LESSONS_DATA || !window.LESSONS_DATA[k]) return "Không xác định";
+    return 'Lớp ' + window.LESSONS_DATA[k].grade + ' · ' + window.LESSONS_DATA[k].title;
+};
+const L = () => window.LESSONS_DATA ? window.LESSONS_DATA[S.lid] : null;
+
+/* ===== LƯU TRỮ LOCALSTORAGE ===== */
+const load = () => { try { return JSON.parse(localStorage.getItem('vtd_v5') || '[]'); } catch(e) { return []; } };
+const store = r => { try { localStorage.setItem('vtd_v5', JSON.stringify(r)); } catch(e) {} };
+
+function upsert() {
+    if (!S || !L()) return;
+    const rs = load(), n = L().stations.length;
+    let statusText = S.done ? 'Hoàn thành' : 'Đang đọc (Trạm ' + Math.min(S.i + 1, n) + '/' + n + ')';
+    const rec = {
+        name: S.name, lid: S.lid,
+        status: statusText,
+        secs: S.secs, ok: S.ok, tot: S.tot, rush: S.rush, mic: S.mic,
+        words: S.words || [], date: S.date || new Date().toLocaleDateString('vi-VN')
+    };
+    const i = rs.findIndex(x => x.name === S.name && x.lid === S.lid);
+    i > -1 ? rs[i] = rec : rs.push(rec);
+    store(rs);
+}
+
+setInterval(() => {
+    if (S && !S.done && !document.hidden && $('#tS').classList.contains('on')) S.secs++;
+}, 1000);
+
+/* ===== ÂM THANH & HIỆU ỨNG ===== */
+function playSound(type) {
+    try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        if (type === 'success') {
+            const osc = ctx.createOscillator(), g = ctx.createGain();
+            osc.connect(g); g.connect(ctx.destination);
+            osc.frequency.setValueAtTime(600, ctx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(1200, ctx.currentTime + 0.12);
+            g.gain.setValueAtTime(0.25, ctx.currentTime);
+            g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.25);
+            osc.start(); osc.stop(ctx.currentTime + 0.25);
+        } else if (type === 'error') {
+            const osc = ctx.createOscillator(), g = ctx.createGain();
+            osc.type = 'sawtooth'; osc.connect(g); g.connect(ctx.destination);
+            osc.frequency.setValueAtTime(150, ctx.currentTime);
+            g.gain.setValueAtTime(0.25, ctx.currentTime);
+            g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+            osc.start(); osc.stop(ctx.currentTime + 0.3);
+        } else if (type === 'victory') {
+            [440, 554, 659, 880].forEach((freq, idx) => {
+                const o = ctx.createOscillator(), g = ctx.createGain();
+                o.connect(g); g.connect(ctx.destination);
+                o.frequency.value = freq;
+                g.gain.setValueAtTime(0, ctx.currentTime);
+                g.gain.linearRampToValueAtTime(0.25, ctx.currentTime + idx * 0.1 + 0.05);
+                g.gain.linearRampToValueAtTime(0, ctx.currentTime + idx * 0.1 + 0.3);
+                o.start(ctx.currentTime + idx * 0.1); o.stop(ctx.currentTime + idx * 0.1 + 0.3);
+            });
+        }
+    } catch(e) {}
+}
+
+const shake = el => { el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); };
+
+const norm = s => s.toLowerCase().replace(/[^\p{L}\s]/gu, '').split(/\s+/).filter(Boolean);
+function sim(a, b) {
+    const A = norm(a), pool = norm(b);
+    let h = 0;
+    A.forEach(w => { const i = pool.indexOf(w); if (i > -1) { h++; pool.splice(i, 1); } });
+    return A.length ? h / A.length : 0;
+}
+const shuf = a => [...a].sort(() => Math.random() - 0.5);
+const mmss = s => Math.floor(s / 60) + ' phút ' + String(s % 60).padStart(2, '0') + ' giây';
+const okLbl = p => p >= 80 ? '(Hiểu bài rất tốt)' : p >= 50 ? '(Đạt yêu cầu)' : '(Đọc còn vội)';
+const micLbl = m => m == null ? 'Chưa đọc' : typeof m === 'string' ? m : m + '%';
+
+function countdown(sec, el, done) {
+    clearInterval(iv);
+    let n = T(sec);
+    if (n <= 0) { done(); return; }
+    const show = () => el.textContent = '⏳ Em đọc kỹ bài nhé… câu hỏi mở khóa sau ' + n + ' giây';
+    show();
+    iv = setInterval(() => {
+        if (document.hidden) return;
+        n--;
+        if (n <= 0) { clearInterval(iv); el.textContent = ''; done(); }
+        else show();
+    }, 1000);
+}
+
+function formatPoemStanzasHTML(rawText, lineRenderer) {
+    const normalized = String(rawText).replace(/\r\n/g, '\n').replace(/\\n/g, '\n');
+    const stanzas = normalized.split(/\n\s*\n|\s*\/\/\s*/).filter(s => s.trim() !== '');
+    const wrapClass = stanzas.length > 1 ? 'poem-grid' : 'poem-single';
+    const stanzasHTML = stanzas.map((stanza, sIdx) => {
+        const lines = stanza.split(/\r?\n/).filter(l => l.trim() !== '');
+        const linesHTML = lines.map((line, lIdx) => lineRenderer(line.trim(), sIdx, lIdx)).join('');
+        return '<div class="stanza">' + linesHTML + '</div>';
+    }).join('');
+    return '<div class="' + wrapClass + '">' + stanzasHTML + '</div>';
+}
+
+function printStudentPDF(rec) {
+    const p = rec.tot ? Math.round(rec.ok / rec.tot * 100) : 0;
+    const stars = p >= 70 ? 3 : p >= 40 ? 2 : 1;
+    const wordsList = (rec.words && rec.words.length) ? rec.words.join(', ') : 'Đã hoàn thành các trạm đọc hiểu';
+    
+    let docTitle = 'ketqua_' + rec.name.replace(/\s+/g, '_') + '_Lop' + L().grade;
+    document.title = docTitle;
+    
+    const origAppDisplay = app.style.display;
+    const origHeaderDisplay = document.getElementById('main-header').style.display;
+    
+    app.style.display = 'none';
+    document.getElementById('main-header').style.display = 'none';
+
+    const today = new Date();
+    const dateStr = 'Ngày ' + ('0' + today.getDate()).slice(-2) + ' tháng ' + ('0' + (today.getMonth() + 1)).slice(-2) + ' năm ' + today.getFullYear();
+
+    printArea.innerHTML = '<div class="print-sheet">' +
+        '<div class="print-header">' +
+            '<div style="font-weight:800;color:#7f8c8d;font-size:14px; margin-bottom: 8px;">HỆ THỐNG SỐ HÓA ĐỌC HIỂU TIẾNG VIỆT TIỂU HỌC</div>' +
+            '<h1 style="color:#5b3fd6; margin: 0; font-size: 24px; text-transform: uppercase;">PHIẾU KẾT QUẢ ĐỌC SÁCH</h1>' +
+            '<h1 style="color:#5b3fd6; margin: 5px 0 15px 0; font-size: 24px; text-transform: uppercase;">& THU HOẠCH NGÔN TỪ</h1>' +
+            '<div style="border-bottom: 2px dashed #bdc3c7; margin-bottom: 20px;"></div>' +
+        '</div>' +
+        '<div class="print-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 16px; margin-bottom: 25px;">' +
+            '<div><b>Bài đọc:</b> ' + esc(lname(rec.lid)) + '</div>' +
+            '<div><b>Họ và tên học sinh:</b> ' + esc(rec.name) + '</div>' +
+            '<div><b>Trạng thái:</b> ' + esc(rec.status || "Hoàn thành") + '</div>' +
+            '<div><b>Đánh giá chung:</b> ' + '⭐'.repeat(stars) + ' (' + stars + '/3 sao)</div>' +
+        '</div>' +
+        
+        '<div class="print-box" style="border: 1px solid #bdc3c7; border-radius: 10px; padding: 16px; background: #fafbfc; margin-bottom: 25px;">' +
+            '<h3 style="margin-top:0; margin-bottom: 12px; color:#5b3fd6; font-size: 18px; border-bottom: none;">1. Thông số vượt trạm</h3>' +
+            '<div style="border-bottom: 2px dashed #5b3fd6; opacity: 0.3; margin-bottom: 15px;"></div>' +
+            '<div style="display: flex; flex-wrap: wrap; gap: 15px; font-size: 15px;">' +
+                '<span style="background:#eef2f7; padding:6px 12px; border-radius:8px;">⏱️ Thời gian: <b>' + mmss(rec.secs) + '</b></span>' +
+                '<span style="background:#eef2f7; padding:6px 12px; border-radius:8px;">🎯 Trả lời đúng lần đầu: <b>' + p + '%</b></span>' +
+                '<span style="background:#eef2f7; padding:6px 12px; border-radius:8px;">⚠️ Bấm vội: <b>' + rec.rush + ' lần</b></span>' +
+                '<span style="background:#eef2f7; padding:6px 12px; border-radius:8px;">🎤 Đọc to: <b>' + micLbl(rec.mic) + '</b></span>' +
+            '</div>' +
+        '</div>' +
+
+        '<div class="print-box" style="border: 1px solid #bdc3c7; border-radius: 10px; padding: 16px; background: #fafbfc; margin-bottom: 40px;">' +
+            '<h3 style="margin-top:0; margin-bottom: 12px; color:#d35400; font-size: 18px; border-bottom: none;">2. Giỏ từ vựng & kiến thức thu hoạch được</h3>' +
+            '<div style="border-bottom: 2px dashed #d35400; opacity: 0.3; margin-bottom: 15px;"></div>' +
+            '<p style="font-weight:700; color:#2c3e50; line-height: 1.6; font-size: 16px; margin: 0;">' + esc(wordsList) + '</p>' +
+        '</div>' +
+        
+        '<div class="print-sign" style="text-align: right; margin-top: 30px; font-size: 16px;">' +
+            '<div style="font-weight:700; margin-bottom: 5px;">' + dateStr + '</div>' +
+            '<div><b>Giáo viên phụ trách</b><br><small style="color:#7f8c8d;">(Ký và ghi rõ họ tên)</small><br><br><br><br><br></div>' +
+        '</div>' +
+    '</div>';
+    
+    printArea.style.display = 'block';
+
+    window.print();
+    
+    setTimeout(() => { 
+        document.title = 'Trạm Đọc Thông Minh V6.0'; 
+        app.style.display = origAppDisplay;
+        document.getElementById('main-header').style.display = origHeaderDisplay;
+        printArea.style.display = 'none';
+        printArea.innerHTML = '';
+    }, 1000);
+}
+
+function printClassPDF() {
+    const rs = load();
+    const today = new Date().toLocaleDateString('vi-VN');
+    const rowsHTML = rs.length ? rs.map((r, idx) => {
+        const p = r.tot ? Math.round(r.ok / r.tot * 100) : 0;
+        return '<tr>' +
+            '<td>' + (idx + 1) + '</td>' +
+            '<td><b>' + esc(r.name) + '</b></td>' +
+            '<td>' + esc(lname(r.lid)) + '</td>' +
+            '<td>' + esc(r.status) + '</td>' +
+            '<td>' + mmss(r.secs) + '</td>' +
+            '<td>' + (r.tot ? p + '% ' + okLbl(p) : '—') + '</td>' +
+            '<td>' + r.rush + ' lỗi</td>' +
+            '<td>' + micLbl(r.mic) + '</td>' +
+        '</tr>';
+    }).join('') : '<tr><td colspan="8" style="text-align:center">Chưa có dữ liệu.</td></tr>';
+
+    document.title = 'BaoCao_Lop_' + (GR || 'TongHop');
+
+    const origAppDisplay = app.style.display;
+    const origHeaderDisplay = document.getElementById('main-header').style.display;
+    
+    app.style.display = 'none';
+    document.getElementById('main-header').style.display = 'none';
+
+    printArea.innerHTML = '<div class="print-sheet">' +
+        '<div class="print-header">' +
+            '<h1>BÁO CÁO TỔNG HỢP KẾT QUẢ ĐỌC SÁCH CỦA HỌC SINH</h1>' +
+            '<div style="font-size:15px;font-weight:700">Ngày xuất báo cáo: ' + today + ' · Tổng số lượt đọc: ' + rs.length + '</div>' +
+        '</div>' +
+        '<table>' +
+            '<thead><tr><th>STT</th><th>Học sinh</th><th>Bài đọc</th><th>Trạng thái</th><th>Thời gian đọc</th><th>Đúng lần đầu</th><th>Bấm vội</th><th>Đọc to</th></tr></thead>' +
+            '<tbody>' + rowsHTML + '</tbody>' +
+        '</table>' +
+        '<div class="print-sign" style="grid-template-columns: 1fr;">' +
+            '<div><b>Giáo viên lập biểu</b><br><small>(Ký và ghi rõ họ tên)</small><br><br><br></div>' +
+        '</div>' +
+    '</div>';
+
+    printArea.style.display = 'block';
+
+    window.print();
+
+    setTimeout(() => { 
+        document.title = 'Trạm Đọc Thông Minh V6.0'; 
+        app.style.display = origAppDisplay;
+        document.getElementById('main-header').style.display = origHeaderDisplay;
+        printArea.style.display = 'none';
+        printArea.innerHTML = '';
+    }, 1000);
+}
+
+/* ===== MÀN HÌNH HỌC SINH ===== */
+function home() {
+    if (!dataLoaded) return;
+    clearInterval(iv); S = null;
+    const fx = (location.hash.match(/bai=([^&]+)/) || [])[1];
+    const fixed = window.LESSONS_DATA[fx] ? fx : null;
+    const rs = load();
+    const isDone = k => rs.some(r => r.name === NAME && r.lid === k && r.status === 'Hoàn thành');
+
+    const demo = isAdmin ? '<label class="ck"><input type="checkbox" id="dm" ' + (DEMO ? 'checked' : '') + '> Chế độ Giáo viên xem thử (rút ngắn thời gian chờ xuống 3 giây)</label>' : '';
+    const nm = '<input id="nm" maxlength="40" autocomplete="off" placeholder="👉 Nhập họ và tên của em vào đây..." value="' + esc(NAME) + '">';
+
+    if (fixed) {
+        app.innerHTML = '<div class="card">' +
+            '<h2>🔔 Cô giáo giao bài đọc cho em</h2>' +
+            '<p class="big">' + esc(lname(fixed)) + '</p>' +
+            '<label>Tên của em là gì?</label>' + nm +
+            '<button id="go">🚀 Bắt đầu vượt trạm!</button>' +
+            '<p style="margin-top:16px">' + demo + '</p>' +
+        '</div>';
+        $('#nm').oninput = e => NAME = e.target.value.trim();
+        $('#go').onclick = () => begin(fixed);
+        return;
+    }
+
+    const kids = GR ? Object.keys(window.LESSONS_DATA).filter(k => window.LESSONS_DATA[k].grade === GR) : [];
+    const list = Object.keys(BOOKS).map(b => {
+        const ls = kids.filter(k => window.LESSONS_DATA[k].book === b);
+        return ls.length ? '<h3>' + (ICON[b] || '📚') + ' ' + BOOKS[b] + '</h3>' + ls.map(k =>
+            '<button class="opt ls" data-k="' + k + '">' +
+                '<span>' + esc(window.LESSONS_DATA[k].title) + ' <small style="color:#7f8c8d">(' + window.LESSONS_DATA[k].stations.length + ' trạm' + (window.LESSONS_DATA[k].isPoem ? ' · Thơ' : '') + ')</small></span>' +
+                (isDone(k) ? '<span style="color:var(--ok);font-weight:900">✓ Đã xong</span>' : '<span>👉 Vào đọc</span>') +
+            '</button>'
+        ).join('') : '';
+    }).join('');
+
+    const totalLessons = Object.keys(window.LESSONS_DATA).length;
+    let messageBox = '';
+    if(totalLessons > 0) {
+        messageBox = '<div style="background:#d4edda; color:#155724; padding:15px; border-radius:12px; margin-bottom:20px; font-weight:bold; border-left:5px solid #28a745">' +
+                'Hệ thống đã nạp thành công ' + totalLessons + ' bài đọc.' +
+            '</div>';
+    }
+
+    app.innerHTML = '<div class="card">' + messageBox + '<h2>1️⃣ Tên của em là gì?</h2>' + nm + '</div>' +
+        '<div class="card"><h2>2️⃣ Em học lớp mấy?</h2><div class="grades">' +
+            GRADES.map(g => {
+                const n = Object.values(window.LESSONS_DATA).filter(l => l.grade === g).length;
+                return '<button class="gr ' + (g === GR ? 'sel' : '') + '" data-g="' + g + '" ' + (n ? '' : 'disabled') + '>' +
+                    'Lớp ' + g + '<small>' + (n ? n + ' bài' : 'Sắp có') + '</small></button>';
+            }).join('') +
+        '</div></div>' +
+        '<div class="card"><h2>3️⃣ Chọn bài đọc ' + (GR ? '(Lớp ' + GR + ')' : '') + '</h2>' +
+            (GR ? (list || '<p class="sm">Lớp này chưa có bài.</p>') : '<p class="sm" style="color:var(--bad);font-weight:700">☝️ Em chọn khối lớp ở bước 2 trước nhé.</p>') +
+        '</div>' +
+        (demo ? '<div class="card">' + demo + '</div>' : '');
+
+    $('#nm').oninput = e => NAME = e.target.value.trim();
+    app.querySelectorAll('.gr').forEach(b => b.onclick = () => { GR = +b.dataset.g; home(); });
+    app.querySelectorAll('.ls').forEach(b => b.onclick = () => begin(b.dataset.k));
+}
+
+function begin(k) {
+    NAME = $('#nm').value.trim();
+    DEMO = $('#dm') ? $('#dm').checked : DEMO;
+    if (!NAME) { $('#nm').focus(); $('#nm').style.borderColor = 'var(--bad)'; return; }
+    S = { name: NAME, lid: k, i: 0, secs: 0, ok: 0, tot: 0, rush: 0, mic: null, done: false, words: [], date: new Date().toLocaleDateString('vi-VN') };
+    upsert();
+    station();
+}
+
+function trail() {
+    const n = L().stations.length;
+    return '<div class="trail">' +
+        L().stations.map((_, i) => '<div class="dot ' + (i < S.i ? 'ok' : i === S.i ? 'now' : '') + '">' + (i < S.i ? '✓' : i + 1) + '</div>').join('<span>―</span>') +
+        (L().mic ? '<span>―</span><div class="dot ' + (S.i >= n ? 'now' : '') + '">🎤</div>' : '') +
+    '</div>';
+}
+
+function finishStation(firstOk) {
+    S.tot++; if (firstOk) S.ok++; S.i++; upsert();
+    const last = S.i >= L().stations.length;
+    $('#act').innerHTML = '<div class="msg ok" style="font-size:22px;text-align:center">🎉 Giỏi lắm! Em đã vượt qua trạm này.</div>' +
+        '<div style="text-align:center"><button id="nx">' + (last ? (L().mic ? 'Đến trạm Đọc To 🎤' : 'Nhận Phiếu Kết Quả ⭐') : 'Sang Trạm Tiếp Theo ➜') + '</button></div>';
+    playSound('success');
+    $('#nx').onclick = () => last ? (L().mic ? micStep() : finish()) : station();
+}
+
+function triggerCooldown(el, timeSecs, msg) {
+    playSound('error');
+    if (el) shake(el);
+    const overlay = $('#cooldown-screen');
+    const timeSpan = $('#cd-time');
+    $('#cd-msg').textContent = msg;
+    overlay.style.display = 'flex';
+    let timeLeft = T(timeSecs);
+    timeSpan.innerText = timeLeft;
+    const timer = setInterval(() => {
+        timeLeft--;
+        timeSpan.innerText = timeLeft;
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            overlay.style.display = 'none';
+        }
+    }, 1000);
+}
+
+function station() {
+    const st = L().stations[S.i];
+    const isPoem = !!L().isPoem;
+    let wrong = 0;
+
+    const glossaryHTML = L().glossary
+        ? '<div class="glossary-box"><b>📖 Từ ngữ chú giải:</b> ' + esc(L().glossary) + '</div>'
+        : '';
+
+    app.innerHTML = '<div class="card">' +
+        trail() +
+        '<div class="cooldown-overlay" id="cooldown-screen">' +
+            '<div>⚠️ Chưa chính xác rồi!</div>' +
+            '<div class="cd-subtext" id="cd-msg"></div>' +
+            '<div class="cd-subtext">Em hãy đọc kỹ lại bài và đợi <span id="cd-time" style="color:#ffe66d;font-size:1.4em"></span> giây nhé!</div>' +
+        '</div>' +
+        '<div id="rd" class="read ' + (isPoem ? 'is-poem' : '') + '"></div>' +
+        glossaryHTML +
+        '<div id="act"></div>' +
+    '</div>';
+
+    const rd = $('#rd'), act = $('#act');
+
+    if (st.k === 'tap') {
+        if (isPoem) {
+            const stanzas = Array.isArray(st.s) ? st.s : [st.s];
+            const wrapClass = stanzas.length > 1 ? 'poem-grid' : 'poem-single';
+            rd.innerHTML = '<div class="' + wrapClass + '">' + stanzas.map((x, i) => {
+                const lines = esc(x).split(/\n/).map(l => '<span class="verse-line">' + l + '</span>').join('');
+                return '<div class="stanza sn" data-i="' + i + '">' + lines + '</div>';
+            }).join('') + '</div>';
+        } else {
+            rd.innerHTML = st.s.map((x, i) => '<span class="sn" data-i="' + i + '">' + esc(x) + ' </span>').join('');
+        }
+        act.innerHTML = '<div class="msg" id="cd" style="text-align:center"></div>';
+        countdown(st.min, $('#cd'), () => {
+            act.innerHTML = '<div class="big">🔍 ' + esc(st.q) + '</div>';
+            rd.querySelectorAll('.sn').forEach(sp => {
+                sp.classList.add('tap');
+                sp.onclick = () => {
+                    if ($('#cooldown-screen').style.display === 'flex') return;
+                    if (+sp.dataset.i === st.a) {
+                        sp.classList.add('good');
+                        rd.querySelectorAll('.sn').forEach(x => x.onclick = null);
+                        finishStation(wrong === 0);
+                    } else {
+                        wrong++; S.rush++;
+                        sp.classList.add('hint');
+                        triggerCooldown(sp, 5, 'Đoạn/câu này chưa phải là đáp án đúng.');
+                    }
+                };
+            });
+        });
+    }
+    else if (st.k === 'choice') {
+        if (isPoem) {
+            rd.innerHTML = formatPoemStanzasHTML(st.t, line => '<span class="verse-line">' + esc(line) + '</span>');
+        } else {
+            rd.textContent = st.t;
+        }
+        act.innerHTML = '<div class="msg" id="cd" style="text-align:center"></div>';
+        countdown(st.min, $('#cd'), () => {
+            act.innerHTML = '<div class="big">🤔 ' + esc(st.q) + '</div>' +
+                st.o.map((o, i) => '<button class="opt" data-i="' + i + '">' + esc(o) + '</button>').join('');
+            act.querySelectorAll('.opt').forEach(b => {
+                b.onclick = () => {
+                    if ($('#cooldown-screen').style.display === 'flex') return;
+                    if (+b.dataset.i === st.a) {
+                        b.classList.add('done');
+                        act.querySelectorAll('.opt').forEach(x => x.disabled = true);
+                        finishStation(wrong === 0);
+                    } else {
+                        wrong++; S.rush++;
+                        triggerCooldown(b, 5, 'Đáp án này chưa đúng với nội dung bài đọc.');
+                    }
+                };
+            });
+        });
+    }
+    else if (st.k === 'gold') {
+        const got = new Set();
+        let tot = 0;
+        const tokenizeLine = line => line.split(/\s+/).filter(Boolean).map(tk => {
+            const m = tk.match(/^([*~]?)([^.,!?;:"“”()]+)([.,!?;:"“”()]*)$/);
+            if (!m) return esc(tk);
+            const g = m[1] === '*' ? 1 : m[1] === '~' ? 2 : 0;
+            if (g === 1) tot++;
+            const w = m[2].replace(/_/g, ' ');
+            return '<span class="w" data-g="' + g + '" data-w="' + esc(w) + '">' + esc(w) + '</span>' + esc(m[3]);
+        }).join(' ');
+
+        if (isPoem) {
+            rd.innerHTML = formatPoemStanzasHTML(st.t, line => '<span class="verse-line">' + tokenizeLine(line) + '</span>');
+        } else {
+            rd.innerHTML = tokenizeLine(st.t);
+        }
+
+        act.innerHTML = '<div class="big" style="color:#d35400">🧺 ' + esc(st.q) + '</div>' +
+            '<div class="basket" id="bk"><span class="sm">Giỏ từ vựng của em (0/' + tot + ')</span></div>';
+
+        rd.querySelectorAll('.w').forEach(sp => {
+            sp.onclick = () => {
+                if ($('#cooldown-screen').style.display === 'flex' || sp.classList.contains('got')) return;
+                if (sp.dataset.g === '2') {
+                    wrong++; S.rush++;
+                    triggerCooldown(sp, 4, 'Từ "' + sp.dataset.w + '" cũng hay, nhưng em hãy tìm đúng từ theo câu hỏi nhé!');
+                } else if (sp.dataset.g === '1') {
+                    sp.classList.add('got');
+                    got.add(sp.dataset.w);
+                    if (!S.words.includes(sp.dataset.w)) S.words.push(sp.dataset.w);
+                    playSound('success');
+                    $('#bk').insertAdjacentHTML('beforeend', '<span class="chip">' + esc(sp.dataset.w) + '</span>');
+                    $('#bk').querySelector('.sm').textContent = 'Giỏ từ vựng của em (' + got.size + '/' + tot + ')';
+                    if (got.size === tot) {
+                        rd.querySelectorAll('.w').forEach(x => x.onclick = null);
+                        setTimeout(() => finishStation(wrong === 0), 600);
+                    }
+                } else {
+                    wrong++; S.rush++;
+                    triggerCooldown(sp, 6, 'Từ "' + sp.dataset.w + '" chưa phải từ cần thu hoạch rồi!');
+                }
+            };
+        });
+    }
+    else if (st.k === 'match') {
+        if (isPoem) {
+            rd.innerHTML = formatPoemStanzasHTML(st.t, line => '<span class="verse-line">' + esc(line) + '</span>');
+        } else {
+            rd.textContent = st.t;
+        }
+        act.innerHTML = '<div class="msg" id="cd" style="text-align:center"></div>';
+        countdown(st.min, $('#cd'), () => {
+            rd.classList.add('dim');
+            const L2 = st.p.map((p, i) => [p[0], i]);
+            const R = shuf(st.p.map((p, i) => [p[1], i]));
+            let sel = null, done = 0;
+            act.innerHTML = '<div class="big">🔗 ' + esc(st.q) + '</div>' +
+                '<div class="cols">' +
+                    '<div id="cl">' + L2.map(x => '<button class="opt" data-i="' + x[1] + '">' + esc(x[0]) + '</button>').join('') + '</div>' +
+                    '<div id="cr">' + R.map(x => '<button class="opt" data-i="' + x[1] + '">' + esc(x[0]) + '</button>').join('') + '</div>' +
+                '</div>';
+            const bl = [...$('#cl').children], br = [...$('#cr').children];
+            bl.forEach(b => b.onclick = () => {
+                if (b.classList.contains('done')) return;
+                bl.forEach(x => x.classList.remove('sel'));
+                b.classList.add('sel');
+                sel = b;
+            });
+            br.forEach(b => b.onclick = () => {
+                if (!sel || b.classList.contains('done') || $('#cooldown-screen').style.display === 'flex') return;
+                if (sel.dataset.i === b.dataset.i) {
+                    sel.classList.remove('sel'); sel.classList.add('done');
+                    b.classList.add('done'); sel = null;
+                    playSound('success');
+                    if (++done === st.p.length) finishStation(wrong === 0);
+                } else {
+                    wrong++; S.rush++;
+                    triggerCooldown(b, 5, 'Hai vế này chưa khớp với bài đọc rồi!');
+                }
+            });
+        });
+    }
+    else if (st.k === 'fill') {
+        const answers = [];
+        const replaceBlanks = str => esc(str).replace(/\{([^}]+)\}/g, (_, word) => {
+            const idx = answers.length;
+            answers.push(word.replace(/_/g, ' ').trim());
+            return '<span class="blank-slot" data-idx="' + idx + '">🌼 ...</span>';
+        });
+
+        if (isPoem && (st.t.includes('\n') || st.t.includes('//'))) {
+            rd.innerHTML = formatPoemStanzasHTML(st.t, line => '<span class="verse-line">' + replaceBlanks(line) + '</span>');
+        } else {
+            rd.innerHTML = replaceBlanks(st.t);
+        }
+
+        const bankWords = shuf(answers.map((w, i) => ({ w, i })));
+        let activeSlot = rd.querySelector('.blank-slot');
+        if (activeSlot) activeSlot.classList.add('active');
+        let filledCount = 0;
+
+        act.innerHTML = '<div class="big">🌼 ' + esc(st.q) + '</div>' +
+            '<div class="word-bank" id="wb">' +
+                bankWords.map((item, bIdx) => '<button class="bank-chip" data-b="' + bIdx + '" data-w="' + esc(item.w) + '">' + esc(item.w) + '</button>').join('') +
+            '</div>';
+
+        const slots = [...rd.querySelectorAll('.blank-slot')];
+        slots.forEach(sl => {
+            sl.onclick = () => {
+                if (sl.classList.contains('filled')) return;
+                slots.forEach(x => x.classList.remove('active'));
+                sl.classList.add('active');
+                activeSlot = sl;
+            };
+        });
+
+        act.querySelectorAll('.bank-chip').forEach(chip => {
+            chip.onclick = () => {
+                if ($('#cooldown-screen').style.display === 'flex' || !activeSlot || activeSlot.classList.contains('filled')) return;
+                const targetWord = answers[+activeSlot.dataset.idx];
+                if (chip.dataset.w.toLowerCase() === targetWord.toLowerCase()) {
+                    activeSlot.textContent = targetWord;
+                    activeSlot.classList.remove('active');
+                    activeSlot.classList.add('filled');
+                    chip.classList.add('used');
+                    if (!S.words.includes(targetWord)) S.words.push(targetWord);
+                    playSound('success');
+                    filledCount++;
+                    const nextSlot = slots.find(s => !s.classList.contains('filled'));
+                    if (nextSlot) {
+                        nextSlot.classList.add('active');
+                        activeSlot = nextSlot;
+                    } else if (filledCount === answers.length) {
+                        setTimeout(() => finishStation(wrong === 0), 500);
+                    }
+                } else {
+                    wrong++; S.rush++;
+                    triggerCooldown(chip, 5, 'Từ "' + chip.dataset.w + '" đặt vào bông hoa này chưa hợp ngữ cảnh rồi!');
+                }
+            };
+        });
+    }
+    else if (st.k === 'group') {
+        const cats = st.cats || ['Nhóm 1', 'Nhóm 2'];
+        let currentCat = 1;
+        let tot = 0, gotCount = 0;
+
+        const tokenizeGroupLine = line => line.split(/\s+/).filter(Boolean).map(tk => {
+            const m = tk.match(/^\*(\d+):([^.,!?;:"“”()]+)([.,!?;:"“”()]*)$/);
+            if (!m) return esc(tk.replace(/_/g, ' '));
+            tot++;
+            const catIdx = m[1];
+            const w = m[2].replace(/_/g, ' ');
+            return '<span class="w" data-cat="' + catIdx + '" data-w="' + esc(w) + '">' + esc(w) + '</span>' + esc(m[3]);
+        }).join(' ');
+
+        if (isPoem && (st.t.includes('\n') || st.t.includes('//'))) {
+            rd.innerHTML = formatPoemStanzasHTML(st.t, line => '<span class="verse-line">' + tokenizeGroupLine(line) + '</span>');
+        } else {
+            rd.innerHTML = tokenizeGroupLine(st.t);
+        }
+
+        act.innerHTML = '<div class="big">🗂️ ' + esc(st.q) + '</div>' +
+            '<div class="group-tabs" id="gtabs">' +
+                cats.map((c, idx) => '<button class="group-tab ' + (idx === 0 ? 'active' : '') + '" data-c="' + (idx + 1) + '">🧺 Giỏ ' + (idx + 1) + ': ' + esc(c) + '</button>').join('') +
+            '</div>' +
+            '<div class="group-baskets">' +
+                cats.map((c, idx) => '<div class="group-box ' + (idx === 0 ? 'active' : '') + '" id="gbox-' + (idx + 1) + '"><h4>' + esc(c) + '</h4><div class="g-items"></div></div>').join('') +
+            '</div>';
+
+        const switchCat = c => {
+            currentCat = c;
+            act.querySelectorAll('.group-tab').forEach(b => b.classList.toggle('active', +b.dataset.c === c));
+            act.querySelectorAll('.group-box').forEach((box, idx) => box.classList.toggle('active', idx + 1 === c));
+        };
+
+        act.querySelectorAll('.group-tab').forEach(b => b.onclick = () => switchCat(+b.dataset.c));
+        act.querySelectorAll('.group-box').forEach((box, idx) => box.onclick = () => switchCat(idx + 1));
+
+        rd.querySelectorAll('.w').forEach(sp => {
+            sp.onclick = () => {
+                if ($('#cooldown-screen').style.display === 'flex' || sp.classList.contains('got')) return;
+                if (+sp.dataset.cat === currentCat) {
+                    sp.classList.add('got');
+                    gotCount++;
+                    if (!S.words.includes(sp.dataset.w)) S.words.push(sp.dataset.w);
+                    playSound('success');
+                    $('#gbox-' + currentCat + ' .g-items').insertAdjacentHTML('beforeend', '<span class="chip">' + esc(sp.dataset.w) + '</span>');
+                    if (gotCount === tot) {
+                        setTimeout(() => finishStation(wrong === 0), 600);
+                    }
+                } else {
+                    wrong++; S.rush++;
+                    triggerCooldown(sp, 5, 'Từ "' + sp.dataset.w + '" không thuộc giỏ "' + cats[currentCat - 1] + '" rồi! Em hãy chọn đúng giỏ nhé.');
+                }
+            };
+        });
+    }
+    else if (st.k === 'order') {
+        if (isPoem) {
+            rd.innerHTML = formatPoemStanzasHTML(st.t, line => '<span class="verse-line">' + esc(line) + '</span>');
+        } else {
+            rd.textContent = st.t;
+        }
+        act.innerHTML = '<div class="msg" id="cd" style="text-align:center"></div>';
+        countdown(st.min, $('#cd'), () => {
+            const shuffled = shuf(st.items.map((text, idx) => ({ text, idx })));
+            let expectedIdx = 0;
+
+            act.innerHTML = '<div class="big">🔢 ' + esc(st.q) + '</div>' +
+                '<div id="order-list">' +
+                    shuffled.map(item => '<button class="order-item" data-idx="' + item.idx + '">' +
+                        '<span class="order-badge">?</span>' +
+                        '<span>' + esc(item.text) + '</span>' +
+                    '</button>').join('') +
+                '</div>';
+
+            act.querySelectorAll('.order-item').forEach(btn => {
+                btn.onclick = () => {
+                    if ($('#cooldown-screen').style.display === 'flex' || btn.classList.contains('picked')) return;
+                    if (+btn.dataset.idx === expectedIdx) {
+                        expectedIdx++;
+                        btn.classList.add('picked');
+                        btn.querySelector('.order-badge').textContent = expectedIdx;
+                        playSound('success');
+                        if (expectedIdx === st.items.length) {
+                            setTimeout(() => finishStation(wrong === 0), 600);
+                        }
+                    } else {
+                        wrong++; S.rush++;
+                        triggerCooldown(btn, 5, 'Sự việc này chưa phải là sự việc tiếp theo. Em nhớ lại trình tự nhé!');
+                    }
+                };
+            });
+        });
+    }
+    else if (st.k === 'multi') {
+        if (isPoem) {
+            rd.innerHTML = formatPoemStanzasHTML(st.t, line => '<span class="verse-line">' + esc(line) + '</span>');
+        } else {
+            rd.textContent = st.t;
+        }
+        const selected = new Set();
+        const correctSet = new Set(st.a);
+
+        act.innerHTML = '<div class="big">☑️ ' + esc(st.q) + '</div>' +
+            '<div id="multi-opts" class="cols">' +
+                st.o.map((o, i) => '<button class="opt" data-i="' + i + '">' + esc(o) + '</button>').join('') +
+            '</div>' +
+            '<div style="text-align:center;margin-top:14px"><button id="btn-check-multi" style="background:var(--pu);font-size:20px;padding:12px 24px;border:none;border-radius:12px;color:#fff;font-weight:900;cursor:pointer">✅ Kiểm tra đáp án</button></div>';
+
+        act.querySelectorAll('#multi-opts .opt').forEach(b => {
+            b.onclick = () => {
+                const i = +b.dataset.i;
+                if (selected.has(i)) { selected.delete(i); b.classList.remove('sel'); }
+                else { selected.add(i); b.classList.add('sel'); }
+            };
+        });
+
+        $('#btn-check-multi').onclick = () => {
+            if ($('#cooldown-screen').style.display === 'flex') return;
+            const isCorrect = selected.size === correctSet.size && [...selected].every(i => correctSet.has(i));
+            if (isCorrect) {
+                act.querySelectorAll('#multi-opts .opt').forEach(b => {
+                    if (correctSet.has(+b.dataset.i)) b.classList.add('done');
+                    b.disabled = true;
+                });
+                $('#btn-check-multi').style.display = 'none';
+                finishStation(wrong === 0);
+            } else {
+                wrong++; S.rush++;
+                triggerCooldown($('#btn-check-multi'), 5, 'Em chọn chưa đủ hoặc còn nhầm lẫn. Hãy kiểm tra kỹ từng phương án nhé!');
+            }
+        };
+    }
+}
+
+/* ===== ĐỌC TO BẰNG MICRO ===== */
+function micStep() {
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    app.innerHTML = '<div class="card">' +
+        trail() +
+        '<h2 style="color:#16a085">🎤 Đọc Vang Mở Khóa!</h2>' +
+        '<p>Em hãy bấm Micro và đọc to, rõ ràng câu dưới đây nhé:</p>' +
+        '<div id="mic-target-box" class="big-target"></div>' +
+        '<div style="text-align:center;margin:24px 0">' +
+            (SR ? '<button id="mc" class="mic-btn" style="font-size:20px;padding:15px 32px;border-radius:12px;cursor:pointer;border:none;background:var(--sun);font-weight:bold;box-shadow:0 4px 0 #d99a00;">🎙️ Bấm để đọc</button>' : '') +
+        '</div>' +
+        '<div class="msg" id="ms" style="text-align:center"></div>' +
+        '<div style="text-align:center;margin-top:20px">' +
+            
+        '<div id="pr-auth-box" style="display:none; margin-top:15px; padding:15px; background:#fef9e7; border:2px dashed #f1c40f; border-radius:12px;">' +
+            '<div style="font-weight:bold; color:#d35400; margin-bottom:8px;">🔒 Xác nhận Phụ huynh</div>' +
+            '<div style="margin-bottom:10px; font-size:16px;">Bố/mẹ vui lòng nhập mật khẩu được Cô giáo cấp để xác nhận:</div>' +
+            '<div id="pr-math-question" style="font-size:20px; font-weight:900; color:#2c3e50; margin-bottom:10px;"></div>' +
+            '<input id="pr-math-ans" type="number" style="width:100px; text-align:center; padding:8px; font-size:18px;" placeholder="?">' +
+            '<button id="pr-confirm-btn" style="background:#f39c12; color:#fff; box-shadow:0 4px 0 #d68910; padding:8px 20px;">Xác nhận</button>' +
+            '<div id="pr-err" style="color:var(--bad); font-weight:bold; font-size:14px; margin-top:5px; display:none;">Kết quả chưa đúng!</div>' +
+        '</div>' +
+
+            '<button id="pr" style="background:#fff;border:2px solid var(--ln);box-shadow:none;cursor:pointer;padding:10px 15px;border-radius:10px;">👨‍👩‍👧 Con đã đọc to cho bố/mẹ nghe (Phụ huynh xác nhận)</button>' +
+        '</div>' +
+    '</div>';
+
+    
+    let micContentHTML = '';
+    if (L().isPoem && (L().mic.includes('\n') || L().mic.includes('//'))) {
+        micContentHTML = formatPoemStanzasHTML(L().mic, line => '<span class="verse-line">' + esc(line) + '</span>');
+    } else {
+        micContentHTML = esc(L().mic);
+    }
+
+    $('#mic-target-box').innerHTML = micContentHTML;
+    
+    $('#pr').onclick = () => { 
+        $('#pr').style.display = 'none';
+        $('#pr-auth-box').style.display = 'block';
+        $('#pr-math-question').innerText = "Mật khẩu xác nhận:";
+        $('#pr-math-ans').type = "password";
+        $('#pr-math-ans').placeholder = "***";
+        $('#pr-math-ans').focus();
+    };
+    
+    $('#pr-confirm-btn').onclick = () => {
+        // MẬT KHẨU MẶC ĐỊNH DÀNH CHO PHỤ HUYNH
+        const parentPassword = "123"; 
+        
+        if ($('#pr-math-ans').value === parentPassword) {
+            S.mic = 'PH xác nhận'; 
+            playSound('success');
+            finish();
+        } else {
+            $('#pr-err').innerText = 'Mật khẩu chưa đúng!';
+            $('#pr-err').style.display = 'block';
+            shake($('#pr-auth-box'));
+            playSound('error');
+        }
+    };
+    
+    $('#pr-math-ans').onkeypress = e => { if (e.key === 'Enter') $('#pr-confirm-btn').click(); };
+
+    if (!SR) return;
+
+    let isRecording = false;
+    let r = null;
+    let finalProcessed = false;
+    
+    function fireConfettiStream() {
+        const duration = 2000;
+        const end = Date.now() + duration;
+
+        (function frame() {
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 5,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#26ccff', '#a25afd', '#ff5e7e', '#88ff5a', '#fcff42', '#ffa62d', '#ff36ff']
+                });
+                confetti({
+                    particleCount: 5,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#26ccff', '#a25afd', '#ff5e7e', '#88ff5a', '#fcff42', '#ffa62d', '#ff36ff']
+                });
+            }
+
+            if (Date.now() < end) {
+                requestAnimationFrame(frame);
+            }
+        }());
+    }
+
+    $('#mc').onclick = () => {
+        if (isRecording) {
+            if(r) r.stop();
+            isRecording = false;
+            return;
+        }
+        
+        finalProcessed = false; // reset flag
+        const ms = $('#ms');
+        const btn = $('#mc');
+        r = new SR();
+        r.lang = 'vi-VN'; 
+        r.maxAlternatives = 3;
+        
+        // LUÔN BẬT CONTINUOUS ĐỂ KHÔNG BỊ CẮT NGANG
+        r.continuous = true;
+        // BẬT KẾT QUẢ TẠM THỜI (INTERIM) ĐỂ THẤY CHỮ CHẠY TRỰC TIẾP TRƯỚC KHI CHỐT
+        r.interimResults = true;
+        
+        let fullTranscript = '';
+        
+        r.onstart = () => { 
+            isRecording = true;
+            btn.innerHTML = '🛑 Bấm để Dừng ghi âm & Chấm điểm';
+            btn.style.background = 'var(--bad)';
+            btn.style.boxShadow = '0 4px 0 #c0392b';
+            ms.className = 'msg';
+            ms.innerHTML = '<span style="color:#7f8c8d; font-weight:normal;">Đang nghe em đọc... Cứ đọc hết câu rồi hãy bấm Dừng nhé!</span>'; 
+        };
+        
+        r.onresult = e => {
+            let finalText = '';
+            let interimText = '';
+            
+            // Duyệt toàn bộ mảng kết quả từ đầu đến cuối phiên ghi âm
+            for (let i = 0; i < e.results.length; ++i) {
+                if (e.results[i].isFinal) {
+                    finalText += e.results[i][0].transcript + ' ';
+                } else {
+                    interimText += e.results[i][0].transcript + ' ';
+                }
+            }
+            
+            // Cập nhật biến fullTranscript để dùng lúc chấm điểm
+            fullTranscript = finalText.trim();
+            
+            // Hiển thị chữ đang đọc trực tiếp lên màn hình
+            const displayText = finalText + interimText;
+            if (displayText.trim() !== '') {
+                ms.innerHTML = '<span style="color:#2c3e50; font-weight:normal; font-style:italic;">"' + esc(displayText) + '"</span>';
+            }
+        };
+        
+        r.onend = () => {
+            isRecording = false;
+            btn.innerHTML = '🎙️ Bấm để đọc lại';
+            btn.style.background = 'var(--sun)';
+            btn.style.boxShadow = '0 4px 0 #d99a00';
+            
+            if (finalProcessed) return; // Nếu đã chấm điểm rồi thì thôi
+            finalProcessed = true;
+            
+            // Khi dừng thu âm mới bắt đầu chấm điểm trên toàn bộ chuỗi đọc được
+            if (!fullTranscript.trim()) {
+                fullTranscript = ms.textContent.replace(/"/g, '').trim();
+            }
+            
+            if (!fullTranscript || fullTranscript.includes("Đang nghe em đọc") || fullTranscript === "") {
+                ms.className = 'msg bad';
+                ms.textContent = 'Máy chưa nghe được gì cả. Em hãy đọc thật to nhé!';
+                return;
+            }
+            
+            const score = sim(L().mic, fullTranscript);
+            const p = Math.round(score * 100);
+            
+            if (p >= 65) {
+                S.mic = p;
+                ms.className = 'msg ok';
+                ms.innerHTML = '🎉 Tuyệt vời! Em đọc rõ ràng <b>(' + p + '%)</b>!';
+                playSound('victory');
+                fireConfettiStream();
+                
+                // ĐỢI 3 GIÂY CHO HỌC SINH TẬN HƯỞNG TRƯỚC KHI CHUYỂN TRANG
+                setTimeout(finish, 3000);
+            } else {
+                ms.className = 'msg bad';
+                ms.innerHTML = '😅 Máy nghe được: <br><i style="font-weight:normal; color:#2c3e50">"' + esc(fullTranscript) + '"</i><br>Độ chính xác: <b>' + p + '%</b>. Em thử bấm đọc lại to và chậm hơn nhé!';
+            }
+        };
+        
+        r.onerror = () => { 
+            ms.className = 'msg bad'; 
+            ms.textContent = '⚠️ Trình duyệt chặn Micro hoặc không thu được âm. Em kiểm tra lại nhé!'; 
+        };
+        
+        try { r.start(); } catch(e) {}
+    };
+}
+
+function finish() {
+    S.done = true; upsert();
+    const r = S.tot ? S.ok / S.tot : 0;
+    const stars = r >= 0.7 ? 3 : r >= 0.4 ? 2 : 1;
+    app.innerHTML = '<div class="card" style="text-align:center;padding:36px 20px">' +
+        '<h2>🏅 Chúc mừng ' + esc(S.name) + '!</h2>' +
+        '<div style="font-size:64px;margin:15px 0">' + '⭐'.repeat(stars) + '</div>' +
+        '<p class="big">' + (stars === 3 ? 'Tuyệt vời! Em đọc bài rất kỹ và hiểu bài sâu sắc.' : 'Em đã hoàn thành bài đọc!') + '</p>' +
+        '<p class="sm">' + esc(lname(S.lid)) + '</p>' +
+        '<div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:20px">' +
+            '<button id="btn-pdf" style="background:#1fae6b;color:#fff;box-shadow:0 4px 0 #148f54;border:none;padding:12px 24px;border-radius:12px;font-weight:900;cursor:pointer">🖨️ Xuất / In Phiếu Kết Quả PDF</button>' +
+            '<button id="again" style="background:var(--sun);border:none;padding:12px 24px;border-radius:12px;font-weight:900;cursor:pointer">📚 Đọc bài khác</button>' +
+        '</div>' +
+    '</div>';
+    playSound('victory'); 
+    if (typeof confetti === 'function') {
+        confetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
+    } else {
+        showConfetti();
+    }
+    
+    $('#btn-pdf').onclick = () => printStudentPDF(S);
+    $('#again').onclick = home;
+}
+
+
+/* ===== MÀN HÌNH ĐĂNG NHẬP ADMIN ===== */
+function showLogin() {
+    clearInterval(iv);
+    app.innerHTML = '<div class="card" style="max-width: 450px; margin: 40px auto; text-align: center;">' +
+        '<h2 style="color:var(--secondary)">🔒 Vùng Quản Trị</h2>' +
+        '<p class="sm" style="margin-bottom:25px">Vui lòng nhập tài khoản Giáo viên để tiếp tục</p>' +
+        '<input id="adm-user" type="text" placeholder="Tài khoản" autocomplete="off">' +
+        '<input id="adm-pass" type="password" placeholder="Mật khẩu">' +
+        '<div id="login-err" style="color:var(--bad); font-weight:bold; margin: 10px 0; display:none;">Sai tài khoản hoặc mật khẩu!</div>' +
+        '<button id="btn-login" style="width:100%; font-size:18px; padding:14px; margin-top:10px; background:var(--pu); color:#fff; box-shadow:0 4px 0 #3a1ea3;">Đăng nhập</button>' +
+    '</div>';
+
+    $('#btn-login').onclick = () => {
+        const u = $('#adm-user').value.trim();
+        const p = $('#adm-pass').value.trim();
+        
+        if (u === 'admin' && p === '123456') { 
+            isAdmin = true;
+            playSound('success');
+            teacher(); 
+        } else {
+            $('#login-err').style.display = 'block';
+            shake($('#btn-login')); 
+            playSound('error');
+        }
+    };
+
+    $('#adm-pass').onkeypress = e => { if (e.key === 'Enter') $('#btn-login').click(); };
+}
+
+/* ===== MÀN HÌNH GIÁO VIÊN ===== */
+function teacher() {
+    clearInterval(iv);
+    const rs = load();
+    const base = location.href.split('#')[0];
+    
+    let gradesWithLessons = [];
+    if (window.LESSONS_DATA) {
+        gradesWithLessons = GRADES.filter(g => Object.values(window.LESSONS_DATA).some(l => l.grade === g));
+    }
+
+    app.innerHTML = '<div class="card">' +
+        '<h2>1. Giao bài đọc về nhà</h2>' +
+        '<div class="cols">' +
+            '<label>Khối lớp:<select id="ag">' + gradesWithLessons.map(g => '<option value="' + g + '">Lớp ' + g + '</option>').join('') + '</select></label>' +
+            '<label>Chọn bài:<select id="al"></select></label>' +
+        '</div>' +
+        '<label>Đường link gửi học sinh / nhóm Zalo phụ huynh:' +
+            '<div style="display:flex;gap:10px;margin-top:6px">' +
+                '<input id="lk" readonly style="margin:0;background:#f8f9fa">' +
+                '<button id="cp">📋 Sao chép</button>' +
+            '</div>' +
+        '</label>' +
+    '</div>' +
+    '<div class="card">' +
+        '<h2>2. Báo cáo kết quả đọc hiểu & Xuất PDF gửi Phụ huynh</h2>' +
+        '<div class="row">' +
+            '<button id="btn-print-class" style="background:var(--pu);color:#fff;box-shadow:none">🖨️ Xuất PDF Báo Cáo Cả Lớp</button>' +
+            '<button id="ex" style="background:var(--ok);color:#fff;box-shadow:none">📥 Xuất file CSV (Excel)</button>' +
+            '<button id="sp" style="background:#fff;border:2px solid var(--ln);box-shadow:none;color:var(--text-main)">🧪 Nạp dữ liệu mẫu</button>' +
+            '<button id="cl" style="background:var(--bad);color:#fff;box-shadow:none">🗑️ Xóa dữ liệu máy này</button>' +
+        '</div>' +
+        '<div class="tw">' +
+            '<table>' +
+                '<thead><tr><th>Học sinh</th><th>Bài đọc</th><th>Trạng thái</th><th>Thời gian</th><th>Đúng lần đầu</th><th>Bấm vội</th><th>Đọc to</th><th>Phiếu PDF</th></tr></thead>' +
+                '<tbody>' +
+                    (rs.length ? rs.sort((a,b) => b.secs - a.secs).map((r, idx) => {
+                        const p = r.tot ? Math.round(r.ok / r.tot * 100) : 0;
+                        return '<tr>' +
+                            '<td><b>' + esc(r.name) + '</b></td>' +
+                            '<td>' + esc(lname(r.lid)) + '</td>' +
+                            '<td>' + esc(r.status) + '</td>' +
+                            '<td>' + mmss(r.secs) + '</td>' +
+                            '<td>' + (r.tot ? p + '% ' + okLbl(p) : '—') + '</td>' +
+                            '<td>' + r.rush + ' lỗi</td>' +
+                            '<td>' + micLbl(r.mic) + '</td>' +
+                            '<td><button class="btn-row-pdf" data-idx="' + idx + '" style="padding:6px 12px;font-size:13px;background:var(--pu);color:#fff;border:none;border-radius:6px;cursor:pointer">📄 In Phiếu</button></td>' +
+                        '</tr>';
+                    }).join('') : '<tr><td colspan="8" style="text-align:center;padding:24px">Chưa có dữ liệu học sinh làm bài.</td></tr>') +
+                '</tbody>' +
+            '</table>' +
+        '</div>' +
+    '</div>';
+
+    const sync = () => { if ($('#al').value) $('#lk').value = base + '#bai=' + $('#al').value; };
+    const fill = () => {
+        if (!window.LESSONS_DATA) return;
+        $('#al').innerHTML = Object.keys(window.LESSONS_DATA).filter(k => window.LESSONS_DATA[k].grade == $('#ag').value)
+            .map(k => '<option value="' + k + '">' + (ICON[window.LESSONS_DATA[k].book] || '📚') + ' ' + esc(window.LESSONS_DATA[k].title) + '</option>').join('');
+        sync();
+    };
+    if (gradesWithLessons.length) { $('#ag').onchange = fill; $('#al').onchange = sync; fill(); }
+
+    $('#cp').onclick = () => {
+        navigator.clipboard && navigator.clipboard.writeText($('#lk').value);
+        $('#cp').textContent = '✅ Đã chép!';
+    };
+    $('#btn-print-class').onclick = () => printClassPDF();
+    app.querySelectorAll('.btn-row-pdf').forEach(btn => {
+        btn.onclick = () => printStudentPDF(rs[+btn.dataset.idx]);
+    });
+    $('#sp').onclick = () => {
+        store([
+            {name: 'Nguyễn Hồng Thắng', lid: 'L4_Dieu_ki_dieu', status: 'Hoàn thành', secs: 185, ok: 4, tot: 4, rush: 0, mic: 95, words: ['Lung linh', 'tươi xinh', 'đáng mến', 'hoà quyện'], date: new Date().toLocaleDateString('vi-VN')},
+            {name: 'Lê Bảo Anh', lid: 'L4_Con_vet_xanh', status: 'Hoàn thành', secs: 210, ok: 2, tot: 2, rush: 1, mic: 88, words: ['nhớ', 'thương', 'khen', 'biết ơn', 'thích', 'yêu'], date: new Date().toLocaleDateString('vi-VN')}
+        ]);
+        teacher();
+    };
+    $('#cl').onclick = () => { if (confirm('Xóa toàn bộ dữ liệu trên máy này?')) { store([]); teacher(); } };
+    $('#ex').onclick = () => {
+        const h = ['Hoc sinh', 'Bai doc', 'Trang thai', 'Giay doc', 'Dung lan dau (%)', 'Bam voi', 'Doc to'];
+        const q = v => '"' + String(v).replace(/"/g, '""') + '"';
+        const rows = rs.map(r => [r.name, lname(r.lid), r.status, r.secs, r.tot ? Math.round(r.ok / r.tot * 100) : '', r.rush, r.mic ?? ''].map(q).join(','));
+        const csvContent = '\uFEFF' + [h.map(q).join(','), ...rows].join(NL);
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob([csvContent], {type: 'text/csv;charset=utf-8;'}));
+        a.download = 'Bao_Cao_Doc_Sach.csv';
+        a.click();
+    };
+}
+
+$('#tS').onclick = () => { $('#tS').classList.add('on'); $('#tT').classList.remove('on'); (!S || S.done) ? home() : S.i >= L().stations.length ? (L().mic ? micStep() : finish()) : station(); };
+$('#tT').onclick = () => { 
+    $('#tT').classList.add('on'); 
+    $('#tS').classList.remove('on'); 
+    if (typeof isAdmin !== 'undefined' && isAdmin) {
+        teacher();
+    } else {
+        showLogin();
+    }
+};
+
+function initApp() {
+    const script = document.createElement('script');
+    script.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js";
+    document.head.appendChild(script);
+
+    function checkData() {
+        if (!dataLoaded) {
+            if (typeof window.LESSONS !== 'undefined' && Object.keys(window.LESSONS).length > 0) {
+                window.LESSONS_DATA = window.LESSONS;
+                dataLoaded = true;
+                console.log("Đã tải dữ liệu thành công qua biến window.LESSONS!");
+                const loaderMsg = document.getElementById('loader-msg');
+                if (loaderMsg) loaderMsg.style.display = 'none';
+                home();
+            } else {
+                console.warn("Chưa tìm thấy dữ liệu. Hiển thị cảnh báo.");
+                const loaderMsg = document.getElementById('loader-msg');
+                if (loaderMsg) {
+                    loaderMsg.innerHTML = '<div style="background:#f8d7da; color:#721c24; padding:20px; border-radius:12px; margin:20px; text-align:left; border-left:5px solid #dc3545;"><h3 style="margin-top:0; color:#c0392b">⚠️ Dữ liệu chưa được nạp</h3><p>Hệ thống không tìm thấy file <b>data-snapshot.js</b> hoặc file không chứa dữ liệu hợp lệ.</p><p>Vui lòng dùng công cụ <b>DocSach Studio</b> để xuất file dữ liệu và lưu vào cùng thư mục với file này.</p></div>';
+                }
+            }
+        }
+    }
+    
+    // Đợi 500ms cho file js kịp parse
+    setTimeout(checkData, 500);
+}
+initApp();
+</script>
+</body>
+</html>
