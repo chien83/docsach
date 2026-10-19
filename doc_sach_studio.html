@@ -3,195 +3,346 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>DocSach Studio V5.5 - Xuất Snapshot chuẩn cho Index V5.1</title>
+    <title>DocSach Studio V5.9 - Chống Crash Toàn Diện</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
     <style>
         body { font-family: 'Nunito', sans-serif; background: #f4f6f7; color: #2c3e50; margin: 0; padding: 25px; }
         .container { max-width: 1020px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-top: 8px solid #16a085; }
-        h1 { color: #16a085; margin-top: 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        h1 { color: #16a085; margin-top: 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; border-bottom: 2px dashed #bdc3c7; padding-bottom: 15px;}
         .step { background: #f8f9fa; padding: 20px; border-radius: 14px; margin-bottom: 20px; border: 2px solid #e1e8ed; }
-        button { background: #16a085; color: #fff; border: 0; padding: 11px 22px; border-radius: 10px; font-weight: 900; font-size: 15px; cursor: pointer; font-family: inherit; margin-right: 8px; margin-top: 6px; }
-        button:disabled { background: #bdc3c7; cursor: not-allowed; }
+        .step h3 { margin-top: 0; color: #2980b9; display: flex; align-items: center; gap: 8px;}
+        .step-num { background: #2980b9; color: white; border-radius: 50%; width: 28px; height: 28px; display: inline-flex; justify-content: center; align-items: center; font-size: 16px;}
+        button { background: #16a085; color: #fff; border: 0; padding: 11px 22px; border-radius: 10px; font-weight: 900; font-size: 15px; cursor: pointer; font-family: inherit; margin-right: 8px; margin-top: 6px; box-shadow: 0 4px 0 #117a65; transition: all 0.2s;}
+        button:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #117a65; }
+        button:active { transform: translateY(4px); box-shadow: 0 0 0 #117a65; }
+        button:disabled { background: #bdc3c7; box-shadow: 0 4px 0 #95a5a6; cursor: not-allowed; transform: none; }
         input[type="file"], textarea { display: block; margin: 10px 0; padding: 12px; border: 2px dashed #bdc3c7; border-radius: 10px; width: 100%; background: #fff; font-family: Consolas, monospace; font-size: 14px; }
-        #logArea { background: #1e272e; color: #d2dae2; padding: 16px; border-radius: 10px; font-family: Consolas, monospace; height: 220px; overflow-y: auto; font-size: 14px; }
+        #logArea { background: #1e272e; color: #d2dae2; padding: 16px; border-radius: 10px; font-family: Consolas, monospace; height: 220px; overflow-y: auto; font-size: 14px; box-shadow: inset 0 0 10px rgba(0,0,0,0.5);}
         .err { color: #ff6b6b; font-weight: bold; }
         .ok { color: #2ecc71; font-weight: bold; }
         .warn { color: #f1c40f; font-weight: bold; }
-        .badge-list { font-size: 14px; background: #e8f8f5; padding: 12px; border-radius: 10px; margin-bottom: 16px; line-height: 1.7; }
+        .badge-list { font-size: 14px; background: #e8f8f5; padding: 15px; border-radius: 10px; margin-bottom: 20px; line-height: 1.7; border-left: 5px solid #16a085;}
+        
+        .tab-buttons { display: flex; gap: 10px; margin-bottom: 15px; }
+        .tab-btn { background: #ecf0f1; color: #7f8c8d; box-shadow: none; padding: 10px 20px; border-radius: 8px 8px 0 0; border: 2px solid transparent; border-bottom: none; margin: 0;}
+        .tab-btn.active { background: #fff; color: #2980b9; border-color: #bdc3c7; font-weight: 900; }
+        .tab-content { display: none; background: #fff; border: 2px solid #bdc3c7; padding: 20px; border-radius: 0 8px 8px 8px; margin-top: -2px;}
+        .tab-content.active { display: block; }
     </style>
 </head>
 <body>
 <div class="container">
     <h1>
-        <span>🛠️ Đọc Sách Studio V5.5</span>
-        <button id="downloadTemplate" style="background:#2980b9">📥 Tải File Excel Mẫu (.xlsx)</button>
+        <span>🛠️ Đọc Sách Studio V5.9</span>
+        <button id="downloadTemplate" style="background:#2980b9; box-shadow: 0 4px 0 #1f618d;">📥 Tải File Excel Mẫu (.xlsx)</button>
     </h1>
 
     <div class="badge-list">
-        <b>Bản này đã được chỉnh sửa để xuất file <code>data-snapshot.js</code> TƯƠNG THÍCH HOÀN TOÀN với <code>index_5.1</code>.</b><br>
-        Hỗ trợ 8 trạm: <code>tap, choice, multi, gold, group, fill, match, order</code>.
+        <b>Bản V5.9: Đã tách biệt hoàn toàn!</b><br>
+        Để sửa triệt để lỗi đứng trình duyệt, phần mềm không còn nhúng hay gọi ngầm bất cứ file nào. Bạn tải file Excel mẫu, làm bài, bấm nút phân tích độc lập.
+    </div>
+
+    <div class="step" style="background: #e8f6f3; border-color: #a3e4d7;">
+        <h3><span class="step-num" style="background:#1abc9c">1</span> Nạp Kho dữ liệu hiện tại (Snapshot cũ)</h3>
+        <p style="margin-top:0; color:#7f8c8d; font-size:14px">Nếu bạn muốn gộp bài mới vào kho cũ, hãy bấm <b>Chọn tệp</b> và tìm file <code>data-snapshot.js</code>.</p>
+        <input type="file" id="snapshotFile" accept=".js">
+        <div id="currentDataStatus" style="font-weight: 700; color: #16a085; font-size: 15px; margin-top: 10px;">Chưa nạp kho cũ. (Hệ thống sẽ tạo kho mới tinh nếu bạn bỏ qua bước này).</div>
     </div>
 
     <div class="step">
-        <h3>Cách 1: Nạp từ File Excel (.xlsx / .xls)</h3>
-        <input type="file" id="excelFile" accept=".xlsx, .xls">
-        <button id="btnCheckExcel">🔍 Phân Tích File Excel</button>
+        <h3><span class="step-num">2</span> Nạp Thêm Bài Mới (Excel hoặc TSV)</h3>
+        
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="switchTab('excel')">📁 Tải lên file Excel</button>
+            <button class="tab-btn" onclick="switchTab('tsv')">📝 Dán nhanh mã TSV</button>
+        </div>
+        
+        <div id="tab-excel" class="tab-content active">
+            <p style="margin-top:0; color:#7f8c8d">Chọn file Excel chứa bài đọc <b>mới</b>.</p>
+            <input type="file" id="excelFile" accept=".xlsx, .xls">
+            <button id="btnCheckExcel">🔍 Phân Tích File Excel</button>
+        </div>
+        
+        <div id="tab-tsv" class="tab-content">
+            <p style="margin-top:0; color:#7f8c8d">Copy dữ liệu từ AI và dán thẳng vào ô bên dưới.</p>
+            <textarea id="tsvInput" rows="5" placeholder="Dán các dòng TSV (ngăn cách bằng phím Tab)..."></textarea>
+            <button id="btnCheckTSV" style="background:#8e44ad; box-shadow: 0 4px 0 #732d91;">⚡ Phân Tích Nhanh TSV</button>
+        </div>
     </div>
 
     <div class="step">
-        <h3>Cách 2: Nhập nhanh TSV</h3>
-        <textarea id="tsvInput" rows="4" placeholder="Dán các dòng TSV (ngăn cách bằng phím Tab) do AI tạo vào đây..."></textarea>
-        <button id="btnCheckTSV" style="background:#8e44ad">⚡ Phân Tích Nhanh TSV</button>
-    </div>
-
-    <div class="step">
-        <h3>Bảng Kiểm Tra & Bắt Lỗi Tự Động</h3>
-        <div id="logArea">Sẵn sàng nhận dữ liệu...</div>
+        <h3><span class="step-num">3</span> Bảng Kiểm Tra & Bắt Lỗi Tự Động</h3>
+        <div id="logArea">Sẵn sàng nhận dữ liệu bài mới...</div>
     </div>
 
     <div class="step" style="background:#ebf5fb;border-color:#3498db">
-        <h3>Xuất Bản Dữ Liệu</h3>
-        <button id="btnExport" disabled style="background:#2980b9">💾 Tải file data-snapshot.js chuẩn</button>
+        <h3><span class="step-num">4</span> Xuất Bản Kho Dữ Liệu</h3>
+        <button id="btnExport" disabled style="background:#2980b9; box-shadow: 0 4px 0 #1f618d; padding: 15px 30px; font-size: 18px;">💾 Tải file data-snapshot.js</button>
     </div>
 </div>
 
 <script>
-const NL = String.fromCharCode(10);
-const TAB = String.fromCharCode(9);
-let globalJsonData = {};
-const logArea = document.getElementById('logArea');
-const btnExport = document.getElementById('btnExport');
+// Không khai báo bất cứ biến let hay const nào bên ngoài các hàm có thể trùng tên hoặc lỗi.
+var NL_CHAR = String.fromCharCode(10);
+var TAB_CHAR = String.fromCharCode(9);
 
-function logMsg(msg, cls = '') {
-    logArea.innerHTML += `<div class="${cls}">> ${msg}</div>`;
-    logArea.scrollTop = logArea.scrollHeight;
-}
+var globalJsonData = {}; // Kho tổng chuẩn bị xuất ra
+var oldSnapshotData = {}; // Dữ liệu lấy từ file JS cũ
 
-function toSafeKey(grade, title) {
-    const noAccent = title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D');
-    return `L${grade}_` + noAccent.replace(/[^a-zA-Z0-9]+/g, '_').replace(/^_|_$/g, '');
-}
+// Gán sự kiện trực tiếp không dùng onclick qua ID để tránh xung đột DOM
+document.addEventListener("DOMContentLoaded", function() {
+    var logArea = document.getElementById('logArea');
+    var btnExport = document.getElementById('btnExport');
+    var currentDataStatus = document.getElementById('currentDataStatus');
 
-document.getElementById('btnCheckExcel').onclick = () => {
-    const f = document.getElementById('excelFile').files[0];
-    if (!f) return logMsg('Vui lòng chọn file Excel!', 'err');
-    logArea.innerHTML = ''; btnExport.disabled = true;
-    const reader = new FileReader();
-    reader.onload = e => {
-        const wb = XLSX.read(new Uint8Array(e.target.result), {type: 'array'});
-        const rows = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], {header: 1, defval: ''});
-        processRows(rows.slice(1));
-    };
-    reader.readAsArrayBuffer(f);
-};
+    function logMsg(msg, cls) {
+        logArea.innerHTML += '<div class="' + (cls || '') + '">> ' + msg + '</div>';
+        logArea.scrollTop = logArea.scrollHeight;
+    }
 
-document.getElementById('btnCheckTSV').onclick = () => {
-    const raw = document.getElementById('tsvInput').value.trim();
-    if (!raw) return logMsg('Vui lòng dán dữ liệu TSV vào ô trống!', 'err');
-    logArea.innerHTML = ''; btnExport.disabled = true;
-    const lines = raw.split(/\r?\n/).filter(l => l.trim() !== '');
-    const rows = lines.map(l => l.split(TAB));
-    const startIdx = String(rows[0][0]).toLowerCase().includes('khối') ? 1 : 0;
-    processRows(rows.slice(startIdx));
-};
+    function toSafeKey(grade, title) {
+        var noAccent = title.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D');
+        return 'L' + grade + '_' + noAccent.replace(/[^a-zA-Z0-9]+/g, '_').replace(/^_|_$/g, '');
+    }
 
-function processRows(rows) {
-    const map = {};
-    let errors = 0;
+    // 1. LẮNG NGHE CHỌN FILE SNAPSHOT CŨ
+    var snapFile = document.getElementById('snapshotFile');
+    if(snapFile) {
+        snapFile.addEventListener('change', function(e) {
+            var file = e.target.files[0];
+            if (!file) return;
 
-    rows.forEach((r, idx) => {
-        const line = idx + 2;
-        const grade = parseInt(String(r[0] || '').match(/\d+/)?.[0] || '0');
-        const book = String(r[1] || 'sgk').trim().toLowerCase();
-        const title = String(r[2] || '').trim();
-        const genre = String(r[3] || '').trim().toLowerCase();
-        const isPoem = (genre === 'thơ' || genre === 'tho' || genre === 'poem');
-        const type = String(r[4] || '').trim().toLowerCase();
-        const totalSecs = (parseInt(r[5]) || 0) * 60 + (parseInt(r[6]) || 0);
-        
-        let text = String(r[7] || '').trim();
-        text = text.replace(/\\n/g, '\n').replace(/<br\s*\/?>/gi, '\n');
-        
-        const q = String(r[8] || '').trim();
-        const opts = String(r[9] || '').trim();
-        const ans = String(r[10] || '').trim();
-        const hint = String(r[11] || '').trim();
+            var reader = new FileReader();
+            reader.onload = function(evt) {
+                var text = evt.target.result;
+                try {
+                    // Regex tìm cấu trúc window.LESSONS = {...}
+                    var matchWindow = text.match(/window\.LESSONS\s*=\s*(\{[\s\S]*\});/);
+                    // Regex tìm cấu trúc loadDataSnapshot({...})
+                    var matchLoad = text.match(/loadDataSnapshot\s*\(\s*(\{[\s\S]*\})\s*\)/);
+                    
+                    var jsonString = "";
+                    if (matchWindow) {
+                        jsonString = matchWindow[1];
+                    } else if (matchLoad) {
+                        jsonString = matchLoad[1];
+                    } else {
+                        jsonString = text.trim();
+                    }
 
-        if (!title) return;
-        if (!grade || !type) { logMsg(`Dòng ${line}: Thiếu Lớp hoặc Loại trạm`, 'err'); errors++; return; }
+                    oldSnapshotData = JSON.parse(jsonString);
+                    var count = Object.keys(oldSnapshotData).length;
+                    currentDataStatus.innerHTML = '✅ Đã nạp thành công <b>' + count + ' bài đọc</b> từ file cũ.';
+                } catch (error) {
+                    currentDataStatus.innerHTML = '❌ Lỗi đọc file cũ: Không đúng định dạng. Sẽ bỏ qua.';
+                    oldSnapshotData = {};
+                }
+            };
+            reader.readAsText(file);
+        });
+    }
 
-        const key = toSafeKey(grade, title);
-        if (!map[key]) {
-            map[key] = { grade, book, title, isPoem, stations: [] };
+    // 2. LẮNG NGHE NÚT EXCEL
+    var btnExcel = document.getElementById('btnCheckExcel');
+    if(btnExcel) {
+        btnExcel.addEventListener('click', function() {
+            var f = document.getElementById('excelFile').files[0];
+            if (!f) {
+                logMsg('Vui lòng chọn file Excel ở Bước 2!', 'err');
+                return;
+            }
+            
+            logArea.innerHTML = ''; 
+            btnExport.disabled = true;
+            
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    var data = new Uint8Array(e.target.result);
+                    var wb = XLSX.read(data, {type: 'array'});
+                    var firstSheet = wb.Sheets[wb.SheetNames[0]];
+                    var rows = XLSX.utils.sheet_to_json(firstSheet, {header: 1, defval: ''});
+                    processRows(rows.slice(1));
+                } catch (err) {
+                    logMsg('Lỗi khi phân tích Excel: ' + err.message, 'err');
+                }
+            };
+            reader.readAsArrayBuffer(f);
+        });
+    }
+
+    // LẮNG NGHE NÚT TSV
+    var btnTSV = document.getElementById('btnCheckTSV');
+    if(btnTSV) {
+        btnTSV.addEventListener('click', function() {
+            var raw = document.getElementById('tsvInput').value.trim();
+            if (!raw) {
+                logMsg('Vui lòng dán dữ liệu TSV vào ô trống!', 'err');
+                return;
+            }
+            
+            logArea.innerHTML = ''; 
+            btnExport.disabled = true;
+            
+            var lines = raw.split(/\r?\n/).filter(function(l) { return l.trim() !== ''; });
+            var rows = lines.map(function(l) { return l.split(TAB_CHAR); });
+            var startIdx = String(rows[0][0]).toLowerCase().indexOf('khối') > -1 ? 1 : 0;
+            processRows(rows.slice(startIdx));
+        });
+    }
+
+    // HÀM PHÂN TÍCH LÕI
+    function processRows(rows) {
+        var newLessonsMap = {};
+        var errors = 0;
+        var newCount = 0;
+        var updateCount = 0;
+
+        for (var i = 0; i < rows.length; i++) {
+            var r = rows[i];
+            var line = i + 2;
+            var gradeStr = String(r[0] || '').match(/\d+/);
+            var grade = gradeStr ? parseInt(gradeStr[0]) : 0;
+            var book = String(r[1] || 'sgk').trim().toLowerCase();
+            var title = String(r[2] || '').trim();
+            var genre = String(r[3] || '').trim().toLowerCase();
+            var isPoem = (genre === 'thơ' || genre === 'tho' || genre === 'poem');
+            var type = String(r[4] || '').trim().toLowerCase();
+            var totalSecs = (parseInt(r[5]) || 0) * 60 + (parseInt(r[6]) || 0);
+            
+            var text = String(r[7] || '').trim();
+            text = text.replace(/\\n/g, '\n').replace(/<br\s*\/?>/gi, '\n');
+            
+            var q = String(r[8] || '').trim();
+            var opts = String(r[9] || '').trim();
+            var ans = String(r[10] || '').trim();
+            var hint = String(r[11] || '').trim();
+
+            if (!title) continue;
+            if (!grade || !type) { logMsg('Dòng ' + line + ': Thiếu Lớp hoặc Loại trạm', 'err'); errors++; continue; }
+
+            var key = toSafeKey(grade, title);
+            
+            if (!newLessonsMap[key]) {
+                newLessonsMap[key] = { grade: grade, book: book, title: title, isPoem: isPoem, stations: [] };
+            }
+
+            if (type === 'mic') { newLessonsMap[key].mic = text; continue; }
+            if (type === 'glossary') { newLessonsMap[key].glossary = text; continue; }
+
+            var st = { k: type, min: totalSecs };
+            if (type === 'tap') {
+                st.s = isPoem
+                    ? text.split(/\n\s*\n|\s*\/\/\s*/).map(function(s) { return s.trim(); }).filter(Boolean)
+                    : (text.match(/[^.!?]+[.!?]+/g) || [text]).map(function(s) { return s.trim(); });
+                st.q = q; st.a = parseInt(ans) || 0;
+            } else if (type === 'choice') {
+                st.t = text; st.q = q; 
+                st.o = opts.split('|').map(function(x) { return x.trim(); }).filter(Boolean);
+                st.a = parseInt(ans) || 0; st.h = hint;
+            } else if (type === 'multi') {
+                st.t = text; st.q = q; 
+                st.o = opts.split('|').map(function(x) { return x.trim(); }).filter(Boolean);
+                st.a = ans.split(',').map(function(x) { return parseInt(x.trim()); }).filter(function(n) { return !isNaN(n); });
+            } else if (type === 'gold') {
+                st.t = text; st.q = q; st.h = hint;
+            } else if (type === 'group') {
+                st.t = text; st.q = q;
+                st.cats = opts.split('|').map(function(x) { return x.trim(); }).filter(Boolean);
+            } else if (type === 'fill') {
+                st.t = text; st.q = q;
+            } else if (type === 'order') {
+                st.t = text; st.q = q;
+                st.items = opts.split('|').map(function(x) { return x.trim(); }).filter(Boolean);
+            } else if (type === 'match') {
+                st.t = text; st.q = q; st.h = hint;
+                st.p = opts.split('|').map(function(p) { return p.split(':').map(function(x) { return x.trim(); }); });
+            } else {
+                logMsg('Dòng ' + line + ': Loại trạm "' + type + '" không hợp lệ', 'err'); errors++;
+            }
+            
+            newLessonsMap[key].stations.push(st);
         }
 
-        if (type === 'mic') { map[key].mic = text; return; }
-        if (type === 'glossary') { map[key].glossary = text; return; }
+        if (errors === 0) {
+            globalJsonData = JSON.parse(JSON.stringify(oldSnapshotData));
 
-        const st = { k: type, min: totalSecs };
-        if (type === 'tap') {
-            st.s = isPoem
-                ? text.split(/\n\s*\n|\s*\/\/\s*/).map(s => s.trim()).filter(Boolean)
-                : (text.match(/[^.!?]+[.!?]+/g) || [text]).map(s => s.trim());
-            st.q = q; st.a = parseInt(ans) || 0;
-        } else if (type === 'choice') {
-            st.t = text; st.q = q; st.o = opts.split('|').map(x => x.trim()).filter(Boolean);
-            st.a = parseInt(ans) || 0; st.h = hint;
-        } else if (type === 'multi') {
-            st.t = text; st.q = q; st.o = opts.split('|').map(x => x.trim()).filter(Boolean);
-            st.a = ans.split(',').map(x => parseInt(x.trim())).filter(n => !isNaN(n));
-        } else if (type === 'gold') {
-            st.t = text; st.q = q; st.h = hint;
-        } else if (type === 'group') {
-            st.t = text; st.q = q;
-            st.cats = opts.split('|').map(x => x.trim()).filter(Boolean);
-        } else if (type === 'fill') {
-            st.t = text; st.q = q;
-        } else if (type === 'order') {
-            st.t = text; st.q = q;
-            st.items = opts.split('|').map(x => x.trim()).filter(Boolean);
-        } else if (type === 'match') {
-            st.t = text; st.q = q; st.h = hint;
-            st.p = opts.split('|').map(p => p.split(':').map(x => x.trim()));
+            var newKeys = Object.keys(newLessonsMap);
+            for(var j=0; j<newKeys.length; j++) {
+                var newKey = newKeys[j];
+                if (globalJsonData[newKey]) {
+                    logMsg('🔄 Phát hiện bài [' + newLessonsMap[newKey].title + '] đã có. GHI ĐÈ.', 'warn');
+                    updateCount++;
+                } else {
+                    logMsg('✨ Đã thêm bài mới: [' + newLessonsMap[newKey].title + '].', 'ok');
+                    newCount++;
+                }
+                globalJsonData[newKey] = newLessonsMap[newKey];
+            }
+
+            var totalLessons = Object.keys(globalJsonData).length;
+            logMsg('----------------------------------');
+            logMsg('✅ HOÀN TẤT PHÂN TÍCH!', 'ok');
+            logMsg('- Bài thêm mới: ' + newCount);
+            logMsg('- Bài cập nhật: ' + updateCount);
+            logMsg('- TỔNG CỘNG SẼ XUẤT: ' + totalLessons + ' bài.');
+            
+            btnExport.disabled = false;
         } else {
-            logMsg(`Dòng ${line}: Loại trạm '${type}' không hợp lệ`, 'err'); errors++;
+            logMsg('❌ HỆ THỐNG TỪ CHỐI do có ' + errors + ' lỗi.', 'err');
         }
-        map[key].stations.push(st);
-    });
+    }
 
-    if (errors === 0) {
-        globalJsonData = map;
-        logMsg(`✅ Hợp lệ! Đã nạp xong ${Object.keys(map).length} bài đọc.`, 'ok');
-        btnExport.disabled = false;
+    // XUẤT FILE DATA-SNAPSHOT CHUẨN
+    if(btnExport) {
+        btnExport.addEventListener('click', function() {
+            var jsonDataStr = JSON.stringify(globalJsonData, null, 4);
+            var output = "// File dữ liệu bài học (Tạo tự động từ DocSach Studio V5.8)\n";
+            output += "window.LESSONS = " + jsonDataStr + ";\n";
+
+            var blob = new Blob([output], {type: 'text/javascript;charset=utf-8'});
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = 'data-snapshot.js';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            logMsg('💾 Đã tải file data-snapshot.js TỔNG HỢP!', 'ok');
+        });
+    }
+
+    // NÚT TẢI TEMPLATE
+    var btnTemplate = document.getElementById('downloadTemplate');
+    if(btnTemplate) {
+        btnTemplate.addEventListener('click', function() {
+            var data = [
+                ['Khối Lớp', 'Loại Sách (sgk/vm)', 'Tên Bài Đọc', 'Thể Loại (Văn/Thơ)', 'Loại Trạm (tap/choice/multi/gold/group/fill/match/order/mic/glossary)', 'Phút đọc', 'Giây đọc', 'Nội dung', 'Câu hỏi', 'Tùy chọn / Các giỏ / Các bước (Ngăn cách bằng |)', 'Đáp án đúng', 'Gợi ý'],
+                ['Lớp 4', 'sgk', 'Bài 5: Thằn lằn xanh và tắc kè', 'Văn', 'fill', 0, 0, 'Buổi sáng, mặt trời toả {nắng} gay gắt. Bỗng {mây} đen kéo tới. {Gió} cuồn cuộn thổi.', 'Điền danh từ chỉ hiện tượng tự nhiên thay cho bông hoa', '', '', ''],
+            ];
+            var ws = XLSX.utils.aoa_to_sheet(data);
+            var wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, 'BaiDoc');
+            XLSX.writeFile(wb, 'Mau_DocSach_V5.xlsx');
+        });
+    }
+});
+
+// Hàm chuyển Tab cho button
+window.switchTab = function(tabId) {
+    document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    document.querySelectorAll('.tab-content').forEach(function(c) { c.classList.remove('active'); });
+    
+    if(tabId === 'excel') {
+        document.querySelectorAll('.tab-btn')[0].classList.add('active');
+        document.getElementById('tab-excel').classList.add('active');
+    } else {
+        document.querySelectorAll('.tab-btn')[1].classList.add('active');
+        document.getElementById('tab-tsv').classList.add('active');
     }
 }
-
-// Hàm xuất quan trọng nhất: Chỉ xuất biến window.LESSONS
-btnExport.onclick = () => {
-    let jsonDataStr = JSON.stringify(globalJsonData, null, 4);
-    
-    // Đã thay đổi: Tạo file y hệt file data-snapshot-ok.js
-    let output = "// File dữ liệu bài học V5.5 (Tạo tự động từ DocSach Studio)\n";
-    output += "window.LESSONS = " + jsonDataStr + ";\n";
-
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([output], {type: 'text/javascript;charset=utf-8'}));
-    a.download = 'data-snapshot.js';
-    a.click();
-    logMsg('💾 Đã tải file data-snapshot.js chuẩn cho index_5.1!', 'ok');
-};
-
-document.getElementById('downloadTemplate').onclick = () => {
-    const data = [
-        ['Khối Lớp', 'Loại Sách (sgk/vm)', 'Tên Bài Đọc', 'Thể Loại (Văn/Thơ)', 'Loại Trạm (tap/choice/multi/gold/group/fill/match/order/mic/glossary)', 'Phút đọc', 'Giây đọc', 'Nội dung', 'Câu hỏi', 'Tùy chọn / Các giỏ / Các bước (Ngăn cách bằng |)', 'Đáp án đúng', 'Gợi ý'],
-        ['Lớp 4', 'sgk', 'Bài 5: Thằn lằn xanh và tắc kè', 'Văn', 'fill', 0, 0, 'Buổi sáng, mặt trời toả {nắng} gay gắt. Bỗng {mây} đen kéo tới. {Gió} cuồn cuộn thổi.', 'Điền danh từ chỉ hiện tượng tự nhiên thay cho bông hoa', '', '', ''],
-    ];
-    const ws = XLSX.utils.aoa_to_sheet(data);
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'BaiDoc');
-    XLSX.writeFile(wb, 'Mau_DocSach_V5.xlsx');
-};
 </script>
 </body>
 </html>
