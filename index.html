@@ -1116,7 +1116,15 @@ function teacher() {
 }
 
 $('#tS').onclick = () => { $('#tS').classList.add('on'); $('#tT').classList.remove('on'); (!S || S.done) ? home() : S.i >= L().stations.length ? (L().mic ? micStep() : finish()) : station(); };
-$('#tT').onclick = () => { $('#tT').classList.add('on'); $('#tS').classList.remove('on'); teacher(); };
+$('#tT').onclick = () => { 
+    $('#tT').classList.add('on'); 
+    $('#tS').classList.remove('on'); 
+    if (isAdmin) {
+        teacher();
+    } else {
+        showLogin();
+    }
+};
 
 function initApp() {
     const script = document.createElement('script');
