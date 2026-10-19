@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>DocSach Studio V6.4 - Quản Lý & Gộp Kho Dữ Liệu</title>
+    <title>DocSach Studio V6.5 - Quản Lý & Gộp Kho Dữ Liệu</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
     <style>
@@ -45,13 +45,13 @@
 <body>
 <div class="container">
     <h1>
-        <span>🛠️ Đọc Sách Studio V6.4</span>
+        <span>🛠️ Đọc Sách Studio V6.5</span>
         <button id="downloadTemplate" style="background:#2980b9; box-shadow: 0 4px 0 #1f618d;">📥 Tải File Excel Mẫu (.xlsx)</button>
     </h1>
 
     <div class="badge-list">
-        <b>Bản V6.4 (Nâng cấp trực tiếp trên nền V6.0 ổn định):</b><br>
-        Hỗ trợ xem danh sách bài trong kho, xóa từng bài bất kỳ, gộp thêm bài mới từ Excel/TSV và xuất file <code>data-snapshot.js</code> chuẩn cho <code>index_5.1</code>.
+        <b>Bản V6.5 (Chống lỗi hiển thị Thơ dính dòng):</b><br>
+        Tự động dịch các ký hiệu xuống dòng trong file Excel thành chuẩn hiển thị Thơ 2 cột của <code>index_5.1</code>. Hỗ trợ xem danh sách bài trong kho, xóa bài và gộp thêm bài mới.
     </div>
 
     <div class="step" style="background: #e8f6f3; border-color: #a3e4d7;">
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function toSafeKey(grade, title) {
-        const noAccent = title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D');
+        const noAccent = title.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D');
         return 'L' + grade + '_' + noAccent.replace(/[^a-zA-Z0-9]+/g, '_').replace(/^_|_$/g, '');
     }
 
@@ -307,8 +307,10 @@ document.addEventListener("DOMContentLoaded", function() {
             const type = String(r[4] || '').trim().toLowerCase();
             const totalSecs = (parseInt(r[5]) || 0) * 60 + (parseInt(r[6]) || 0);
             
+            // CHỮA CHÁY CỰC QUAN TRỌNG: 
+            // Trình xử lý Excel trên Browser có thể parse '\n' thành '\\n'. Phải xóa sạch các gạch chéo dư thừa.
             let text = String(r[7] || '').trim();
-            text = text.replace(/\\n/g, NL_CHAR).replace(/<br\s*\/?>/gi, NL_CHAR);
+            text = text.replace(/\\\\n/g, NL_CHAR).replace(/\\n/g, NL_CHAR).replace(/<br\s*\/?>/gi, NL_CHAR);
             
             const q = String(r[8] || '').trim();
             const opts = String(r[9] || '').trim();
@@ -396,7 +398,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 return;
             }
             const jsonDataStr = JSON.stringify(globalJsonData, null, 4);
-            let output = "// File dữ liệu bài học (Tạo tự động từ DocSach Studio V6.4)" + NL_CHAR;
+            let output = "// File dữ liệu bài học (Tạo tự động từ DocSach Studio V6.5)" + NL_CHAR;
             output += "window.LESSONS = " + jsonDataStr + ";" + NL_CHAR;
 
             const blob = new Blob([output], {type: 'text/javascript;charset=utf-8'});
@@ -423,7 +425,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const ws = XLSX.utils.aoa_to_sheet(data);
             const wb = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(wb, ws, 'BaiDoc');
-            XLSX.writeFile(wb, 'Mau_DocSach_V6.4.xlsx');
+            XLSX.writeFile(wb, 'Mau_DocSach_V6.5.xlsx');
         });
     }
 });
