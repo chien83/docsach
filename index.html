@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Trạm Đọc Thông Minh V6.2</title>
+    <title>Trạm Đọc Thông Minh V6.5</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     
@@ -179,7 +179,7 @@
 </head>
 <body>
 <header id="main-header">
-    <b>📚 Trạm Đọc Thông Minh V6.2</b>
+    <b>📚 Trạm Đọc Thông Minh V6.5</b>
     <nav id="main-nav">
         <button id="tS" class="on">👩‍🎓 Học sinh</button>
         <button id="tT">👩‍🏫 Giáo viên</button>
@@ -203,6 +203,7 @@ const NL = String.fromCharCode(10);
 
 let DEMO = false, iv = null, S = null;
 let NAME = '', GR = null;
+let isAdmin = false;
 const T = n => DEMO ? Math.min(n, 3) : n;
 
 const GRADES = [1, 2, 3, 4, 5];
@@ -907,6 +908,16 @@ function micStep() {
         '</div>' +
         '<div class="msg" id="ms" style="text-align:center"></div>' +
         '<div style="text-align:center;margin-top:20px">' +
+            
+        '<div id="pr-auth-box" style="display:none; margin-top:15px; padding:15px; background:#fef9e7; border:2px dashed #f1c40f; border-radius:12px;">' +
+            '<div style="font-weight:bold; color:#d35400; margin-bottom:8px;">🔒 Xác nhận Phụ huynh</div>' +
+            '<div style="margin-bottom:10px; font-size:16px;">Bố/mẹ vui lòng nhập mật khẩu được Cô giáo cấp để xác nhận:</div>' +
+            '<div id="pr-math-question" style="font-size:20px; font-weight:900; color:#2c3e50; margin-bottom:10px;"></div>' +
+            '<input id="pr-math-ans" type="number" style="width:100px; text-align:center; padding:8px; font-size:18px;" placeholder="?">' +
+            '<button id="pr-confirm-btn" style="background:#f39c12; color:#fff; box-shadow:0 4px 0 #d68910; padding:8px 20px;">Xác nhận</button>' +
+            '<div id="pr-err" style="color:var(--bad); font-weight:bold; font-size:14px; margin-top:5px; display:none;">Kết quả chưa đúng!</div>' +
+        '</div>' +
+
             '<button id="pr" style="background:#fff;border:2px solid var(--ln);box-shadow:none;cursor:pointer;padding:10px 15px;border-radius:10px;">👨‍👩‍👧 Con đã đọc to cho bố/mẹ nghe (Phụ huynh xác nhận)</button>' +
         '</div>' +
     '</div>';
@@ -920,7 +931,34 @@ function micStep() {
     }
 
     $('#mic-target-box').innerHTML = micContentHTML;
-    $('#pr').onclick = () => { S.mic = 'PH xác nhận'; finish(); };
+    
+    $('#pr').onclick = () => { 
+        $('#pr').style.display = 'none';
+        $('#pr-auth-box').style.display = 'block';
+        $('#pr-math-question').innerText = "Mật khẩu xác nhận:";
+        $('#pr-math-ans').type = "password";
+        $('#pr-math-ans').placeholder = "***";
+        $('#pr-math-ans').focus();
+    };
+    
+    $('#pr-confirm-btn').onclick = () => {
+        // MẬT KHẨU MẶC ĐỊNH DÀNH CHO PHỤ HUYNH
+        const parentPassword = "123"; 
+        
+        if ($('#pr-math-ans').value === parentPassword) {
+            S.mic = 'PH xác nhận'; 
+            playSound('success');
+            finish();
+        } else {
+            $('#pr-err').innerText = 'Mật khẩu chưa đúng!';
+            $('#pr-err').style.display = 'block';
+            shake($('#pr-auth-box'));
+            playSound('error');
+        }
+    };
+    
+    $('#pr-math-ans').onkeypress = e => { if (e.key === 'Enter') $('#pr-confirm-btn').click(); };
+
     if (!SR) return;
 
     let isRecording = false;
@@ -1080,6 +1118,37 @@ function finish() {
     $('#again').onclick = home;
 }
 
+
+/* ===== MÀN HÌNH ĐĂNG NHẬP ADMIN ===== */
+function showLogin() {
+    clearInterval(iv);
+    app.innerHTML = '<div class="card" style="max-width: 450px; margin: 40px auto; text-align: center;">' +
+        '<h2 style="color:var(--secondary)">🔒 Vùng Quản Trị</h2>' +
+        '<p class="sm" style="margin-bottom:25px">Vui lòng nhập tài khoản Giáo viên để tiếp tục</p>' +
+        '<input id="adm-user" type="text" placeholder="Tài khoản" autocomplete="off">' +
+        '<input id="adm-pass" type="password" placeholder="Mật khẩu">' +
+        '<div id="login-err" style="color:var(--bad); font-weight:bold; margin: 10px 0; display:none;">Sai tài khoản hoặc mật khẩu!</div>' +
+        '<button id="btn-login" style="width:100%; font-size:18px; padding:14px; margin-top:10px; background:var(--pu); color:#fff; box-shadow:0 4px 0 #3a1ea3;">Đăng nhập</button>' +
+    '</div>';
+
+    $('#btn-login').onclick = () => {
+        const u = $('#adm-user').value.trim();
+        const p = $('#adm-pass').value.trim();
+        
+        if (u === 'admin' && p === '123456') { 
+            isAdmin = true;
+            playSound('success');
+            teacher(); 
+        } else {
+            $('#login-err').style.display = 'block';
+            shake($('#btn-login')); 
+            playSound('error');
+        }
+    };
+
+    $('#adm-pass').onkeypress = e => { if (e.key === 'Enter') $('#btn-login').click(); };
+}
+
 /* ===== MÀN HÌNH GIÁO VIÊN ===== */
 function teacher() {
     clearInterval(iv);
@@ -1172,7 +1241,15 @@ function teacher() {
 }
 
 $('#tS').onclick = () => { $('#tS').classList.add('on'); $('#tT').classList.remove('on'); (!S || S.done) ? home() : S.i >= L().stations.length ? (L().mic ? micStep() : finish()) : station(); };
-$('#tT').onclick = () => { $('#tT').classList.add('on'); $('#tS').classList.remove('on'); teacher(); };
+$('#tT').onclick = () => { 
+    $('#tT').classList.add('on'); 
+    $('#tS').classList.remove('on'); 
+    if (typeof isAdmin !== 'undefined' && isAdmin) {
+        teacher();
+    } else {
+        showLogin();
+    }
+};
 
 function initApp() {
     const script = document.createElement('script');
