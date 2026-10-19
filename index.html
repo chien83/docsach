@@ -126,6 +126,7 @@ const NL = String.fromCharCode(10);
 
 let DEMO = false, iv = null, S = null;
 let NAME = '', GR = null;
+let isAdmin = false; // Thêm biến này để nhớ trạng thái đăng nhập Admin
 const T = n => DEMO ? Math.min(n, 3) : n;
 
 const GRADES = [1, 2, 3, 4, 5];
@@ -989,6 +990,39 @@ function finish() {
     $('#btn-pdf').onclick = () => printStudentPDF(S);
     $('#again').onclick = home;
 }
+
+/* ===== MÀN HÌNH ĐĂNG NHẬP ADMIN ===== */
+function showLogin() {
+    clearInterval(iv);
+    app.innerHTML = '<div class="card" style="max-width: 450px; margin: 40px auto; text-align: center;">' +
+        '<h2 style="color:var(--secondary)">🔒 Vùng Quản Trị</h2>' +
+        '<p class="sm" style="margin-bottom:25px">Vui lòng nhập tài khoản Giáo viên để tiếp tục</p>' +
+        '<input id="adm-user" type="text" placeholder="Tài khoản" autocomplete="off">' +
+        '<input id="adm-pass" type="password" placeholder="Mật khẩu">' +
+        '<div id="login-err" style="color:var(--bad); font-weight:bold; margin: 10px 0; display:none;">Sai tài khoản hoặc mật khẩu!</div>' +
+        '<button id="btn-login" style="width:100%; font-size:18px; padding:14px; margin-top:10px; background:var(--pu); color:#fff; box-shadow:0 4px 0 #3a1ea3;">Đăng nhập</button>' +
+    '</div>';
+
+    $('#btn-login').onclick = () => {
+        const u = $('#adm-user').value.trim();
+        const p = $('#adm-pass').value.trim();
+        
+        // BẠN CÓ THỂ ĐỔI TÀI KHOẢN VÀ MẬT KHẨU Ở ĐÂY
+        if (u === 'admin' && p === '123456') { 
+            isAdmin = true;
+            playSound('success');
+            teacher(); // Gọi màn hình giáo viên ra
+        } else {
+            $('#login-err').style.display = 'block';
+            shake($('#btn-login')); // Hiệu ứng rung nút báo lỗi
+            playSound('error');
+        }
+    };
+
+    // Bấm Enter ở ô mật khẩu để đăng nhập nhanh
+    $('#adm-pass').onkeypress = e => { if (e.key === 'Enter') $('#btn-login').click(); };
+}
+
 
 /* ===== MÀN HÌNH GIÁO VIÊN ===== */
 function teacher() {
