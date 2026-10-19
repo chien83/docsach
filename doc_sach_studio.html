@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>DocSach Studio V5.9 - Chống Crash Toàn Diện</title>
+    <title>DocSach Studio V6.4 - Quản Lý & Gộp Kho Dữ Liệu</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
     <style>
@@ -17,7 +17,7 @@
         button:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #117a65; }
         button:active { transform: translateY(4px); box-shadow: 0 0 0 #117a65; }
         button:disabled { background: #bdc3c7; box-shadow: 0 4px 0 #95a5a6; cursor: not-allowed; transform: none; }
-        input[type="file"], textarea { display: block; margin: 10px 0; padding: 12px; border: 2px dashed #bdc3c7; border-radius: 10px; width: 100%; background: #fff; font-family: Consolas, monospace; font-size: 14px; }
+        input[type="file"], textarea { display: block; margin: 10px 0; padding: 12px; border: 2px dashed #bdc3c7; border-radius: 10px; width: 100%; background: #fff; font-family: Consolas, monospace; font-size: 14px; box-sizing: border-box; }
         #logArea { background: #1e272e; color: #d2dae2; padding: 16px; border-radius: 10px; font-family: Consolas, monospace; height: 220px; overflow-y: auto; font-size: 14px; box-shadow: inset 0 0 10px rgba(0,0,0,0.5);}
         .err { color: #ff6b6b; font-weight: bold; }
         .ok { color: #2ecc71; font-weight: bold; }
@@ -29,29 +29,51 @@
         .tab-btn.active { background: #fff; color: #2980b9; border-color: #bdc3c7; font-weight: 900; }
         .tab-content { display: none; background: #fff; border: 2px solid #bdc3c7; padding: 20px; border-radius: 0 8px 8px 8px; margin-top: -2px;}
         .tab-content.active { display: block; }
+
+        /* Danh sách quản lý bài học */
+        .lesson-list-box { max-height: 320px; overflow-y: auto; padding-right: 4px; }
+        .lesson-item { display: flex; justify-content: space-between; align-items: center; background: #fff; border: 2px solid #dcdde1; padding: 12px 16px; margin-bottom: 10px; border-radius: 10px; gap: 12px; }
+        .lesson-item:hover { border-color: #3498db; background: #fbfcfe; }
+        .lesson-info { flex-grow: 1; }
+        .lesson-title { font-weight: 900; color: #2c3e50; font-size: 16px; }
+        .lesson-meta { font-size: 13px; color: #7f8c8d; margin-top: 4px; }
+        .btn-delete { background: #e74c3c; box-shadow: 0 4px 0 #c0392b; padding: 8px 14px; font-size: 13px; margin: 0; white-space: nowrap; }
+        .btn-delete:hover { box-shadow: 0 6px 0 #c0392b; }
+        .btn-delete:active { box-shadow: 0 0 0 #c0392b; }
     </style>
 </head>
 <body>
 <div class="container">
     <h1>
-        <span>🛠️ Đọc Sách Studio V5.9</span>
+        <span>🛠️ Đọc Sách Studio V6.4</span>
         <button id="downloadTemplate" style="background:#2980b9; box-shadow: 0 4px 0 #1f618d;">📥 Tải File Excel Mẫu (.xlsx)</button>
     </h1>
 
     <div class="badge-list">
-        <b>Bản V5.9: Đã tách biệt hoàn toàn!</b><br>
-        Để sửa triệt để lỗi đứng trình duyệt, phần mềm không còn nhúng hay gọi ngầm bất cứ file nào. Bạn tải file Excel mẫu, làm bài, bấm nút phân tích độc lập.
+        <b>Bản V6.4 (Nâng cấp trực tiếp trên nền V6.0 ổn định):</b><br>
+        Đã khắc phục lỗi斷 dòng (SyntaxError) làm liệt nút. Hỗ trợ xem danh sách bài trong kho, xóa từng bài bất kỳ, gộp thêm bài mới từ Excel/TSV và xuất file <code>data-snapshot.js</code> chuẩn cho <code>index_5.1</code>.
     </div>
 
     <div class="step" style="background: #e8f6f3; border-color: #a3e4d7;">
         <h3><span class="step-num" style="background:#1abc9c">1</span> Nạp Kho dữ liệu hiện tại (Snapshot cũ)</h3>
-        <p style="margin-top:0; color:#7f8c8d; font-size:14px">Nếu bạn muốn gộp bài mới vào kho cũ, hãy bấm <b>Chọn tệp</b> và tìm file <code>data-snapshot.js</code>.</p>
+        <p style="margin-top:0; color:#7f8c8d; font-size:14px">Nếu bạn muốn xem danh sách bài cũ, xóa bớt bài hoặc gộp bài mới vào kho cũ, hãy chọn file <code>data-snapshot.js</code> hiện tại của bạn.</p>
         <input type="file" id="snapshotFile" accept=".js">
         <div id="currentDataStatus" style="font-weight: 700; color: #16a085; font-size: 15px; margin-top: 10px;">Chưa nạp kho cũ. (Hệ thống sẽ tạo kho mới tinh nếu bạn bỏ qua bước này).</div>
     </div>
 
+    <div class="step" style="background: #fff8e1; border-color: #f1c40f;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
+            <h3 style="margin:0;"><span class="step-num" style="background:#f39c12">2</span> Quản Lý Kho Bài Học Hiện Có</h3>
+            <button id="btnClearAll" style="background:#7f8c8d; box-shadow:0 3px 0 #576574; padding:6px 12px; font-size:13px; margin:0; display:none;">🔄 Làm trống kho</button>
+        </div>
+        <p style="margin-top:0; color:#7f8c8d; font-size:14px">Danh sách các bài đang có trong bộ nhớ (sẽ được xuất ra file <code>data-snapshot.js</code>). Bạn có thể bấm <b>Xóa</b> ở bất kỳ bài nào.</p>
+        <div id="lessonList" class="lesson-list-box">
+            <div style="text-align: center; color: #95a5a6; padding: 20px; background: #fff; border-radius: 8px; border: 1px dashed #bdc3c7;">Chưa có bài học nào trong kho. Hãy nạp file ở Bước 1 hoặc Bước 3.</div>
+        </div>
+    </div>
+
     <div class="step">
-        <h3><span class="step-num">2</span> Nạp Thêm Bài Mới (Excel hoặc TSV)</h3>
+        <h3><span class="step-num">3</span> Nạp Thêm Bài Mới (Excel hoặc TSV)</h3>
         
         <div class="tab-buttons">
             <button class="tab-btn active" onclick="switchTab('excel')">📁 Tải lên file Excel</button>
@@ -59,42 +81,41 @@
         </div>
         
         <div id="tab-excel" class="tab-content active">
-            <p style="margin-top:0; color:#7f8c8d">Chọn file Excel chứa bài đọc <b>mới</b>.</p>
+            <p style="margin-top:0; color:#7f8c8d">Chọn file Excel chứa bài đọc <b>mới</b> cần gộp thêm vào kho.</p>
             <input type="file" id="excelFile" accept=".xlsx, .xls">
-            <button id="btnCheckExcel">🔍 Phân Tích File Excel</button>
+            <button id="btnCheckExcel">🔍 Phân Tích & Gộp File Excel</button>
         </div>
         
         <div id="tab-tsv" class="tab-content">
             <p style="margin-top:0; color:#7f8c8d">Copy dữ liệu từ AI và dán thẳng vào ô bên dưới.</p>
             <textarea id="tsvInput" rows="5" placeholder="Dán các dòng TSV (ngăn cách bằng phím Tab)..."></textarea>
-            <button id="btnCheckTSV" style="background:#8e44ad; box-shadow: 0 4px 0 #732d91;">⚡ Phân Tích Nhanh TSV</button>
+            <button id="btnCheckTSV" style="background:#8e44ad; box-shadow: 0 4px 0 #732d91;">⚡ Phân Tích & Gộp Nhanh TSV</button>
         </div>
     </div>
 
     <div class="step">
-        <h3><span class="step-num">3</span> Bảng Kiểm Tra & Bắt Lỗi Tự Động</h3>
-        <div id="logArea">Sẵn sàng nhận dữ liệu bài mới...</div>
+        <h3><span class="step-num">4</span> Bảng Kiểm Tra & Bắt Lỗi Tự Động</h3>
+        <div id="logArea">Sẵn sàng nhận dữ liệu...</div>
     </div>
 
     <div class="step" style="background:#ebf5fb;border-color:#3498db">
-        <h3><span class="step-num">4</span> Xuất Bản Kho Dữ Liệu</h3>
+        <h3><span class="step-num">5</span> Xuất Bản Kho Dữ Liệu</h3>
         <button id="btnExport" disabled style="background:#2980b9; box-shadow: 0 4px 0 #1f618d; padding: 15px 30px; font-size: 18px;">💾 Tải file data-snapshot.js</button>
     </div>
 </div>
 
 <script>
-// Không khai báo bất cứ biến let hay const nào bên ngoài các hàm có thể trùng tên hoặc lỗi.
-var NL_CHAR = String.fromCharCode(10);
-var TAB_CHAR = String.fromCharCode(9);
+const NL_CHAR = String.fromCharCode(10);
+const TAB_CHAR = String.fromCharCode(9);
 
-var globalJsonData = {}; // Kho tổng chuẩn bị xuất ra
-var oldSnapshotData = {}; // Dữ liệu lấy từ file JS cũ
+let globalJsonData = {}; // Kho tổng chuẩn bị xuất ra
 
-// Gán sự kiện trực tiếp không dùng onclick qua ID để tránh xung đột DOM
 document.addEventListener("DOMContentLoaded", function() {
-    var logArea = document.getElementById('logArea');
-    var btnExport = document.getElementById('btnExport');
-    var currentDataStatus = document.getElementById('currentDataStatus');
+    const logArea = document.getElementById('logArea');
+    const btnExport = document.getElementById('btnExport');
+    const currentDataStatus = document.getElementById('currentDataStatus');
+    const lessonListDiv = document.getElementById('lessonList');
+    const btnClearAll = document.getElementById('btnClearAll');
 
     function logMsg(msg, cls) {
         logArea.innerHTML += '<div class="' + (cls || '') + '">> ' + msg + '</div>';
@@ -102,41 +123,118 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function toSafeKey(grade, title) {
-        var noAccent = title.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D');
+        const noAccent = title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D');
         return 'L' + grade + '_' + noAccent.replace(/[^a-zA-Z0-9]+/g, '_').replace(/^_|_$/g, '');
     }
 
+    function escHtml(str) {
+        return String(str || '').replace(/[&<>"']/g, function(c) {
+            return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+        });
+    }
+
+    // HIỂN THỊ DANH SÁCH BÀI HỌC TRONG KHO
+    function renderLessonList() {
+        const keys = Object.keys(globalJsonData);
+        if (keys.length === 0) {
+            lessonListDiv.innerHTML = '<div style="text-align: center; color: #95a5a6; padding: 20px; background: #fff; border-radius: 8px; border: 1px dashed #bdc3c7;">Kho dữ liệu đang trống. Hãy nạp file ở Bước 1 hoặc Bước 3.</div>';
+            btnExport.disabled = true;
+            btnClearAll.style.display = 'none';
+            currentDataStatus.innerHTML = 'Chưa có bài học nào trong kho.';
+            return;
+        }
+
+        let html = '';
+        keys.forEach(function(k, idx) {
+            const lesson = globalJsonData[k];
+            const typeStr = lesson.isPoem ? 'Thơ' : 'Văn xuôi';
+            const bookStr = (lesson.book || 'sgk').toUpperCase();
+            const stationCount = lesson.stations ? lesson.stations.length : 0;
+            
+            html += '<div class="lesson-item">' +
+                '<div class="lesson-info">' +
+                    '<div class="lesson-title">' + (idx + 1) + '. [Lớp ' + escHtml(lesson.grade) + ' - ' + escHtml(bookStr) + '] ' + escHtml(lesson.title) + '</div>' +
+                    '<div class="lesson-meta">Thể loại: <b>' + typeStr + '</b> | Số trạm: <b>' + stationCount + '</b> | Mã bài: <code>' + escHtml(k) + '</code></div>' +
+                '</div>' +
+                '<button type="button" class="btn-delete" data-key="' + escHtml(k) + '">🗑️ Xóa bài này</button>' +
+            '</div>';
+        });
+
+        lessonListDiv.innerHTML = html;
+        btnExport.disabled = false;
+        btnClearAll.style.display = 'inline-block';
+        currentDataStatus.innerHTML = '✅ Kho tổng hiện có <b>' + keys.length + ' bài đọc</b> (Sẵn sàng xuất file hoặc gộp thêm).';
+
+        // Gán sự kiện xóa cho từng nút
+        lessonListDiv.querySelectorAll('.btn-delete').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                const k = this.getAttribute('data-key');
+                if (!k || !globalJsonData[k]) return;
+                const title = globalJsonData[k].title;
+                if (confirm('Bạn có chắc chắn muốn xóa bài "' + title + '" (Lớp ' + globalJsonData[k].grade + ') khỏi kho dữ liệu không?')) {
+                    delete globalJsonData[k];
+                    logMsg('🗑️ Đã xóa bài [' + title + '] khỏi kho tổng. Còn lại: ' + Object.keys(globalJsonData).length + ' bài.', 'warn');
+                    renderLessonList();
+                }
+            });
+        });
+    }
+
+    if (btnClearAll) {
+        btnClearAll.addEventListener('click', function() {
+            if (confirm('Bạn có muốn làm trống toàn bộ kho hiện tại để tạo kho mới từ đầu không?')) {
+                globalJsonData = {};
+                logMsg('🔄 Đã làm trống toàn bộ kho dữ liệu.', 'warn');
+                renderLessonList();
+            }
+        });
+    }
+
     // 1. LẮNG NGHE CHỌN FILE SNAPSHOT CŨ
-    var snapFile = document.getElementById('snapshotFile');
-    if(snapFile) {
+    const snapFile = document.getElementById('snapshotFile');
+    if (snapFile) {
+        snapFile.addEventListener('click', function() {
+            this.value = null; // Cho phép chọn lại cùng 1 file
+        });
         snapFile.addEventListener('change', function(e) {
-            var file = e.target.files[0];
+            const file = e.target.files[0];
             if (!file) return;
 
-            var reader = new FileReader();
+            const reader = new FileReader();
             reader.onload = function(evt) {
-                var text = evt.target.result;
+                const text = evt.target.result;
                 try {
-                    // Regex tìm cấu trúc window.LESSONS = {...}
-                    var matchWindow = text.match(/window\.LESSONS\s*=\s*(\{[\s\S]*\});/);
-                    // Regex tìm cấu trúc loadDataSnapshot({...})
-                    var matchLoad = text.match(/loadDataSnapshot\s*\(\s*(\{[\s\S]*\})\s*\)/);
+                    let jsonString = "";
+                    const matchWindow = text.match(/window\.LESSONS\s*=\s*(\{[\s\S]*\});/);
+                    const matchLoad = text.match(/loadDataSnapshot\s*\(\s*(\{[\s\S]*\})\s*\)/);
                     
-                    var jsonString = "";
                     if (matchWindow) {
                         jsonString = matchWindow[1];
                     } else if (matchLoad) {
                         jsonString = matchLoad[1];
                     } else {
-                        jsonString = text.trim();
+                        const firstBrace = text.indexOf('{');
+                        const lastBrace = text.lastIndexOf('}');
+                        if (firstBrace !== -1 && lastBrace !== -1 && lastBrace > firstBrace) {
+                            jsonString = text.substring(firstBrace, lastBrace + 1);
+                        } else {
+                            jsonString = text.trim();
+                        }
                     }
 
-                    oldSnapshotData = JSON.parse(jsonString);
-                    var count = Object.keys(oldSnapshotData).length;
-                    currentDataStatus.innerHTML = '✅ Đã nạp thành công <b>' + count + ' bài đọc</b> từ file cũ.';
+                    const parsedData = JSON.parse(jsonString);
+                    const count = Object.keys(parsedData).length;
+                    
+                    // Gộp dữ liệu từ file snapshot vào kho tổng
+                    Object.keys(parsedData).forEach(function(k) {
+                        globalJsonData[k] = parsedData[k];
+                    });
+
+                    logMsg('📂 Đã nạp thành công ' + count + ' bài đọc từ file [' + file.name + '].', 'ok');
+                    renderLessonList();
                 } catch (error) {
-                    currentDataStatus.innerHTML = '❌ Lỗi đọc file cũ: Không đúng định dạng. Sẽ bỏ qua.';
-                    oldSnapshotData = {};
+                    currentDataStatus.innerHTML = '❌ Lỗi đọc file cũ: Không đúng định dạng. Hệ thống sẽ tạo kho mới.';
+                    logMsg('❌ Lỗi đọc file cũ: ' + error.message, 'err');
                 }
             };
             reader.readAsText(file);
@@ -144,25 +242,24 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // 2. LẮNG NGHE NÚT EXCEL
-    var btnExcel = document.getElementById('btnCheckExcel');
-    if(btnExcel) {
+    const btnExcel = document.getElementById('btnCheckExcel');
+    if (btnExcel) {
         btnExcel.addEventListener('click', function() {
-            var f = document.getElementById('excelFile').files[0];
+            const f = document.getElementById('excelFile').files[0];
             if (!f) {
-                logMsg('Vui lòng chọn file Excel ở Bước 2!', 'err');
+                logMsg('Vui lòng chọn file Excel ở Bước 3!', 'err');
                 return;
             }
             
             logArea.innerHTML = ''; 
-            btnExport.disabled = true;
             
-            var reader = new FileReader();
+            const reader = new FileReader();
             reader.onload = function(e) {
                 try {
-                    var data = new Uint8Array(e.target.result);
-                    var wb = XLSX.read(data, {type: 'array'});
-                    var firstSheet = wb.Sheets[wb.SheetNames[0]];
-                    var rows = XLSX.utils.sheet_to_json(firstSheet, {header: 1, defval: ''});
+                    const data = new Uint8Array(e.target.result);
+                    const wb = XLSX.read(data, {type: 'array'});
+                    const firstSheet = wb.Sheets[wb.SheetNames[0]];
+                    const rows = XLSX.utils.sheet_to_json(firstSheet, {header: 1, defval: ''});
                     processRows(rows.slice(1));
                 } catch (err) {
                     logMsg('Lỗi khi phân tích Excel: ' + err.message, 'err');
@@ -172,57 +269,56 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // LẮNG NGHE NÚT TSV
-    var btnTSV = document.getElementById('btnCheckTSV');
-    if(btnTSV) {
+    // 3. LẮNG NGHE NÚT TSV
+    const btnTSV = document.getElementById('btnCheckTSV');
+    if (btnTSV) {
         btnTSV.addEventListener('click', function() {
-            var raw = document.getElementById('tsvInput').value.trim();
+            const raw = document.getElementById('tsvInput').value.trim();
             if (!raw) {
                 logMsg('Vui lòng dán dữ liệu TSV vào ô trống!', 'err');
                 return;
             }
             
             logArea.innerHTML = ''; 
-            btnExport.disabled = true;
             
-            var lines = raw.split(/\r?\n/).filter(function(l) { return l.trim() !== ''; });
-            var rows = lines.map(function(l) { return l.split(TAB_CHAR); });
-            var startIdx = String(rows[0][0]).toLowerCase().indexOf('khối') > -1 ? 1 : 0;
+            const lines = raw.split(/\r?\n/).filter(function(l) { return l.trim() !== ''; });
+            const rows = lines.map(function(l) { return l.split(TAB_CHAR); });
+            const startIdx = String(rows[0][0]).toLowerCase().indexOf('khối') > -1 ? 1 : 0;
             processRows(rows.slice(startIdx));
         });
     }
 
     // HÀM PHÂN TÍCH LÕI
     function processRows(rows) {
-        var newLessonsMap = {};
-        var errors = 0;
-        var newCount = 0;
-        var updateCount = 0;
+        const newLessonsMap = {};
+        let errors = 0;
+        let newCount = 0;
+        let updateCount = 0;
 
-        for (var i = 0; i < rows.length; i++) {
-            var r = rows[i];
-            var line = i + 2;
-            var gradeStr = String(r[0] || '').match(/\d+/);
-            var grade = gradeStr ? parseInt(gradeStr[0]) : 0;
-            var book = String(r[1] || 'sgk').trim().toLowerCase();
-            var title = String(r[2] || '').trim();
-            var genre = String(r[3] || '').trim().toLowerCase();
-            var isPoem = (genre === 'thơ' || genre === 'tho' || genre === 'poem');
-            var type = String(r[4] || '').trim().toLowerCase();
-            var totalSecs = (parseInt(r[5]) || 0) * 60 + (parseInt(r[6]) || 0);
+        for (let i = 0; i < rows.length; i++) {
+            const r = rows[i];
+            const line = i + 2;
+            const gradeStr = String(r[0] || '').match(/\d+/);
+            const grade = gradeStr ? parseInt(gradeStr[0]) : 0;
+            const book = String(r[1] || 'sgk').trim().toLowerCase();
+            const title = String(r[2] || '').trim();
+            const genre = String(r[3] || '').trim().toLowerCase();
+            const isPoem = (genre === 'thơ' || genre === 'tho' || genre === 'poem');
+            const type = String(r[4] || '').trim().toLowerCase();
+            const totalSecs = (parseInt(r[5]) || 0) * 60 + (parseInt(r[6]) || 0);
             
-            var text = String(r[7] || '').trim();
-            text = text.replace(/\\n/g, '\n').replace(/<br\s*\/?>/gi, '\n');
+            let text = String(r[7] || '').trim();
+            text = text.replace(/\\n/g, NL_CHAR).replace(/<br\s*\/?>/gi, NL_CHAR);
             
-            var q = String(r[8] || '').trim();
-            var opts = String(r[9] || '').trim();
-            var ans = String(r[10] || '').trim();
-            var hint = String(r[11] || '').trim();
+            const q = String(r[8] || '').trim();
+            const opts = String(r[9] || '').trim();
+            const ans = String(r[10] || '').trim();
+            const hint = String(r[11] || '').trim();
 
             if (!title) continue;
             if (!grade || !type) { logMsg('Dòng ' + line + ': Thiếu Lớp hoặc Loại trạm', 'err'); errors++; continue; }
 
-            var key = toSafeKey(grade, title);
+            const key = toSafeKey(grade, title);
             
             if (!newLessonsMap[key]) {
                 newLessonsMap[key] = { grade: grade, book: book, title: title, isPoem: isPoem, stations: [] };
@@ -231,7 +327,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (type === 'mic') { newLessonsMap[key].mic = text; continue; }
             if (type === 'glossary') { newLessonsMap[key].glossary = text; continue; }
 
-            var st = { k: type, min: totalSecs };
+            const st = { k: type, min: totalSecs };
             if (type === 'tap') {
                 st.s = isPoem
                     ? text.split(/\n\s*\n|\s*\/\/\s*/).map(function(s) { return s.trim(); }).filter(Boolean)
@@ -266,13 +362,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         if (errors === 0) {
-            globalJsonData = JSON.parse(JSON.stringify(oldSnapshotData));
-
-            var newKeys = Object.keys(newLessonsMap);
-            for(var j=0; j<newKeys.length; j++) {
-                var newKey = newKeys[j];
+            const newKeys = Object.keys(newLessonsMap);
+            for (let j = 0; j < newKeys.length; j++) {
+                const newKey = newKeys[j];
                 if (globalJsonData[newKey]) {
-                    logMsg('🔄 Phát hiện bài [' + newLessonsMap[newKey].title + '] đã có. GHI ĐÈ.', 'warn');
+                    logMsg('🔄 Phát hiện bài [' + newLessonsMap[newKey].title + '] đã có. Tiến hành GHI ĐÈ.', 'warn');
                     updateCount++;
                 } else {
                     logMsg('✨ Đã thêm bài mới: [' + newLessonsMap[newKey].title + '].', 'ok');
@@ -281,51 +375,55 @@ document.addEventListener("DOMContentLoaded", function() {
                 globalJsonData[newKey] = newLessonsMap[newKey];
             }
 
-            var totalLessons = Object.keys(globalJsonData).length;
+            const totalLessons = Object.keys(globalJsonData).length;
             logMsg('----------------------------------');
-            logMsg('✅ HOÀN TẤT PHÂN TÍCH!', 'ok');
+            logMsg('✅ HOÀN TẤT PHÂN TÍCH & GỘP KHO!', 'ok');
             logMsg('- Bài thêm mới: ' + newCount);
             logMsg('- Bài cập nhật: ' + updateCount);
             logMsg('- TỔNG CỘNG SẼ XUẤT: ' + totalLessons + ' bài.');
             
-            btnExport.disabled = false;
+            renderLessonList();
         } else {
             logMsg('❌ HỆ THỐNG TỪ CHỐI do có ' + errors + ' lỗi.', 'err');
         }
     }
 
     // XUẤT FILE DATA-SNAPSHOT CHUẨN
-    if(btnExport) {
+    if (btnExport) {
         btnExport.addEventListener('click', function() {
-            var jsonDataStr = JSON.stringify(globalJsonData, null, 4);
-            var output = "// File dữ liệu bài học (Tạo tự động từ DocSach Studio V5.8)\n";
-            output += "window.LESSONS = " + jsonDataStr + ";\n";
+            if (Object.keys(globalJsonData).length === 0) {
+                logMsg('Kho dữ liệu đang trống, không thể xuất file!', 'err');
+                return;
+            }
+            const jsonDataStr = JSON.stringify(globalJsonData, null, 4);
+            let output = "// File dữ liệu bài học (Tạo tự động từ DocSach Studio V6.4)" + NL_CHAR;
+            output += "window.LESSONS = " + jsonDataStr + ";" + NL_CHAR;
 
-            var blob = new Blob([output], {type: 'text/javascript;charset=utf-8'});
-            var url = URL.createObjectURL(blob);
-            var a = document.createElement('a');
+            const blob = new Blob([output], {type: 'text/javascript;charset=utf-8'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
             a.href = url;
             a.download = 'data-snapshot.js';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
-            logMsg('💾 Đã tải file data-snapshot.js TỔNG HỢP!', 'ok');
+            logMsg('💾 Đã tải file data-snapshot.js TỔNG HỢP (' + Object.keys(globalJsonData).length + ' bài)!', 'ok');
         });
     }
 
     // NÚT TẢI TEMPLATE
-    var btnTemplate = document.getElementById('downloadTemplate');
-    if(btnTemplate) {
+    const btnTemplate = document.getElementById('downloadTemplate');
+    if (btnTemplate) {
         btnTemplate.addEventListener('click', function() {
-            var data = [
+            const data = [
                 ['Khối Lớp', 'Loại Sách (sgk/vm)', 'Tên Bài Đọc', 'Thể Loại (Văn/Thơ)', 'Loại Trạm (tap/choice/multi/gold/group/fill/match/order/mic/glossary)', 'Phút đọc', 'Giây đọc', 'Nội dung', 'Câu hỏi', 'Tùy chọn / Các giỏ / Các bước (Ngăn cách bằng |)', 'Đáp án đúng', 'Gợi ý'],
                 ['Lớp 4', 'sgk', 'Bài 5: Thằn lằn xanh và tắc kè', 'Văn', 'fill', 0, 0, 'Buổi sáng, mặt trời toả {nắng} gay gắt. Bỗng {mây} đen kéo tới. {Gió} cuồn cuộn thổi.', 'Điền danh từ chỉ hiện tượng tự nhiên thay cho bông hoa', '', '', ''],
             ];
-            var ws = XLSX.utils.aoa_to_sheet(data);
-            var wb = XLSX.utils.book_new();
+            const ws = XLSX.utils.aoa_to_sheet(data);
+            const wb = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(wb, ws, 'BaiDoc');
-            XLSX.writeFile(wb, 'Mau_DocSach_V5.xlsx');
+            XLSX.writeFile(wb, 'Mau_DocSach_V6.4.xlsx');
         });
     }
 });
@@ -335,14 +433,14 @@ window.switchTab = function(tabId) {
     document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
     document.querySelectorAll('.tab-content').forEach(function(c) { c.classList.remove('active'); });
     
-    if(tabId === 'excel') {
+    if (tabId === 'excel') {
         document.querySelectorAll('.tab-btn')[0].classList.add('active');
         document.getElementById('tab-excel').classList.add('active');
     } else {
         document.querySelectorAll('.tab-btn')[1].classList.add('active');
         document.getElementById('tab-tsv').classList.add('active');
     }
-}
+};
 </script>
 </body>
 </html>
