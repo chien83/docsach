@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Trạm Đọc Thông Minh V5.1</title>
+    <title>Trạm Đọc Thông Minh V6.0</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     
@@ -22,11 +22,88 @@
     </script>
     <script src="data-snapshot.js"></script>
     
+    <style>
+        /* CSS BỔ SUNG CHO THƠ CHIA CỘT VÀ TỐI ƯU HIỂN THỊ (GHI ĐÈ CSS CŨ) */
+        
+        main { 
+        max-width: 1020px !important; 
+        margin: 20px auto; 
+        padding: 0 18px; 
+         }
+
+        .read.is-poem {
+            display: block !important;
+            padding: 20px;
+        }
+        
+        .poem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            align-items: start;
+        }
+
+        .poem-single {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .stanza {
+            background: #fbfcfe;
+            border: 2px dashed #aed6f1;
+            padding: 15px 25px;
+            border-radius: 16px;
+            transition: all 0.2s;
+            line-height: 1.8;
+            font-size: 19px;
+            color: #2c3e50;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            text-align: left;
+        }
+        
+        .stanza:hover {
+            border-color: #3498db;
+            background: #f1f8ff;
+        }
+
+        .verse-line {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .stanza.sn.tap .verse-line {
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+        }
+        .stanza.sn.tap .verse-line:hover {
+            background: #fff3cd;
+            border-color: #ffe69c;
+        }
+
+        .read.is-poem .w {
+            font-style: normal;
+        }
+
+        /* Tối ưu giao diện trên thiết bị di động */
+        @media (max-width: 768px) {
+            .poem-grid { grid-template-columns: 1fr !important; }
+            main { padding: 0 10px !important; margin-top: 10px !important; }
+            .card { padding: 15px !important; border-radius: 16px !important; margin-bottom: 15px !important; }
+            header { padding: 10px !important; flex-direction: column; text-align: center; }
+            header nav { justify-content: center; width: 100%; margin-top: 10px; }
+            .cols { grid-template-columns: 1fr !important; }
+            .read { font-size: 20px !important; padding: 15px !important; }
+        }
+    </style>
 </head>
 <body>
-<header>
-    <b>📚 Trạm Đọc Thông Minh V5.1</b>
-    <nav>
+<header id="main-header">
+    <b>📚 Trạm Đọc Thông Minh V6.0</b>
+    <nav id="main-nav">
         <button id="tS" class="on">👩‍🎓 Học sinh</button>
         <button id="tT">👩‍🏫 Giáo viên</button>
     </nav>
@@ -68,9 +145,10 @@ const store = r => { try { localStorage.setItem('vtd_v5', JSON.stringify(r)); } 
 function upsert() {
     if (!S || !L()) return;
     const rs = load(), n = L().stations.length;
+    let statusText = S.done ? 'Hoàn thành' : 'Đang đọc (Trạm ' + Math.min(S.i + 1, n) + '/' + n + ')';
     const rec = {
         name: S.name, lid: S.lid,
-        status: S.done ? 'Hoàn thành' : 'Đang đọc (Trạm ' + Math.min(S.i + 1, n) + '/' + n + ')',
+        status: statusText,
         secs: S.secs, ok: S.ok, tot: S.tot, rush: S.rush, mic: S.mic,
         words: S.words || [], date: S.date || new Date().toLocaleDateString('vi-VN')
     };
@@ -118,29 +196,6 @@ function playSound(type) {
 
 const shake = el => { el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); };
 
-function showConfetti() {
-    const canvas = $('#confetti-canvas');
-    canvas.style.display = 'block'; canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-    const ctx = canvas.getContext('2d');
-    const particles = Array.from({length: 120}, () => ({
-        x: canvas.width / 2, y: canvas.height,
-        r: Math.random() * 7 + 4, dx: Math.random() * 14 - 7, dy: Math.random() * -14 - 5,
-        color: 'hsl(' + (Math.random() * 360) + ', 100%, 50%)'
-    }));
-    function render() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        let active = false;
-        particles.forEach(p => {
-            p.dy += 0.3; p.x += p.dx; p.y += p.dy;
-            if (p.y < canvas.height) active = true;
-            ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-            ctx.fillStyle = p.color; ctx.fill();
-        });
-        if (active) requestAnimationFrame(render); else canvas.style.display = 'none';
-    }
-    render();
-}
-
 const norm = s => s.toLowerCase().replace(/[^\p{L}\s]/gu, '').split(/\s+/).filter(Boolean);
 function sim(a, b) {
     const A = norm(a), pool = norm(b);
@@ -183,47 +238,67 @@ function printStudentPDF(rec) {
     const p = rec.tot ? Math.round(rec.ok / rec.tot * 100) : 0;
     const stars = p >= 70 ? 3 : p >= 40 ? 2 : 1;
     const wordsList = (rec.words && rec.words.length) ? rec.words.join(', ') : 'Đã hoàn thành các trạm đọc hiểu';
-    let comment = 'Em có ý thức đọc bài và hoàn thành đầy đủ các trạm thử thách.';
-    if (p >= 80 && rec.rush <= 1) {
-        comment = 'Khen ngợi em! Em đọc bài rất tập trung, nắm vững nội dung văn bản, thu hoạch từ ngữ chính xác ngay từ lần đầu.';
-    } else if (rec.rush >= 3) {
-        comment = 'Em đã hoàn thành bài đọc nhưng còn thao tác vội ở một số câu hỏi. Ở bài sau em hãy đọc chậm và kỹ từng câu hơn nhé!';
-    }
+    
+    let docTitle = 'ketqua_' + rec.name.replace(/\s+/g, '_') + '_Lop' + L().grade;
+    document.title = docTitle;
+    
+    const origAppDisplay = app.style.display;
+    const origHeaderDisplay = document.getElementById('main-header').style.display;
+    
+    app.style.display = 'none';
+    document.getElementById('main-header').style.display = 'none';
+
+    const today = new Date();
+    const dateStr = 'Ngày ' + ('0' + today.getDate()).slice(-2) + ' tháng ' + ('0' + (today.getMonth() + 1)).slice(-2) + ' năm ' + today.getFullYear();
 
     printArea.innerHTML = '<div class="print-sheet">' +
         '<div class="print-header">' +
-            '<div style="font-weight:800;color:#7f8c8d;font-size:14px">HỆ THỐNG SỐ HÓA ĐỌC HIỂU TIẾNG VIỆT TIỂU HỌC</div>' +
-            '<h1>PHIẾU KẾT QUẢ ĐỌC SÁCH & THU HOẠCH NGÔN TỪ</h1>' +
-            '<div style="font-size:15px;font-weight:700">Ngày hoàn thành: ' + esc(rec.date || new Date().toLocaleDateString('vi-VN')) + '</div>' +
+            '<div style="font-weight:800;color:#7f8c8d;font-size:14px; margin-bottom: 8px;">HỆ THỐNG SỐ HÓA ĐỌC HIỂU TIẾNG VIỆT TIỂU HỌC</div>' +
+            '<h1 style="color:#5b3fd6; margin: 0; font-size: 24px; text-transform: uppercase;">PHIẾU KẾT QUẢ ĐỌC SÁCH</h1>' +
+            '<h1 style="color:#5b3fd6; margin: 5px 0 15px 0; font-size: 24px; text-transform: uppercase;">& THU HOẠCH NGÔN TỪ</h1>' +
+            '<div style="border-bottom: 2px dashed #bdc3c7; margin-bottom: 20px;"></div>' +
         '</div>' +
-        '<div class="print-grid">' +
-            '<div><b>Họ và tên học sinh:</b> ' + esc(rec.name) + '</div>' +
+        '<div class="print-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 16px; margin-bottom: 25px;">' +
             '<div><b>Bài đọc:</b> ' + esc(lname(rec.lid)) + '</div>' +
-            '<div><b>Trạng thái:</b> ' + esc(rec.status) + '</div>' +
+            '<div><b>Họ và tên học sinh:</b> ' + esc(rec.name) + '</div>' +
+            '<div><b>Trạng thái:</b> ' + esc(rec.status || "Hoàn thành") + '</div>' +
             '<div><b>Đánh giá chung:</b> ' + '⭐'.repeat(stars) + ' (' + stars + '/3 sao)</div>' +
         '</div>' +
-        '<div class="print-box">' +
-            '<h3 style="margin-top:0;color:#5b3fd6">1. Chỉ số đo lường quá trình đọc hiểu</h3>' +
-            '<p>• <b>Thời gian đọc thực tế trên màn hình:</b> ' + mmss(rec.secs) + '</p>' +
-            '<p>• <b>Tỷ lệ trả lời đúng ngay lần đầu:</b> ' + p + '% ' + okLbl(p) + '</p>' +
-            '<p>• <b>Mức độ cẩn thận (Số lần bấm vội bị nhắc nhở):</b> ' + rec.rush + ' lần</p>' +
-            '<p>• <b>Kết quả trạm Đọc thành tiếng (Micro):</b> ' + micLbl(rec.mic) + '</p>' +
+        
+        '<div class="print-box" style="border: 1px solid #bdc3c7; border-radius: 10px; padding: 16px; background: #fafbfc; margin-bottom: 25px;">' +
+            '<h3 style="margin-top:0; margin-bottom: 12px; color:#5b3fd6; font-size: 18px; border-bottom: none;">1. Thông số vượt trạm</h3>' +
+            '<div style="border-bottom: 2px dashed #5b3fd6; opacity: 0.3; margin-bottom: 15px;"></div>' +
+            '<div style="display: flex; flex-wrap: wrap; gap: 15px; font-size: 15px;">' +
+                '<span style="background:#eef2f7; padding:6px 12px; border-radius:8px;">⏱️ Thời gian: <b>' + mmss(rec.secs) + '</b></span>' +
+                '<span style="background:#eef2f7; padding:6px 12px; border-radius:8px;">🎯 Trả lời đúng lần đầu: <b>' + p + '%</b></span>' +
+                '<span style="background:#eef2f7; padding:6px 12px; border-radius:8px;">⚠️ Bấm vội: <b>' + rec.rush + ' lần</b></span>' +
+                '<span style="background:#eef2f7; padding:6px 12px; border-radius:8px;">🎤 Đọc to: <b>' + micLbl(rec.mic) + '</b></span>' +
+            '</div>' +
         '</div>' +
-        '<div class="print-box">' +
-            '<h3 style="margin-top:0;color:#d35400">2. Giỏ từ vựng & kiến thức thu hoạch được</h3>' +
-            '<p style="font-weight:700;color:#2c3e50">' + esc(wordsList) + '</p>' +
+
+        '<div class="print-box" style="border: 1px solid #bdc3c7; border-radius: 10px; padding: 16px; background: #fafbfc; margin-bottom: 40px;">' +
+            '<h3 style="margin-top:0; margin-bottom: 12px; color:#d35400; font-size: 18px; border-bottom: none;">2. Giỏ từ vựng & kiến thức thu hoạch được</h3>' +
+            '<div style="border-bottom: 2px dashed #d35400; opacity: 0.3; margin-bottom: 15px;"></div>' +
+            '<p style="font-weight:700; color:#2c3e50; line-height: 1.6; font-size: 16px; margin: 0;">' + esc(wordsList) + '</p>' +
         '</div>' +
-        '<div class="print-box">' +
-            '<h3 style="margin-top:0;color:#1fae6b">3. Nhận xét tự động của hệ thống</h3>' +
-            '<p>' + esc(comment) + '</p>' +
-        '</div>' +
-        '<div class="print-sign">' +
-            '<div><b>Xác nhận của Phụ huynh</b><br><small>(Ký và ghi rõ họ tên)</small><br><br><br></div>' +
-            '<div><b>Giáo viên phụ trách</b><br><small>(Ký và ghi rõ họ tên)</small><br><br><br></div>' +
+        
+        '<div class="print-sign" style="text-align: right; margin-top: 30px; font-size: 16px;">' +
+            '<div style="font-weight:700; margin-bottom: 5px;">' + dateStr + '</div>' +
+            '<div><b>Giáo viên phụ trách</b><br><small style="color:#7f8c8d;">(Ký và ghi rõ họ tên)</small><br><br><br><br><br></div>' +
         '</div>' +
     '</div>';
+    
+    printArea.style.display = 'block';
 
     window.print();
+    
+    setTimeout(() => { 
+        document.title = 'Trạm Đọc Thông Minh V6.0'; 
+        app.style.display = origAppDisplay;
+        document.getElementById('main-header').style.display = origHeaderDisplay;
+        printArea.style.display = 'none';
+        printArea.innerHTML = '';
+    }, 1000);
 }
 
 function printClassPDF() {
@@ -243,6 +318,14 @@ function printClassPDF() {
         '</tr>';
     }).join('') : '<tr><td colspan="8" style="text-align:center">Chưa có dữ liệu.</td></tr>';
 
+    document.title = 'BaoCao_Lop_' + (GR || 'TongHop');
+
+    const origAppDisplay = app.style.display;
+    const origHeaderDisplay = document.getElementById('main-header').style.display;
+    
+    app.style.display = 'none';
+    document.getElementById('main-header').style.display = 'none';
+
     printArea.innerHTML = '<div class="print-sheet">' +
         '<div class="print-header">' +
             '<h1>BÁO CÁO TỔNG HỢP KẾT QUẢ ĐỌC SÁCH CỦA HỌC SINH</h1>' +
@@ -252,13 +335,22 @@ function printClassPDF() {
             '<thead><tr><th>STT</th><th>Học sinh</th><th>Bài đọc</th><th>Trạng thái</th><th>Thời gian đọc</th><th>Đúng lần đầu</th><th>Bấm vội</th><th>Đọc to</th></tr></thead>' +
             '<tbody>' + rowsHTML + '</tbody>' +
         '</table>' +
-        '<div class="print-sign">' +
-            '<div></div>' +
+        '<div class="print-sign" style="grid-template-columns: 1fr;">' +
             '<div><b>Giáo viên lập biểu</b><br><small>(Ký và ghi rõ họ tên)</small><br><br><br></div>' +
         '</div>' +
     '</div>';
 
+    printArea.style.display = 'block';
+
     window.print();
+
+    setTimeout(() => { 
+        document.title = 'Trạm Đọc Thông Minh V6.0'; 
+        app.style.display = origAppDisplay;
+        document.getElementById('main-header').style.display = origHeaderDisplay;
+        printArea.style.display = 'none';
+        printArea.innerHTML = '';
+    }, 1000);
 }
 
 /* ===== MÀN HÌNH HỌC SINH ===== */
@@ -393,9 +485,10 @@ function station() {
 
     if (st.k === 'tap') {
         if (isPoem) {
-            const wrapClass = st.s.length > 1 ? 'poem-grid' : 'poem-single';
-            rd.innerHTML = '<div class="' + wrapClass + '">' + st.s.map((x, i) => {
-                const lines = esc(x).split(/\r?\n/).map(l => '<span class="verse-line">' + l + '</span>').join('');
+            const stanzas = Array.isArray(st.s) ? st.s : [st.s];
+            const wrapClass = stanzas.length > 1 ? 'poem-grid' : 'poem-single';
+            rd.innerHTML = '<div class="' + wrapClass + '">' + stanzas.map((x, i) => {
+                const lines = esc(x).split(/\n/).map(l => '<span class="verse-line">' + l + '</span>').join('');
                 return '<div class="stanza sn" data-i="' + i + '">' + lines + '</div>';
             }).join('') + '</div>';
         } else {
@@ -733,41 +826,141 @@ function micStep() {
         '<p>Em hãy bấm Micro và đọc to, rõ ràng câu dưới đây nhé:</p>' +
         '<div class="big-target">' + esc(L().mic) + '</div>' +
         '<div style="text-align:center;margin:24px 0">' +
-            (SR ? '<button id="mc" class="mic-btn" style="font-size:20px;padding:15px 32px">🎙️ Bấm để đọc</button>' : '') +
+            (SR ? '<button id="mc" class="mic-btn" style="font-size:20px;padding:15px 32px;border-radius:12px;cursor:pointer;border:none;background:var(--sun);font-weight:bold;box-shadow:0 4px 0 #d99a00;">🎙️ Bấm để đọc</button>' : '') +
         '</div>' +
         '<div class="msg" id="ms" style="text-align:center"></div>' +
         '<div style="text-align:center;margin-top:20px">' +
-            '<button id="pr" style="background:#fff;border:2px solid var(--ln);box-shadow:none">👨‍👩‍👧 Con đã đọc to cho bố/mẹ nghe (Phụ huynh xác nhận)</button>' +
+            '<button id="pr" style="background:#fff;border:2px solid var(--ln);box-shadow:none;cursor:pointer;padding:10px 15px;border-radius:10px;">👨‍👩‍👧 Con đã đọc to cho bố/mẹ nghe (Phụ huynh xác nhận)</button>' +
         '</div>' +
     '</div>';
 
     $('#pr').onclick = () => { S.mic = 'PH xác nhận'; finish(); };
     if (!SR) return;
 
-    $('#mc').onclick = () => {
-        const ms = $('#ms');
-        const r = new SR();
-        r.lang = 'vi-VN'; r.maxAlternatives = 3;
-        r.onstart = () => { ms.textContent = '🎧 Đang nghe em đọc...'; };
-        r.onresult = e => {
-            let best = 0, text = '';
-            for (const alt of e.results[0]) {
-                const score = sim(L().mic, alt.transcript);
-                if (score >= best) { best = score; text = alt.transcript; }
+    let isRecording = false;
+    let r = null;
+    let finalProcessed = false;
+    
+    function fireConfettiStream() {
+        const duration = 2000;
+        const end = Date.now() + duration;
+
+        (function frame() {
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 5,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#26ccff', '#a25afd', '#ff5e7e', '#88ff5a', '#fcff42', '#ffa62d', '#ff36ff']
+                });
+                confetti({
+                    particleCount: 5,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#26ccff', '#a25afd', '#ff5e7e', '#88ff5a', '#fcff42', '#ffa62d', '#ff36ff']
+                });
             }
-            const p = Math.round(best * 100);
+
+            if (Date.now() < end) {
+                requestAnimationFrame(frame);
+            }
+        }());
+    }
+
+    $('#mc').onclick = () => {
+        if (isRecording) {
+            if(r) r.stop();
+            isRecording = false;
+            return;
+        }
+        
+        finalProcessed = false; // reset flag
+        const ms = $('#ms');
+        const btn = $('#mc');
+        r = new SR();
+        r.lang = 'vi-VN'; 
+        r.maxAlternatives = 3;
+        
+        // LUÔN BẬT CONTINUOUS ĐỂ KHÔNG BỊ CẮT NGANG
+        r.continuous = true;
+        // BẬT KẾT QUẢ TẠM THỜI (INTERIM) ĐỂ THẤY CHỮ CHẠY TRỰC TIẾP TRƯỚC KHI CHỐT
+        r.interimResults = true;
+        
+        let fullTranscript = '';
+        
+        r.onstart = () => { 
+            isRecording = true;
+            btn.innerHTML = '🛑 Bấm để Dừng ghi âm & Chấm điểm';
+            btn.style.background = 'var(--bad)';
+            btn.style.boxShadow = '0 4px 0 #c0392b';
+            ms.className = 'msg';
+            ms.innerHTML = '<span style="color:#7f8c8d; font-weight:normal;">Đang nghe em đọc... Cứ đọc hết câu rồi hãy bấm Dừng nhé!</span>'; 
+        };
+        
+        r.onresult = e => {
+            let interimTranscript = '';
+            fullTranscript = '';
+            
+            for (let i = e.resultIndex; i < e.results.length; ++i) {
+                if (e.results[i].isFinal) {
+                    fullTranscript += e.results[i][0].transcript + ' ';
+                } else {
+                    interimTranscript += e.results[i][0].transcript + ' ';
+                }
+            }
+            
+            // Hiển thị chữ đang đọc trực tiếp lên màn hình để học sinh an tâm
+            const displayText = fullTranscript + interimTranscript;
+            if (displayText.trim() !== '') {
+                ms.innerHTML = '<span style="color:#2c3e50; font-weight:normal; font-style:italic;">"' + esc(displayText) + '"</span>';
+            }
+        };
+        
+        r.onend = () => {
+            isRecording = false;
+            btn.innerHTML = '🎙️ Bấm để đọc lại';
+            btn.style.background = 'var(--sun)';
+            btn.style.boxShadow = '0 4px 0 #d99a00';
+            
+            if (finalProcessed) return; // Nếu đã chấm điểm rồi thì thôi
+            finalProcessed = true;
+            
+            // Khi dừng thu âm mới bắt đầu chấm điểm trên toàn bộ chuỗi đọc được
+            if (!fullTranscript.trim()) {
+                fullTranscript = ms.textContent.replace(/"/g, '').trim();
+            }
+            
+            if (!fullTranscript || fullTranscript.includes("Đang nghe em đọc") || fullTranscript === "") {
+                ms.className = 'msg bad';
+                ms.textContent = 'Máy chưa nghe được gì cả. Em hãy đọc thật to nhé!';
+                return;
+            }
+            
+            const score = sim(L().mic, fullTranscript);
+            const p = Math.round(score * 100);
+            
             if (p >= 65) {
                 S.mic = p;
                 ms.className = 'msg ok';
-                ms.textContent = '🎉 Em đọc rất rõ ràng (' + p + '%)!';
-                playSound('victory'); showConfetti();
-                setTimeout(finish, 1800);
+                ms.innerHTML = '🎉 Tuyệt vời! Em đọc rõ ràng <b>(' + p + '%)</b>!';
+                playSound('victory');
+                fireConfettiStream();
+                
+                // ĐỢI 3 GIÂY CHO HỌC SINH TẬN HƯỞNG TRƯỚC KHI CHUYỂN TRANG
+                setTimeout(finish, 3000);
             } else {
                 ms.className = 'msg bad';
-                ms.textContent = '😅 Máy mới nghe được ' + p + '% ("' + text + '"). Em đọc to và rõ hơn nhé!';
+                ms.innerHTML = '😅 Máy nghe được: <br><i style="font-weight:normal; color:#2c3e50">"' + esc(fullTranscript) + '"</i><br>Độ chính xác: <b>' + p + '%</b>. Em thử bấm đọc lại to và chậm hơn nhé!';
             }
         };
-        r.onerror = () => { ms.className = 'msg bad'; ms.textContent = '⚠️ Không nhận được Micro. Em kiểm tra quyền Micro nhé!'; };
+        
+        r.onerror = () => { 
+            ms.className = 'msg bad'; 
+            ms.textContent = '⚠️ Trình duyệt chặn Micro hoặc không thu được âm. Em kiểm tra lại nhé!'; 
+        };
+        
         try { r.start(); } catch(e) {}
     };
 }
@@ -782,11 +975,17 @@ function finish() {
         '<p class="big">' + (stars === 3 ? 'Tuyệt vời! Em đọc bài rất kỹ và hiểu bài sâu sắc.' : 'Em đã hoàn thành bài đọc!') + '</p>' +
         '<p class="sm">' + esc(lname(S.lid)) + '</p>' +
         '<div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:20px">' +
-            '<button id="btn-pdf" style="background:#1fae6b;color:#fff;box-shadow:0 4px 0 #148f54;border:none;padding:12px 24px;border-radius:12px;font-weight:900;cursor:pointer">🖨️ Xuất / In Phiếu Kết Quả PDF (Gửi Phụ huynh)</button>' +
+            '<button id="btn-pdf" style="background:#1fae6b;color:#fff;box-shadow:0 4px 0 #148f54;border:none;padding:12px 24px;border-radius:12px;font-weight:900;cursor:pointer">🖨️ Xuất / In Phiếu Kết Quả PDF</button>' +
             '<button id="again" style="background:var(--sun);border:none;padding:12px 24px;border-radius:12px;font-weight:900;cursor:pointer">📚 Đọc bài khác</button>' +
         '</div>' +
     '</div>';
-    playSound('victory'); showConfetti();
+    playSound('victory'); 
+    if (typeof confetti === 'function') {
+        confetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
+    } else {
+        showConfetti();
+    }
+    
     $('#btn-pdf').onclick = () => printStudentPDF(S);
     $('#again').onclick = home;
 }
@@ -885,25 +1084,34 @@ function teacher() {
 $('#tS').onclick = () => { $('#tS').classList.add('on'); $('#tT').classList.remove('on'); (!S || S.done) ? home() : S.i >= L().stations.length ? (L().mic ? micStep() : finish()) : station(); };
 $('#tT').onclick = () => { $('#tT').classList.add('on'); $('#tS').classList.remove('on'); teacher(); };
 
-window.addEventListener('DOMContentLoaded', () => {
-    if (!dataLoaded) {
-        if (typeof window.LESSONS !== 'undefined' && Object.keys(window.LESSONS).length > 0) {
-            window.LESSONS_DATA = window.LESSONS;
-            dataLoaded = true;
-            console.log("Đã tải dữ liệu thành công qua biến window.LESSONS!");
-            const loaderMsg = document.getElementById('loader-msg');
-            if (loaderMsg) loaderMsg.style.display = 'none';
-            home();
-        } else {
-            console.warn("Chưa tìm thấy dữ liệu. Hiển thị cảnh báo.");
-            const loaderMsg = document.getElementById('loader-msg');
-            if (loaderMsg) {
-                loaderMsg.innerHTML = '<div style="background:#f8d7da; color:#721c24; padding:20px; border-radius:12px; margin:20px; text-align:left; border-left:5px solid #dc3545;"><h3 style="margin-top:0; color:#c0392b">⚠️ Dữ liệu chưa được nạp</h3><p>Hệ thống không tìm thấy file <b>data-snapshot.js</b> hoặc file không chứa dữ liệu hợp lệ.</p><p>Vui lòng dùng công cụ <b>DocSach Studio</b> để xuất file dữ liệu và lưu vào cùng thư mục với file này.</p></div>';
+function initApp() {
+    const script = document.createElement('script');
+    script.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js";
+    document.head.appendChild(script);
+
+    function checkData() {
+        if (!dataLoaded) {
+            if (typeof window.LESSONS !== 'undefined' && Object.keys(window.LESSONS).length > 0) {
+                window.LESSONS_DATA = window.LESSONS;
+                dataLoaded = true;
+                console.log("Đã tải dữ liệu thành công qua biến window.LESSONS!");
+                const loaderMsg = document.getElementById('loader-msg');
+                if (loaderMsg) loaderMsg.style.display = 'none';
+                home();
+            } else {
+                console.warn("Chưa tìm thấy dữ liệu. Hiển thị cảnh báo.");
+                const loaderMsg = document.getElementById('loader-msg');
+                if (loaderMsg) {
+                    loaderMsg.innerHTML = '<div style="background:#f8d7da; color:#721c24; padding:20px; border-radius:12px; margin:20px; text-align:left; border-left:5px solid #dc3545;"><h3 style="margin-top:0; color:#c0392b">⚠️ Dữ liệu chưa được nạp</h3><p>Hệ thống không tìm thấy file <b>data-snapshot.js</b> hoặc file không chứa dữ liệu hợp lệ.</p><p>Vui lòng dùng công cụ <b>DocSach Studio</b> để xuất file dữ liệu và lưu vào cùng thư mục với file này.</p></div>';
+                }
             }
         }
     }
-});
-
+    
+    // Đợi 500ms cho file js kịp parse
+    setTimeout(checkData, 500);
+}
+initApp();
 </script>
 </body>
 </html>
