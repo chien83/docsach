@@ -153,5 +153,79 @@ window.LESSONS = {
             }
         ],
         "mic": "Nghỉ hè, mẹ đăng kí cho em tham gia câu lạc bộ Tiếng Anh trong trung tâm em đang theo học. Em nhớ nhất là buổi sinh hoạt đầu tiên.\nBuổi sáng hôm ấy, em dậy rất sớm. Sau đó, mẹ đưa em đến câu lạc bộ trong niềm hân hoan, phấn khởi. Khi chuẩn bị bước vào cửa, em đã thấy cô chủ nhiệm của câu lạc bộ đứng đợi sẵn. Còn có cả một số anh chị trợ giảng cũng hướng dẫn chúng em rất nhiệt tình. Em được một chị trợ giảng xinh xắn đưa vào chỗ ngồi. Khoảng tám giờ ba mươi phút, buổi sinh hoạt đầu tiên của câu lạc bộ bắt đầu. Đầu tiên, cô chủ nhiệm đã giới thiệu đôi nét về bản thân, về câu lạc bộ. Sau đó, các anh chị trợ giảng biểu diễn tiết mục văn nghệ để chào mừng những thành viên mới. Bài hát được biểu diễn là một bài hát tiếng Anh về mái trường thân yêu. Kết thúc phần chào hỏi, các thành viên trong câu lạc bộ đã có thời gian để làm quen với nhau. Mỗi thành viên sẽ tự giới thiệu đôi nét về bản thân bằng tiếng Anh. Buổi sinh hoạt kết thúc rất vui vẻ.\nĐó là buổi trải nghiệm ấn tượng nhất với em. Qua ngày hôm đó, em đã học thêm được rất nhiều câu nói tiếng Anh và quen thêm các bạn mới."
+    },
+    "L4_Em_di_du_lich_cung_gia_dinh": {
+        "grade": 4,
+        "book": "vm",
+        "title": "Em đi du lịch cùng gia đình",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "match",
+                "min": 30,
+                "t": "Một bài văn thuật lại chuyến đi thường có 3 phần chính. Em hãy nối mỗi phần với nội dung tương ứng của bài văn này nhé!",
+                "q": "",
+                "h": "Đọc kĩ bố cục 3 phần của bài văn",
+                "p": [
+                    [
+                        "Mở bài",
+                        "Giới thiệu chuyến đi Cửa Lò"
+                    ],
+                    [
+                        "Thân bài",
+                        "Kể lại các hoạt động từ khi nhận phòng, tắm biển đến lúc ăn tối"
+                    ],
+                    [
+                        "Kết bài",
+                        "Nêu cảm nghĩ về chuyến du lịch"
+                    ]
+                ]
+            },
+            {
+                "k": "order",
+                "min": 30,
+                "t": "Phần Thân bài đã kể lại chuyến đi theo đúng trình tự thời gian. Em hãy sắp xếp lại các hoạt động dưới đây cho đúng nhé!",
+                "q": "",
+                "items": [
+                    "Nhận phòng khách sạn và cất đồ đạc",
+                    "Cả nhà đi tắm biển và gặp bạn cũ của bố",
+                    "Ăn hải sản nướng mang đậm hương vị của biển"
+                ]
+            },
+            {
+                "k": "tap",
+                "min": 20,
+                "s": [
+                    "Hè vừa rồi, gia đình em đã có một chuyến du lịch đến Cửa Lò.",
+                    "Đó là phần thưởng mà bố mẹ dành cho em khi em đạt danh hiệu học sinh giỏi."
+                ],
+                "q": "Đâu là câu văn nêu lí do bạn nhỏ được đi du lịch? Em hãy bấm chọn câu đó nhé!",
+                "a": 1
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Ra đến biển, em hét lên vì sung sướng. Bờ biển mỗi lúc một đông. *1:Người_lớn thích thú bơi lội dưới nước. *2:Trẻ_em thì nghịch cát, xây thành những tòa lâu đài tuyệt đẹp.",
+                "q": "Khi ra đến bãi biển, mỗi người có một hoạt động riêng. Em hãy xếp đúng đối tượng vào hoạt động của họ nhé!",
+                "cats": [
+                    "Giỏ Bơi lội dưới nước",
+                    "Giỏ Nghịch cát, xây lâu đài"
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 30,
+                "t": "Chao ôi! Em đứng trước một bãi biển rộng *mênh_mông. Nước biển xanh và *trong_vắt. Gió biển *lồng_lộng cùng với tiếng sóng vỗ nghe thật vui tai.",
+                "q": "Để bài văn thêm sinh động, tác giả đã dùng rất nhiều từ miêu tả cảnh biển. Em hãy hái 3 từ miêu tả sự rộng lớn của bãi biển, độ sạch của nước biển và sức thổi của gió biển nhé!",
+                "h": "Tìm các từ: mênh mông, trong vắt, lồng lộng"
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "Chuyến du lịch của gia đình em kết thúc rất {tốt_đẹp}. Em {mong} sẽ có thêm nhiều chuyến du lịch như vậy cùng với gia đình của mình.",
+                "q": "Em hãy điền từ còn thiếu để hoàn thiện phần Kết bài nhé!"
+            }
+        ],
+        "mic": "Hè vừa rồi, gia đình em đã có một chuyến du lịch đến Cửa Lò. Đó là phần thưởng mà bố mẹ dành cho em khi em đạt danh hiệu học sinh giỏi.\nVừa bước xuống xe, em đã choáng ngợp vì khuôn viên của khách sạn. Dường như em đang bước vào tòa lâu đài nguy nga, tráng lệ. Bố mẹ em vào làm thủ tục nhận phòng. Sau đó, cả nhà em đi lên phòng cất đồ đạc. Khoảng mười lăm phút sau, mọi người cùng nhau đi ăn trưa, rồi lại về nghỉ ngơi.\nKhoảng bốn giờ chiều, cả nhà em đi tắm biển. Khi cả nhà đang đi trên đường thì tình cờ gặp bạn học cũ của bố em. Bố em đã rủ gia đình cô chú ấy cùng đi ra biển. Tất cả mọi người đều vui vẻ và phấn khởi. Ra đến biển, em hét lên vì sung sướng. Chao ôi! Em đứng trước một bãi biển rộng mênh mông. Nước biển xanh và trong vắt. Gió biển lồng lộng cùng với tiếng sóng vỗ nghe thật vui tai. Bờ biển mỗi lúc một đông. Người lớn thích thú bơi lội dưới nước. Trẻ em thì nghịch cát, xây thành những tòa lâu đài tuyệt đẹp. Sau khi tắm biển xong, mọi người cùng nhau đi ăn hải sản nướng. Các món ăn đều rất ngon và mang đậm hương vị của biển.\nChuyến du lịch của gia đình em kết thúc rất tốt đẹp. Em mong sẽ có thêm nhiều chuyến du lịch như vậy cùng với gia đình của mình."
     }
 };
