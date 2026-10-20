@@ -1045,19 +1045,21 @@ function micStep() {
         };
         
         r.onresult = e => {
+            let finalText = '';
             let interimText = '';
             
-            // Chỉ bắt đầu duyệt từ resultIndex (những mảnh kết quả MỚI NHẤT)
-            for (let i = e.resultIndex; i < e.results.length; ++i) {
+            // SỬA LỖI ANDROID: Bắt buộc duyệt lại từ i = 0 để ráp nối chính xác
+            for (let i = 0; i < e.results.length; ++i) {
                 if (e.results[i].isFinal) {
-                    sessionFinalText += e.results[i][0].transcript + ' ';
+                    finalText += e.results[i][0].transcript + ' '; // Câu đã chốt thì cộng dồn
                 } else {
-                    interimText += e.results[i][0].transcript;
+                    // TRỌNG TÂM: Với câu đang nói dở, chỉ GHI ĐÈ (=), tuyệt đối KHÔNG CỘNG DỒN (+=)
+                    interimText = e.results[i][0].transcript;
                 }
             }
             
             // Gom lại văn bản cuối cùng để chấm điểm và hiển thị
-            fullTranscript = (sessionFinalText + interimText).trim();
+            fullTranscript = (finalText + interimText).trim();
             
             // Hiển thị chữ đang đọc trực tiếp lên màn hình
             if (fullTranscript !== '') {
