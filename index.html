@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Trạm Đọc Thông Minh V6.7</title>
+    <title>Trạm Đọc Thông Minh V6.8</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     
@@ -27,7 +27,7 @@
         
         /* Khôi phục độ rộng giao diện tiêu chuẩn */
         main { 
-            max-width: 1200px !important; 
+            max-width: 860px !important; 
             margin: 20px auto; 
             padding: 0 18px; 
         }
@@ -196,7 +196,7 @@
 </head>
 <body>
 <header id="main-header">
-    <b>📚 Trạm Đọc Thông Minh V6.7</b>
+    <b>📚 Trạm Đọc Thông Minh V6.8</b>
     <nav id="main-nav">
         <button id="tS" class="on">👩‍🎓 Học sinh</button>
         <button id="tT">👩‍🏫 Giáo viên</button>
@@ -1031,8 +1031,12 @@ function micStep() {
         
         let fullTranscript = '';
         
+        let sessionFinalText = ''; // Khai báo bộ nhớ riêng cho mỗi phiên thu âm
+        
         r.onstart = () => { 
             isRecording = true;
+            sessionFinalText = ''; // Reset lại từ đầu khi bắt đầu thu
+            fullTranscript = '';
             btn.innerHTML = '🛑 Bấm để Dừng ghi âm & Chấm điểm';
             btn.style.background = 'var(--bad)';
             btn.style.boxShadow = '0 4px 0 #c0392b';
@@ -1041,25 +1045,23 @@ function micStep() {
         };
         
         r.onresult = e => {
-            let finalText = '';
             let interimText = '';
             
-            // Duyệt toàn bộ mảng kết quả từ đầu đến cuối phiên ghi âm
-            for (let i = 0; i < e.results.length; ++i) {
+            // Chỉ bắt đầu duyệt từ resultIndex (những mảnh kết quả MỚI NHẤT)
+            for (let i = e.resultIndex; i < e.results.length; ++i) {
                 if (e.results[i].isFinal) {
-                    finalText += e.results[i][0].transcript + ' ';
+                    sessionFinalText += e.results[i][0].transcript + ' ';
                 } else {
-                    interimText += e.results[i][0].transcript + ' ';
+                    interimText += e.results[i][0].transcript;
                 }
             }
             
-            // Cập nhật biến fullTranscript để dùng lúc chấm điểm
-            fullTranscript = finalText.trim();
+            // Gom lại văn bản cuối cùng để chấm điểm và hiển thị
+            fullTranscript = (sessionFinalText + interimText).trim();
             
             // Hiển thị chữ đang đọc trực tiếp lên màn hình
-            const displayText = finalText + interimText;
-            if (displayText.trim() !== '') {
-                ms.innerHTML = '<span style="color:#2c3e50; font-weight:normal; font-style:italic;">"' + esc(displayText) + '"</span>';
+            if (fullTranscript !== '') {
+                ms.innerHTML = '<span style="color:#2c3e50; font-weight:normal; font-style:italic;">"' + esc(fullTranscript) + '"</span>';
             }
         };
         

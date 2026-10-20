@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Trạm Đọc Thông Minh V6.6</title>
+    <title>Trạm Đọc Thông Minh V6.7</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     
@@ -90,6 +90,23 @@
         }
 
         
+        
+        /* CSS CHỮ SỐ BƯỚC ĐỂ THAY THẾ EMOJI LỖI TRÊN ĐIỆN THOẠI */
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            background: var(--pu);
+            color: white;
+            border-radius: 50%;
+            font-size: 20px;
+            margin-right: 8px;
+            vertical-align: middle;
+            box-shadow: 0 3px 0 #3a1ea3;
+        }
+
         /* CSS FIX TRẠM ĐIỀN TỪ (FILL) */
         .blank-slot {
             display: inline-flex;
@@ -179,7 +196,7 @@
 </head>
 <body>
 <header id="main-header">
-    <b>📚 Trạm Đọc Thông Minh V6.6</b>
+    <b>📚 Trạm Đọc Thông Minh V6.7</b>
     <nav id="main-nav">
         <button id="tS" class="on">👩‍🎓 Học sinh</button>
         <button id="tT">👩‍🏫 Giáo viên</button>
@@ -475,15 +492,15 @@ function home() {
             '</div>';
     }
 
-    app.innerHTML = '<div class="card">' + messageBox + '<h2>1️⃣ Tên của em là gì?</h2>' + nm + '</div>' +
-        '<div class="card"><h2>2️⃣ Em học lớp mấy?</h2><div class="grades">' +
+    app.innerHTML = '<div class="card">' + messageBox + '<h2><span class="step-num">1</span> Tên của em là gì?</h2>' + nm + '</div>' +
+        '<div class="card"><h2><span class="step-num">2</span> Em học lớp mấy?</h2><div class="grades">' +
             GRADES.map(g => {
                 const n = Object.values(window.LESSONS_DATA).filter(l => l.grade === g).length;
                 return '<button class="gr ' + (g === GR ? 'sel' : '') + '" data-g="' + g + '" ' + (n ? '' : 'disabled') + '>' +
                     'Lớp ' + g + '<small>' + (n ? n + ' bài' : 'Sắp có') + '</small></button>';
             }).join('') +
         '</div></div>' +
-        '<div class="card"><h2>3️⃣ Chọn bài đọc ' + (GR ? '(Lớp ' + GR + ')' : '') + '</h2>' +
+        '<div class="card"><h2><span class="step-num">3</span> Chọn bài đọc ' + (GR ? '(Lớp ' + GR + ')' : '') + '</h2>' +
             (GR ? (list || '<p class="sm">Lớp này chưa có bài.</p>') : '<p class="sm" style="color:var(--bad);font-weight:700">☝️ Em chọn khối lớp ở bước 2 trước nhé.</p>') +
         '</div>' +
         (demo ? '<div class="card">' + demo + '</div>' : '');
