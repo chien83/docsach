@@ -182,6 +182,63 @@
             transform: none;
         }
 
+    /* CSS FIX MENU HOVER CHO DANH SÁCH BÀI ĐỌC */
+        .book-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .book-group-title {
+            cursor: pointer;
+            background: #f8f9fa;
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 2px solid var(--pu);
+            color: var(--pu);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5px;
+            margin-bottom: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 0 #d1c4e9;
+            font-size: 1.17em;
+            font-weight: bold;
+        }
+        
+        .book-lessons {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.4s ease-out, margin-top 0.4s ease-out;
+            margin-top: 0;
+            overflow: hidden;
+        }
+        
+        .book-lessons-inner {
+            min-height: 0;
+            padding-top: 5px; 
+        }
+        
+        /* Hiệu ứng HOVER cho máy tính & Mở bằng thao tác Chạm (Mobile) */
+        .book-group:hover .book-lessons,
+        .book-group.active .book-lessons {
+            grid-template-rows: 1fr;
+            margin-top: 10px;
+        }
+        
+        .book-group:hover .book-group-title,
+        .book-group.active .book-group-title {
+            background: #e0d8ff;
+        }
+        
+        .book-group .arr {
+            transition: transform 0.3s ease;
+        }
+        
+        .book-group:hover .arr,
+        .book-group.active .arr {
+            transform: rotate(180deg);
+        }
+        
         /* Tối ưu giao diện trên thiết bị di động */
         @media (max-width: 768px) {
             .poem-grid { grid-template-columns: 1fr !important; }
