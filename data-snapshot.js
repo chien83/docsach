@@ -66,7 +66,7 @@ window.LESSONS = {
     },
     "L4_Thuat_lai_mot_su_viec": {
         "grade": 4,
-        "book": "sgk",
+        "book": "vm",
         "title": "Thuật lại một sự việc",
         "isPoem": false,
         "stations": [
@@ -121,7 +121,7 @@ window.LESSONS = {
             {
                 "k": "fill",
                 "min": 20,
-                "t": "Phần Kết bài thường có 2 ý chính:\n- Kết quả của hoạt động: Chuyến đi đã mang đến cho em rất nhiều những {trải_nghiệm} thú vị.\n- Suy nghĩ, cảm xúc: Qua chuyến đi, em thêm {yêu_mến}, biết ơn Bác Hồ hơn.",
+                "t": "Phần Kết bài thường có 2 ý chính:\n- Kết quả của hoạt động: Chuyến đi đã mang đến cho em rất nhiều những {trải_nghiệm} thú vị.\n- Suy nghĩ, cảm xúc của em đối với hoạt động đó: Qua chuyến đi, em thêm {yêu_mến}, biết ơn Bác Hồ hơn.",
                 "q": "Em hãy điền từ còn thiếu để hoàn thiện phần Kết bài về chuyến tham quan Lăng Bác nhé!"
             },
             {
@@ -137,7 +137,7 @@ window.LESSONS = {
             {
                 "k": "group",
                 "min": 40,
-                "t": "Buổi sáng hôm ấy, em dậy *1:rất_sớm. Sau đó, mẹ đưa em đến câu lạc bộ trong niềm *2:hân_hoan, *2:phấn_khởi. Khi chuẩn bị bước vào cửa, em đã thấy cô chủ nhiệm đứng đợi sẵn. Còn có cả một số anh chị trợ giảng hướng dẫn chúng em *2:rất_nhiệt_tình. Khoảng *1:tám_giờ_ba_mươi_phút, buổi sinh hoạt bắt đầu.",
+                "t": "Buổi sáng hôm ấy, em dậy *1:rất_sớm. Sau đó, mẹ đưa em đến câu lạc bộ trong niềm *2:hân_hoan, *2:phấn_khởi. Khi chuẩn bị bước vào cửa, em đã thấy cô chủ nhiệm của câu lạc bộ đứng đợi sẵn. Còn có cả một số anh chị trợ giảng cũng hướng dẫn chúng em *2:rất_nhiệt_tình. Em được một chị trợ giảng xinh xắn đưa vào chỗ ngồi. Khoảng *1:tám_giờ_ba_mươi_phút, buổi sinh hoạt đầu tiên của câu lạc bộ bắt đầu.",
                 "q": "Em hãy xếp các từ in đậm vào giỏ thích hợp để thấy bạn nhỏ đã kết hợp miêu tả thời gian và cảm xúc khi thuật lại sự việc nhé!",
                 "cats": [
                     "Giỏ Từ chỉ thời gian",
@@ -147,11 +147,11 @@ window.LESSONS = {
             {
                 "k": "gold",
                 "min": 20,
-                "t": "Đầu tiên, cô chủ nhiệm đã *giới_thiệu đôi nét về bản thân, về câu lạc bộ. Sau đó, các anh chị trợ giảng *biểu_diễn tiết mục văn nghệ để chào mừng thành viên mới. Kết thúc phần chào hỏi, các thành viên đã có thời gian để *làm_quen với nhau.",
+                "t": "Đầu tiên, cô chủ nhiệm đã *giới_thiệu đôi nét về bản thân, về câu lạc bộ. Sau đó, các anh chị trợ giảng *biểu_diễn tiết mục văn nghệ để chào mừng những thành viên mới. Bài hát được biểu diễn là một bài hát tiếng Anh về mái trường thân yêu. Kết thúc phần chào hỏi, các thành viên trong câu lạc bộ đã có thời gian để *làm_quen với nhau. Mỗi thành viên sẽ tự giới thiệu đôi nét về bản thân bằng tiếng Anh. Buổi sinh hoạt kết thúc rất vui vẻ.",
                 "q": "Bạn nhỏ đã thuật lại chuỗi hoạt động rất rõ ràng. Em hãy bấm thu hoạch 3 từ ngữ chỉ hoạt động chính (giới thiệu, biểu diễn, làm quen) vào giỏ nhé!",
                 "h": "Tìm các động từ chỉ hoạt động của cô giáo, anh chị trợ giảng và các thành viên"
             }
         ],
-        "mic": "Nghỉ hè, mẹ đăng kí cho em tham gia câu lạc bộ Tiếng Anh trong trung tâm em đang theo học. Em nhớ nhất là buổi sinh hoạt đầu tiên. Buổi sáng hôm ấy, em dậy rất sớm. Sau đó, mẹ đưa em đến câu lạc bộ trong niềm hân hoan, phấn khởi. Khi chuẩn bị bước vào cửa, em đã thấy cô chủ nhiệm của câu lạc bộ đứng đợi sẵn. Còn có cả một số anh chị trợ giảng cũng hướng dẫn chúng em rất nhiệt tình."
+        "mic": "Nghỉ hè, mẹ đăng kí cho em tham gia câu lạc bộ Tiếng Anh trong trung tâm em đang theo học. Em nhớ nhất là buổi sinh hoạt đầu tiên.\nBuổi sáng hôm ấy, em dậy rất sớm. Sau đó, mẹ đưa em đến câu lạc bộ trong niềm hân hoan, phấn khởi. Khi chuẩn bị bước vào cửa, em đã thấy cô chủ nhiệm của câu lạc bộ đứng đợi sẵn. Còn có cả một số anh chị trợ giảng cũng hướng dẫn chúng em rất nhiệt tình. Em được một chị trợ giảng xinh xắn đưa vào chỗ ngồi. Khoảng tám giờ ba mươi phút, buổi sinh hoạt đầu tiên của câu lạc bộ bắt đầu. Đầu tiên, cô chủ nhiệm đã giới thiệu đôi nét về bản thân, về câu lạc bộ. Sau đó, các anh chị trợ giảng biểu diễn tiết mục văn nghệ để chào mừng những thành viên mới. Bài hát được biểu diễn là một bài hát tiếng Anh về mái trường thân yêu. Kết thúc phần chào hỏi, các thành viên trong câu lạc bộ đã có thời gian để làm quen với nhau. Mỗi thành viên sẽ tự giới thiệu đôi nét về bản thân bằng tiếng Anh. Buổi sinh hoạt kết thúc rất vui vẻ.\nĐó là buổi trải nghiệm ấn tượng nhất với em. Qua ngày hôm đó, em đã học thêm được rất nhiều câu nói tiếng Anh và quen thêm các bạn mới."
     }
 };
