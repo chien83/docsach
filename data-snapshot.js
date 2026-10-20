@@ -62,6 +62,6 @@ window.LESSONS = {
                 "q": "5. Theo em, bài thơ muốn nói đến điều kì diệu gì? Hãy điền từ thích hợp vào chỗ trống để hoàn thiện ý nghĩa."
             }
         ],
-        "mic": "Cũng giống như chúng mình, ai cũng đều đáng mến. Và khi giọng hoà quyện, dàn đồng ca vang lừng."
+        "mic": "Bạn có thấy lạ không\nMỗi đứa mình một khác\nCùng ngân nga câu hát\nChẳng giọng nào giống nhau. // Có bạn thích đứng đầu\nCó bạn hay giận dỗi\nCó bạn thích thay đổi\nCó bạn nhiều ước mơ. // Bạn có nghĩ vu vơ\nMình khác nhau nhiều thế\nNếu mỗi người một vẻ\nLiệu mình có cách xa? // Tớ bỗng phát hiện ra\nTrong vườn hoa của mẹ\nLung linh màu sắc thế\nTừng bông hoa tươi xinh. // Cũng giống như chúng mình\nAi cũng đều đáng mến\nVà khi giọng hoà quyện\nDàn đồng ca vang lừng."
     }
 };
