@@ -218,23 +218,31 @@
             padding-top: 5px; 
         }
         
-        /* Hiệu ứng HOVER cho máy tính & Mở bằng thao tác Chạm (Mobile) */
-        .book-group:hover .book-lessons,
+        /* Chỉ bật Hover trên các thiết bị có con trỏ chuột (Máy tính) */
+        @media (hover: hover) {
+            .book-group:hover .book-lessons {
+                grid-template-rows: 1fr;
+                margin-top: 10px;
+            }
+            .book-group:hover .book-group-title {
+                background: #e0d8ff;
+            }
+            .book-group:hover .arr {
+                transform: rotate(180deg);
+            }
+        }
+        
+        /* Hiệu ứng Active chạy mượt mà khi Click/Chạm (Cho cả 2 thiết bị) */
+        .book-group .arr {
+            transition: transform 0.3s ease;
+        }
         .book-group.active .book-lessons {
             grid-template-rows: 1fr;
             margin-top: 10px;
         }
-        
-        .book-group:hover .book-group-title,
         .book-group.active .book-group-title {
             background: #e0d8ff;
         }
-        
-        .book-group .arr {
-            transition: transform 0.3s ease;
-        }
-        
-        .book-group:hover .arr,
         .book-group.active .arr {
             transform: rotate(180deg);
         }
