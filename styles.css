@@ -105,6 +105,7 @@ label.ck input { width: 22px; height: 22px; margin: 0; accent-color: var(--pu); 
     padding: 12px;
     border-radius: 20px;
     border: 2px dashed #dfe6e9;
+    flex-wrap: wrap;
 }
 .dot {
     width: 40px; height: 40px;
@@ -158,9 +159,20 @@ label.ck input { width: 22px; height: 22px; margin: 0; accent-color: var(--pu); 
     box-shadow: 0 3px 8px rgba(0,0,0,0.04);
     line-height: 1.9;
 }
-.verse-line {
-    display: block;
+.verse-line { display: block; }
+
+/* Hộp Chú giải Từ ngữ SGK */
+.glossary-box {
+    margin-top: 14px;
+    padding: 12px 18px;
+    background: #fff9e6;
+    border-left: 4px solid var(--sun);
+    border-radius: 12px;
+    font-size: 16px;
+    color: #5c4b13;
+    line-height: 1.6;
 }
+.glossary-box b { color: #d35400; }
 
 /* Tương tác câu & từ */
 .sn { border-radius: 8px; padding: 2px 6px; transition: all 0.2s; }
@@ -172,6 +184,138 @@ label.ck input { width: 22px; height: 22px; margin: 0; accent-color: var(--pu); 
 .w { cursor: pointer; border-radius: 8px; padding: 1px 5px; transition: all 0.2s; display: inline-block; margin: 0 1px; user-select: none; }
 .w:hover { background: #e2e8f0; transform: translateY(-2px); }
 .w.got { background: var(--accent); color: #d35400; font-weight: 900; pointer-events: none; transform: scale(1.08); box-shadow: 0 3px 6px rgba(0,0,0,0.1); }
+
+/* V5.0: Trạm Điền từ thay bông hoa (fill) */
+.blank-slot {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 90px;
+    padding: 2px 12px;
+    margin: 0 4px;
+    border: 2px dashed var(--pu);
+    border-radius: 12px;
+    background: #efeaff;
+    color: var(--pu);
+    font-weight: 900;
+    cursor: pointer;
+    vertical-align: baseline;
+    font-size: 0.92em;
+}
+.blank-slot.active {
+    background: var(--sun);
+    border-style: solid;
+    color: var(--ink);
+    transform: scale(1.06);
+}
+.blank-slot.filled {
+    background: #c9f3dc;
+    border: 2px solid var(--ok);
+    color: #1e8449;
+    cursor: default;
+}
+.word-bank {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    background: #f1f7ff;
+    border-radius: 16px;
+    border: 2px solid var(--ln);
+    margin-top: 12px;
+}
+.bank-chip {
+    background: #fff;
+    border: 2px solid var(--pu);
+    color: var(--pu);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 3px 0 #c9dff5;
+}
+.bank-chip.used {
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+/* V5.0: Trạm Phân loại từ vào nhiều giỏ (group) */
+.group-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 12px 0;
+}
+.group-tab {
+    background: #fff;
+    border: 3px solid var(--ln);
+    color: var(--ink);
+    padding: 10px 18px;
+    border-radius: 16px;
+    font-weight: 800;
+    box-shadow: none;
+}
+.group-tab.active {
+    background: var(--pu);
+    border-color: var(--pu);
+    color: #fff;
+}
+.group-baskets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 15px;
+}
+.group-box {
+    border: 3px dashed var(--ln);
+    border-radius: 16px;
+    padding: 12px;
+    background: #fffcf0;
+    min-height: 90px;
+}
+.group-box.active {
+    border-color: var(--pu);
+    background: #f6f3ff;
+}
+.group-box h4 {
+    margin: 0 0 8px 0;
+    color: var(--pu);
+    font-size: 16px;
+}
+
+/* V5.0: Trạm Sắp xếp trình tự sự việc (order) */
+.order-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin: 8px 0;
+    text-align: left;
+    background: #fff;
+    border: 3px solid var(--ln);
+    box-shadow: 0 4px 0 var(--ln);
+    font-size: 18px;
+    border-radius: 16px;
+    padding: 14px 18px;
+}
+.order-badge {
+    min-width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #eef2f7;
+    color: var(--ink);
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+}
+.order-item.picked {
+    border-color: var(--ok);
+    background: #c9f3dc;
+}
+.order-item.picked .order-badge {
+    background: var(--ok);
+    color: #fff;
+}
 
 .shake { animation: sh 0.35s; }
 @keyframes sh { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
@@ -202,6 +346,7 @@ label.ck input { width: 22px; height: 22px; margin: 0; accent-color: var(--pu); 
     font-weight: 900;
     color: var(--ink);
     box-shadow: 0 3px 0 #d99a00;
+    margin: 2px;
 }
 
 /* Trắc nghiệm & Nối */
@@ -241,6 +386,54 @@ th { background: #f1f7ff; font-weight: 900; color: var(--pu); }
 .row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px; }
 
 #confetti-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999; display: none; }
+
+/* V5.0: Khu vực In Phiếu Đọc Sách / Xuất PDF gửi Phụ huynh */
+#print-area { display: none; }
+
+@media print {
+    header, main, #confetti-canvas { display: none !important; }
+    body { background: #fff !important; padding: 0 !important; color: #000 !important; }
+    #print-area {
+        display: block !important;
+        padding: 15px 25px;
+        font-family: 'Nunito', Arial, sans-serif;
+        color: #1d2b53;
+    }
+    .print-sheet {
+        border: 3px double #1d2b53;
+        border-radius: 16px;
+        padding: 24px 30px;
+        max-width: 100%;
+    }
+    .print-header {
+        text-align: center;
+        border-bottom: 2px dashed #95a5a6;
+        padding-bottom: 12px;
+        margin-bottom: 18px;
+    }
+    .print-header h1 { margin: 4px 0; color: #5b3fd6; font-size: 24px; text-transform: uppercase; }
+    .print-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px 24px;
+        margin-bottom: 16px;
+        font-size: 16px;
+    }
+    .print-box {
+        border: 1px solid #bdc3c7;
+        border-radius: 10px;
+        padding: 12px 16px;
+        margin-bottom: 14px;
+        background: #fafbfc;
+    }
+    .print-sign {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        text-align: center;
+        margin-top: 28px;
+        font-size: 15px;
+    }
+}
 
 @media (max-width: 600px) {
     .cols { grid-template-columns: 1fr; }
