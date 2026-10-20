@@ -981,6 +981,7 @@ function micStep() {
     let isRecording = false;
     let r = null;
     let finalProcessed = false;
+    let manualStop = false; // Cờ kiểm tra học sinh chủ động bấm nút Dừng
     
     function fireConfettiStream() {
         const duration = 2000;
@@ -1011,15 +1012,69 @@ function micStep() {
     }
 
     $('#mc').onclick = () => {
-        if (isRecording) {
-            if(r) r.stop();
+        const ms = $('#ms');
+        const btn = $('#mc');
+
+        // Hàm chấm điểm tổng hợp (chỉ chạy 1 lần duy nhất khi học sinh bấm Dừng)
+        const gradeReading = () => {
+            if (finalProcessed) return;
+            finalProcessed = true;
             isRecording = false;
+
+            btn.innerHTML = '🎙️ Bấm để đọc lại';
+            btn.style.background = 'var(--sun)';
+            btn.style.boxShadow = '0 4px 0 #d99a00';
+
+            fullTranscript = (savedTranscript + ' ' + currentTranscript).trim();
+            if (!fullTranscript) {
+                fullTranscript = ms.textContent.replace(/"/g, '').trim();
+            }
+
+            if (!fullTranscript || fullTranscript.includes("Đang nghe em đọc") || fullTranscript === "") {
+                ms.className = 'msg bad';
+                ms.textContent = 'Máy chưa nghe được gì cả. Em hãy đọc thật to nhé!';
+                return;
+            }
+
+            const score = sim(L().mic, fullTranscript);
+            const p = Math.round(score * 100);
+
+            if (p >= 65) {
+                S.mic = p;
+                ms.className = 'msg ok';
+                ms.innerHTML = '🎉 Tuyệt vời! Em đọc rõ ràng <b>(' + p + '%)</b>!';
+                playSound('victory');
+                fireConfettiStream();
+
+                // ĐỢI 3 GIÂY CHO HỌC SINH TẬN HƯỞNG TRƯỚC KHI CHUYỂN TRANG
+                setTimeout(finish, 3000);
+            } else {
+                ms.className = 'msg bad';
+                ms.innerHTML = '😅 Máy nghe được: <br><i style="font-weight:normal; color:#2c3e50">"' + esc(fullTranscript) + '"</i><br>Độ chính xác: <b>' + p + '%</b>. Em thử bấm đọc lại to và chậm hơn nhé!';
+            }
+        };
+
+        // NẾU ĐANG GHI ÂM MÀ BẤM NÚT -> HỌC SINH CHỦ ĐỘNG BẤM DỪNG ĐỂ CHẤM ĐIỂM
+        if (isRecording) {
+            manualStop = true;
+            isRecording = false;
+            if (r) {
+                try { r.stop(); } catch(e) {}
+            }
+            // Dự phòng nếu trình duyệt điện thoại đang ở nhịp nghỉ giữa 2 chặng thì vẫn chấm điểm ngay
+            setTimeout(gradeReading, 350);
             return;
         }
         
-        finalProcessed = false; // reset flag
-        const ms = $('#ms');
-        const btn = $('#mc');
+        // BẮT ĐẦU PHIÊN GHI ÂM MỚI
+        manualStop = false;
+        finalProcessed = false;
+        isRecording = true;
+
+        var savedTranscript = '';   // Bộ nhớ lưu các câu đã đọc ở chặng trước
+        var currentTranscript = ''; // Bộ nhớ lưu câu đang đọc ở chặng hiện tại
+        var fullTranscript = '';    // Chuỗi tổng hợp toàn bài
+        
         r = new SR();
         r.lang = 'vi-VN'; 
         r.maxAlternatives = 3;
@@ -1029,19 +1084,14 @@ function micStep() {
         // BẬT KẾT QUẢ TẠM THỜI (INTERIM) ĐỂ THẤY CHỮ CHẠY TRỰC TIẾP TRƯỚC KHI CHỐT
         r.interimResults = true;
         
-        let fullTranscript = '';
-        
-        let sessionFinalText = ''; // Khai báo bộ nhớ riêng cho mỗi phiên thu âm
-        
+        btn.innerHTML = '🛑 Bấm để Dừng ghi âm & Chấm điểm';
+        btn.style.background = 'var(--bad)';
+        btn.style.boxShadow = '0 4px 0 #c0392b';
+        ms.className = 'msg';
+        ms.innerHTML = '<span style="color:#7f8c8d; font-weight:normal;">Đang nghe em đọc... Cứ đọc hết bài rồi hãy bấm Dừng nhé!</span>'; 
+
         r.onstart = () => { 
             isRecording = true;
-            sessionFinalText = ''; // Reset lại từ đầu khi bắt đầu thu
-            fullTranscript = '';
-            btn.innerHTML = '🛑 Bấm để Dừng ghi âm & Chấm điểm';
-            btn.style.background = 'var(--bad)';
-            btn.style.boxShadow = '0 4px 0 #c0392b';
-            ms.className = 'msg';
-            ms.innerHTML = '<span style="color:#7f8c8d; font-weight:normal;">Đang nghe em đọc... Cứ đọc hết câu rồi hãy bấm Dừng nhé!</span>'; 
         };
         
         r.onresult = e => {
@@ -1095,8 +1145,9 @@ function micStep() {
                 }
             }
 
-            // Gom toàn bộ các câu đã lọc sạch trùng lặp
-            fullTranscript = segments.join(' ').trim();
+            // Gom câu của chặng hiện tại và nối với các chặng trước đó
+            currentTranscript = segments.join(' ').trim();
+            fullTranscript = (savedTranscript + ' ' + currentTranscript).trim();
 
             // Hiển thị chữ đang đọc trực tiếp lên màn hình
             if (fullTranscript !== '') {
@@ -1105,46 +1156,46 @@ function micStep() {
         };
         
         r.onend = () => {
-            isRecording = false;
-            btn.innerHTML = '🎙️ Bấm để đọc lại';
-            btn.style.background = 'var(--sun)';
-            btn.style.boxShadow = '0 4px 0 #d99a00';
-            
-            if (finalProcessed) return; // Nếu đã chấm điểm rồi thì thôi
-            finalProcessed = true;
-            
-            // Khi dừng thu âm mới bắt đầu chấm điểm trên toàn bộ chuỗi đọc được
-            if (!fullTranscript.trim()) {
-                fullTranscript = ms.textContent.replace(/"/g, '').trim();
+            // NẾU HỌC SINH CHƯA BẤM DỪNG (điện thoại tự ngắt khi lấy hơi hoặc hết 60s)
+            // -> Cất chữ vừa đọc vào savedTranscript và tự động bật lại Mic nghe tiếp!
+            if (!manualStop && document.body.contains(btn)) {
+                if (currentTranscript) {
+                    savedTranscript = (savedTranscript + ' ' + currentTranscript).trim();
+                    currentTranscript = '';
+                    fullTranscript = savedTranscript;
+                }
+                try {
+                    r.start();
+                    return;
+                } catch(err) {
+                    setTimeout(() => {
+                        if (!manualStop && document.body.contains(btn)) {
+                            try { r.start(); } catch(e2) {}
+                        }
+                    }, 100);
+                    return;
+                }
             }
-            
-            if (!fullTranscript || fullTranscript.includes("Đang nghe em đọc") || fullTranscript === "") {
-                ms.className = 'msg bad';
-                ms.textContent = 'Máy chưa nghe được gì cả. Em hãy đọc thật to nhé!';
-                return;
-            }
-            
-            const score = sim(L().mic, fullTranscript);
-            const p = Math.round(score * 100);
-            
-            if (p >= 65) {
-                S.mic = p;
-                ms.className = 'msg ok';
-                ms.innerHTML = '🎉 Tuyệt vời! Em đọc rõ ràng <b>(' + p + '%)</b>!';
-                playSound('victory');
-                fireConfettiStream();
-                
-                // ĐỢI 3 GIÂY CHO HỌC SINH TẬN HƯỞNG TRƯỚC KHI CHUYỂN TRANG
-                setTimeout(finish, 3000);
-            } else {
-                ms.className = 'msg bad';
-                ms.innerHTML = '😅 Máy nghe được: <br><i style="font-weight:normal; color:#2c3e50">"' + esc(fullTranscript) + '"</i><br>Độ chính xác: <b>' + p + '%</b>. Em thử bấm đọc lại to và chậm hơn nhé!';
-            }
+
+            // NẾU HỌC SINH ĐÃ BẤM DỪNG -> CHẤM ĐIỂM
+            gradeReading();
         };
         
-        r.onerror = () => { 
-            ms.className = 'msg bad'; 
-            ms.textContent = '⚠️ Trình duyệt chặn Micro hoặc không thu được âm. Em kiểm tra lại nhé!'; 
+        r.onerror = e => { 
+            // Bỏ qua lỗi tự ngắt khi học sinh nghỉ lấy hơi ('no-speech') để onend tự nối phiên
+            if (!manualStop && (e.error === 'no-speech' || e.error === 'aborted')) {
+                return;
+            }
+            if (e.error === 'not-allowed' || e.error === 'service-not-allowed' || e.error === 'audio-capture') {
+                manualStop = true;
+                isRecording = false;
+                finalProcessed = true;
+                btn.innerHTML = '🎙️ Bấm để đọc lại';
+                btn.style.background = 'var(--sun)';
+                btn.style.boxShadow = '0 4px 0 #d99a00';
+                ms.className = 'msg bad'; 
+                ms.textContent = '⚠️ Trình duyệt chặn Micro hoặc không thu được âm. Em kiểm tra lại nhé!'; 
+            }
         };
         
         try { r.start(); } catch(e) {}

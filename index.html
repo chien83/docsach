@@ -474,14 +474,31 @@ function home() {
     }
 
     const kids = GR ? Object.keys(window.LESSONS_DATA).filter(k => window.LESSONS_DATA[k].grade === GR) : [];
-    const list = Object.keys(BOOKS).map(b => {
+    const list = Object.keys(BOOKS).map((b, idx) => {
         const ls = kids.filter(k => window.LESSONS_DATA[k].book === b);
-        return ls.length ? '<h3>' + (ICON[b] || '📚') + ' ' + BOOKS[b] + '</h3>' + ls.map(k =>
-            '<button class="opt ls" data-k="' + k + '">' +
-                '<span>' + esc(window.LESSONS_DATA[k].title) + ' <small style="color:#7f8c8d">(' + window.LESSONS_DATA[k].stations.length + ' trạm' + (window.LESSONS_DATA[k].isPoem ? ' · Thơ' : '') + ')</small></span>' +
-                (isDone(k) ? '<span style="color:var(--ok);font-weight:900">✓ Đã xong</span>' : '<span>👉 Vào đọc</span>') +
-            '</button>'
-        ).join('') : '';
+        if (!ls.length) return '';
+        
+        // Mặc định: Mở thư mục đầu tiên (Sách giáo khoa), Đóng các thư mục còn lại
+        const isOpen = idx === 0; 
+        
+        return '<div class="book-group" style="margin-bottom: 15px;">' +
+            // Thanh Tiêu đề Thư mục (Có chức năng Bấm để Đóng/Mở)
+            '<h3 onclick="const content = this.nextElementSibling; const arr = this.querySelector(\'.arr\'); if(content.style.display === \'none\'){ content.style.display = \'block\'; arr.innerHTML = \'▲\'; this.style.background = \'#e0d8ff\'; } else { content.style.display = \'none\'; arr.innerHTML = \'▼\'; this.style.background = \'#f8f9fa\'; }" ' +
+            'style="cursor:pointer; background:' + (isOpen ? '#e0d8ff' : '#f8f9fa') + '; padding:14px 18px; border-radius:12px; border:2px solid var(--pu); color:var(--pu); display:flex; justify-content:space-between; align-items:center; margin-top:5px; margin-bottom:12px; transition:0.3s; box-shadow:0 4px 0 #d1c4e9;">' +
+                '<span>' + (ICON[b] || '📚') + ' <b>' + BOOKS[b] + '</b> <span style="font-size:14px; color:#555;">(' + ls.length + ' bài)</span></span>' +
+                '<span class="arr" style="font-size:16px;">' + (isOpen ? '▲' : '▼') + '</span>' +
+            '</h3>' +
+            
+            // Khu vực chứa các bài học (Sẽ bị ẩn/hiện theo lệnh bấm ở trên)
+            '<div class="book-lessons" style="display:' + (isOpen ? 'block' : 'none') + ';">' +
+                ls.map(k =>
+                    '<button class="opt ls" data-k="' + k + '">' +
+                        '<span>' + esc(window.LESSONS_DATA[k].title) + ' <small style="color:#7f8c8d">(' + window.LESSONS_DATA[k].stations.length + ' trạm' + (window.LESSONS_DATA[k].isPoem ? ' · Thơ' : '') + ')</small></span>' +
+                        (isDone(k) ? '<span style="color:var(--ok);font-weight:900">✓ Đã xong</span>' : '<span>👉 Vào đọc</span>') +
+                    '</button>'
+                ).join('') +
+            '</div>' +
+        '</div>';
     }).join('');
 
     const totalLessons = Object.keys(window.LESSONS_DATA).length;
