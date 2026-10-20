@@ -537,9 +537,9 @@ function home() {
         
         // Loại bỏ lệnh mở cố định thư mục đầu tiên
         // Thêm ontouchstart để kích hoạt khi dùng điện thoại
-        return '<div class="book-group" ontouchstart="this.classList.toggle(\'active\')">' +
+        return '<div class="book-group">' +
             // Thanh Tiêu đề
-            '<div class="book-group-title">' +
+            '<div class="book-group-title" onclick="this.parentElement.classList.toggle(\'active\')">' +
                 '<span>' + (ICON[b] || '📚') + ' <b>' + BOOKS[b] + '</b> <span style="font-size:14px; color:#555;">(' + ls.length + ' bài)</span></span>' +
                 '<span class="arr" style="font-size:16px;">▼</span>' +
             '</div>' +
