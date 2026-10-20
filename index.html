@@ -1045,22 +1045,59 @@ function micStep() {
         };
         
         r.onresult = e => {
-            let finalText = '';
-            let interimText = '';
-            
-            // SỬA LỖI ANDROID: Bắt buộc duyệt lại từ i = 0 để ráp nối chính xác
+            // Hàm tách câu thành mảng từ chữ thường (bỏ dấu câu) để so sánh chính xác
+            const getWords = s => s.toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, '').trim().split(/\s+/).filter(Boolean);
+
+            const segments = [];
+
             for (let i = 0; i < e.results.length; ++i) {
-                if (e.results[i].isFinal) {
-                    finalText += e.results[i][0].transcript + ' '; // Câu đã chốt thì cộng dồn
+                const text = e.results[i][0].transcript.trim();
+                if (!text) continue;
+
+                if (segments.length === 0) {
+                    segments.push(text);
+                    continue;
+                }
+
+                const prev = segments[segments.length - 1];
+                const wPrev = getWords(prev);
+                const wCurr = getWords(text);
+                if (wCurr.length === 0) continue;
+
+                // 1. Đếm số từ trùng khớp liên tiếp tính từ đầu câu (Prefix Match)
+                let prefixMatch = 0;
+                const minLen = Math.min(wPrev.length, wCurr.length);
+                while (prefixMatch < minLen && wPrev[prefixMatch] === wCurr[prefixMatch]) {
+                    prefixMatch++;
+                }
+
+                // 2. Đếm số từ của mảnh trước nằm đúng thứ tự trong mảnh sau (khi Android tự sửa chính tả giữa câu)
+                let orderMatch = 0, searchIdx = 0;
+                for (const w of wPrev) {
+                    const found = wCurr.indexOf(w, searchIdx);
+                    if (found !== -1) {
+                        orderMatch++;
+                        searchIdx = found + 1;
+                    }
+                }
+
+                // Kiểm tra xem mảnh mới có phải là bản cộng dồn lũy tiến của mảnh trước trên Android không
+                const isProgressiveUpdate = 
+                    prefixMatch === wPrev.length || 
+                    (wPrev.length >= 2 && wCurr.length > wPrev.length && (orderMatch / wPrev.length) >= 0.65);
+
+                if (isProgressiveUpdate) {
+                    // Ghi đè mảnh trước bằng bản mới đầy đủ hơn
+                    segments[segments.length - 1] = text;
                 } else {
-                    // TRỌNG TÂM: Với câu đang nói dở, chỉ GHI ĐÈ (=), tuyệt đối KHÔNG CỘNG DỒN (+=)
-                    interimText = e.results[i][0].transcript;
+                    // Nếu là câu/khổ thơ mới sau nhịp ngắt nghỉ thì nối tiếp vào danh sách
+                    segments.push(text);
                 }
             }
-            
-            // Gom lại văn bản cuối cùng để chấm điểm và hiển thị
-            fullTranscript = (finalText + interimText).trim();
-            
+
+            // Gom toàn bộ các câu đã lọc sạch trùng lặp
+            fullTranscript = segments.join(' ').trim();
+
             // Hiển thị chữ đang đọc trực tiếp lên màn hình
             if (fullTranscript !== '') {
                 ms.innerHTML = '<span style="color:#2c3e50; font-weight:normal; font-style:italic;">"' + esc(fullTranscript) + '"</span>';
