@@ -89,8 +89,6 @@
             font-style: normal;
         }
 
-        
-        
         /* CSS CHỮ SỐ BƯỚC ĐỂ THAY THẾ EMOJI LỖI TRÊN ĐIỆN THOẠI */
         .step-num {
             display: inline-flex;
@@ -182,7 +180,75 @@
             transform: none;
         }
 
-    /* CSS FIX MENU HOVER CHO DANH SÁCH BÀI ĐỌC */
+        /* CSS FIX TRẠM CHIA GIỎ (GROUP) */
+        .group-tabs {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .group-tab {
+            background: #fdf2e9;
+            border: 2px solid #f39c12;
+            color: #d35400;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 15px;
+        }
+        .group-tab.active {
+            background: #5b3fd6;
+            color: white;
+            border-color: #5b3fd6;
+            box-shadow: 0 4px 10px rgba(91, 63, 214, 0.3);
+        }
+        .group-baskets {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        .group-box {
+            flex: 1;
+            min-width: 250px;
+            min-height: 120px;
+            border: 2px dashed #bdc3c7;
+            border-radius: 12px;
+            padding: 15px;
+            background: #f8f9fa;
+            opacity: 0.6;
+            transition: all 0.2s;
+        }
+        .group-box.active {
+            opacity: 1;
+            border-color: #5b3fd6;
+            background: #f4f1ff;
+        }
+        .group-box h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #5b3fd6;
+            font-size: 15px;
+        }
+        .g-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .g-items .chip {
+            background: white;
+            border: 1px solid #5b3fd6;
+            color: #5b3fd6;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* CSS FIX MENU HOVER CHO DANH SÁCH BÀI ĐỌC */
         .book-group {
             margin-bottom: 15px;
             position: relative;
@@ -259,10 +325,9 @@
         }
     </style>
 
-<!-- Firebase SDK -->
+    <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-
 </head>
 <body>
 <header id="main-header">
@@ -282,7 +347,6 @@
 <canvas id="confetti-canvas"></canvas>
 
 <script>
-
 // --- CẤU HÌNH FIREBASE CHO HOCVAN.IO.VN ---
 const firebaseConfig = {
     apiKey: "AIzaSyDCRVMon0H5Lf94j3b5btvZ0KlHyZrFZ3U",
@@ -294,13 +358,18 @@ const firebaseConfig = {
     appId: "1:550031612551:web:9f2e9758b900e71a0ef622"
 };
 
-// Khởi tạo Firebase
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
+let db = null;
+try {
+    if (typeof firebase !== 'undefined') {
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        db = firebase.database();
+    }
+} catch (err) {
+    console.error("Lỗi khởi tạo Firebase:", err);
 }
-const db = firebase.database();
 // ----------------------------------------
-
 
 const $ = s => document.querySelector(s);
 const app = $('#app');
@@ -309,7 +378,9 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>'
 const NL = String.fromCharCode(10);
 
 let DEMO = false, iv = null, S = null;
-let NAME = '', GR = null;
+let NAME = localStorage.getItem('hv_saved_name') || '';
+let PW = localStorage.getItem('hv_saved_pw') || '';
+let GR = null;
 let isAdmin = false;
 const T = n => DEMO ? Math.min(n, 3) : n;
 
@@ -323,9 +394,64 @@ const lname = k => {
 };
 const L = () => window.LESSONS_DATA ? window.LESSONS_DATA[S.lid] : null;
 
-/* ===== LƯU TRỮ LOCALSTORAGE ===== */
-const load = () => { try { return JSON.parse(localStorage.getItem('vtd_v5') || '[]'); } catch(e) { return []; } };
-const store = r => { try { localStorage.setItem('vtd_v5', JSON.stringify(r)); } catch(e) {} };
+/* ===== ĐỒNG BỘ DỮ LIỆU FIREBASE & LOCALSTORAGE ===== */
+let USERS_CACHE = {};
+let RESULTS_CACHE = [];
+let MASTER_REG_PASS = '123456'; // Mật khẩu gốc mặc định cho HS mới
+let ALLOW_NEW_REG = true;       // Cho phép HS mới tự điền tên bằng mật khẩu gốc
+
+// Hàm chuẩn hóa Tên học sinh thành Khóa (Key) an toàn trên Firebase
+const userKey = nameStr => String(nameStr || '')
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, '_')
+    .replace(/[.#$\[\]\/]/g, '');
+
+const load = () => {
+    if (RESULTS_CACHE && RESULTS_CACHE.length > 0) return RESULTS_CACHE;
+    try { return JSON.parse(localStorage.getItem('vtd_v5') || '[]'); } catch(e) { return []; }
+};
+
+const store = r => {
+    RESULTS_CACHE = r;
+    try { localStorage.setItem('vtd_v5', JSON.stringify(r)); } catch(e) {}
+};
+
+// Lắng nghe dữ liệu Realtime từ Firebase
+if (db) {
+    // 1. Đồng bộ Cấu hình mật khẩu gốc
+    db.ref('hocvan/config').on('value', snap => {
+        const cfg = snap.val();
+        if (cfg) {
+            if (cfg.masterPass !== undefined) MASTER_REG_PASS = String(cfg.masterPass);
+            if (cfg.allowNewReg !== undefined) ALLOW_NEW_REG = !!cfg.allowNewReg;
+        } else {
+            db.ref('hocvan/config').set({ masterPass: '123456', allowNewReg: true });
+        }
+    });
+
+    // 2. Đồng bộ Danh sách tài khoản học sinh
+    db.ref('hocvan/users').on('value', snap => {
+        USERS_CACHE = snap.val() || {};
+        if (isAdmin && $('#tT').classList.contains('on') && $('#tb-users-body')) {
+            renderUsersTable();
+        }
+    });
+
+    // 3. Đồng bộ Kết quả đọc sách của học sinh
+    db.ref('hocvan/results').on('value', snap => {
+        const val = snap.val();
+        if (val) {
+            RESULTS_CACHE = Object.values(val);
+            try { localStorage.setItem('vtd_v5', JSON.stringify(RESULTS_CACHE)); } catch(e) {}
+        } else {
+            RESULTS_CACHE = [];
+        }
+        if (isAdmin && $('#tT').classList.contains('on') && $('#tb-results-body')) {
+            renderResultsTable();
+        }
+    });
+}
 
 function upsert() {
     if (!S || !L()) return;
@@ -340,6 +466,12 @@ function upsert() {
     const i = rs.findIndex(x => x.name === S.name && x.lid === S.lid);
     i > -1 ? rs[i] = rec : rs.push(rec);
     store(rs);
+
+    // Đẩy kết quả lên Firebase Realtime Database
+    if (db) {
+        const rKey = userKey(S.name) + '__' + String(S.lid).replace(/[.#$\[\]\/]/g, '_');
+        db.ref('hocvan/results/' + rKey).set(rec);
+    }
 }
 
 setInterval(() => {
@@ -379,7 +511,7 @@ function playSound(type) {
     } catch(e) {}
 }
 
-const shake = el => { el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); };
+const shake = el => { if (!el) return; el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); };
 
 const norm = s => s.toLowerCase().replace(/[^\p{L}\s]/gu, '').split(/\s+/).filter(Boolean);
 function sim(a, b) {
@@ -424,7 +556,8 @@ function printStudentPDF(rec) {
     const stars = p >= 70 ? 3 : p >= 40 ? 2 : 1;
     const wordsList = (rec.words && rec.words.length) ? rec.words.join(', ') : 'Đã hoàn thành các trạm đọc hiểu';
     
-    let docTitle = 'ketqua_' + rec.name.replace(/\s+/g, '_') + '_Lop' + L().grade;
+    const lessonObj = window.LESSONS_DATA && window.LESSONS_DATA[rec.lid] ? window.LESSONS_DATA[rec.lid] : { grade: '' };
+    let docTitle = 'ketqua_' + rec.name.replace(/\s+/g, '_') + '_Lop' + lessonObj.grade;
     document.title = docTitle;
     
     const origAppDisplay = app.style.display;
@@ -478,7 +611,7 @@ function printStudentPDF(rec) {
     window.print();
     
     setTimeout(() => { 
-        document.title = 'Trạm Đọc Thông Minh V6.0'; 
+        document.title = 'Trạm Đọc Thông Minh'; 
         app.style.display = origAppDisplay;
         document.getElementById('main-header').style.display = origHeaderDisplay;
         printArea.style.display = 'none';
@@ -530,7 +663,7 @@ function printClassPDF() {
     window.print();
 
     setTimeout(() => { 
-        document.title = 'Trạm Đọc Thông Minh V6.0'; 
+        document.title = 'Trạm Đọc Thông Minh'; 
         app.style.display = origAppDisplay;
         document.getElementById('main-header').style.display = origHeaderDisplay;
         printArea.style.display = 'none';
@@ -550,18 +683,34 @@ function home() {
     const demo = isAdmin ? '<label class="ck"><input type="checkbox" id="dm" ' + (DEMO ? 'checked' : '') + '> Chế độ Giáo viên xem thử (rút ngắn thời gian chờ xuống 3 giây)</label>' : '';
     const nm = '<div class="cols" style="margin-top:10px">' +
         '<input id="nm" maxlength="40" autocomplete="off" placeholder="👤 Nhập họ và tên..." value="' + esc(NAME) + '" style="margin-bottom:0">' +
-        '<input id="pw" type="password" maxlength="20" placeholder="🔑 Mật khẩu..." style="margin-bottom:0">' +
+        '<input id="pw" type="password" maxlength="20" placeholder="🔑 Mật khẩu..." value="' + esc(PW) + '" style="margin-bottom:0">' +
+    '</div>' +
+    '<div id="auth-err" style="display:none; color:var(--bad); font-weight:800; margin-top:10px; padding:10px 14px; background:#fdecea; border-radius:10px; border-left:4px solid var(--bad);"></div>' +
+    '<div style="margin-top:10px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">' +
+        '<small style="color:#7f8c8d">💡 Lần đầu vào học: Nhập tên của em và mật khẩu cô giáo cấp.</small>' +
+        '<button type="button" id="btn-toggle-cpw" style="background:none; border:none; color:var(--pu); font-weight:800; cursor:pointer; padding:4px 0; font-size:14px; text-decoration:underline; box-shadow:none;">🔑 Đổi mật khẩu cá nhân</button>' +
+    '</div>' +
+    '<div id="cpw-box" style="display:none; margin-top:12px; padding:15px; background:#f4f1ff; border:2px dashed var(--pu); border-radius:12px;">' +
+        '<div style="font-weight:900; color:var(--pu); margin-bottom:10px;">🔄 Tự đổi mật khẩu riêng của em</div>' +
+        '<div class="cols" style="gap:10px;">' +
+            '<input id="cpw-old" type="password" maxlength="20" placeholder="Mật khẩu hiện tại..." style="margin-bottom:0; background:#fff;">' +
+            '<input id="cpw-new" type="password" maxlength="20" placeholder="Mật khẩu mới muốn đặt..." style="margin-bottom:0; background:#fff;">' +
+        '</div>' +
+        '<div style="margin-top:10px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;">' +
+            '<button type="button" id="btn-save-cpw" style="background:var(--pu); color:#fff; padding:8px 18px; font-size:15px; border-radius:8px; border:none; font-weight:800; cursor:pointer;">💾 Lưu mật khẩu mới</button>' +
+            '<span id="cpw-msg" style="font-weight:800; font-size:14px;"></span>' +
+        '</div>' +
     '</div>';
 
     if (fixed) {
         app.innerHTML = '<div class="card">' +
             '<h2>🔔 Cô giáo giao bài đọc cho em</h2>' +
             '<p class="big">' + esc(lname(fixed)) + '</p>' +
-            '<label>Tên của em là gì?</label>' + nm +
-            '<button id="go">🚀 Bắt đầu vượt trạm!</button>' +
+            '<label>Thông tin đăng nhập của em:</label>' + nm +
+            '<button id="go" style="margin-top:14px">🚀 Bắt đầu vượt trạm!</button>' +
             '<p style="margin-top:16px">' + demo + '</p>' +
         '</div>';
-        $('#nm').oninput = e => NAME = e.target.value.trim();
+        bindAuthInputs();
         $('#go').onclick = () => begin(fixed);
         return;
     }
@@ -571,16 +720,11 @@ function home() {
         const ls = kids.filter(k => window.LESSONS_DATA[k].book === b);
         if (!ls.length) return '';
         
-        // Loại bỏ lệnh mở cố định thư mục đầu tiên
-        // Thêm ontouchstart để kích hoạt khi dùng điện thoại
         return '<div class="book-group">' +
-            // Thanh Tiêu đề
             '<div class="book-group-title" onclick="this.parentElement.classList.toggle(\'active\')">' +
                 '<span>' + (ICON[b] || '📚') + ' <b>' + BOOKS[b] + '</b> <span style="font-size:14px; color:#555;">(' + ls.length + ' bài)</span></span>' +
                 '<span class="arr" style="font-size:16px;">▼</span>' +
             '</div>' +
-            
-            // Khu vực chứa bài học (Hiệu ứng mở mượt mà bằng CSS Grid)
             '<div class="book-lessons">' +
                 '<div class="book-lessons-inner">' +
                     ls.map(k =>
@@ -602,7 +746,7 @@ function home() {
             '</div>';
     }
 
-    app.innerHTML = '<div class="card">' + messageBox + '<h2><span class="step-num">1</span> Tên của em là gì?</h2>' + nm + '</div>' +
+    app.innerHTML = '<div class="card">' + messageBox + '<h2><span class="step-num">1</span> Tên và Mật khẩu của em</h2>' + nm + '</div>' +
         '<div class="card"><h2><span class="step-num">2</span> Em học lớp mấy?</h2><div class="grades">' +
             GRADES.map(g => {
                 const n = Object.values(window.LESSONS_DATA).filter(l => l.grade === g).length;
@@ -615,18 +759,212 @@ function home() {
         '</div>' +
         (demo ? '<div class="card">' + demo + '</div>' : '');
 
-    $('#nm').oninput = e => NAME = e.target.value.trim();
+    bindAuthInputs();
     app.querySelectorAll('.gr').forEach(b => b.onclick = () => { GR = +b.dataset.g; home(); });
     app.querySelectorAll('.ls').forEach(b => b.onclick = () => begin(b.dataset.k));
 }
 
+function bindAuthInputs() {
+    if ($('#nm')) $('#nm').oninput = e => { NAME = e.target.value.trim(); $('#nm').style.borderColor = ''; if ($('#auth-err')) $('#auth-err').style.display = 'none'; };
+    if ($('#pw')) $('#pw').oninput = e => { PW = e.target.value.trim(); $('#pw').style.borderColor = ''; if ($('#auth-err')) $('#auth-err').style.display = 'none'; };
+
+    if ($('#btn-toggle-cpw')) {
+        $('#btn-toggle-cpw').onclick = () => {
+            const box = $('#cpw-box');
+            box.style.display = box.style.display === 'none' ? 'block' : 'none';
+            if (box.style.display === 'block') {
+                $('#cpw-old').value = $('#pw') ? $('#pw').value.trim() : '';
+                $('#cpw-new').focus();
+            }
+        };
+    }
+
+    if ($('#btn-save-cpw')) {
+        $('#btn-save-cpw').onclick = () => {
+            const nameVal = $('#nm') ? $('#nm').value.trim() : '';
+            const oldP = $('#cpw-old').value.trim();
+            const newP = $('#cpw-new').value.trim();
+            const msgEl = $('#cpw-msg');
+
+            if (!nameVal) {
+                msgEl.style.color = 'var(--bad)';
+                msgEl.textContent = '⚠️ Em hãy nhập Họ và tên ở ô bên trên trước nhé!';
+                $('#nm').focus();
+                return;
+            }
+            if (!oldP || !newP) {
+                msgEl.style.color = 'var(--bad)';
+                msgEl.textContent = '⚠️ Em hãy nhập đủ mật khẩu hiện tại và mật khẩu mới!';
+                return;
+            }
+            if (newP.length < 3) {
+                msgEl.style.color = 'var(--bad)';
+                msgEl.textContent = '⚠️ Mật khẩu mới phải có ít nhất 3 ký tự!';
+                return;
+            }
+
+            const uKey = userKey(nameVal);
+            if (!db) {
+                msgEl.style.color = 'var(--bad)';
+                msgEl.textContent = '⚠️ Không thể kết nối máy chủ để đổi mật khẩu!';
+                return;
+            }
+
+            msgEl.style.color = '#7f8c8d';
+            msgEl.textContent = '⏳ Đang kiểm tra...';
+
+            db.ref('hocvan/users/' + uKey).once('value').then(snap => {
+                const u = snap.val();
+                if (u) {
+                    if (u.locked) {
+                        msgEl.style.color = 'var(--bad)';
+                        msgEl.textContent = '⛔ Tài khoản này đang tạm khóa!';
+                        playSound('error');
+                        return;
+                    }
+                    if (String(u.pass) !== String(oldP)) {
+                        msgEl.style.color = 'var(--bad)';
+                        msgEl.textContent = '❌ Mật khẩu hiện tại không đúng!';
+                        playSound('error');
+                        return;
+                    }
+                    // Cập nhật mật khẩu mới
+                    db.ref('hocvan/users/' + uKey + '/pass').set(newP).then(() => {
+                        PW = newP;
+                        if ($('#pw')) $('#pw').value = newP;
+                        localStorage.setItem('hv_saved_name', nameVal);
+                        localStorage.setItem('hv_saved_pw', newP);
+                        msgEl.style.color = 'var(--ok)';
+                        msgEl.textContent = '✅ Đã đổi mật khẩu thành công! Em hãy nhớ mật khẩu mới nhé.';
+                        playSound('success');
+                        setTimeout(() => { if ($('#cpw-box')) $('#cpw-box').style.display = 'none'; }, 1800);
+                    });
+                } else {
+                    // Nếu học sinh chưa từng đăng nhập nhưng dùng đúng mật khẩu gốc để đổi luôn
+                    if (!ALLOW_NEW_REG) {
+                        msgEl.style.color = 'var(--bad)';
+                        msgEl.textContent = '⛔ Hệ thống đang khóa đăng ký mới. Vui lòng báo cô giáo!';
+                        playSound('error');
+                        return;
+                    }
+                    if (String(oldP) === String(MASTER_REG_PASS)) {
+                        const newUser = {
+                            name: nameVal,
+                            pass: newP,
+                            locked: false,
+                            createdAt: new Date().toLocaleDateString('vi-VN')
+                        };
+                        db.ref('hocvan/users/' + uKey).set(newUser).then(() => {
+                            PW = newP;
+                            if ($('#pw')) $('#pw').value = newP;
+                            localStorage.setItem('hv_saved_name', nameVal);
+                            localStorage.setItem('hv_saved_pw', newP);
+                            msgEl.style.color = 'var(--ok)';
+                            msgEl.textContent = '✅ Đã kích hoạt tên của em và lưu mật khẩu mới thành công!';
+                            playSound('success');
+                            setTimeout(() => { if ($('#cpw-box')) $('#cpw-box').style.display = 'none'; }, 1800);
+                        });
+                    } else {
+                        msgEl.style.color = 'var(--bad)';
+                        msgEl.textContent = '❌ Mật khẩu ban đầu không đúng!';
+                        playSound('error');
+                    }
+                }
+            });
+        };
+    }
+}
+
+function showAuthError(msg, targetInput) {
+    playSound('error');
+    const errEl = $('#auth-err');
+    if (errEl) {
+        errEl.textContent = msg;
+        errEl.style.display = 'block';
+        shake(errEl);
+    } else {
+        alert(msg);
+    }
+    if (targetInput) {
+        targetInput.style.borderColor = 'var(--bad)';
+        targetInput.focus();
+        targetInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+}
+
 function begin(k) {
-    NAME = $('#nm').value.trim();
+    NAME = $('#nm') ? $('#nm').value.trim() : '';
+    PW = $('#pw') ? $('#pw').value.trim() : '';
     DEMO = $('#dm') ? $('#dm').checked : DEMO;
-    if (!NAME) { $('#nm').focus(); $('#nm').style.borderColor = 'var(--bad)'; return; }
-    S = { name: NAME, lid: k, i: 0, secs: 0, ok: 0, tot: 0, rush: 0, mic: null, done: false, words: [], date: new Date().toLocaleDateString('vi-VN') };
-    upsert();
-    station();
+
+    if (!NAME) {
+        showAuthError('⚠️ Em hãy nhập Họ và tên của mình ở Bước 1 trước khi vào bài đọc nhé!', $('#nm'));
+        return;
+    }
+    if (!PW) {
+        showAuthError('🔑 Em hãy nhập Mật khẩu ở Bước 1 để mở khóa bài học nhé!', $('#pw'));
+        return;
+    }
+
+    const uKey = userKey(NAME);
+    if (!uKey) {
+        showAuthError('⚠️ Tên không hợp lệ, em hãy nhập rõ Họ và tên nhé!', $('#nm'));
+        return;
+    }
+
+    const startLessonNow = () => {
+        localStorage.setItem('hv_saved_name', NAME);
+        localStorage.setItem('hv_saved_pw', PW);
+        S = { name: NAME, lid: k, i: 0, secs: 0, ok: 0, tot: 0, rush: 0, mic: null, done: false, words: [], date: new Date().toLocaleDateString('vi-VN') };
+        upsert();
+        station();
+    };
+
+    if (!db) {
+        // Dự phòng nếu mất kết nối Firebase
+        if (PW === MASTER_REG_PASS) startLessonNow();
+        else showAuthError('❌ Mật khẩu chưa đúng!', $('#pw'));
+        return;
+    }
+
+    // Kiểm tra mật khẩu trên Firebase
+    db.ref('hocvan/users/' + uKey).once('value').then(snap => {
+        const u = snap.val();
+        if (u) {
+            if (u.locked) {
+                showAuthError('⛔ Tài khoản "' + NAME + '" hiện đang tạm khóa. Em vui lòng báo cô giáo nhé!', $('#nm'));
+                return;
+            }
+            if (String(u.pass) === String(PW)) {
+                playSound('success');
+                startLessonNow();
+            } else {
+                showAuthError('❌ Mật khẩu của "' + NAME + '" chưa đúng! (Nếu em đã đổi mật khẩu riêng, hãy nhập mật khẩu mới của em nhé).', $('#pw'));
+            }
+        } else {
+            // Học sinh lần đầu tiên đăng nhập với tên mới
+            if (!ALLOW_NEW_REG) {
+                showAuthError('⛔ Hệ thống đang khóa tạo tài khoản mới. Em hãy gõ chính xác Họ tên đã đăng ký hoặc báo cô giáo cấp tài khoản nhé!', $('#nm'));
+                return;
+            }
+            if (String(PW) === String(MASTER_REG_PASS)) {
+                const newUser = {
+                    name: NAME,
+                    pass: PW,
+                    locked: false,
+                    createdAt: new Date().toLocaleDateString('vi-VN')
+                };
+                db.ref('hocvan/users/' + uKey).set(newUser).then(() => {
+                    playSound('success');
+                    startLessonNow();
+                });
+            } else {
+                showAuthError('❌ Mật khẩu khởi tạo chưa đúng! Em hãy nhập đúng mật khẩu được cô giáo cấp nhé.', $('#pw'));
+            }
+        }
+    }).catch(() => {
+        showAuthError('⚠️ Lỗi kết nối mạng khi kiểm tra mật khẩu. Em thử bấm lại nhé!', $('#pw'));
+    });
 }
 
 function trail() {
@@ -1049,7 +1387,6 @@ function micStep() {
         '</div>' +
     '</div>';
 
-    
     let micContentHTML = '';
     if (L().isPoem && (L().mic.includes('\n') || L().mic.includes('//'))) {
         micContentHTML = formatPoemStanzasHTML(L().mic, line => '<span class="verse-line">' + esc(line) + '</span>');
@@ -1329,8 +1666,6 @@ function finish() {
     playSound('victory'); 
     if (typeof confetti === 'function') {
         confetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
-    } else {
-        showConfetti();
     }
     
     $('#btn-pdf').onclick = () => printStudentPDF(S);
@@ -1369,9 +1704,88 @@ function showLogin() {
 }
 
 /* ===== MÀN HÌNH GIÁO VIÊN ===== */
+function renderUsersTable() {
+    const tbody = $('#tb-users-body');
+    if (!tbody) return;
+    const keys = Object.keys(USERS_CACHE || {});
+    if (!keys.length) {
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:20px;color:#7f8c8d">Chưa có tài khoản học sinh nào. Học sinh đăng nhập lần đầu bằng mật khẩu gốc sẽ tự động hiện ở đây.</td></tr>';
+        return;
+    }
+    tbody.innerHTML = keys.map((k, idx) => {
+        const u = USERS_CACHE[k];
+        return '<tr>' +
+            '<td>' + (idx + 1) + '</td>' +
+            '<td><b>' + esc(u.name || k) + '</b></td>' +
+            '<td><code style="background:#eef2f7;padding:4px 8px;border-radius:6px;font-weight:900;color:#d35400;font-size:15px">' + esc(u.pass || '') + '</code></td>' +
+            '<td>' + esc(u.createdAt || '—') + '</td>' +
+            '<td>' + (u.locked ? '<span style="color:var(--bad);font-weight:900">⛔ Đang khóa</span>' : '<span style="color:var(--ok);font-weight:900">✅ Hoạt động</span>') + '</td>' +
+            '<td style="display:flex;gap:6px;flex-wrap:wrap">' +
+                '<button class="btn-u-pw" data-k="' + esc(k) + '" style="padding:5px 10px;font-size:12px;background:var(--pu);color:#fff;border:none;border-radius:6px;cursor:pointer;box-shadow:none">🔑 Đổi MK</button>' +
+                '<button class="btn-u-lock" data-k="' + esc(k) + '" style="padding:5px 10px;font-size:12px;background:#f39c12;color:#fff;border:none;border-radius:6px;cursor:pointer;box-shadow:none">' + (u.locked ? '🔓 Mở' : '🔒 Khóa') + '</button>' +
+                '<button class="btn-u-del" data-k="' + esc(k) + '" style="padding:5px 10px;font-size:12px;background:var(--bad);color:#fff;border:none;border-radius:6px;cursor:pointer;box-shadow:none">🗑️ Xóa</button>' +
+            '</td>' +
+        '</tr>';
+    }).join('');
+
+    tbody.querySelectorAll('.btn-u-pw').forEach(b => {
+        b.onclick = () => {
+            const k = b.dataset.k;
+            const u = USERS_CACHE[k];
+            const newP = prompt('Nhập mật khẩu mới cho học sinh "' + (u ? u.name : k) + '":', u ? u.pass : '');
+            if (newP !== null && newP.trim() !== '') {
+                db.ref('hocvan/users/' + k + '/pass').set(newP.trim());
+            }
+        };
+    });
+    tbody.querySelectorAll('.btn-u-lock').forEach(b => {
+        b.onclick = () => {
+            const k = b.dataset.k;
+            const u = USERS_CACHE[k];
+            if (u) db.ref('hocvan/users/' + k + '/locked').set(!u.locked);
+        };
+    });
+    tbody.querySelectorAll('.btn-u-del').forEach(b => {
+        b.onclick = () => {
+            const k = b.dataset.k;
+            const u = USERS_CACHE[k];
+            if (confirm('Xóa tài khoản của học sinh "' + (u ? u.name : k) + '"?')) {
+                db.ref('hocvan/users/' + k).remove();
+            }
+        };
+    });
+}
+
+function renderResultsTable() {
+    const tbody = $('#tb-results-body');
+    if (!tbody) return;
+    const rs = load();
+    if (!rs.length) {
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:24px">Chưa có dữ liệu học sinh làm bài.</td></tr>';
+        return;
+    }
+    const sorted = [...rs].sort((a,b) => b.secs - a.secs);
+    tbody.innerHTML = sorted.map((r, idx) => {
+        const p = r.tot ? Math.round(r.ok / r.tot * 100) : 0;
+        return '<tr>' +
+            '<td><b>' + esc(r.name) + '</b></td>' +
+            '<td>' + esc(lname(r.lid)) + '</td>' +
+            '<td>' + esc(r.status) + '</td>' +
+            '<td>' + mmss(r.secs) + '</td>' +
+            '<td>' + (r.tot ? p + '% ' + okLbl(p) : '—') + '</td>' +
+            '<td>' + r.rush + ' lỗi</td>' +
+            '<td>' + micLbl(r.mic) + '</td>' +
+            '<td><button class="btn-row-pdf" data-idx="' + idx + '" style="padding:6px 12px;font-size:13px;background:var(--pu);color:#fff;border:none;border-radius:6px;cursor:pointer">📄 In Phiếu</button></td>' +
+        '</tr>';
+    }).join('');
+
+    tbody.querySelectorAll('.btn-row-pdf').forEach(btn => {
+        btn.onclick = () => printStudentPDF(sorted[+btn.dataset.idx]);
+    });
+}
+
 function teacher() {
     clearInterval(iv);
-    const rs = load();
     const base = location.href.split('#')[0];
     
     let gradesWithLessons = [];
@@ -1392,35 +1806,58 @@ function teacher() {
             '</div>' +
         '</label>' +
     '</div>' +
+
     '<div class="card">' +
-        '<h2>2. Báo cáo kết quả đọc hiểu & Xuất PDF gửi Phụ huynh</h2>' +
+        '<h2>2. 🔐 Quản lý Mật khẩu & Tài khoản Học sinh (Firebase)</h2>' +
+        '<div style="background:#f4f1ff; padding:15px; border-radius:12px; border:2px solid #d1c4e9; margin-bottom:18px;">' +
+            '<div class="cols" style="align-items:end; gap:12px;">' +
+                '<label style="margin:0">🔑 Mật khẩu gốc cấp cho HS mới vào lần đầu:' +
+                    '<input id="cfg-mpass" type="text" value="' + esc(MASTER_REG_PASS) + '" style="margin:6px 0 0 0; font-weight:900; color:var(--pu);">' +
+                '</label>' +
+                '<div style="display:flex; gap:10px; align-items:center;">' +
+                    '<button id="btn-save-cfg" style="background:var(--pu); color:#fff; padding:12px 18px; border:none; border-radius:10px; font-weight:800; cursor:pointer; box-shadow:none;">💾 Lưu mật khẩu gốc</button>' +
+                '</div>' +
+            '</div>' +
+            '<label class="ck" style="margin-top:12px; font-weight:700;">' +
+                '<input type="checkbox" id="cfg-allow-reg" ' + (ALLOW_NEW_REG ? 'checked' : '') + '> Cho phép học sinh mới tự điền tên và kích hoạt bằng mật khẩu gốc này' +
+            '</label>' +
+        '</div>' +
+
+        '<div style="background:#f8f9fa; padding:14px; border-radius:12px; border:1px solid #dee2e6; margin-bottom:16px;">' +
+            '<div style="font-weight:800; margin-bottom:8px; color:#2c3e50;">➕ Cấp riêng tài khoản cho Học sinh:</div>' +
+            '<div class="cols" style="gap:10px;">' +
+                '<input id="new-u-name" type="text" placeholder="Họ và tên học sinh..." style="margin:0">' +
+                '<input id="new-u-pass" type="text" placeholder="Mật khẩu riêng..." style="margin:0">' +
+            '</div>' +
+            '<button id="btn-add-user" style="margin-top:10px; background:var(--ok); color:#fff; padding:8px 18px; border:none; border-radius:8px; font-weight:800; cursor:pointer; box-shadow:none;">➕ Thêm / Cập nhật Học sinh</button>' +
+        '</div>' +
+
+        '<div class="tw">' +
+            '<table>' +
+                '<thead><tr><th>STT</th><th>Họ và tên học sinh</th><th>Mật khẩu hiện tại</th><th>Ngày tạo</th><th>Trạng thái</th><th>Thao tác</th></tr></thead>' +
+                '<tbody id="tb-users-body"></tbody>' +
+            '</table>' +
+        '</div>' +
+    '</div>' +
+
+    '<div class="card">' +
+        '<h2>3. Báo cáo kết quả đọc hiểu & Xuất PDF gửi Phụ huynh</h2>' +
         '<div class="row">' +
             '<button id="btn-print-class" style="background:var(--pu);color:#fff;box-shadow:none">🖨️ Xuất PDF Báo Cáo Cả Lớp</button>' +
             '<button id="ex" style="background:var(--ok);color:#fff;box-shadow:none">📥 Xuất file CSV (Excel)</button>' +
             '<button id="sp" style="background:#fff;border:2px solid var(--ln);box-shadow:none;color:var(--text-main)">🧪 Nạp dữ liệu mẫu</button>' +
-            '<button id="cl" style="background:var(--bad);color:#fff;box-shadow:none">🗑️ Xóa dữ liệu máy này</button>' +
+            '<button id="cl" style="background:var(--bad);color:#fff;box-shadow:none">🗑️ Xóa toàn bộ kết quả</button>' +
         '</div>' +
         '<div class="tw">' +
             '<table>' +
                 '<thead><tr><th>Học sinh</th><th>Bài đọc</th><th>Trạng thái</th><th>Thời gian</th><th>Đúng lần đầu</th><th>Bấm vội</th><th>Đọc to</th><th>Phiếu PDF</th></tr></thead>' +
-                '<tbody>' +
-                    (rs.length ? rs.sort((a,b) => b.secs - a.secs).map((r, idx) => {
-                        const p = r.tot ? Math.round(r.ok / r.tot * 100) : 0;
-                        return '<tr>' +
-                            '<td><b>' + esc(r.name) + '</b></td>' +
-                            '<td>' + esc(lname(r.lid)) + '</td>' +
-                            '<td>' + esc(r.status) + '</td>' +
-                            '<td>' + mmss(r.secs) + '</td>' +
-                            '<td>' + (r.tot ? p + '% ' + okLbl(p) : '—') + '</td>' +
-                            '<td>' + r.rush + ' lỗi</td>' +
-                            '<td>' + micLbl(r.mic) + '</td>' +
-                            '<td><button class="btn-row-pdf" data-idx="' + idx + '" style="padding:6px 12px;font-size:13px;background:var(--pu);color:#fff;border:none;border-radius:6px;cursor:pointer">📄 In Phiếu</button></td>' +
-                        '</tr>';
-                    }).join('') : '<tr><td colspan="8" style="text-align:center;padding:24px">Chưa có dữ liệu học sinh làm bài.</td></tr>') +
-                '</tbody>' +
+                '<tbody id="tb-results-body"></tbody>' +
             '</table>' +
         '</div>' +
     '</div>';
+
+    renderUsersTable();
+    renderResultsTable();
 
     const sync = () => { if ($('#al').value) $('#lk').value = base + '#bai=' + $('#al').value; };
     const fill = () => {
@@ -1435,19 +1872,73 @@ function teacher() {
         navigator.clipboard && navigator.clipboard.writeText($('#lk').value);
         $('#cp').textContent = '✅ Đã chép!';
     };
+
+    $('#btn-save-cfg').onclick = () => {
+        const mp = $('#cfg-mpass').value.trim();
+        const alw = $('#cfg-allow-reg').checked;
+        if (!mp) { alert('Mật khẩu gốc không được để trống!'); return; }
+        MASTER_REG_PASS = mp;
+        ALLOW_NEW_REG = alw;
+        if (db) {
+            db.ref('hocvan/config').set({ masterPass: mp, allowNewReg: alw }).then(() => {
+                playSound('success');
+                $('#btn-save-cfg').textContent = '✅ Đã lưu!';
+                setTimeout(() => { if ($('#btn-save-cfg')) $('#btn-save-cfg').textContent = '💾 Lưu mật khẩu gốc'; }, 1500);
+            });
+        }
+    };
+
+    $('#cfg-allow-reg').onchange = () => {
+        ALLOW_NEW_REG = $('#cfg-allow-reg').checked;
+        if (db) db.ref('hocvan/config/allowNewReg').set(ALLOW_NEW_REG);
+    };
+
+    $('#btn-add-user').onclick = () => {
+        const uName = $('#new-u-name').value.trim();
+        const uPass = $('#new-u-pass').value.trim();
+        if (!uName || !uPass) { alert('Vui lòng nhập đủ Họ tên và Mật khẩu riêng cho học sinh!'); return; }
+        const k = userKey(uName);
+        if (db && k) {
+            db.ref('hocvan/users/' + k).set({
+                name: uName,
+                pass: uPass,
+                locked: false,
+                createdAt: new Date().toLocaleDateString('vi-VN')
+            }).then(() => {
+                playSound('success');
+                $('#new-u-name').value = '';
+                $('#new-u-pass').value = '';
+            });
+        }
+    };
+
     $('#btn-print-class').onclick = () => printClassPDF();
-    app.querySelectorAll('.btn-row-pdf').forEach(btn => {
-        btn.onclick = () => printStudentPDF(rs[+btn.dataset.idx]);
-    });
+
     $('#sp').onclick = () => {
-        store([
+        const sample = [
             {name: 'Nguyễn Hồng Thắng', lid: 'L4_Dieu_ki_dieu', status: 'Hoàn thành', secs: 185, ok: 4, tot: 4, rush: 0, mic: 95, words: ['Lung linh', 'tươi xinh', 'đáng mến', 'hoà quyện'], date: new Date().toLocaleDateString('vi-VN')},
             {name: 'Lê Bảo Anh', lid: 'L4_Con_vet_xanh', status: 'Hoàn thành', secs: 210, ok: 2, tot: 2, rush: 1, mic: 88, words: ['nhớ', 'thương', 'khen', 'biết ơn', 'thích', 'yêu'], date: new Date().toLocaleDateString('vi-VN')}
-        ]);
-        teacher();
+        ];
+        store(sample);
+        if (db) {
+            sample.forEach(s => {
+                const rKey = userKey(s.name) + '__' + s.lid;
+                db.ref('hocvan/results/' + rKey).set(s);
+            });
+        }
+        renderResultsTable();
     };
-    $('#cl').onclick = () => { if (confirm('Xóa toàn bộ dữ liệu trên máy này?')) { store([]); teacher(); } };
+
+    $('#cl').onclick = () => {
+        if (confirm('Xóa toàn bộ kết quả đọc sách của học sinh?')) {
+            store([]);
+            if (db) db.ref('hocvan/results').remove();
+            renderResultsTable();
+        }
+    };
+
     $('#ex').onclick = () => {
+        const rs = load();
         const h = ['Hoc sinh', 'Bai doc', 'Trang thai', 'Giay doc', 'Dung lan dau (%)', 'Bam voi', 'Doc to'];
         const q = v => '"' + String(v).replace(/"/g, '""') + '"';
         const rows = rs.map(r => [r.name, lname(r.lid), r.status, r.secs, r.tot ? Math.round(r.ok / r.tot * 100) : '', r.rush, r.mic ?? ''].map(q).join(','));
@@ -1475,7 +1966,7 @@ function initApp() {
     script.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js";
     document.head.appendChild(script);
 
-function checkData() {
+    function checkData() {
         const loaderMsg = document.getElementById('loader-msg');
         if (dataLoaded) {
             if (loaderMsg) loaderMsg.style.display = 'none';
