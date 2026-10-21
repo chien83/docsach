@@ -1475,21 +1475,21 @@ function initApp() {
     script.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js";
     document.head.appendChild(script);
 
-    function checkData() {
-        if (!dataLoaded) {
-            if (typeof window.LESSONS !== 'undefined' && Object.keys(window.LESSONS).length > 0) {
-                window.LESSONS_DATA = window.LESSONS;
-                dataLoaded = true;
-                console.log("Đã tải dữ liệu thành công qua biến window.LESSONS!");
-                const loaderMsg = document.getElementById('loader-msg');
-                if (loaderMsg) loaderMsg.style.display = 'none';
-                home();
-            } else {
-                console.warn("Chưa tìm thấy dữ liệu. Hiển thị cảnh báo.");
-                const loaderMsg = document.getElementById('loader-msg');
-                if (loaderMsg) {
-                    loaderMsg.innerHTML = '<div style="background:#f8d7da; color:#721c24; padding:20px; border-radius:12px; margin:20px; text-align:left; border-left:5px solid #dc3545;"><h3 style="margin-top:0; color:#c0392b">⚠️ Dữ liệu chưa được nạp</h3><p>Hệ thống không tìm thấy file <b>data-snapshot.js</b> hoặc file không chứa dữ liệu hợp lệ.</p><p>Vui lòng dùng công cụ <b>DocSach Studio</b> để xuất file dữ liệu và lưu vào cùng thư mục với file này.</p></div>';
-                }
+function checkData() {
+        const loaderMsg = document.getElementById('loader-msg');
+        if (dataLoaded) {
+            if (loaderMsg) loaderMsg.style.display = 'none';
+            home();
+        } else if (typeof window.LESSONS !== 'undefined' && Object.keys(window.LESSONS).length > 0) {
+            window.LESSONS_DATA = window.LESSONS;
+            dataLoaded = true;
+            console.log("Đã tải dữ liệu thành công qua biến window.LESSONS!");
+            if (loaderMsg) loaderMsg.style.display = 'none';
+            home();
+        } else {
+            console.warn("Chưa tìm thấy dữ liệu. Hiển thị cảnh báo.");
+            if (loaderMsg) {
+                loaderMsg.innerHTML = '<div style="background:#f8d7da; color:#721c24; padding:20px; border-radius:12px; margin:20px; text-align:left; border-left:5px solid #dc3545;"><h3 style="margin-top:0; color:#c0392b">⚠️ Dữ liệu chưa được nạp</h3><p>Hệ thống không tìm thấy file <b>data-snapshot.js</b> hoặc file không chứa dữ liệu hợp lệ.</p><p>Vui lòng dùng công cụ <b>DocSach Studio</b> để xuất file dữ liệu và lưu vào cùng thư mục với file này.</p></div>';
             }
         }
     }
