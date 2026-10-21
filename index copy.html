@@ -182,6 +182,71 @@
             transform: none;
         }
 
+    /* CSS FIX MENU HOVER CHO DANH SÁCH BÀI ĐỌC */
+        .book-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .book-group-title {
+            cursor: pointer;
+            background: #f8f9fa;
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 2px solid var(--pu);
+            color: var(--pu);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5px;
+            margin-bottom: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 0 #d1c4e9;
+            font-size: 1.17em;
+            font-weight: bold;
+        }
+        
+        .book-lessons {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.4s ease-out, margin-top 0.4s ease-out;
+            margin-top: 0;
+            overflow: hidden;
+        }
+        
+        .book-lessons-inner {
+            min-height: 0;
+            padding-top: 5px; 
+        }
+        
+        /* Chỉ bật Hover trên các thiết bị có con trỏ chuột (Máy tính) */
+        @media (hover: hover) {
+            .book-group:hover .book-lessons {
+                grid-template-rows: 1fr;
+                margin-top: 10px;
+            }
+            .book-group:hover .book-group-title {
+                background: #e0d8ff;
+            }
+            .book-group:hover .arr {
+                transform: rotate(180deg);
+            }
+        }
+        
+        /* Hiệu ứng Active chạy mượt mà khi Click/Chạm (Cho cả 2 thiết bị) */
+        .book-group .arr {
+            transition: transform 0.3s ease;
+        }
+        .book-group.active .book-lessons {
+            grid-template-rows: 1fr;
+            margin-top: 10px;
+        }
+        .book-group.active .book-group-title {
+            background: #e0d8ff;
+        }
+        .book-group.active .arr {
+            transform: rotate(180deg);
+        }
+        
         /* Tối ưu giao diện trên thiết bị di động */
         @media (max-width: 768px) {
             .poem-grid { grid-template-columns: 1fr !important; }
@@ -474,14 +539,31 @@ function home() {
     }
 
     const kids = GR ? Object.keys(window.LESSONS_DATA).filter(k => window.LESSONS_DATA[k].grade === GR) : [];
-    const list = Object.keys(BOOKS).map(b => {
+    const list = Object.keys(BOOKS).map((b, idx) => {
         const ls = kids.filter(k => window.LESSONS_DATA[k].book === b);
-        return ls.length ? '<h3>' + (ICON[b] || '📚') + ' ' + BOOKS[b] + '</h3>' + ls.map(k =>
-            '<button class="opt ls" data-k="' + k + '">' +
-                '<span>' + esc(window.LESSONS_DATA[k].title) + ' <small style="color:#7f8c8d">(' + window.LESSONS_DATA[k].stations.length + ' trạm' + (window.LESSONS_DATA[k].isPoem ? ' · Thơ' : '') + ')</small></span>' +
-                (isDone(k) ? '<span style="color:var(--ok);font-weight:900">✓ Đã xong</span>' : '<span>👉 Vào đọc</span>') +
-            '</button>'
-        ).join('') : '';
+        if (!ls.length) return '';
+        
+        // Loại bỏ lệnh mở cố định thư mục đầu tiên
+        // Thêm ontouchstart để kích hoạt khi dùng điện thoại
+        return '<div class="book-group">' +
+            // Thanh Tiêu đề
+            '<div class="book-group-title" onclick="this.parentElement.classList.toggle(\'active\')">' +
+                '<span>' + (ICON[b] || '📚') + ' <b>' + BOOKS[b] + '</b> <span style="font-size:14px; color:#555;">(' + ls.length + ' bài)</span></span>' +
+                '<span class="arr" style="font-size:16px;">▼</span>' +
+            '</div>' +
+            
+            // Khu vực chứa bài học (Hiệu ứng mở mượt mà bằng CSS Grid)
+            '<div class="book-lessons">' +
+                '<div class="book-lessons-inner">' +
+                    ls.map(k =>
+                        '<button class="opt ls" data-k="' + k + '">' +
+                            '<span>' + esc(window.LESSONS_DATA[k].title) + ' <small style="color:#7f8c8d">(' + window.LESSONS_DATA[k].stations.length + ' trạm' + (window.LESSONS_DATA[k].isPoem ? ' · Thơ' : '') + ')</small></span>' +
+                            (isDone(k) ? '<span style="color:var(--ok);font-weight:900">✓ Đã xong</span>' : '<span>👉 Vào đọc</span>') +
+                        '</button>'
+                    ).join('') +
+                '</div>' +
+            '</div>' +
+        '</div>';
     }).join('');
 
     const totalLessons = Object.keys(window.LESSONS_DATA).length;
