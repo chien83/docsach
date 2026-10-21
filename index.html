@@ -549,7 +549,10 @@ function home() {
     const isDone = k => rs.some(r => r.name === NAME && r.lid === k && r.status === 'Hoàn thành');
 
     const demo = isAdmin ? '<label class="ck"><input type="checkbox" id="dm" ' + (DEMO ? 'checked' : '') + '> Chế độ Giáo viên xem thử (rút ngắn thời gian chờ xuống 3 giây)</label>' : '';
-    const nm = '<input id="nm" maxlength="40" autocomplete="off" placeholder="👉 Nhập họ và tên của em vào đây..." value="' + esc(NAME) + '">';
+    const nm = '<div class="cols" style="margin-top:10px">' +
+        '<input id="nm" maxlength="40" autocomplete="off" placeholder="👤 Nhập họ và tên..." value="' + esc(NAME) + '" style="margin-bottom:0">' +
+        '<input id="pw" type="password" maxlength="20" placeholder="🔑 Mật khẩu..." style="margin-bottom:0">' +
+    '</div>';
 
     if (fixed) {
         app.innerHTML = '<div class="card">' +
