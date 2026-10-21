@@ -397,7 +397,7 @@ const L = () => window.LESSONS_DATA ? window.LESSONS_DATA[S.lid] : null;
 /* ===== ĐỒNG BỘ DỮ LIỆU FIREBASE & LOCALSTORAGE ===== */
 let USERS_CACHE = {};
 let RESULTS_CACHE = [];
-let MASTER_REG_PASS = 'hv@2026'; // Mật khẩu gốc mặc định cho HS mới
+let MASTER_REG_PASS = '123456'; // Mật khẩu gốc mặc định cho HS mới
 let ALLOW_NEW_REG = true;       // Cho phép HS mới tự điền tên bằng mật khẩu gốc
 
 // Hàm chuẩn hóa Tên học sinh thành Khóa (Key) an toàn trên Firebase
@@ -426,7 +426,7 @@ if (db) {
             if (cfg.masterPass !== undefined) MASTER_REG_PASS = String(cfg.masterPass);
             if (cfg.allowNewReg !== undefined) ALLOW_NEW_REG = !!cfg.allowNewReg;
         } else {
-            db.ref('hocvan/config').set({ masterPass: 'hv@2026', allowNewReg: true });
+            db.ref('hocvan/config').set({ masterPass: '123456', allowNewReg: true });
         }
     });
 
