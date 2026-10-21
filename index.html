@@ -397,7 +397,7 @@ const L = () => window.LESSONS_DATA ? window.LESSONS_DATA[S.lid] : null;
 /* ===== ĐỒNG BỘ DỮ LIỆU FIREBASE & LOCALSTORAGE ===== */
 let USERS_CACHE = {};
 let RESULTS_CACHE = [];
-let MASTER_REG_PASS = '123456'; // Mật khẩu gốc mặc định cho HS mới
+let MASTER_REG_PASS = 'hv@2026'; // Mật khẩu gốc mặc định cho HS mới
 let ALLOW_NEW_REG = true;       // Cho phép HS mới tự điền tên bằng mật khẩu gốc
 
 // Hàm chuẩn hóa Tên học sinh thành Khóa (Key) an toàn trên Firebase
@@ -1689,7 +1689,7 @@ function showLogin() {
         const u = $('#adm-user').value.trim();
         const p = $('#adm-pass').value.trim();
         
-        if (u === 'admin' && p === '123456') { 
+        if (u === 'admin' && p === 'hchien83') { 
             isAdmin = true;
             playSound('success');
             teacher(); 
