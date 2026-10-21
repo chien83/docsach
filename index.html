@@ -258,6 +258,11 @@
             .read { font-size: 20px !important; padding: 15px !important; }
         }
     </style>
+
+<!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
 </head>
 <body>
 <header id="main-header">
@@ -277,6 +282,27 @@
 <canvas id="confetti-canvas"></canvas>
 
 <script>
+
+// --- CẤU HÌNH FIREBASE CHO HOCVAN.IO.VN ---
+const firebaseConfig = {
+    apiKey: "AIzaSy_CỦA_BẠN...",
+    authDomain: "ten-du-an.firebaseapp.com",
+    databaseURL: "https://ten-du-an-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "ten-du-an",
+    storageBucket: "ten-du-an.appspot.com",
+    messagingSenderId: "123456789...",
+    appId: "1:123456789:web:abcdef..."
+};
+
+// Khởi tạo Firebase
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
+const db = firebase.database();
+// ----------------------------------------
+
+const $ = s => document.querySelector(s);
+
 const $ = s => document.querySelector(s);
 const app = $('#app');
 const printArea = $('#print-area');
