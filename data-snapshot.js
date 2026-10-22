@@ -217,5 +217,108 @@ window.LESSONS = {
             }
         ],
         "mic": "Hè vừa rồi, gia đình em đã có một chuyến du lịch đến Cửa Lò. Đó là phần thưởng mà bố mẹ dành cho em khi em đạt danh hiệu học sinh giỏi.\nVừa bước xuống xe, em đã choáng ngợp vì khuôn viên của khách sạn. Dường như em đang bước vào tòa lâu đài nguy nga, tráng lệ. Bố mẹ em vào làm thủ tục nhận phòng. Sau đó, cả nhà em đi lên phòng cất đồ đạc. Khoảng mười lăm phút sau, mọi người cùng nhau đi ăn trưa, rồi lại về nghỉ ngơi.\nKhoảng bốn giờ chiều, cả nhà em đi tắm biển. Khi cả nhà đang đi trên đường thì tình cờ gặp bạn học cũ của bố em. Bố em đã rủ gia đình cô chú ấy cùng đi ra biển. Tất cả mọi người đều vui vẻ và phấn khởi. Ra đến biển, em hét lên vì sung sướng. Chao ôi! Em đứng trước một bãi biển rộng mênh mông. Nước biển xanh và trong vắt. Gió biển lồng lộng cùng với tiếng sóng vỗ nghe thật vui tai. Bờ biển mỗi lúc một đông. Người lớn thích thú bơi lội dưới nước. Trẻ em thì nghịch cát, xây thành những tòa lâu đài tuyệt đẹp. Sau khi tắm biển xong, mọi người cùng nhau đi ăn hải sản nướng. Các món ăn đều rất ngon và mang đậm hương vị của biển.\nChuyến du lịch của gia đình em kết thúc rất tốt đẹp. Em mong sẽ có thêm nhiều chuyến du lịch như vậy cùng với gia đình của mình."
+    },
+    "L4_Cach_lap_dan_y_bai_van_thuat_lai_mot_su_viec": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Cách lập dàn ý bài văn thuật lại một sự việc",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 86,
+                "t": "Chủ nhật tuần trước, trường em tổ chức hoạt động trồng cây tại vườn trường. Đây là một hoạt động trải nghiệm tuyệt vời giúp chúng em bảo vệ môi trường và tạo bóng mát cho sân trường.\nTừ bảy giờ sáng, học sinh toàn trường đã có mặt đông đủ. Các bạn nhanh nhẹn nhận dụng cụ từ kho. Sau đó, cô giáo bắt đầu phân công công việc cụ thể cho từng nhóm. Đầu tiên, các bạn nam khỏe mạnh đảm nhận việc xúc đất, đặt cây giống xuống hố rồi cẩn thận vùi đất lại. Tiếp theo, các bạn nữ khéo léo cầm bình tưới nước cho từng gốc cây non và nhổ sạch cỏ dại xung quanh. Khoảng hai giờ đồng hồ sau, công việc trồng cây đã hoàn thành. Cuối buổi, chúng em cùng nhau dọn dẹp vệ sinh sạch sẽ. Cô giáo mỉm cười khen ngợi và dặn dò cả lớp cách chăm sóc cây mỗi ngày.\nHoạt động trồng cây kết thúc với kết quả thật đáng tự hào khi chúng em đã trồng được rất nhiều cây xanh. Mọi người đều cảm thấy vui vẻ, thích thú và thêm yêu trường lớp của mình.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU. Em hãy đọc thật kĩ bài văn thuật lại hoạt động trồng cây dưới đây nhé!",
+                "o": [
+                    "✅ Em đã đọc kĩ bài văn và nắm được diễn biến sự việc!"
+                ],
+                "a": 0,
+                "h": "Em cần đọc kỹ để làm các bài tập sau nhé."
+            },
+            {
+                "k": "match",
+                "min": 15,
+                "t": "Cấu tạo của một bài văn thuật lại một sự việc.",
+                "q": "BƯỚC 2: ĐỊNH HÌNH BỘ KHUNG. Bài văn thuật lại sự việc luôn gồm 3 phần. Em hãy nối tên mỗi phần với nhiệm vụ đúng của nó nhé!",
+                "h": "Quan sát kỹ sơ đồ ở mục Kiến thức cần nhớ để nối cho đúng.",
+                "p": [
+                    [
+                        "Mở bài",
+                        "Giới thiệu sự việc được chứng kiến hoặc tham gia."
+                    ],
+                    [
+                        "Thân bài",
+                        "Thuật lại các việc làm chính theo trình tự thời gian hoặc không gian."
+                    ],
+                    [
+                        "Kết bài",
+                        "Nêu kết quả, suy nghĩ, cảm xúc về sự việc."
+                    ]
+                ]
+            },
+            {
+                "k": "order",
+                "min": 15,
+                "t": "Thực hành sắp xếp câu.",
+                "q": "BƯỚC 2 (Tiếp): Em hãy sắp xếp các câu văn dưới đây theo ĐÚNG TRÌNH TỰ THỜI GIAN để tạo thành một đoạn văn hoàn chỉnh thuật lại việc nấu cơm nhé!",
+                "items": [
+                    "Hôm qua, em cùng mẹ chuẩn bị cơm tối cho gia đình.",
+                    "Đầu tiên, em giúp mẹ cắm cơm và luộc rau, còn mẹ thì nấu các món ăn khác.",
+                    "Khi cơm đã chín, em và mẹ bày các món ăn thơm ngon ra đĩa, thế là mâm cơm gia đình đã hoàn thành.",
+                    "Em cảm thấy công việc nấu cơm thật là thú vị."
+                ]
+            },
+            {
+                "k": "tap",
+                "min": 15,
+                "s": [
+                    "Chủ nhật tuần trước, trường em tổ chức hoạt động trồng cây tại vườn trường.",
+                    "Đây là một hoạt động trải nghiệm tuyệt vời giúp chúng em bảo vệ môi trường và tạo bóng mát cho sân trường."
+                ],
+                "q": "BƯỚC 3: GIẢI MÃ KỸ THUẬT. Trong đoạn Mở bài dưới đây, câu văn nào nêu rõ 'Lí do' em muốn tham gia hoạt động trồng cây? (Em hãy bấm chọn vào câu đó nhé)",
+                "a": 1
+            },
+            {
+                "k": "multi",
+                "min": 20,
+                "t": "Đầu tiên, các bạn nam khỏe mạnh đảm nhận việc xúc đất, đặt cây giống xuống hố rồi cẩn thận vùi đất lại. Tiếp theo, các bạn nữ khéo léo cầm bình tưới nước cho từng gốc cây non và nhổ sạch cỏ dại xung quanh. Khoảng hai giờ đồng hồ sau, công việc trồng cây đã hoàn thành. Cuối buổi, chúng em cùng nhau dọn dẹp vệ sinh sạch sẽ.",
+                "q": "BƯỚC 3 (Tiếp): Trong phần Thân bài, diễn biến công việc đã diễn ra như thế nào? (Chọn các đáp án đúng)",
+                "o": [
+                    "Các bạn nam xúc đất, trồng cây, vùi đất.",
+                    "Các bạn nữ tưới nước, nhổ cỏ.",
+                    "Cả lớp ngồi nghỉ ngơi dưới gốc cây.",
+                    "Cuối buổi, mọi người cùng dọn dẹp vệ sinh."
+                ],
+                "a": [
+                    0,
+                    1,
+                    3
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Đầu tiên, các bạn nam *xúc_đất, *trồng_cây, rồi cẩn thận *vùi_đất lại. Tiếp theo, các bạn nữ khéo léo *tưới_nước cho từng gốc cây non và *nhổ_cỏ dại xung quanh. Cuối buổi, chúng em cùng nhau *dọn_dẹp vệ sinh sạch sẽ.",
+                "q": "BƯỚC 4: THU HOẠCH TỪ VỰNG. Khi viết văn thuật lại sự việc, ta cần dùng nhiều từ chỉ hoạt động. Em hãy tìm và thu hoạch các từ chỉ HOẠT ĐỘNG của các bạn học sinh trong đoạn sau nhé!",
+                "h": "Các từ chỉ hoạt động thường trả lời cho câu hỏi: Ai làm gì?"
+            },
+            {
+                "k": "group",
+                "min": 20,
+                "t": "Trong bài văn, em thu hoạch được các từ ngữ: *1:bảy_giờ_sáng, *2:vui_vẻ, *1:hai_giờ_sau, *2:thích_thú, *1:cuối_buổi, *2:tự_hào.",
+                "q": "BƯỚC 4 (Tiếp): Em hãy phân loại các từ ngữ dùng trong bài văn vào đúng giỏ nhé!",
+                "cats": [
+                    "Từ chỉ Thời gian",
+                    "Từ chỉ Cảm xúc"
+                ]
+            },
+            {
+                "k": "fill",
+                "min": 25,
+                "t": "DÀN Ý THÂN BÀI - HOẠT ĐỘNG TRỒNG CÂY\n+ Bắt đầu sự việc: Có mặt từ bảy giờ sáng, nhận {dụng_cụ}, cô giáo {phân_công} công việc.\n+ Diễn biến sự việc: Bạn nam thì {xúc_đất}, trồng cây. Bạn nữ thì {tưới_nước}, nhổ cỏ.\n+ Kết thúc sự việc: Học sinh dọn dẹp. Cô giáo mỉm cười {khen_ngợi}, dặn dò.",
+                "q": "BƯỚC 5: TẬP LÀM ĐẠO DIỄN. Em hãy chọn đúng các từ khóa điền vào chỗ trống để hoàn thiện Sơ đồ dàn ý phần Thân bài nhé!"
+            }
+        ],
+        "mic": "Chủ nhật tuần trước, trường em tổ chức hoạt động trồng cây tại vườn trường. Đây là một hoạt động trải nghiệm tuyệt vời giúp chúng em bảo vệ môi trường và tạo bóng mát cho sân trường.\nTừ bảy giờ sáng, học sinh toàn trường đã có mặt đông đủ. Các bạn nhanh nhẹn nhận dụng cụ từ kho. Sau đó, cô giáo bắt đầu phân công công việc cụ thể cho từng nhóm. Đầu tiên, các bạn nam khỏe mạnh đảm nhận việc xúc đất, đặt cây giống xuống hố rồi cẩn thận vùi đất lại. Tiếp theo, các bạn nữ khéo léo cầm bình tưới nước cho từng gốc cây non và nhổ sạch cỏ dại xung quanh. Khoảng hai giờ đồng hồ sau, công việc trồng cây đã hoàn thành. Cuối buổi, chúng em cùng nhau dọn dẹp vệ sinh sạch sẽ. Cô giáo mỉm cười khen ngợi và dặn dò cả lớp cách chăm sóc cây mỗi ngày.\nHoạt động trồng cây kết thúc với kết quả thật đáng tự hào khi chúng em đã trồng được rất nhiều cây xanh. Mọi người đều cảm thấy vui vẻ, thích thú và thêm yêu trường lớp của mình."
     }
 };
