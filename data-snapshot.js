@@ -423,7 +423,7 @@ window.LESSONS = {
             {
                 "k": "group",
                 "min": 25,
-                "t": "Dưới đây là các ý chính của bài: *2:Chim_thần_đưa_người_em_đi_lấy_vàng, *1:Trước_khi_đi_ngủ_mẹ_kể_cho_nghe, *2:Người_anh_tham_lam_bị_rơi_xuống_biển, *3:Bài_học_không_được_tham_lam_lười_biếng, *2:Vợ_chồng_người_em_chăm_sóc_cây_khế, *3:Đây_là_câu_chuyện_hay_và_ý_nghĩa.",
+                "t": "Dưới đây là các ý chính của bài: *1:Bối_cảnh_nghe_kể, *2:Chăm_sóc_cây_khế, *2:Chim_thần_trả_vàng, *2:Người_anh_trả_giá, *3:Bài_học_rút_ra, *3:Câu_chuyện_ý_nghĩa.",
                 "q": "BƯỚC 2.2: SẮP XẾP BỐ CỤC. Em hãy nhặt các 'Thẻ ý tưởng' ở trên và bỏ vào đúng giỏ Mở bài, Thân bài hoặc Kết bài nhé!",
                 "cats": [
                     "Mở bài",
