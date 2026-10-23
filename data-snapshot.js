@@ -218,10 +218,10 @@ window.LESSONS = {
         ],
         "mic": "Hè vừa rồi, gia đình em đã có một chuyến du lịch đến Cửa Lò. Đó là phần thưởng mà bố mẹ dành cho em khi em đạt danh hiệu học sinh giỏi.\nVừa bước xuống xe, em đã choáng ngợp vì khuôn viên của khách sạn. Dường như em đang bước vào tòa lâu đài nguy nga, tráng lệ. Bố mẹ em vào làm thủ tục nhận phòng. Sau đó, cả nhà em đi lên phòng cất đồ đạc. Khoảng mười lăm phút sau, mọi người cùng nhau đi ăn trưa, rồi lại về nghỉ ngơi.\nKhoảng bốn giờ chiều, cả nhà em đi tắm biển. Khi cả nhà đang đi trên đường thì tình cờ gặp bạn học cũ của bố em. Bố em đã rủ gia đình cô chú ấy cùng đi ra biển. Tất cả mọi người đều vui vẻ và phấn khởi. Ra đến biển, em hét lên vì sung sướng. Chao ôi! Em đứng trước một bãi biển rộng mênh mông. Nước biển xanh và trong vắt. Gió biển lồng lộng cùng với tiếng sóng vỗ nghe thật vui tai. Bờ biển mỗi lúc một đông. Người lớn thích thú bơi lội dưới nước. Trẻ em thì nghịch cát, xây thành những tòa lâu đài tuyệt đẹp. Sau khi tắm biển xong, mọi người cùng nhau đi ăn hải sản nướng. Các món ăn đều rất ngon và mang đậm hương vị của biển.\nChuyến du lịch của gia đình em kết thúc rất tốt đẹp. Em mong sẽ có thêm nhiều chuyến du lịch như vậy cùng với gia đình của mình."
     },
-    "L4_Cach_lap_dan_y_bai_van_thuat_lai_mot_su_viec": {
+    "L4_Cach_lap_dan_y_bai_van_thuat_lai_mot_su_viec_Ban_nang_cap": {
         "grade": 4,
         "book": "sgk",
-        "title": "Cách lập dàn ý bài văn thuật lại một sự việc",
+        "title": "Cách lập dàn ý bài văn thuật lại một sự việc (Bản nâng cấp)",
         "isPoem": false,
         "stations": [
             {
@@ -266,6 +266,42 @@ window.LESSONS = {
                     "Đầu tiên, em giúp mẹ cắm cơm và luộc rau, còn mẹ thì nấu các món ăn khác.",
                     "Khi cơm đã chín, em và mẹ bày các món ăn thơm ngon ra đĩa, thế là mâm cơm gia đình đã hoàn thành.",
                     "Em cảm thấy công việc nấu cơm thật là thú vị."
+                ]
+            },
+            {
+                "k": "match",
+                "min": 20,
+                "t": "Để có dàn ý chi tiết, chúng ta cần tự đặt ra các câu hỏi gợi ý để tìm ý tưởng.",
+                "q": "BƯỚC 2.1: TƯ DUY TÌM Ý. Em hãy nối Câu hỏi gợi ý với Ý trả lời ngắn gọn phù hợp về hoạt động trồng cây nhé!",
+                "h": "Hãy nhớ lại sơ đồ tư duy trong sách giáo khoa.",
+                "p": [
+                    [
+                        "Giới thiệu chung về hoạt động?",
+                        "Trồng cây sáng Chủ nhật tại trường."
+                    ],
+                    [
+                        "Hoạt động bắt đầu như thế nào?",
+                        "Nhận dụng cụ và phân công."
+                    ],
+                    [
+                        "Diễn biến hoạt động ra sao?",
+                        "Nam xúc đất, nữ tưới nước nhổ cỏ."
+                    ],
+                    [
+                        "Kết quả hoạt động như thế nào?",
+                        "Trồng được nhiều cây xanh bóng mát."
+                    ]
+                ]
+            },
+            {
+                "k": "group",
+                "min": 20,
+                "t": "Để viết văn mạch lạc, ta cần sắp xếp các ý tưởng thu thập được vào đúng 3 phần của bài văn gồm: *1:Giới_thiệu_chung_về_hoạt_động, *2:Phân_công_nhiệm_vụ_và_nhận_dụng_cụ, *2:Các_bạn_nam_xúc_đất_trồng_cây, *2:Các_bạn_nữ_tưới_nước_nhổ_cỏ, *3:Cảm_xúc_vui_vẻ_và_tự_hào.",
+                "q": "BƯỚC 2.2: SẮP XẾP BỐ CỤC. Em hãy nhặt các \"Thẻ ý tưởng\" trong câu trên và bỏ vào đúng giỏ Mở bài, Thân bài hoặc Kết bài nhé!",
+                "cats": [
+                    "Mở bài",
+                    "Thân bài",
+                    "Kết bài"
                 ]
             },
             {
