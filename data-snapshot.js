@@ -218,16 +218,16 @@ window.LESSONS = {
         ],
         "mic": "Hè vừa rồi, gia đình em đã có một chuyến du lịch đến Cửa Lò. Đó là phần thưởng mà bố mẹ dành cho em khi em đạt danh hiệu học sinh giỏi.\nVừa bước xuống xe, em đã choáng ngợp vì khuôn viên của khách sạn. Dường như em đang bước vào tòa lâu đài nguy nga, tráng lệ. Bố mẹ em vào làm thủ tục nhận phòng. Sau đó, cả nhà em đi lên phòng cất đồ đạc. Khoảng mười lăm phút sau, mọi người cùng nhau đi ăn trưa, rồi lại về nghỉ ngơi.\nKhoảng bốn giờ chiều, cả nhà em đi tắm biển. Khi cả nhà đang đi trên đường thì tình cờ gặp bạn học cũ của bố em. Bố em đã rủ gia đình cô chú ấy cùng đi ra biển. Tất cả mọi người đều vui vẻ và phấn khởi. Ra đến biển, em hét lên vì sung sướng. Chao ôi! Em đứng trước một bãi biển rộng mênh mông. Nước biển xanh và trong vắt. Gió biển lồng lộng cùng với tiếng sóng vỗ nghe thật vui tai. Bờ biển mỗi lúc một đông. Người lớn thích thú bơi lội dưới nước. Trẻ em thì nghịch cát, xây thành những tòa lâu đài tuyệt đẹp. Sau khi tắm biển xong, mọi người cùng nhau đi ăn hải sản nướng. Các món ăn đều rất ngon và mang đậm hương vị của biển.\nChuyến du lịch của gia đình em kết thúc rất tốt đẹp. Em mong sẽ có thêm nhiều chuyến du lịch như vậy cùng với gia đình của mình."
     },
-    "L4_Cach_lap_dan_y_bai_van_thuat_lai_mot_su_viec_Ban_nang_cap": {
+    "L4_Cach_lap_dan_y_bai_van_thuat_lai_mot_su_viec": {
         "grade": 4,
-        "book": "sgk",
-        "title": "Cách lập dàn ý bài văn thuật lại một sự việc (Bản nâng cấp)",
+        "book": "vm",
+        "title": "Cách lập dàn ý bài văn thuật lại một sự việc",
         "isPoem": false,
         "stations": [
             {
                 "k": "choice",
                 "min": 86,
-                "t": "Chủ nhật tuần trước, trường em tổ chức hoạt động trồng cây tại vườn trường. Đây là một hoạt động trải nghiệm tuyệt vời giúp chúng em bảo vệ môi trường và tạo bóng mát cho sân trường.\nTừ bảy giờ sáng, học sinh toàn trường đã có mặt đông đủ. Các bạn nhanh nhẹn nhận dụng cụ từ kho. Sau đó, cô giáo bắt đầu phân công công việc cụ thể cho từng nhóm. Đầu tiên, các bạn nam khỏe mạnh đảm nhận việc xúc đất, đặt cây giống xuống hố rồi cẩn thận vùi đất lại. Tiếp theo, các bạn nữ khéo léo cầm bình tưới nước cho từng gốc cây non và nhổ sạch cỏ dại xung quanh. Khoảng hai giờ đồng hồ sau, công việc trồng cây đã hoàn thành. Cuối buổi, chúng em cùng nhau dọn dẹp vệ sinh sạch sẽ. Cô giáo mỉm cười khen ngợi và dặn dò cả lớp cách chăm sóc cây mỗi ngày.\nHoạt động trồng cây kết thúc với kết quả thật đáng tự hào khi chúng em đã trồng được rất nhiều cây xanh. Mọi người đều cảm thấy vui vẻ, thích thú và thêm yêu trường lớp của mình.",
+                "t": "Chủ nhật tuần trước, trường em tổ chức hoạt động trồng cây tại vườn trường. Đây là một hoạt động trải nghiệm tuyệt vời giúp chúng em bảo vệ môi trường và tạo bóng mát cho sân trường.\r\nTừ bảy giờ sáng, học sinh toàn trường đã có mặt đông đủ. Các bạn nhanh nhẹn nhận dụng cụ từ kho. Sau đó, cô giáo bắt đầu phân công công việc cụ thể cho từng nhóm. Đầu tiên, các bạn nam khỏe mạnh đảm nhận việc xúc đất, đặt cây giống xuống hố rồi cẩn thận vùi đất lại. Tiếp theo, các bạn nữ khéo léo cầm bình tưới nước cho từng gốc cây non và nhổ sạch cỏ dại xung quanh. Khoảng hai giờ đồng hồ sau, công việc trồng cây đã hoàn thành. Cuối buổi, chúng em cùng nhau dọn dẹp vệ sinh sạch sẽ. Cô giáo mỉm cười khen ngợi và dặn dò cả lớp cách chăm sóc cây mỗi ngày.\r\nHoạt động trồng cây kết thúc với kết quả thật đáng tự hào khi chúng em đã trồng được rất nhiều cây xanh. Mọi người đều cảm thấy vui vẻ, thích thú và thêm yêu trường lớp của mình.",
                 "q": "BƯỚC 1: ĐỌC THẨM THẤU. Em hãy đọc thật kĩ bài văn thuật lại hoạt động trồng cây dưới đây nhé!",
                 "o": [
                     "✅ Em đã đọc kĩ bài văn và nắm được diễn biến sự việc!"
@@ -351,10 +351,117 @@ window.LESSONS = {
             {
                 "k": "fill",
                 "min": 25,
-                "t": "DÀN Ý THÂN BÀI - HOẠT ĐỘNG TRỒNG CÂY\n+ Bắt đầu sự việc: Có mặt từ bảy giờ sáng, nhận {dụng_cụ}, cô giáo {phân_công} công việc.\n+ Diễn biến sự việc: Bạn nam thì {xúc_đất}, trồng cây. Bạn nữ thì {tưới_nước}, nhổ cỏ.\n+ Kết thúc sự việc: Học sinh dọn dẹp. Cô giáo mỉm cười {khen_ngợi}, dặn dò.",
+                "t": "DÀN Ý THÂN BÀI - HOẠT ĐỘNG TRỒNG CÂY\r\n+ Bắt đầu sự việc: Có mặt từ bảy giờ sáng, nhận {dụng_cụ}, cô giáo {phân_công} công việc.\r\n+ Diễn biến sự việc: Bạn nam thì {xúc_đất}, trồng cây. Bạn nữ thì {tưới_nước}, nhổ cỏ.\r\n+ Kết thúc sự việc: Học sinh dọn dẹp. Cô giáo mỉm cười {khen_ngợi}, dặn dò.",
                 "q": "BƯỚC 5: TẬP LÀM ĐẠO DIỄN. Em hãy chọn đúng các từ khóa điền vào chỗ trống để hoàn thiện Sơ đồ dàn ý phần Thân bài nhé!"
             }
         ],
-        "mic": "Chủ nhật tuần trước, trường em tổ chức hoạt động trồng cây tại vườn trường. Đây là một hoạt động trải nghiệm tuyệt vời giúp chúng em bảo vệ môi trường và tạo bóng mát cho sân trường.\nTừ bảy giờ sáng, học sinh toàn trường đã có mặt đông đủ. Các bạn nhanh nhẹn nhận dụng cụ từ kho. Sau đó, cô giáo bắt đầu phân công công việc cụ thể cho từng nhóm. Đầu tiên, các bạn nam khỏe mạnh đảm nhận việc xúc đất, đặt cây giống xuống hố rồi cẩn thận vùi đất lại. Tiếp theo, các bạn nữ khéo léo cầm bình tưới nước cho từng gốc cây non và nhổ sạch cỏ dại xung quanh. Khoảng hai giờ đồng hồ sau, công việc trồng cây đã hoàn thành. Cuối buổi, chúng em cùng nhau dọn dẹp vệ sinh sạch sẽ. Cô giáo mỉm cười khen ngợi và dặn dò cả lớp cách chăm sóc cây mỗi ngày.\nHoạt động trồng cây kết thúc với kết quả thật đáng tự hào khi chúng em đã trồng được rất nhiều cây xanh. Mọi người đều cảm thấy vui vẻ, thích thú và thêm yêu trường lớp của mình."
+        "mic": "Chủ nhật tuần trước, trường em tổ chức hoạt động trồng cây tại vườn trường. Đây là một hoạt động trải nghiệm tuyệt vời giúp chúng em bảo vệ môi trường và tạo bóng mát cho sân trường.\r\nTừ bảy giờ sáng, học sinh toàn trường đã có mặt đông đủ. Các bạn nhanh nhẹn nhận dụng cụ từ kho. Sau đó, cô giáo bắt đầu phân công công việc cụ thể cho từng nhóm. Đầu tiên, các bạn nam khỏe mạnh đảm nhận việc xúc đất, đặt cây giống xuống hố rồi cẩn thận vùi đất lại. Tiếp theo, các bạn nữ khéo léo cầm bình tưới nước cho từng gốc cây non và nhổ sạch cỏ dại xung quanh. Khoảng hai giờ đồng hồ sau, công việc trồng cây đã hoàn thành. Cuối buổi, chúng em cùng nhau dọn dẹp vệ sinh sạch sẽ. Cô giáo mỉm cười khen ngợi và dặn dò cả lớp cách chăm sóc cây mỗi ngày.\r\nHoạt động trồng cây kết thúc với kết quả thật đáng tự hào khi chúng em đã trồng được rất nhiều cây xanh. Mọi người đều cảm thấy vui vẻ, thích thú và thêm yêu trường lớp của mình."
+    },
+    "L4_Lap_dan_y_cho_bai_van_ke_lai_mot_cau_chuyen": {
+        "grade": 4,
+        "book": "vm",
+        "title": "Lập dàn ý cho bài văn kể lại một câu chuyện",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 166,
+                "t": "Tối hôm qua, trước khi đi ngủ, mẹ đã kể cho em nghe câu chuyện cổ tích \"Cây khế\". Lời kể ngọt ngào của mẹ cùng với diễn biến hấp dẫn của câu chuyện khiến em nhớ mãi không quên.\nChuyện kể rằng, có một gia đình nọ cha mẹ mất sớm, để lại gia tài cho hai anh em ra ở riêng. Vợ chồng người anh tham lam chiếm đoạt hết nhà cửa, ruộng vườn, chỉ chia cho người em đúng một cây khế và túp lều tranh rách nát. Không ca thán một lời, vợ chồng người em hiền lành, chăm chỉ làm việc và ngày ngày chăm sóc cây khế vô cùng cẩn thận. Đến mùa, cây khế bỗng sai trĩu quả. Một hôm, có con chim lạ to lớn bay đến mổ khế ăn. Thấy vậy, người em buồn rầu than thở với chim rằng: \"Chim ăn hết khế, ta lấy gì mà sống đây?\". Kỳ lạ thay, chim thần bỗng cất tiếng nói tiếng người: \"Ăn một quả, trả một cục vàng, may túi ba gang, mang đi mà đựng\". Y lời chim dặn, người em may túi và được chim đưa đi lấy vàng ở hòn đảo xa, từ đó trở nên giàu có. Người anh hay tin, liền lân la đến gạ đổi toàn bộ tài sản để lấy cây khế, rồi cũng được chim thần đưa đi lấy vàng. Thế nhưng, bản tính tham lam, hắn may cái túi quá to, nhét đầy vàng bạc châu báu. Trên đường về, vì quá nặng, chim thần loạng choạng chao cánh hất văng người anh tham lam rơi xuống biển sâu cùng số vàng.\nCâu chuyện \"Cây khế\" quả thực rất hay và mang nhiều ý nghĩa sâu sắc. Qua câu chuyện này, em rút ra được một bài học quý giá: anh em trong nhà phải biết yêu thương, nhường nhịn lẫn nhau, sống hiền lành, chăm chỉ và tuyệt đối không được tham lam, lười biếng.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU. Em hãy đọc kĩ bài văn kể lại câu chuyện \"Cây khế\" dưới đây để nắm được trình tự các sự việc nhé!",
+                "o": [
+                    "✅ Em đã đọc kĩ bài văn và sẵn sàng vượt trạm!"
+                ],
+                "a": 0,
+                "h": "Em cần đọc hết bài văn để có thể vượt qua trạm này."
+            },
+            {
+                "k": "match",
+                "min": 15,
+                "t": "Dựa vào kiến thức trong phần Ghi nhớ, bài văn kể lại câu chuyện luôn gồm 3 phần.",
+                "q": "BƯỚC 2: ĐỊNH HÌNH BỘ KHUNG. Em hãy nối tên mỗi phần với đúng nhiệm vụ của nó nhé!",
+                "h": "Hãy nhớ lại Kiến thức cần nhớ ở đầu bài học.",
+                "p": [
+                    [
+                        "Mở bài",
+                        "Giới thiệu về câu chuyện (tên câu chuyện, lí do biết...)"
+                    ],
+                    [
+                        "Thân bài",
+                        "Kể lại câu chuyện theo trình tự diễn ra các sự việc"
+                    ],
+                    [
+                        "Kết bài",
+                        "Nêu suy nghĩ, cảm xúc, bài học rút ra từ câu chuyện"
+                    ]
+                ]
+            },
+            {
+                "k": "match",
+                "min": 20,
+                "t": "Có 2 cách Mở bài (Trực tiếp, Gián tiếp) và 2 cách Kết bài (Mở rộng, Không mở rộng).",
+                "q": "BƯỚC 2.1: TƯ DUY TÌM Ý. Để lập dàn ý tốt, em hãy nối các câu hỏi gợi ý với cách làm tương ứng để hình thành thói quen tự đặt câu hỏi nhé!",
+                "h": "Hãy quan sát sơ đồ tìm ý Mở bài và Kết bài.",
+                "p": [
+                    [
+                        "Em thích câu chuyện nào?",
+                        "Mở bài trực tiếp"
+                    ],
+                    [
+                        "Nêu bối cảnh em được nghe, đọc câu chuyện?",
+                        "Mở bài gián tiếp"
+                    ],
+                    [
+                        "Nêu suy nghĩ, cảm xúc của em về câu chuyện?",
+                        "Kết bài không mở rộng"
+                    ],
+                    [
+                        "Qua câu chuyện, em rút ra được bài học gì?",
+                        "Kết bài mở rộng"
+                    ]
+                ]
+            },
+            {
+                "k": "group",
+                "min": 25,
+                "t": "Dưới đây là các ý chính của bài: *2:Chim_thần_đưa_người_em_đi_lấy_vàng, *1:Trước_khi_đi_ngủ_mẹ_kể_cho_nghe, *2:Người_anh_tham_lam_bị_rơi_xuống_biển, *3:Bài_học_không_được_tham_lam_lười_biếng, *2:Vợ_chồng_người_em_chăm_sóc_cây_khế, *3:Đây_là_câu_chuyện_hay_và_ý_nghĩa.",
+                "q": "BƯỚC 2.2: SẮP XẾP BỐ CỤC. Em hãy nhặt các 'Thẻ ý tưởng' ở trên và bỏ vào đúng giỏ Mở bài, Thân bài hoặc Kết bài nhé!",
+                "cats": [
+                    "Mở bài",
+                    "Thân bài",
+                    "Kết bài"
+                ]
+            },
+            {
+                "k": "multi",
+                "min": 15,
+                "t": "Tối hôm qua, trước khi đi ngủ, mẹ đã kể cho em nghe câu chuyện cổ tích \"Cây khế\". Lời kể ngọt ngào của mẹ cùng với diễn biến hấp dẫn của câu chuyện khiến em nhớ mãi không quên.",
+                "q": "BƯỚC 3: GIẢI MÃ KỸ THUẬT. Đoạn Mở bài trên đã sử dụng cách mở bài nào và có chứa những thông tin gì? (Chọn nhiều đáp án)",
+                "o": [
+                    "Mở bài trực tiếp.",
+                    "Mở bài gián tiếp.",
+                    "Giới thiệu tên câu chuyện là \"Cây khế\".",
+                    "Nêu bối cảnh là buổi tối trước khi đi ngủ mẹ kể."
+                ],
+                "a": [
+                    1,
+                    2,
+                    3
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Vợ chồng người anh *tham_lam chiếm đoạt hết nhà cửa, ruộng vườn. Vợ chồng người em thì *hiền_lành, chăm chỉ làm việc và ngày ngày chăm sóc cây khế vô cùng *cẩn_thận. Đến mùa, cây khế bỗng *sai_trĩu quả. Trên đường về, vì quá *nặng, chim thần loạng choạng chao cánh hất văng người anh *tham_lam rơi xuống biển sâu.",
+                "q": "BƯỚC 4: THU HOẠCH TỪ VỰNG. Để câu chuyện thêm sinh động, ta cần dùng các từ chỉ đặc điểm, tính chất. Em hãy hái các từ chỉ ĐẶC ĐIỂM, TÍNH CHẤT trong đoạn văn sau nhé!",
+                "h": "Các từ chỉ đặc điểm thường miêu tả tính cách con người hoặc đặc điểm sự vật (tham lam, hiền lành, cẩn thận...)."
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "DÀN Ý THÂN BÀI (Câu chuyện Cây khế)\n+ Mở đầu câu chuyện: Cha mẹ mất sớm, hai anh em ra ở riêng. Vợ chồng người anh {chiếm_đoạt} hết gia sản. Vợ chồng người em chỉ có một cây khế và túp lều tranh.\n+ Diễn biến câu chuyện: Vợ chồng người em {chăm_chỉ} làm việc. Cây khế sai trĩu quả, chim lạ đến ăn. Chim thần hứa ăn một quả trả cục vàng, đưa người em đi lấy vàng trở nên {giàu_có}.\n+ Kết thúc câu chuyện: Người anh đổi tài sản lấy cây khế. Nhưng vì quá {tham_lam}, lấy nhiều vàng nên bị rơi xuống biển.",
+                "q": "BƯỚC 5: TẬP LÀM ĐẠO DIỄN. Em hãy chọn đúng các từ khóa điền vào chỗ trống để hoàn thiện Sơ đồ dàn ý phần Thân bài nhé!"
+            }
+        ],
+        "mic": "Tối hôm qua, trước khi đi ngủ, mẹ đã kể cho em nghe câu chuyện cổ tích \"Cây khế\". Lời kể ngọt ngào của mẹ cùng với diễn biến hấp dẫn của câu chuyện khiến em nhớ mãi không quên.\nChuyện kể rằng, có một gia đình nọ cha mẹ mất sớm, để lại gia tài cho hai anh em ra ở riêng. Vợ chồng người anh tham lam chiếm đoạt hết nhà cửa, ruộng vườn, chỉ chia cho người em đúng một cây khế và túp lều tranh rách nát. Không ca thán một lời, vợ chồng người em hiền lành, chăm chỉ làm việc và ngày ngày chăm sóc cây khế vô cùng cẩn thận. Đến mùa, cây khế bỗng sai trĩu quả. Một hôm, có con chim lạ to lớn bay đến mổ khế ăn. Thấy vậy, người em buồn rầu than thở với chim rằng: \"Chim ăn hết khế, ta lấy gì mà sống đây?\". Kỳ lạ thay, chim thần bỗng cất tiếng nói tiếng người: \"Ăn một quả, trả một cục vàng, may túi ba gang, mang đi mà đựng\". Y lời chim dặn, người em may túi và được chim đưa đi lấy vàng ở hòn đảo xa, từ đó trở nên giàu có. Người anh hay tin, liền lân la đến gạ đổi toàn bộ tài sản để lấy cây khế, rồi cũng được chim thần đưa đi lấy vàng. Thế nhưng, bản tính tham lam, hắn may cái túi quá to, nhét đầy vàng bạc châu báu. Trên đường về, vì quá nặng, chim thần loạng choạng chao cánh hất văng người anh tham lam rơi xuống biển sâu cùng số vàng.\nCâu chuyện \"Cây khế\" quả thực rất hay và mang nhiều ý nghĩa sâu sắc. Qua câu chuyện này, em rút ra được một bài học quý giá: anh em trong nhà phải biết yêu thương, nhường nhịn lẫn nhau, sống hiền lành, chăm chỉ và tuyệt đối không được tham lam, lười biếng."
     }
 };
