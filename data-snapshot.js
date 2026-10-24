@@ -463,5 +463,212 @@ window.LESSONS = {
             }
         ],
         "mic": "Tối hôm qua, trước khi đi ngủ, mẹ đã kể cho em nghe câu chuyện cổ tích \"Cây khế\". Lời kể ngọt ngào của mẹ cùng với diễn biến hấp dẫn của câu chuyện khiến em nhớ mãi không quên.\r\nChuyện kể rằng, có một gia đình nọ cha mẹ mất sớm, để lại gia tài cho hai anh em ra ở riêng. Vợ chồng người anh tham lam chiếm đoạt hết nhà cửa, ruộng vườn, chỉ chia cho người em đúng một cây khế và túp lều tranh rách nát. Không ca thán một lời, vợ chồng người em hiền lành, chăm chỉ làm việc và ngày ngày chăm sóc cây khế vô cùng cẩn thận. Đến mùa, cây khế bỗng sai trĩu quả. Một hôm, có con chim lạ to lớn bay đến mổ khế ăn. Thấy vậy, người em buồn rầu than thở với chim rằng: \"Chim ăn hết khế, ta lấy gì mà sống đây?\". Kỳ lạ thay, chim thần bỗng cất tiếng nói tiếng người: \"Ăn một quả, trả một cục vàng, may túi ba gang, mang đi mà đựng\". Y lời chim dặn, người em may túi và được chim đưa đi lấy vàng ở hòn đảo xa, từ đó trở nên giàu có. Người anh hay tin, liền lân la đến gạ đổi toàn bộ tài sản để lấy cây khế, rồi cũng được chim thần đưa đi lấy vàng. Thế nhưng, bản tính tham lam, hắn may cái túi quá to, nhét đầy vàng bạc châu báu. Trên đường về, vì quá nặng, chim thần loạng choạng chao cánh hất văng người anh tham lam rơi xuống biển sâu cùng số vàng.\r\nCâu chuyện \"Cây khế\" quả thực rất hay và mang nhiều ý nghĩa sâu sắc. Qua câu chuyện này, em rút ra được một bài học quý giá: anh em trong nhà phải biết yêu thương, nhường nhịn lẫn nhau, sống hiền lành, chăm chỉ và tuyệt đối không được tham lam, lười biếng."
+    },
+    "L4_Cach_viet_doan_van_neu_y_kien": {
+        "grade": 4,
+        "book": "vm",
+        "title": "Cách viết đoạn văn nêu ý kiến",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 82,
+                "t": "Trong kho tàng truyện cổ tích Việt Nam, em vô cùng yêu thích câu chuyện \"Thạch Sanh\". Em thích câu chuyện này vì nội dung vô cùng hấp dẫn và mang lại bài học sâu sắc về việc sống lương thiện, cái thiện luôn chiến thắng cái ác. Những lí do đó được thể hiện rất rõ qua các chi tiết kì ảo, lôi cuốn. Về nội dung, em rất ấn tượng với những chiến công oanh liệt của Thạch Sanh như chém chằn tinh, diệt đại bàng và cứu người bị hại. Sự chiến thắng của cái thiện được thể hiện qua kết cục đích đáng: mẹ con Lí Thông độc ác cuối cùng bị biến thành bọ hung, còn chàng Thạch Sanh dũng cảm, lương thiện thì được kết hôn cùng công chúa. Tóm lại, câu chuyện \"Thạch Sanh\" là một tác phẩm tuyệt hay, giúp em khắc sâu triết lí sống tốt đẹp \"ở hiền gặp lành\" của ông cha ta.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU. Em hãy đọc kĩ đoạn văn nêu ý kiến về câu chuyện \"Thạch Sanh\" dưới đây nhé!",
+                "o": [
+                    "✅ Em đã đọc kĩ đoạn văn và sẵn sàng vượt trạm!"
+                ],
+                "a": 0,
+                "h": "Em hãy đọc hết đoạn văn để chuẩn bị làm các bài tập sau."
+            },
+            {
+                "k": "match",
+                "min": 15,
+                "t": "Đoạn văn nêu ý kiến thường được viết liên tục không xuống dòng, nhưng vẫn tuân thủ bố cục 3 phần rõ rệt.",
+                "q": "BƯỚC 2: ĐỊNH HÌNH BỘ KHUNG. Em hãy nối tên mỗi phần của đoạn văn với nhiệm vụ tương ứng nhé!",
+                "h": "Phần mở đầu luôn là giới thiệu. Phần triển khai để giải thích lí do. Phần kết thúc để rút ra bài học.",
+                "p": [
+                    [
+                        "Mở đầu (Mở đoạn)",
+                        "Giới thiệu câu chuyện và nêu ý kiến chung"
+                    ],
+                    [
+                        "Triển khai (Thân đoạn)",
+                        "Nêu lí do thích và đưa ra chi tiết chứng minh"
+                    ],
+                    [
+                        "Kết thúc (Kết đoạn)",
+                        "Khẳng định lại ý kiến và rút ra bài học"
+                    ]
+                ]
+            },
+            {
+                "k": "match",
+                "min": 20,
+                "t": "Dựa vào Sơ đồ tư duy trong Sách giáo khoa, em hãy tập đặt câu hỏi để tìm ý cho bài viết.",
+                "q": "BƯỚC 2.1: TƯ DUY TÌM Ý. Em hãy nối Câu hỏi gợi ý với Ý trả lời tương ứng về truyện Thạch Sanh nhé!",
+                "h": "Hãy quan sát kĩ các nhánh trong Sơ đồ tư duy của SGK.",
+                "p": [
+                    [
+                        "Em thích câu chuyện nào?",
+                        "Truyện cổ tích Thạch Sanh"
+                    ],
+                    [
+                        "Vì sao em thích?",
+                        "Nội dung hấp dẫn, ý nghĩa sâu sắc"
+                    ],
+                    [
+                        "Thể hiện qua chi tiết nào?",
+                        "Chém chằn tinh, Lí Thông đền tội"
+                    ],
+                    [
+                        "Ý kiến của em về câu chuyện?",
+                        "Triết lí ở hiền gặp lành"
+                    ]
+                ]
+            },
+            {
+                "k": "group",
+                "min": 25,
+                "t": "Dưới đây là các ý chính của bài: *1:Tên_câu_chuyện, *2:Lí_do_yêu_thích, *2:Chi_tiết_chứng_minh, *3:Khẳng_định_ý_kiến, *3:Triết_lí_rút_ra.",
+                "q": "BƯỚC 2.2: SẮP XẾP BỐ CỤC. Em hãy nhặt các 'Thẻ ý tưởng' ở trên và bỏ vào đúng giỏ Mở bài, Thân bài hoặc Kết bài nhé!",
+                "cats": [
+                    "Mở bài",
+                    "Thân bài",
+                    "Kết bài"
+                ]
+            },
+            {
+                "k": "tap",
+                "min": 15,
+                "s": [
+                    "Trong kho tàng truyện cổ tích Việt Nam, em vô cùng yêu thích câu chuyện \"Thạch Sanh\".",
+                    "Em thích câu chuyện này vì nội dung vô cùng hấp dẫn và mang lại bài học sâu sắc về việc sống lương thiện, cái thiện luôn chiến thắng cái ác.",
+                    "Những lí do đó được thể hiện rất rõ qua các chi tiết kì ảo, lôi cuốn."
+                ],
+                "q": "BƯỚC 3: GIẢI MÃ KỸ THUẬT. Câu chủ đề là câu nêu ý chính của đoạn văn, thường nằm ở đầu đoạn. Em hãy bấm chọn CÂU CHỦ ĐỀ trong đoạn văn dưới đây nhé!",
+                "a": 0
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Em thích câu chuyện này vì nội dung vô cùng *hấp_dẫn và mang lại bài học *sâu_sắc. Về nội dung, em rất ấn tượng với những chiến công *oanh_liệt của Thạch Sanh. Mẹ con Lí Thông *độc_ác cuối cùng bị biến thành bọ hung, còn chàng Thạch Sanh *dũng_cảm thì được kết hôn cùng công chúa.",
+                "q": "BƯỚC 4: THU HOẠCH TỪ VỰNG. Để nêu ý kiến thuyết phục, ta cần dùng các TÍNH TỪ chỉ đặc điểm, tính chất. Em hãy hái các TÍNH TỪ đắt giá trong đoạn sau nhé!",
+                "h": "Hãy tìm các từ miêu tả tính chất của nội dung (hấp dẫn...), hoặc tính cách con người (độc ác, dũng cảm...)."
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "SƠ ĐỒ TỔNG KẾT\n+ Mở đầu: Em rất thích câu chuyện cổ tích {Thạch_Sanh}.\n+ Triển khai: Nội dung truyện vô cùng {hấp_dẫn}. Cái thiện luôn chiến thắng cái ác thể hiện qua việc Thạch Sanh {cứu_người}, còn Lí Thông độc ác bị biến thành {bọ_hung}.\n+ Kết thúc: Câu chuyện mang đến triết lí nhân sinh sâu sắc: {ở_hiền_gặp_lành}.",
+                "q": "BƯỚC 5: TẬP LÀM ĐẠO DIỄN. Em hãy chọn các từ khóa đúng điền vào chỗ trống để khắc sâu Dàn ý đoạn văn này nhé!"
+            }
+        ],
+        "mic": "Trong kho tàng truyện cổ tích Việt Nam, em vô cùng yêu thích câu chuyện \"Thạch Sanh\". Em thích câu chuyện này vì nội dung vô cùng hấp dẫn và mang lại bài học sâu sắc về việc sống lương thiện, cái thiện luôn chiến thắng cái ác. Những lí do đó được thể hiện rất rõ qua các chi tiết kì ảo, lôi cuốn. Về nội dung, em rất ấn tượng với những chiến công oanh liệt của Thạch Sanh như chém chằn tinh, diệt đại bàng và cứu người bị hại. Sự chiến thắng của cái thiện được thể hiện qua kết cục đích đáng: mẹ con Lí Thông độc ác cuối cùng bị biến thành bọ hung, còn chàng Thạch Sanh dũng cảm, lương thiện thì được kết hôn cùng công chúa. Tóm lại, câu chuyện \"Thạch Sanh\" là một tác phẩm tuyệt hay, giúp em khắc sâu triết lí sống tốt đẹp \"ở hiền gặp lành\" của ông cha ta."
+    },
+    "L4_Cach_viet_bao_cao_thao_luan_nhom": {
+        "grade": 4,
+        "book": "vm",
+        "title": "Cách viết báo cáo thảo luận nhóm",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 76,
+                "t": "BÁO CÁO THẢO LUẬN NHÓM 1 VỀ KẾ HOẠCH QUYÊN GÓP SÁCH BÁO TẶNG CÁC TRƯỜNG VÙNG KHÓ KHĂN\nKính gửi: Cô giáo chủ nhiệm lớp 4B.\n\nHôm nay, vào lúc 14 giờ ngày 20 tháng 2 năm 2023, tại thư viện trường, nhóm 1 đã tiến hành thảo luận nhóm về: \"Kế hoạch quyên góp sách báo tặng các trường vùng khó khăn\".\nThành phần tham gia gồm có:\n- Nguyễn Quỳnh Chi (chủ tọa)\n- Phạm Lê Na (thư kí)\n- Bùi Đình Dương (thành viên)\n\nSau khi thảo luận, chủ tọa đã thống nhất ý kiến và phân công nhiệm vụ như sau:\n- Phát động quyên góp, tiếp nhận và trao gửi sách báo: Nguyễn Quỳnh Chi.\n- Thống kê số lượng sách báo: Phạm Lê Na.\n- Tổng hợp sách báo và phân loại: Bùi Đình Dương.\n\nNgười viết báo cáo\nThư kí\n(Kí tên)\nPhạm Lê Na",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU. Em hãy đọc kĩ bản báo cáo thảo luận nhóm dưới đây để nắm được cấu trúc một bản báo cáo chuẩn nhé!",
+                "o": [
+                    "✅ Em đã đọc kĩ bản báo cáo và sẵn sàng vượt trạm!"
+                ],
+                "a": 0,
+                "h": "Em cần đọc hết bản báo cáo từ Tiêu đề cho đến Chữ kí để có thể vượt qua trạm này."
+            },
+            {
+                "k": "match",
+                "min": 15,
+                "t": "Dựa vào phần Kiến thức cần nhớ, báo cáo thảo luận nhóm thường gồm 3 phần rõ rệt.",
+                "q": "BƯỚC 2: ĐỊNH HÌNH BỘ KHUNG. Em hãy nối tên mỗi phần với đúng nội dung nhiệm vụ của nó nhé!",
+                "h": "Hãy nhớ lại cấu trúc 3 phần: Đầu (Gửi ai?) - Chính (Nội dung gì?) - Cuối (Ai viết?).",
+                "p": [
+                    [
+                        "Phần đầu",
+                        "Tiêu đề và người nhận"
+                    ],
+                    [
+                        "Phần chính",
+                        "Thời gian, địa điểm, thành phần và kết quả"
+                    ],
+                    [
+                        "Phần cuối",
+                        "Chữ kí và tên người viết"
+                    ]
+                ]
+            },
+            {
+                "k": "match",
+                "min": 20,
+                "t": "Để viết được một bản báo cáo đầy đủ, ta cần trả lời được các câu hỏi then chốt.",
+                "q": "BƯỚC 2.1: TƯ DUY TÌM Ý. Dựa vào bản báo cáo mẫu, em hãy nối các câu hỏi gợi ý với nội dung trả lời tương ứng nhé!",
+                "h": "Hãy quan sát kĩ sơ đồ tư duy trong bài để tìm câu trả lời tương ứng.",
+                "p": [
+                    [
+                        "Tiêu đề và người nhận?",
+                        "Kế hoạch quyên góp, gửi cô giáo"
+                    ],
+                    [
+                        "Thời gian, địa điểm?",
+                        "14 giờ ngày 20/2 tại thư viện"
+                    ],
+                    [
+                        "Thành phần tham gia gồm những ai?",
+                        "Quỳnh Chi, Lê Na, Đình Dương"
+                    ],
+                    [
+                        "Kết quả thảo luận như thế nào?",
+                        "Thống nhất ý kiến và phân công nhiệm vụ"
+                    ]
+                ]
+            },
+            {
+                "k": "group",
+                "min": 25,
+                "t": "Dưới đây là các thông tin cần có: *1:Tên_báo_cáo, *1:Người_nhận, *2:Thời_gian_địa_điểm, *2:Thành_phần_tham_gia, *2:Kết_quả_phân_công, *3:Chữ_kí_người_viết.",
+                "q": "BƯỚC 2.2: SẮP XẾP BỐ CỤC. Em hãy nhặt các 'Thẻ nội dung' ở trên và phân loại vào đúng 3 phần của một bản báo cáo nhé!",
+                "cats": [
+                    "Phần đầu",
+                    "Phần chính",
+                    "Phần cuối"
+                ]
+            },
+            {
+                "k": "multi",
+                "min": 15,
+                "t": "Hôm nay, vào lúc 14 giờ ngày 20 tháng 2 năm 2023, tại thư viện trường, nhóm 1 đã tiến hành thảo luận nhóm về: \"Kế hoạch quyên góp sách báo tặng các trường vùng khó khăn\".\nThành phần tham gia gồm có:\n- Nguyễn Quỳnh Chi (chủ tọa)\n- Phạm Lê Na (thư kí)\n- Bùi Đình Dương (thành viên)",
+                "q": "BƯỚC 3: GIẢI MÃ KỸ THUẬT. Trong \"Phần chính\" của bản báo cáo, những thông tin bắt buộc nào đã được nêu ra? (Chọn nhiều đáp án)",
+                "o": [
+                    "Thời gian và địa điểm.",
+                    "Thành phần tham gia (chủ tọa, thư kí...).",
+                    "Chữ kí của người viết báo cáo.",
+                    "Lí do yêu thích cuộc thảo luận."
+                ],
+                "a": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Kính gửi: Cô giáo *chủ_nhiệm lớp 4B. Thành phần tham gia gồm có *chủ_tọa Nguyễn Quỳnh Chi, *thư_kí Phạm Lê Na và các *thành_viên. Sau khi họp, nhóm đã *thống_nhất ý kiến và *phân_công nhiệm vụ rõ ràng.",
+                "q": "BƯỚC 4: THU HOẠCH TỪ VỰNG. Khi viết báo cáo, ta thường dùng các từ ngữ hành chính, trang trọng. Em hãy hái các từ ngữ đặc trưng này trong đoạn sau nhé!",
+                "h": "Tìm các từ chỉ chức danh (chủ tọa, thư kí...) và các động từ chỉ hoạt động nhóm (thống nhất, phân công...)."
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "SƠ ĐỒ BÁO CÁO THẢO LUẬN NHÓM\n+ Phần đầu: Ghi rõ {tiêu_đề} báo cáo và {người_nhận}.\n+ Phần chính: Nêu cụ thể {thời_gian}, địa điểm, thành phần tham gia và {kết_quả} thảo luận.\n+ Phần cuối: {Chữ_kí} và ghi rõ họ tên người viết báo cáo.",
+                "q": "BƯỚC 5: TẬP LÀM ĐẠO DIỄN. Em hãy chọn đúng từ khóa điền vào chỗ trống để khắc sâu sơ đồ cấu trúc của Báo cáo thảo luận nhóm nhé!"
+            }
+        ],
+        "mic": "BÁO CÁO THẢO LUẬN NHÓM 1 VỀ KẾ HOẠCH QUYÊN GÓP SÁCH BÁO TẶNG CÁC TRƯỜNG VÙNG KHÓ KHĂN\nKính gửi: Cô giáo chủ nhiệm lớp 4B.\n\nHôm nay, vào lúc 14 giờ ngày 20 tháng 2 năm 2023, tại thư viện trường, nhóm 1 đã tiến hành thảo luận nhóm về: \"Kế hoạch quyên góp sách báo tặng các trường vùng khó khăn\".\nThành phần tham gia gồm có:\n- Nguyễn Quỳnh Chi (chủ tọa)\n- Phạm Lê Na (thư kí)\n- Bùi Đình Dương (thành viên)\n\nSau khi thảo luận, chủ tọa đã thống nhất ý kiến và phân công nhiệm vụ như sau:\n- Phát động quyên góp, tiếp nhận và trao gửi sách báo: Nguyễn Quỳnh Chi.\n- Thống kê số lượng sách báo: Phạm Lê Na.\n- Tổng hợp sách báo và phân loại: Bùi Đình Dương.\n\nNgười viết báo cáo\nThư kí\n(Kí tên)\nPhạm Lê Na"
     }
 };
