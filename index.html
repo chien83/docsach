@@ -323,6 +323,13 @@
             .cols { grid-template-columns: 1fr !important; }
             .read { font-size: 20px !important; padding: 15px !important; }
         }
+        /* CSS CHO TRẠM CẦN ÔN LẠI (MASTERY LEARNING) */
+        .dot.retry {
+            background: #fff3cd;
+            border-color: #f39c12;
+            color: #d35400;
+            font-weight: 900;
+        }
     </style>
 
     <!-- Firebase SDK -->
@@ -969,19 +976,85 @@ function begin(k) {
 
 function trail() {
     const n = L().stations.length;
+    const passed = S.passed || [];
     return '<div class="trail">' +
-        L().stations.map((_, i) => '<div class="dot ' + (i < S.i ? 'ok' : i === S.i ? 'now' : '') + '">' + (i < S.i ? '✓' : i + 1) + '</div>').join('<span>―</span>') +
+        L().stations.map((_, i) => {
+            let cls = '', txt = i + 1;
+            if (i === S.i) { cls = 'now'; }
+            else if (passed[i] === true) { cls = 'ok'; txt = '✓'; }
+            else if (passed[i] === false) { cls = 'retry'; txt = '↺'; }
+            return '<div class="dot ' + cls + '">' + txt + '</div>';
+        }).join('<span>―</span>') +
         (L().mic ? '<span>―</span><div class="dot ' + (S.i >= n ? 'now' : '') + '">🎤</div>' : '') +
     '</div>';
 }
 
 function finishStation(firstOk) {
-    S.tot++; if (firstOk) S.ok++; S.i++; upsert();
-    const last = S.i >= L().stations.length;
-    $('#act').innerHTML = '<div class="msg ok" style="font-size:22px;text-align:center">🎉 Giỏi lắm! Em đã vượt qua trạm này.</div>' +
-        '<div style="text-align:center"><button id="nx">' + (last ? (L().mic ? 'Đến trạm Đọc To 🎤' : 'Nhận Phiếu Kết Quả ⭐') : 'Sang Trạm Tiếp Theo ➜') + '</button></div>';
-    playSound('success');
-    $('#nx').onclick = () => last ? (L().mic ? micStep() : finish()) : station();
+    if (!S.passed) S.passed = [];
+    if (!S.round) S.round = 1;
+
+    // Ghi nhận thống kê "Đúng lần đầu" ở lượt đầu tiên để báo cáo Giáo viên chính xác
+    if (S.passed[S.i] === undefined) {
+        S.tot++;
+        if (firstOk) S.ok++;
+    }
+
+    // Đánh dấu trạm hiện tại: true nếu đúng ngay lần đầu, false nếu có chọn sai phải làm lại
+    S.passed[S.i] = firstOk;
+
+    // Tìm trạm tiếp theo chưa đạt (passed !== true) trong lượt hiện tại
+    const n = L().stations.length;
+    let nextIdx = -1;
+    for (let j = S.i + 1; j < n; j++) {
+        if (S.passed[j] !== true) { nextIdx = j; break; }
+    }
+
+    // Nếu đã đi tới cuối danh sách trạm câu hỏi của lượt này
+    if (nextIdx === -1) {
+        const failedStations = [];
+        for (let j = 0; j < n; j++) {
+            if (S.passed[j] !== true) failedStations.push(j + 1);
+        }
+
+        if (failedStations.length === 0) {
+            // Tất cả các trạm đều đã vượt qua với 1 lần chọn đúng duy nhất -> Mở khóa Trạm Đọc To (hoặc Hoàn thành)
+            S.i = n;
+            upsert();
+            $('#act').innerHTML = '<div class="msg ok" style="font-size:22px;text-align:center">🎉 Xuất sắc! Em đã vượt qua tất cả các trạm với 1 lần chọn đúng duy nhất!</div>' +
+                '<div style="text-align:center"><button id="nx">' + (L().mic ? 'Đến trạm Đọc To 🎤' : 'Nhận Phiếu Kết Quả ⭐') + '</button></div>';
+            playSound('victory');
+            $('#nx').onclick = () => L().mic ? micStep() : finish();
+        } else {
+            // Còn trạm chưa trả lời đúng ngay lần đầu -> Yêu cầu quay lại ôn đúng các trạm đó (Cách A)
+            S.round++;
+            const firstRetryIdx = S.passed.findIndex(v => v !== true);
+            S.i = firstRetryIdx > -1 ? firstRetryIdx : 0;
+            upsert();
+
+            const msgRetry = firstOk
+                ? '🎉 Em đã vượt qua trạm này! Tuy nhiên, vẫn còn <b>Trạm ' + failedStations.join(', ') + '</b> em chưa trả lời đúng ngay lần đầu.'
+                : '💡 Em đã tìm ra đáp án, nhưng vì có chọn sai nên cần làm lại <b>Trạm ' + failedStations.join(', ') + '</b> ở lượt sau để nhớ thật kỹ nhé!';
+            const lockTarget = L().mic ? '🔒 <b>Trạm Đọc To (🎤) chưa mở khóa.</b> ' : '🔒 <b>Chưa hoàn thành bài học.</b> ';
+
+            $('#act').innerHTML = '<div class="msg bad" style="font-size:19px;text-align:center;background:#fff3cd;color:#856404;border-color:#ffeeba">' +
+                msgRetry + '<br><br>' + lockTarget + 'Em hãy quay lại vượt qua các trạm còn nợ với <b>1 lần chọn đúng duy nhất</b> nhé!</div>' +
+                '<div style="text-align:center"><button id="nx" style="background:#f39c12;box-shadow:0 4px 0 #d68910">🔄 Quay lại ôn tập (Lượt ' + S.round + ') ➜</button></div>';
+            playSound('error');
+            $('#nx').onclick = () => station();
+        }
+    } else {
+        // Chuyển sang trạm tiếp theo trong lượt hiện tại
+        S.i = nextIdx;
+        upsert();
+        const statusMsg = firstOk
+            ? '<div class="msg ok" style="font-size:22px;text-align:center">🎉 Giỏi lắm! Em đã vượt qua trạm này ngay lần đầu!</div>'
+            : '<div class="msg" style="font-size:20px;text-align:center;background:#fff3cd;color:#d35400;border:2px solid #f39c12">💡 Em đã vượt qua trạm! Nhưng vì có chọn sai nên cuối bài hệ thống sẽ cho em ôn lại trạm này nhé.</div>';
+
+        $('#act').innerHTML = statusMsg +
+            '<div style="text-align:center"><button id="nx">Sang Trạm Tiếp Theo ➜</button></div>';
+        playSound('success');
+        $('#nx').onclick = () => station();
+    }
 }
 
 function triggerCooldown(el, timeSecs, msg) {
@@ -1005,6 +1078,7 @@ function triggerCooldown(el, timeSecs, msg) {
 
 function station() {
     const st = L().stations[S.i];
+    const waitTime = (S.round && S.round > 1) ? 0 : st.min;
     const isPoem = !!L().isPoem;
     let wrong = 0;
 
@@ -1038,7 +1112,7 @@ function station() {
             rd.innerHTML = st.s.map((x, i) => '<span class="sn" data-i="' + i + '">' + esc(x) + ' </span>').join('');
         }
         act.innerHTML = '<div class="msg" id="cd" style="text-align:center"></div>';
-        countdown(st.min, $('#cd'), () => {
+        countdown(waitTime, $('#cd'), () => {
             act.innerHTML = '<div class="big">🔍 ' + esc(st.q) + '</div>';
             rd.querySelectorAll('.sn').forEach(sp => {
                 sp.classList.add('tap');
@@ -1064,9 +1138,11 @@ function station() {
             rd.textContent = st.t;
         }
         act.innerHTML = '<div class="msg" id="cd" style="text-align:center"></div>';
-        countdown(st.min, $('#cd'), () => {
+        countdown(waitTime, $('#cd'), () => {
+            const opts = st.o.map((o, i) => ({ o, i }));
+            const displayOpts = (S.round && S.round > 1 && opts.length > 1) ? shuf(opts) : opts;
             act.innerHTML = '<div class="big">🤔 ' + esc(st.q) + '</div>' +
-                st.o.map((o, i) => '<button class="opt" data-i="' + i + '">' + esc(o) + '</button>').join('');
+                displayOpts.map(x => '<button class="opt" data-i="' + x.i + '">' + esc(x.o) + '</button>').join('');
             act.querySelectorAll('.opt').forEach(b => {
                 b.onclick = () => {
                     if ($('#cooldown-screen').style.display === 'flex') return;
@@ -1134,7 +1210,7 @@ function station() {
             rd.textContent = st.t;
         }
         act.innerHTML = '<div class="msg" id="cd" style="text-align:center"></div>';
-        countdown(st.min, $('#cd'), () => {
+        countdown(waitTime, $('#cd'), () => {
             rd.classList.add('dim');
             const L2 = st.p.map((p, i) => [p[0], i]);
             const R = shuf(st.p.map((p, i) => [p[1], i]));
@@ -1288,7 +1364,7 @@ function station() {
             rd.textContent = st.t;
         }
         act.innerHTML = '<div class="msg" id="cd" style="text-align:center"></div>';
-        countdown(st.min, $('#cd'), () => {
+        countdown(waitTime, $('#cd'), () => {
             const shuffled = shuf(st.items.map((text, idx) => ({ text, idx })));
             let expectedIdx = 0;
 
@@ -1327,10 +1403,12 @@ function station() {
         }
         const selected = new Set();
         const correctSet = new Set(st.a);
+        const opts = st.o.map((o, i) => ({ o, i }));
+        const displayOpts = (S.round && S.round > 1 && opts.length > 1) ? shuf(opts) : opts;
 
         act.innerHTML = '<div class="big">☑️ ' + esc(st.q) + '</div>' +
             '<div id="multi-opts" class="cols">' +
-                st.o.map((o, i) => '<button class="opt" data-i="' + i + '">' + esc(o) + '</button>').join('') +
+                displayOpts.map(x => '<button class="opt" data-i="' + x.i + '">' + esc(x.o) + '</button>').join('') +
             '</div>' +
             '<div style="text-align:center;margin-top:14px"><button id="btn-check-multi" style="background:var(--pu);font-size:20px;padding:12px 24px;border:none;border-radius:12px;color:#fff;font-weight:900;cursor:pointer">✅ Kiểm tra đáp án</button></div>';
 
