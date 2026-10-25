@@ -1853,12 +1853,32 @@ function renderResultsTable() {
             '<td>' + (r.tot ? p + '% ' + okLbl(p) : '—') + '</td>' +
             '<td>' + r.rush + ' lỗi</td>' +
             '<td>' + micLbl(r.mic) + '</td>' +
-            '<td><button class="btn-row-pdf" data-idx="' + idx + '" style="padding:6px 12px;font-size:13px;background:var(--pu);color:#fff;border:none;border-radius:6px;cursor:pointer">📄 In Phiếu</button></td>' +
+            '<td style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">' +
+                '<button class="btn-row-pdf" data-idx="' + idx + '" style="padding:6px 12px;font-size:13px;background:var(--pu);color:#fff;border:none;border-radius:6px;cursor:pointer;box-shadow:none">📄 In Phiếu</button>' +
+                '<button class="btn-row-del" data-idx="' + idx + '" style="padding:6px 10px;font-size:13px;background:var(--bad);color:#fff;border:none;border-radius:6px;cursor:pointer;box-shadow:none">🗑️ Xóa</button>' +
+            '</td>' +
         '</tr>';
     }).join('');
 
     tbody.querySelectorAll('.btn-row-pdf').forEach(btn => {
         btn.onclick = () => printStudentPDF(sorted[+btn.dataset.idx]);
+    });
+
+    tbody.querySelectorAll('.btn-row-del').forEach(btn => {
+        btn.onclick = () => {
+            const target = sorted[+btn.dataset.idx];
+            if (!target) return;
+            if (confirm('Xóa kết quả bài "' + lname(target.lid) + '" của học sinh "' + target.name + '"?')) {
+                const newRs = load().filter(x => !(x.name === target.name && x.lid === target.lid));
+                store(newRs);
+                if (S && S.name === target.name && S.lid === target.lid) S = null;
+                if (db) {
+                    const rKey = userKey(target.name) + '__' + String(target.lid).replace(/[.#$\[\]\/]/g, '_');
+                    db.ref('hocvan/results/' + rKey).remove();
+                }
+                renderResultsTable();
+            }
+        };
     });
 }
 
