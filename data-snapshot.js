@@ -1476,5 +1476,153 @@ window.LESSONS = {
             }
         ],
         "mic": "Thế là ngoài hai bức chân dung của Bông Tuyết và Mắt Xanh, tất cả các bức tranh còn lại đều na ná giống nhau. Lúc đầu, cô bé nào cũng vui. Nhưng khi xếp các bức tranh cạnh nhau, thấy thật khó để nhận ra đâu là chân dung của mình, các cô bé mới hiểu rằng Màu Nước nói đúng. Vẻ đẹp của các cô bé rất khác nhau, và bức chân dung đẹp phải là bức chân dung thể hiện được vẻ riêng đó."
+    },
+    "L4_Quy_tac_viet_ten_co_quan_to_chuc": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Quy tắc viết tên cơ quan, tổ chức",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "group",
+                "min": 34,
+                "t": "Dựa vào đoạn văn trên, ta có các danh từ riêng sau: *1:Hồ_Chí_Minh, *2:Đài_Truyền_hình_Việt_Nam, *2:Bộ_Văn_hoá,_Thể_thao_và_Du_lịch, *2:Sở_Tài_nguyên_và_Môi_trường, *1:Võ_Thị_Sáu, *2:Trường_Tiểu_học_Ba_Đình.",
+                "q": "BƯỚC 1: KHỞI ĐỘNG PHÂN LOẠI (Bài 1 SGK). Em hãy xếp các từ ngữ in đậm vào đúng 2 nhóm nhé!",
+                "cats": [
+                    "Tên người",
+                    "Tên cơ quan, tổ chức"
+                ]
+            },
+            {
+                "k": "choice",
+                "min": 20,
+                "t": "Quan sát hai tên sau:\n- Tên người: Hồ Chí Minh (viết hoa chữ H, C, M).\n- Tên cơ quan: Đài Truyền hình Việt Nam (viết hoa chữ Đ, T, V, N).",
+                "q": "BƯỚC 2: TÌM SỰ KHÁC BIỆT (Bài 2 SGK). Cách viết hoa tên cơ quan có gì khác với cách viết hoa tên người?",
+                "o": [
+                    "Tên người viết hoa tất cả các chữ cái, còn tên cơ quan không viết hoa.",
+                    "Tên người viết hoa chữ cái đầu của MỖI TIẾNG, tên cơ quan chỉ viết hoa chữ cái đầu của TỪNG BỘ PHẬN.",
+                    "Không có gì khác biệt, cả hai đều viết hoa mọi chữ cái."
+                ],
+                "a": 1,
+                "h": "Tên người thì chữ nào cũng phải viết hoa chữ cái đầu. Tên cơ quan thì chữ 'hình' trong 'Truyền hình' không được viết hoa."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Mẫu: Tập đoàn Điện lực Việt Nam -> Tập đoàn / Điện lực / Việt Nam.",
+                "q": "BƯỚC 3: GIẢI PHẪU CẤU TẠO (Bài 3 SGK). Để biết tên cơ quan gồm những bộ phận nào, em hãy nối tên ở cột trái với cách tách đúng ở cột phải nhé!",
+                "h": "Mỗi bộ phận thường tương ứng với một cụm từ có nghĩa (Loại hình + Lĩnh vực hoạt động + Tên riêng).",
+                "p": [
+                    [
+                        "Trường Tiểu học Quang Trung",
+                        "Trường / Tiểu học / Quang Trung"
+                    ],
+                    [
+                        "Nhà máy Thuỷ điện Hoà Bình",
+                        "Nhà máy / Thuỷ điện / Hoà Bình"
+                    ],
+                    [
+                        "Đài Truyền hình Việt Nam",
+                        "Đài / Truyền hình / Việt Nam"
+                    ]
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 25,
+                "t": "Tên cơ quan được chia thành các bộ phận. Ví dụ: *Trường / *Tiểu_học / *Quang_Trung. Hoặc: *Nhà_máy / *Thuỷ_điện / *Hoà_Bình.",
+                "q": "BƯỚC 4: TÌM QUY LUẬT VIẾT HOA. Em hãy để ý chữ cái đầu tiên của các bộ phận đã được tách ra. Hãy hái các bộ phận CÓ CHỨA CHỮ CÁI ĐẦU ĐƯỢC VIẾT HOA nhé!",
+                "h": "Tất cả chữ cái đầu tiên của từng bộ phận (T, T, Q, N, T, H) đều phải được viết hoa. Hãy hái hết các từ có dấu * nhé!"
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "GHI NHỚ:\nQuy tắc viết tên của các cơ quan, tổ chức: Viết hoa chữ cái {đầu} của từng {bộ_phận} tạo thành {tên}.",
+                "q": "BƯỚC 5: ĐÚC KẾT QUY TẮC. Em hãy điền các từ khóa vào chỗ trống để thuộc lòng quy tắc viết hoa này nhé!"
+            }
+        ],
+        "mic": "Ở thủ đô Hà Nội, em được đến thăm Lăng Chủ tịch Hồ Chí Minh. Sau đó, xe đi ngang qua Đài Truyền hình Việt Nam và Bộ Văn hoá, Thể thao và Du lịch. Tại đây, em làm quen với một bạn nữ tên là Võ Thị Sáu. Bạn ấy đang là học sinh của Trường Tiểu học Ba Đình."
+    },
+    "L4_Do_ngang": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Đò ngang",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "multi",
+                "min": 167,
+                "t": "Trời chưa sáng, bên kia sông đã vang lên tiếng gọi: “Ơ... đò...”. Đò ngang tỉnh giấc, vội vã quay lái sang sông đón khách.\nNgày nào cũng vậy, bất kể sớm khuya, đò ngang chăm chỉ lo việc đưa đò giữa hai bờ sông. Đôi lúc, đò ngang nhìn thấy anh thuyền mành đi qua. Thuyền mành vạm vỡ, to lớn, giương cao cánh buồm lộng gió, lướt sóng ào ào, giống như con chim khổng lồ cất cánh tung bay đến những bến bờ xa. Chắc ở những nơi đó có biết bao cái mới lạ để thuyền mành học hỏi, giúp anh ấy lớn lên. Mỗi lần nghĩ vậy, đò ngang lại cảm thấy đôi bờ của mình quá chật hẹp, muốn vứt bỏ tất cả để được đến một nơi nào đó mới và rộng lớn hơn.\nMột buổi trưa nắng, đò ngang nằm nghỉ ở bến nước, chợt thuyền mành ghé đến. Đò ngang reo to:\n– Chào anh thuyền mành! Đã lâu anh mới ghé lại!\n– Chào bạn thân mến! Tôi lại đi ngay vì còn ghé nhiều bến.\n– Tuyệt quá! Những nơi anh đến có bao điều mới lạ giúp anh thêm hiểu biết. Tôi chỉ mong được như vậy.\nThuyền mành nghĩ ngợi rồi nói:\n– Thực ra ở bất cứ đâu cũng có những điều để chúng ta học hỏi. Như ở ngay bến sông này, anh được gặp rất nhiều thuyền từ khắp nơi đổ về. Và mỗi ngày anh đều đón hàng trăm khách mới, mỗi người một vẻ.\nThấy đò ngang đăm chiêu, thuyền mành nói với giọng thân mật:\n– Quan trọng nhất là đò ngang được mọi người quý mến vì làm công việc nối lại đôi bờ. Mỗi khi đò ngang cập bến, mọi người đều ùa ra reo mừng. Quả thật, tôi cũng muốn được như vậy.\nBên kia sông chợt vang lên tiếng: “Ơ... đò...”. Đò ngang chào thuyền mành rồi vội vã sang sông đón khách.",
+                "q": "BƯỚC 1: KHỞI ĐỘNG (Câu 1 SGK). Thuyền mành hiện ra như thế nào trong cảm nhận của đò ngang? (Chọn nhiều đáp án)",
+                "o": [
+                    "Vạm vỡ, to lớn, giương cao cánh buồm lộng gió.",
+                    "Lướt sóng ào ào, giống như con chim khổng lồ cất cánh.",
+                    "Được đi đến những bến bờ xa, học hỏi bao điều mới lạ.",
+                    "Chỉ quanh quẩn ở hai bờ sông chật hẹp."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "match",
+                "min": 20,
+                "t": "Đò ngang và thuyền mành có cuộc sống và suy nghĩ hoàn toàn trái ngược nhau.",
+                "q": "BƯỚC 2: TÌM HIỂU NHÂN VẬT (Câu 2 SGK). Đò ngang nhận ra mình khác thuyền mành như thế nào? Em hãy nối cho đúng nhé!",
+                "h": "Đò ngang cảm thấy đôi bờ của mình quá chật hẹp, trong khi thuyền mành được đến những nơi rộng lớn.",
+                "p": [
+                    [
+                        "Đò ngang",
+                        "Chỉ làm việc đưa khách giữa hai bờ sông chật hẹp."
+                    ],
+                    [
+                        "Thuyền mành",
+                        "Được đi nhiều bến, đến những nơi rộng lớn, mới lạ."
+                    ]
+                ]
+            },
+            {
+                "k": "choice",
+                "min": 15,
+                "t": "Thuyền mành nghĩ ngợi rồi nói:\n– Thực ra ở bất cứ đâu cũng có những điều để chúng ta học hỏi. Như ở ngay bến sông này, anh được gặp rất nhiều thuyền từ khắp nơi đổ về. Và mỗi ngày anh đều đón hàng trăm khách mới, mỗi người một vẻ.",
+                "q": "BƯỚC 3: GIẢI MÃ Ý NGHĨA (Câu 3 SGK). Theo em, thuyền mành muốn nói gì với đò ngang qua câu: 'Ở bất cứ đâu cũng có những điều để chúng ta học hỏi'?",
+                "o": [
+                    "Khuyên đò ngang nên bỏ việc để đi học hỏi khắp nơi.",
+                    "Khuyên đò ngang hãy biết học hỏi từ chính công việc và những người khách ở bến sông hiện tại.",
+                    "Thuyền mành khoe khoang rằng mình đã học được rất nhiều thứ."
+                ],
+                "a": 1,
+                "h": "Thuyền mành muốn đò ngang hiểu rằng không cần đi đâu xa, ngay tại bến sông này cũng có thể học từ những người khách và những chiếc thuyền khác."
+            },
+            {
+                "k": "choice",
+                "min": 20,
+                "t": "Thấy đò ngang đăm chiêu, thuyền mành nói với giọng thân mật:\n– Quan trọng nhất là đò ngang được mọi người quý mến vì làm công việc nối lại đôi bờ. Mỗi khi đò ngang cập bến, mọi người đều ùa ra reo mừng. Quả thật, tôi cũng muốn được như vậy.",
+                "q": "BƯỚC 4: NHẬN RA GIÁ TRỊ (Câu 4 SGK). Thuyền mành giúp đò ngang nhận ra giá trị của mình như thế nào?",
+                "o": [
+                    "Công việc của đò ngang rất nhàn hạ, không phải lướt sóng ào ào.",
+                    "Công việc của đò ngang giúp nối lại đôi bờ, mang lại niềm vui và được mọi người quý mến.",
+                    "Công việc của đò ngang kiếm được rất nhiều tiền từ hàng trăm hành khách."
+                ],
+                "a": 1,
+                "h": "Hãy chú ý câu nói của thuyền mành: 'Quan trọng nhất là đò ngang được mọi người quý mến vì làm công việc nối lại đôi bờ'."
+            },
+            {
+                "k": "gold",
+                "min": 25,
+                "t": "Ngày nào cũng vậy, bất kể sớm khuya, đò ngang *chăm_chỉ lo việc đưa đò giữa hai bờ sông. Quan trọng nhất là đò ngang được mọi người *quý_mến vì làm công việc nối lại đôi bờ. Mỗi khi đò ngang cập bến, mọi người đều ùa ra *reo_mừng.",
+                "q": "BƯỚC 5: THU HOẠCH TỪ VỰNG. Công việc của đò ngang thật ý nghĩa. Em hãy hái các từ chỉ Thái độ làm việc và Cảm xúc của mọi người dành cho đò ngang nhé!",
+                "h": "Tìm từ chỉ sự siêng năng (chăm chỉ) và tình cảm của mọi người (quý mến, reo mừng)."
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "BÀI HỌC RÚT RA TỪ CÂU CHUYỆN:\nMỗi người một việc, việc nào cũng {đáng_quý}. Người chăm chỉ làm {tốt} công việc của mình sẽ được mọi người {tôn_trọng} và {yêu_quý}.",
+                "q": "BƯỚC 6: ĐÚC KẾT BÀI HỌC (Câu 5 SGK). Qua câu chuyện, em rút ra được bài học gì? Hãy điền các từ khóa vào chỗ trống nhé!"
+            }
+        ],
+        "mic": "Thấy đò ngang đăm chiêu, thuyền mành nói với giọng thân mật:\n– Quan trọng nhất là đò ngang được mọi người quý mến vì làm công việc nối lại đôi bờ. Mỗi khi đò ngang cập bến, mọi người đều ùa ra reo mừng. Quả thật, tôi cũng muốn được như vậy.\nBên kia sông chợt vang lên tiếng: “Ơ... đò...”. Đò ngang chào thuyền mành rồi vội vã sang sông đón khách."
     }
 };
