@@ -735,5 +735,82 @@ window.LESSONS = {
             }
         ],
         "mic": "Thế là kì nghỉ hè kết thúc. Nắng thu đã toả vàng khắp nơi thay cho những tia nắng hè gay gắt. Gió thổi mát rượi, đuổi những chiếc lá rụng chạy lao xao. Lá như cũng biết nô đùa, cứ quấn theo chân các bạn học sinh đang đi vội vã. Bạn thì đi với bố, bạn thì đi với mẹ, có bạn lại đi một mình. Ai cũng vội đến trường để gặp lại thầy giáo, cô giáo, bạn bè, gặp lại bàn, ghế thân quen. Hôm nay bắt đầu năm học mới."
+    },
+    "L4_Tim_hieu_doan_van_va_cau_chu_de": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Tìm hiểu đoạn văn và câu chủ đề",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 58,
+                "t": "Mỗi đoạn văn thường gồm một số câu được viết liên tục, không xuống dòng, trình bày một ý nhất định. Câu đầu tiên được viết lùi đầu dòng.\nCâu chủ đề là câu nêu ý chính của đoạn văn, thường nằm ở đầu hoặc ở cuối đoạn.",
+                "q": "BƯỚC 1: KHỞI ĐỘNG NHẬN BIẾT. Theo em, câu chủ đề của một đoạn văn thường nằm ở vị trí nào?",
+                "o": [
+                    "Chỉ nằm ở đầu đoạn văn.",
+                    "Chỉ nằm ở cuối đoạn văn.",
+                    "Thường nằm ở đầu hoặc ở cuối đoạn văn."
+                ],
+                "a": 2,
+                "h": "Em hãy đọc kĩ dòng cuối cùng của phần Ghi nhớ nhé!"
+            },
+            {
+                "k": "tap",
+                "min": 20,
+                "s": [
+                    "Mọi người bắt tay vào việc chuẩn bị cho cuộc khiêu vũ.",
+                    "Người thì xén bớt cỏ để làm sân nhảy, người thì kê ghế dài xung quanh bãi cỏ đã xén gọn.",
+                    "Bên này, hai bạn nhanh nhẹn nhất đang dựng một cái lều để biểu diễn nhạc.",
+                    "Bên kia, mười tay đàn xuất sắc đã lập thành một dàn nhạc và chơi thử ngay tại chỗ."
+                ],
+                "q": "BƯỚC 2: ĐI TÌM CÂU CHỦ ĐỀ (ĐẦU ĐOẠN). Câu chủ đề là câu thâu tóm toàn bộ ý chính của đoạn. Em hãy bấm chọn CÂU CHỦ ĐỀ trong đoạn văn trên nhé!",
+                "a": 0
+            },
+            {
+                "k": "tap",
+                "min": 20,
+                "s": [
+                    "Những bác ong vàng cần cù tìm bắt từng con sâu trong ngách lá.",
+                    "Kia nữa là họ hàng nhà ruồi trâu có đuôi dài như đuôi chuồn chuồn, đó chính là những \"hiệp sĩ\" diệt sâu róm.",
+                    "Lại còn những cô cậu chim sâu ít nói, chăm chỉ.",
+                    "Những bác cóc già lặng lẽ, siêng năng.",
+                    "Tất cả đều lo diệt trừ sâu bọ để giữ gìn hoa lá."
+                ],
+                "q": "BƯỚC 3: ĐI TÌM CÂU CHỦ ĐỀ (CUỐI ĐOẠN). Lần này, tác giả đã giấu câu chủ đề xuống cuối đoạn văn. Em hãy tìm và bấm chọn câu đó nhé!",
+                "a": 4
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Bài tập 2 (SGK) yêu cầu chọn câu chủ đề phù hợp để ghép vào 2 đoạn văn miêu tả cảnh chuẩn bị đón Tết và cảnh xây tổ của loài chim.",
+                "q": "BƯỚC 4: GHÉP CÂU CHỦ ĐỀ. Dựa vào nội dung SGK, em hãy nối câu chủ đề với đoạn văn tương ứng nhé!",
+                "h": "Đoạn 1 tả cảnh gói bánh chưng, nướng chả -> Nối với ý đón Tết. Đoạn 2 tả chim bồ cát -> Nối với ý xây tổ.",
+                "p": [
+                    [
+                        "Đoạn văn tả cảnh mọi người hối hả chuẩn bị đón Tết",
+                        "Cứ thế, cả nhà mỗi người một việc, hối hả mang Tết về..."
+                    ],
+                    [
+                        "Đoạn văn tả cảnh chim bồ cát xây tổ trên cây sung",
+                        "Mùa xuân đến, chim bắt đầu xây tổ."
+                    ]
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Mọi người bắt tay vào việc *chuẩn_bị cho cuộc khiêu vũ. Người thì *xén bớt cỏ để làm sân nhảy, người thì *kê ghế dài. Bên này, hai bạn đang *dựng lều để biểu diễn nhạc. Bên kia, mười tay đàn đã *lập thành một dàn nhạc và *chơi thử ngay tại chỗ.",
+                "q": "BƯỚC 5: THU HOẠCH TỪ VỰNG. Để đoạn văn sinh động, tác giả đã dùng rất nhiều động từ. Em hãy hái các TỪ CHỈ HOẠT ĐỘNG (chuẩn bị, xén, kê...) trong đoạn văn trên nhé!",
+                "h": "Em hãy tìm các từ chỉ hành động của con người khi làm việc."
+            },
+            {
+                "k": "fill",
+                "min": 25,
+                "t": "GHI NHỚ:\n- Mỗi đoạn văn thường gồm một số câu được viết {liên_tục}, không xuống dòng. Câu đầu tiên được viết {lùi_đầu_dòng}.\n- Câu chủ đề là câu nêu {ý_chính} của đoạn văn, thường nằm ở {đầu} hoặc ở {cuối} đoạn.",
+                "q": "BƯỚC 6: TỔNG KẾT KIẾN THỨC. Em hãy điền các từ khóa vào chỗ trống để thuộc nằm lòng phần Ghi nhớ nhé!"
+            }
+        ],
+        "mic": "Mọi người bắt tay vào việc chuẩn bị cho cuộc khiêu vũ. Người thì xén bớt cỏ để làm sân nhảy, người thì kê ghế dài xung quanh bãi cỏ đã xén gọn. Bên này, hai bạn nhanh nhẹn nhất đang dựng một cái lều để biểu diễn nhạc. Bên kia, mười tay đàn xuất sắc đã lập thành một dàn nhạc và chơi thử ngay tại chỗ."
     }
 };
