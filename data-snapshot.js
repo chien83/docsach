@@ -670,5 +670,70 @@ window.LESSONS = {
             }
         ],
         "mic": "BÁO CÁO THẢO LUẬN NHÓM 1 VỀ KẾ HOẠCH QUYÊN GÓP SÁCH BÁO TẶNG CÁC TRƯỜNG VÙNG KHÓ KHĂN\nKính gửi: Cô giáo chủ nhiệm lớp 4B.\n\nHôm nay, vào lúc 14 giờ ngày 20 tháng 2 năm 2023, tại thư viện trường, nhóm 1 đã tiến hành thảo luận nhóm về: \"Kế hoạch quyên góp sách báo tặng các trường vùng khó khăn\".\nThành phần tham gia gồm có:\n- Nguyễn Quỳnh Chi (chủ tọa)\n- Phạm Lê Na (thư kí)\n- Bùi Đình Dương (thành viên)\n\nSau khi thảo luận, chủ tọa đã thống nhất ý kiến và phân công nhiệm vụ như sau:\n- Phát động quyên góp, tiếp nhận và trao gửi sách báo: Nguyễn Quỳnh Chi.\n- Thống kê số lượng sách báo: Phạm Lê Na.\n- Tổng hợp sách báo và phân loại: Bùi Đình Dương.\n\nNgười viết báo cáo\nThư kí\n(Kí tên)\nPhạm Lê Na"
+    },
+    "L4_Danh_tu": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Danh từ",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 44,
+                "t": "Thế là kì nghỉ hè kết thúc. Nắng thu đã toả vàng khắp nơi thay cho những tia nắng hè gay gắt. Gió thổi mát rượi, đuổi những chiếc lá rụng chạy lao xao. Lá như cũng biết nô đùa, cứ quấn theo chân các bạn học sinh đang đi vội vã. Bạn thì đi với bố, bạn thì đi với mẹ, có bạn lại đi một mình. Ai cũng vội đến trường để gặp lại thầy giáo, cô giáo, bạn bè, gặp lại bàn, ghế thân quen. Hôm nay bắt đầu năm học mới.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU. Đoạn văn trên miêu tả khung cảnh của thời điểm nào?",
+                "o": [
+                    "Một ngày đi học bình thường vào mùa đông.",
+                    "Ngày tựu trường, bắt đầu một năm học mới.",
+                    "Buổi học cuối cùng trước khi nghỉ hè."
+                ],
+                "a": 1,
+                "h": "Em hãy đọc câu cuối cùng của đoạn văn nhé: 'Hôm nay bắt đầu...'"
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Lá như cũng biết nô đùa, cứ quấn theo chân các bạn *học_sinh đang đi vội vã. Bạn thì đi với *bố, bạn thì đi với *mẹ. Ai cũng vội đến trường để gặp lại *thầy_giáo, *cô_giáo, *bạn_bè thân quen.",
+                "q": "BƯỚC 2: TÌM TỪ CHỈ NGƯỜI. Trong đoạn văn có nhắc đến những ai? Em hãy bấm hái các từ chỉ NGƯỜI nhé!",
+                "h": "Hãy tìm các từ gọi tên người như: học sinh, bố, mẹ..."
+            },
+            {
+                "k": "multi",
+                "min": 15,
+                "t": "Gió thổi mát rượi, đuổi những chiếc lá rụng chạy lao xao... Ai cũng vội đến trường để gặp lại thầy giáo, cô giáo, bạn bè, gặp lại bàn, ghế thân quen.",
+                "q": "BƯỚC 3: TÌM TỪ CHỈ VẬT. Những sự vật (đồ vật, cây cối) nào được nhắc đến trong đoạn trên? (Chọn nhiều đáp án)",
+                "o": [
+                    "lá",
+                    "quyển sách",
+                    "bàn",
+                    "ghế",
+                    "cái trống"
+                ],
+                "a": [
+                    0,
+                    2,
+                    3
+                ]
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Các từ được in đậm gồm: *4:hè, *4:thu, *3:nắng, *3:gió, *2:lá, *1:học_sinh, *1:bố, *1:mẹ, *1:thầy_giáo, *1:cô_giáo, *1:bạn_bè, *2:bàn, *2:ghế, *4:hôm_nay, *4:năm_học.",
+                "q": "BƯỚC 4: PHÂN LOẠI DANH TỪ. Em hãy nhặt các từ trên và bỏ vào đúng 4 nhóm phân loại nhé!",
+                "cats": [
+                    "Chỉ người",
+                    "Chỉ vật",
+                    "Hiện tượng tự nhiên",
+                    "Chỉ thời gian"
+                ]
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "GHI NHỚ: Danh từ là từ chỉ sự vật (bao gồm {người}, {vật}, {hiện_tượng} tự nhiên, {thời_gian},...).",
+                "q": "BƯỚC 5: CHỐT KIẾN THỨC. Qua các bài tập trên, em hãy điền từ còn thiếu để hoàn thiện khái niệm về Danh từ nhé!"
+            }
+        ],
+        "mic": "Thế là kì nghỉ hè kết thúc. Nắng thu đã toả vàng khắp nơi thay cho những tia nắng hè gay gắt. Gió thổi mát rượi, đuổi những chiếc lá rụng chạy lao xao. Lá như cũng biết nô đùa, cứ quấn theo chân các bạn học sinh đang đi vội vã. Bạn thì đi với bố, bạn thì đi với mẹ, có bạn lại đi một mình. Ai cũng vội đến trường để gặp lại thầy giáo, cô giáo, bạn bè, gặp lại bàn, ghế thân quen. Hôm nay bắt đầu năm học mới."
     }
 };
