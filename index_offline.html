@@ -720,16 +720,16 @@ function home() {
         const ls = kids.filter(k => window.LESSONS_DATA[k].book === b);
         if (!ls.length) return '';
         
-        return '<div class="book-group">' +
+    return '<div class="book-group">' +
             '<div class="book-group-title" onclick="this.parentElement.classList.toggle(\'active\')">' +
                 '<span>' + (ICON[b] || '📚') + ' <b>' + BOOKS[b] + '</b> <span style="font-size:14px; color:#555;">(' + ls.length + ' bài)</span></span>' +
                 '<span class="arr" style="font-size:16px;">▼</span>' +
             '</div>' +
             '<div class="book-lessons">' +
                 '<div class="book-lessons-inner">' +
-                    ls.map(k =>
+                    ls.map((k, i) =>
                         '<button class="opt ls" data-k="' + k + '">' +
-                            '<span>' + esc(window.LESSONS_DATA[k].title) + ' <small style="color:#7f8c8d">(' + window.LESSONS_DATA[k].stations.length + ' trạm' + (window.LESSONS_DATA[k].isPoem ? ' · Thơ' : '') + ')</small></span>' +
+                            '<span>' + (i + 1) + '. ' + esc(window.LESSONS_DATA[k].title) + ' <small style="color:#7f8c8d">(' + window.LESSONS_DATA[k].stations.length + ' trạm' + (window.LESSONS_DATA[k].isPoem ? ' · Thơ' : '') + ')</small></span>' +
                             (isDone(k) ? '<span style="color:var(--ok);font-weight:900">✓ Đã xong</span>' : '<span>👉 Vào đọc</span>') +
                         '</button>'
                     ).join('') +
