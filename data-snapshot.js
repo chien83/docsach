@@ -812,5 +812,524 @@ window.LESSONS = {
             }
         ],
         "mic": "Mọi người bắt tay vào việc chuẩn bị cho cuộc khiêu vũ. Người thì xén bớt cỏ để làm sân nhảy, người thì kê ghế dài xung quanh bãi cỏ đã xén gọn. Bên này, hai bạn nhanh nhẹn nhất đang dựng một cái lều để biểu diễn nhạc. Bên kia, mười tay đàn xuất sắc đã lập thành một dàn nhạc và chơi thử ngay tại chỗ."
+    },
+    "L4_Thi_nhac": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Thi nhạc",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 165,
+                "t": "Hôm nay là ngày thi tốt nghiệp của các học trò thầy giáo vàng anh.\nVe sầu được thầy mời trình bày tác phẩm trước tiên. Mặc áo măng tô trong suốt, đôi mắt nâu lấp lánh, đầy vẻ tự tin, ve sầu biểu diễn bản nhạc \"Mùa hè\". Gian phòng tràn ngập âm thanh sáng chói. Tiếng vĩ-cầm réo rắt, tiếng cla-ri-nét trong sáng, xen-lô ấm áp,... Tiếng nhạc gợi màu hoa phượng đỏ rực, nắng sáng trắng, bầu trời xanh mênh mông. Bên hàng giậu, hoa mướp vàng và những cánh ong rù rì. Thầy giáo xúc động, cúi xuống ghi điểm.\nSau ve sầu, gà trống đĩnh đạc bước lên, kiêu hãnh ngẩng đầu với cái mũ đỏ chói. Gà mở đầu khúc nhạc \"Bình minh\" bằng tiết tấu nhanh, khoẻ, đầy hứng khởi: Tờ-réc... Tờ-re-te-te-te... Phần cuối bản nhạc là niềm mãn nguyện khi thấy mặt trời lên rực rỡ. Tiết tấu trở nên vui nhộn khi gà sử dụng bộ gõ: Cục - cục!... Cục - cục!...\nĐến lượt dế mèn. Dế bước ra khoẻ khoắn và trang nhã trong chiếc áo nâu óng. Bản nhạc \"Mùa thu\" gợi hình ảnh những chiếc lá khô xoay tròn, rơi rơi trong nắng. Tiếng gió xào xạc thầm thì với lá... Đôi mắt thầy vàng anh nhoà đi.\nTrong tà áo dài tha thướt, hoạ mi trông thật dịu dàng, uyển chuyển. Bản nhạc \"Mùa xuân\" vang lên réo rắt, say đắm, rồi dần chuyển sang tiết tấu rạo rực, tưng bừng. Những giọt mưa xuân rơi trên đôi má nóng rực. Những chiếc mầm bật khỏi cành. Hoa đào rộ lên hoa mắt...\nThầy vàng anh đứng dậy, vẻ nghiêm trang. Các học trò im lặng, hồi hộp.\n– Thầy rất vui vì sự thành công của các em. Các em đã tạo dựng cho mình một phong cách độc đáo, không ai bắt chước ai. Cảm ơn các em đã cho thầy niềm vui này.",
+                "q": "BƯỚC 1: KHỞI ĐỘNG. Câu chuyện có những nhân vật nào dự thi và họ có điểm gì giống nhau?",
+                "o": [
+                    "Ve sầu, gà trống, dế mèn, hoạ mi. Họ đều là học trò của thầy vàng anh.",
+                    "Chim én, sơn ca, hoạ mi. Họ đều là những ca sĩ của rừng xanh.",
+                    "Ve sầu, ong, bướm. Họ đều thích mùa hè."
+                ],
+                "a": 0,
+                "h": "Em hãy đọc kĩ đoạn đầu tiên để xem ai là học trò của thầy giáo vàng anh nhé!"
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Mỗi học trò mang đến cuộc thi một bản nhạc mang màu sắc riêng biệt.",
+                "q": "BƯỚC 2: TÌM HIỂU BẢN NHẠC. Em hãy nối tên nhân vật với bản nhạc mà họ biểu diễn nhé!",
+                "h": "Ve sầu gắn với mùa hè, Dế mèn gắn với mùa thu, Hoạ mi gắn với mùa xuân...",
+                "p": [
+                    [
+                        "Ve sầu",
+                        "Bản nhạc \"Mùa hè\""
+                    ],
+                    [
+                        "Gà trống",
+                        "Khúc nhạc \"Bình minh\""
+                    ],
+                    [
+                        "Dế mèn",
+                        "Bản nhạc \"Mùa thu\""
+                    ],
+                    [
+                        "Hoạ mi",
+                        "Bản nhạc \"Mùa xuân\""
+                    ]
+                ]
+            },
+            {
+                "k": "multi",
+                "min": 20,
+                "t": "Trong tà áo dài tha thướt, hoạ mi trông thật dịu dàng, uyển chuyển. Bản nhạc \"Mùa xuân\" vang lên réo rắt, say đắm, rồi dần chuyển sang tiết tấu rạo rực, tưng bừng. Những giọt mưa xuân rơi trên đôi má nóng rực. Những chiếc mầm bật khỏi cành. Hoa đào rộ lên hoa mắt...",
+                "q": "BƯỚC 3: GIẢI MÃ HÌNH ẢNH. Bản nhạc của hoạ mi đã gợi ra những hình ảnh nào? (Chọn nhiều đáp án)",
+                "o": [
+                    "Những giọt mưa xuân.",
+                    "Những chiếc mầm bật khỏi cành.",
+                    "Hoa đào rộ lên hoa mắt.",
+                    "Nắng sáng trắng, bầu trời xanh mênh mông."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 25,
+                "t": "Thầy rất vui vì sự *thành_công của các em. Các em đã tạo dựng cho mình một *phong_cách thật *độc_đáo, không ai *bắt_chước ai.",
+                "q": "BƯỚC 4: THU HOẠCH TỪ VỰNG. Vì sao thầy vàng anh rất vui và xúc động? Em hãy hái các từ khóa quan trọng trong lời khen của thầy nhé!",
+                "h": "Tìm các từ: thành công, phong cách, độc đáo, bắt chước."
+            },
+            {
+                "k": "choice",
+                "min": 15,
+                "t": "Câu hỏi 4 (SGK): Tác giả muốn nói với chúng ta điều gì qua câu chuyện trên?",
+                "q": "BƯỚC 5: RÚT RA BÀI HỌC. Ý nghĩa sâu sắc nhất của câu chuyện này là gì?",
+                "o": [
+                    "Nhiều loài vật có tiếng kêu, tiếng gáy, tiếng hót rất hay.",
+                    "Thế giới của các loài vật muôn màu, muôn vẻ.",
+                    "Mỗi người hãy tạo cho mình nét đẹp riêng.",
+                    "Muốn hát hay, đàn giỏi phải tập luyện chăm chỉ."
+                ],
+                "a": 2,
+                "h": "Hãy nhớ lại lời khen của thầy Vàng Anh: 'Các em đã tạo dựng cho mình một phong cách độc đáo, không ai bắt chước ai'."
+            }
+        ],
+        "mic": "Trong tà áo dài tha thướt, hoạ mi trông thật dịu dàng, uyển chuyển. Bản nhạc \"Mùa xuân\" vang lên réo rắt, say đắm, rồi dần chuyển sang tiết tấu rạo rực, tưng bừng. Những giọt mưa xuân rơi trên đôi má nóng rực. Những chiếc mầm bật khỏi cành. Hoa đào rộ lên hoa mắt..."
+    },
+    "L4_Tim_hieu_cach_viet_doan_van_neu_y_kien": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Tìm hiểu cách viết đoạn văn nêu ý kiến",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 54,
+                "t": "Câu chuyện Thi nhạc của nhà văn Nguyễn Phan Hách cuốn tôi vào một thế giới đầy thú vị. Những con vật quen thuộc như ve sầu, gà trống, dế mèn, chim hoạ mi,... hoá thành những nghệ sĩ tài năng. Tiếng kêu, tiếng gáy, tiếng hót của chúng gợi lên trong tâm trí người nghe những cảnh vật có âm thanh, ánh sáng, sắc màu, hương vị,... Nhân vật thầy giáo vàng anh cũng để lại ấn tượng khó quên. Việc làm và lời nói của thầy thể hiện tình yêu thương, sự trân trọng đối với học trò. Câu chuyện đã kết thúc, nhưng các nhân vật đáng yêu ấy vẫn hiện mãi trong tâm trí tôi.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU. Theo em, người viết muốn nói gì qua đoạn văn trên?",
+                "o": [
+                    "Nêu lí do người viết yêu thích câu chuyện Thi nhạc.",
+                    "Thuật lại diễn biến buổi thi nhạc trong câu chuyện.",
+                    "Tả hình dáng, điệu bộ của các nhân vật trong câu chuyện."
+                ],
+                "a": 0,
+                "h": "Em hãy để ý những từ ngữ bày tỏ cảm xúc như: đầy thú vị, ấn tượng khó quên, đáng yêu..."
+            },
+            {
+                "k": "tap",
+                "min": 20,
+                "s": [
+                    "Câu chuyện Thi nhạc của nhà văn Nguyễn Phan Hách cuốn tôi vào một thế giới đầy thú vị.",
+                    "Những con vật quen thuộc như ve sầu, gà trống, dế mèn, chim hoạ mi,...",
+                    "hoá thành những nghệ sĩ tài năng.",
+                    "Tiếng kêu, tiếng gáy, tiếng hót của chúng gợi lên trong tâm trí người nghe những cảnh vật có âm thanh, ánh sáng, sắc màu, hương vị,...",
+                    "Nhân vật thầy giáo vàng anh cũng để lại ấn tượng khó quên.",
+                    "Việc làm và lời nói của thầy thể hiện tình yêu thương, sự trân trọng đối với học trò.",
+                    "Câu chuyện đã kết thúc, nhưng các nhân vật đáng yêu ấy vẫn hiện mãi trong tâm trí tôi."
+                ],
+                "q": "BƯỚC 2: GIẢI MÃ BỐ CỤC (MỞ ĐOẠN). Đoạn văn luôn cần một câu mở đầu để giới thiệu tên truyện và cảm nghĩ chung. Em hãy bấm chọn CÂU MỞ ĐẦU nhé!",
+                "a": 0
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Những con vật quen thuộc như ve sầu, gà trống, dế mèn, chim hoạ mi,... hoá thành những nghệ sĩ tài năng. Tiếng kêu, tiếng gáy, tiếng hót của chúng gợi lên trong tâm trí người nghe những cảnh vật có âm thanh, ánh sáng, sắc màu, hương vị,... Nhân vật thầy giáo vàng anh cũng để lại ấn tượng khó quên. Việc làm và lời nói của thầy thể hiện tình yêu thương, sự trân trọng đối với học trò.",
+                "q": "BƯỚC 3: GIẢI MÃ BỐ CỤC (THÂN ĐOẠN). Phần thân đoạn dùng để giải thích lí do. Người viết yêu thích những điều gì ở câu chuyện này? (Chọn nhiều đáp án)",
+                "o": [
+                    "Các con vật quen thuộc hóa thành nghệ sĩ.",
+                    "Tiếng kêu, tiếng hót gợi lên âm thanh, sắc màu.",
+                    "Thầy giáo vàng anh yêu thương, trân trọng học trò.",
+                    "Nhà văn Nguyễn Phan Hách viết truyện rất hay."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "tap",
+                "min": 20,
+                "s": [
+                    "Câu chuyện Thi nhạc của nhà văn Nguyễn Phan Hách cuốn tôi vào một thế giới đầy thú vị.",
+                    "Những con vật quen thuộc như ve sầu, gà trống, dế mèn, chim hoạ mi,...",
+                    "hoá thành những nghệ sĩ tài năng.",
+                    "Tiếng kêu, tiếng gáy, tiếng hót của chúng gợi lên trong tâm trí người nghe những cảnh vật có âm thanh, ánh sáng, sắc màu, hương vị,...",
+                    "Nhân vật thầy giáo vàng anh cũng để lại ấn tượng khó quên.",
+                    "Việc làm và lời nói của thầy thể hiện tình yêu thương, sự trân trọng đối với học trò.",
+                    "Câu chuyện đã kết thúc, nhưng các nhân vật đáng yêu ấy vẫn hiện mãi trong tâm trí tôi."
+                ],
+                "q": "BƯỚC 4: GIẢI MÃ BỐ CỤC (KẾT ĐOẠN). Cuối cùng, tác giả chốt lại tình cảm của mình dành cho câu chuyện. Em hãy tìm và bấm chọn CÂU KẾT THÚC đoạn văn nhé!",
+                "a": 5
+            },
+            {
+                "k": "group",
+                "min": 25,
+                "t": "Dưới đây là các ý chính của đoạn văn: *1:Nhận_xét_cảm_nghĩ, *2:Lí_do_yêu_thích, *3:Khẳng_định_ý_kiến.",
+                "q": "BƯỚC 5: ĐÚC KẾT SƠ ĐỒ. Qua các bài tập trên, em hãy xếp nhiệm vụ vào đúng 3 phần của một đoạn văn nêu ý kiến nhé!",
+                "cats": [
+                    "Mở đầu",
+                    "Triển khai",
+                    "Kết thúc"
+                ]
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "GHI NHỚ:\nKhi viết đoạn văn nêu {ý_kiến} về một câu chuyện, cần nói rõ mình {thích} hoặc không thích câu chuyện đó và giải thích {lí_do}.",
+                "q": "BƯỚC 6: CHỐT KIẾN THỨC. Em hãy chọn các từ khóa thích hợp điền vào chỗ trống để khắc sâu phần Ghi nhớ nhé!"
+            }
+        ],
+        "mic": "Câu chuyện Thi nhạc của nhà văn Nguyễn Phan Hách cuốn tôi vào một thế giới đầy thú vị. Những con vật quen thuộc như ve sầu, gà trống, dế mèn, chim hoạ mi,... hoá thành những nghệ sĩ tài năng. Tiếng kêu, tiếng gáy, tiếng hót của chúng gợi lên trong tâm trí người nghe những cảnh vật có âm thanh, ánh sáng, sắc màu, hương vị,... Nhân vật thầy giáo vàng anh cũng để lại ấn tượng khó quên. Việc làm và lời nói của thầy thể hiện tình yêu thương, sự trân trọng đối với học trò. Câu chuyện đã kết thúc, nhưng các nhân vật đáng yêu ấy vẫn hiện mãi trong tâm trí tôi."
+    },
+    "L4_Anh_em_sinh_doi": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Anh em sinh đôi",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "tap",
+                "min": 167,
+                "s": [
+                    "Khánh và Long là anh em sinh đôi.",
+                    "Hai anh em giống nhau như đúc.",
+                    "Hồi nhỏ, thấy mọi người không nhận ra ai là anh, ai là em, Long khoái chí lắm.",
+                    "Nhưng dần dần, Long không còn thấy thú vị nữa.",
+                    "Mỗi khi bị gọi nhầm tên, Long lại muốn kêu lên: \"Tôi là Long, tôi chẳng giống ai hết.",
+                    "\".",
+                    "Long cố gắng làm mọi thứ khác anh, từ cách nói, dáng đi đến trang phục, kiểu tóc.",
+                    "Còn anh cậu chẳng bận tâm đến chuyện đó.",
+                    "Một lần, hai anh em tham gia hội thao của trường.",
+                    "Long vô cùng lo lắng.",
+                    "Hai anh em mặc đồng phục và đội mũ giống hệt nhau, bạn bè lại cổ vũ nhắm mắt thôi.",
+                    "Nhưng khi thi đấu, Long nhận ra các bạn không nhầm lẫn chút nào.",
+                    "Các bạn cổ vũ Long đuổi theo Khánh khi Khánh dẫn đầu đường chạy.",
+                    "Các bạn cuống quýt gọi Khánh thay thế khi thấy Long nhăn nhó vì đau trong trận kéo co...",
+                    "Hội thao kết thúc trong nỗi ngạc nhiên ngập tràn của Long.",
+                    "Trên đường về, Long hỏi Vân:\n– Sao hôm nay không ai nhầm chúng tớ nhỉ?",
+                    "Vân khúc khích:\n– Vì Khánh hay cười, còn cậu lúc nào cũng nghiêm túc.",
+                    "Vinh chen vào:\n– Cậu thì chậm rãi, Khánh thì nhanh nhảu, sao nhầm được.",
+                    "Nghe Long thắc mắc về những lần bạn bè nhầm lẫn, các bạn cùng cười:\n– Nhìn xa thì tưởng giống nhau, chứ nhìn gần thì mỗi cậu một vẻ mà.",
+                    "Có lúc bọn tớ còn giả vờ nhầm để trêu các cậu đấy.",
+                    "Anh Khánh lúc đó mới lên tiếng:\n– Đôi khi giống nhau cũng hay mà, chỉ cần không bị phạt nhầm là được.",
+                    "Tiếng cười rộn rã làm tan biến mọi thắc mắc của Long.",
+                    "Cậu cũng phá lên cười.",
+                    "Cậu hiểu ra: Cậu vẫn là cậu, anh Khánh vẫn là anh Khánh.",
+                    "Hai anh em chỉ giống nhau bề ngoài thôi."
+                ],
+                "q": "BƯỚC 1: KHỞI ĐỘNG. Em hãy bấm chọn câu văn giới thiệu về hai nhân vật chính trong câu chuyện nhé!",
+                "a": 0
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Hồi nhỏ, thấy mọi người không nhận ra ai là anh, ai là em, Long khoái chí lắm. Nhưng dần dần, Long không còn thấy thú vị nữa. Mỗi khi bị gọi nhầm tên, Long lại muốn kêu lên: \"Tôi là Long, tôi chẳng giống ai hết.\".\nLong cố gắng làm mọi thứ khác anh, từ cách nói, dáng đi đến trang phục, kiểu tóc. Còn anh cậu chẳng bận tâm đến chuyện đó.",
+                "q": "BƯỚC 2: TÌM HIỂU NHÂN VẬT. Cảm xúc và hành động của Long khi thấy mình quá giống anh là gì? (Chọn nhiều đáp án)",
+                "o": [
+                    "Dần dần không còn thấy thú vị nữa.",
+                    "Muốn kêu lên: \"Tôi là Long, tôi chẳng giống ai hết.\".",
+                    "Cố gắng làm mọi thứ khác anh.",
+                    "Không bận tâm đến chuyện giống nhau."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "choice",
+                "min": 15,
+                "t": "Hồi nhỏ, thấy mọi người không nhận ra ai là anh, ai là em, Long khoái chí lắm. Nhưng dần dần, Long không còn thấy thú vị nữa. Mỗi khi bị gọi nhầm tên, Long lại muốn kêu lên: \"Tôi là Long, tôi chẳng giống ai hết.\".\nLong cố gắng làm mọi thứ khác anh, từ cách nói, dáng đi đến trang phục, kiểu tóc. Còn anh cậu chẳng bận tâm đến chuyện đó.",
+                "q": "BƯỚC 3: PHÂN TÍCH TÂM LÍ. Theo em, vì sao Long không muốn giống anh của mình?",
+                "o": [
+                    "Vì Long muốn khẳng định vẻ riêng, bản sắc riêng của mình.",
+                    "Vì Long ghét những bộ đồng phục giống hệt nhau.",
+                    "Vì Khánh hay bắt nạt Long."
+                ],
+                "a": 0,
+                "h": "Long muốn kêu lên 'tôi chẳng giống ai hết' và cố gắng làm mọi thứ khác anh để chứng tỏ mình là một cá nhân độc lập, có nét riêng."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Nhờ nói chuyện với Vân và Vinh, Long đã nhận ra mình và anh Khánh khác nhau rất nhiều.",
+                "q": "BƯỚC 4: NHẬN DIỆN SỰ KHÁC BIỆT. Em hãy nối tên nhân vật với đặc điểm riêng của người đó trong mắt bạn bè nhé!",
+                "h": "Hãy nhớ lại lời nhận xét của Vân và Vinh: Khánh thì hay cười, nhanh nhảu; còn Long thì nghiêm túc, chậm rãi.",
+                "p": [
+                    [
+                        "Khánh (Người anh)",
+                        "Hay cười, tính tình nhanh nhảu"
+                    ],
+                    [
+                        "Long (Người em)",
+                        "Lúc nào cũng nghiêm túc, chậm rãi"
+                    ]
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 25,
+                "t": "Khánh hay *cười, còn Long lúc nào cũng *nghiêm_túc. Long thì *chậm_rãi, Khánh thì *nhanh_nhảu, sao nhầm được.",
+                "q": "BƯỚC 5: THU HOẠCH TỪ VỰNG. Hai anh em tuy giống nhau về ngoại hình nhưng tính cách lại trái ngược. Em hãy hái các TỪ CHỈ ĐẶC ĐIỂM, TÍNH CÁCH trong câu nói của các bạn nhé!",
+                "h": "Tìm các từ miêu tả tính cách: cười, nghiêm túc, chậm rãi, nhanh nhảu."
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "Tiếng cười rộn rã làm tan biến mọi thắc mắc của Long. Cậu cũng phá lên cười. Cậu hiểu ra: Cậu vẫn là {cậu}, anh Khánh vẫn là anh {Khánh}. Hai anh em chỉ giống nhau bề {ngoài} thôi.",
+                "q": "BƯỚC 6: BÀI HỌC Ý NGHĨA. Em hãy chọn từ điền vào chỗ trống để chốt lại ý nghĩa mà Long đã nhận ra cuối câu chuyện nhé!"
+            }
+        ],
+        "mic": "Vân khúc khích:\n– Vì Khánh hay cười, còn cậu lúc nào cũng nghiêm túc.\nVinh chen vào:\n– Cậu thì chậm rãi, Khánh thì nhanh nhảu, sao nhầm được.\nNghe Long thắc mắc về những lần bạn bè nhầm lẫn, các bạn cùng cười:\n– Nhìn xa thì tưởng giống nhau, chứ nhìn gần thì mỗi cậu một vẻ mà. Có lúc bọn tớ còn giả vờ nhầm để trêu các cậu đấy."
+    },
+    "L4_Cong_chua_va_nguoi_dan_chuyen": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Công chúa và người dẫn chuyện",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "match",
+                "min": 155,
+                "t": "Sau bữa ăn trưa, cô giáo thông báo Giét-xi được chọn đóng vai công chúa trong vở kịch sắp tới. Cảm nhận được ánh mắt ngưỡng mộ của bạn bè, Giét-xi vui lắm.\nVề nhà, Giét-xi hào hứng kể cho mẹ nghe. Cả tuần ấy, tối nào mẹ cũng tập lời thoại cùng Giét-xi. Giét-xi siêng năng luyện tập và nhớ lời thoại rất nhanh. Nhưng khi lên sân khấu diễn thử, mọi lời thoại trong đầu Giét-xi đều bay đi đâu hết. Cuối cùng, cô giáo đành nói:\n– Giét-xi à, cô đã bổ sung vai dẫn chuyện cho vở kịch. Cô nghĩ vai đó hợp với em hơn. Em có đồng ý đổi vai không?\nLời cô rất dịu dàng nhưng Giét-xi thấy buồn lắm. Sao không buồn khi phải nhường vai chính cho bạn!\nThấy Giét-xi buồn, mẹ thủ thỉ:\n– Hôm nay, mẹ con mình cùng nhau nhổ cỏ vườn nhé.\nKhu vườn vào xuân, những cây hồng leo khoác tấm áo xanh mới.\n– Mẹ con mình sẽ nhổ hết cỏ và hoa dại ở đây. Từ giờ, vườn nhà ta chỉ có hoa hồng thôi. – Vừa nói, mẹ vừa chạm tay vào khóm bồ công anh.\n– Đừng, mẹ! Con thích hoa bồ công anh. Loài hoa nào cũng đẹp, kể cả bồ công anh. – Giét-xi nói.\nMẹ mỉm cười:\n– Đúng rồi, mỗi loài hoa có một vẻ đẹp riêng con ạ. Con người cũng vậy. Không phải ai cũng thành công chúa, nhưng điều đó không có gì đáng xấu hổ.\nGiét-xi đoán mẹ đã biết chuyện thay vai diễn của mình.\nMẹ dịu dàng nói:\n– Con gái bé nhỏ của mẹ, con có giọng đọc truyền cảm, rất hợp với vai người dẫn chuyện. Nếu thiếu người dẫn chuyện, vở kịch cũng khó mà thành công được con ạ.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU (Câu 1 SGK). Thái độ của Giét-xi thay đổi như thế nào đối với mỗi vai diễn? Em hãy nối cho đúng nhé!",
+                "h": "Khi được nhận vai công chúa thì bạn ấy rất vui, nhưng khi bị đổi vai thì bạn ấy lại buồn.",
+                "p": [
+                    [
+                        "Vai Công chúa",
+                        "Vui lắm, hào hứng, siêng năng tập luyện"
+                    ],
+                    [
+                        "Vai Người dẫn chuyện",
+                        "Buồn lắm vì phải nhường vai chính cho bạn"
+                    ]
+                ]
+            },
+            {
+                "k": "choice",
+                "min": 15,
+                "t": "Nhưng khi lên sân khấu diễn thử, mọi lời thoại trong đầu Giét-xi đều bay đi đâu hết. Cuối cùng, cô giáo đành nói:\n– Giét-xi à, cô đã bổ sung vai dẫn chuyện cho vở kịch. Cô nghĩ vai đó hợp với em hơn. Em có đồng ý đổi vai không?\nLời cô rất dịu dàng nhưng Giét-xi thấy buồn lắm. Sao không buồn khi phải nhường vai chính cho bạn!",
+                "q": "BƯỚC 2: TÌM HIỂU TÂM LÍ (Câu 2 SGK). Vì sao Giét-xi buồn khi phải đổi sang vai người dẫn chuyện?",
+                "o": [
+                    "Vì em không thích giọng đọc của mình.",
+                    "Vì em phải nhường vai chính cho bạn khác.",
+                    "Vì em chưa thuộc lời thoại của vai dẫn chuyện."
+                ],
+                "a": 1,
+                "h": "Em hãy đọc kĩ câu văn cuối cùng trong đoạn trên: 'Sao không buồn khi phải nhường...'"
+            },
+            {
+                "k": "choice",
+                "min": 15,
+                "t": "– Mẹ con mình sẽ nhổ hết cỏ và hoa dại ở đây. Từ giờ, vườn nhà ta chỉ có hoa hồng thôi. – Vừa nói, mẹ vừa chạm tay vào khóm bồ công anh.\n– Đừng, mẹ! Con thích hoa bồ công anh. Loài hoa nào cũng đẹp, kể cả bồ công anh. – Giét-xi nói.\nMẹ mỉm cười:\n– Đúng rồi, mỗi loài hoa có một vẻ đẹp riêng con ạ. Con người cũng vậy. Không phải ai cũng thành công chúa, nhưng điều đó không có gì đáng xấu hổ.",
+                "q": "BƯỚC 3: BÀI HỌC CỦA MẸ (Câu 3 SGK). Theo em, mẹ rủ Giét-xi cùng nhổ cỏ vườn để làm gì?",
+                "o": [
+                    "Mẹ muốn dạy cho em biết cách làm cỏ vườn.",
+                    "Mẹ muốn em biết tên các loại hoa cỏ trong vườn.",
+                    "Mẹ muốn em hiểu: Cũng như các loài hoa, mỗi người có vẻ đẹp và giá trị riêng.",
+                    "Mẹ muốn em lao động để quên đi chuyện đóng kịch."
+                ],
+                "a": 2,
+                "h": "Mẹ đã mượn hình ảnh bông hoa bồ công anh (tuy là hoa dại nhưng vẫn đẹp) để khuyên nhủ con gái."
+            },
+            {
+                "k": "order",
+                "min": 25,
+                "t": "Câu chuyện diễn biến qua nhiều cung bậc cảm xúc của nhân vật chính.",
+                "q": "BƯỚC 4: TÓM TẮT SỰ VIỆC. Em hãy sắp xếp lại các sự việc dưới đây theo đúng trình tự câu chuyện nhé!",
+                "items": [
+                    "Giét-xi vui mừng vì được chọn đóng vai công chúa.",
+                    "Khi diễn thử, Giét-xi quên lời nên cô giáo đổi em sang vai dẫn chuyện.",
+                    "Thấy con buồn, mẹ rủ nhổ cỏ và định nhổ luôn khóm hoa bồ công anh.",
+                    "Giét-xi ngăn mẹ vì cho rằng loài hoa nào cũng có vẻ đẹp riêng.",
+                    "Mẹ giúp Giét-xi nhận ra mỗi người đều có giá trị và giọng đọc của em rất hợp vai dẫn chuyện."
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Sau bữa ăn trưa, *cô_giáo thông báo *Giét-xi được chọn đóng vai công chúa. Về nhà, em hào hứng kể cho *mẹ nghe. Cảm nhận được ánh mắt ngưỡng mộ của *bạn_bè, em vui lắm.",
+                "q": "BƯỚC 5: TÍCH HỢP TỪ VÀ CÂU. Câu hỏi bài tập yêu cầu tìm các danh từ chỉ người. Em hãy hái các DANH TỪ CHỈ NGƯỜI có trong đoạn văn sau nhé!",
+                "h": "Hãy tìm tên riêng của nhân vật chính và các từ dùng để gọi những người xung quanh bạn ấy."
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "Mỗi người đều có một {vẻ_đẹp} và {giá_trị} riêng, giống như các loài hoa trong vườn. Dù không được làm vai chính thì cũng không có gì đáng {xấu_hổ}, vì mọi vị trí đều góp phần làm nên {thành_công} chung.",
+                "q": "BƯỚC 6: ĐÚC KẾT Ý NGHĨA (Câu 5 SGK). Em hãy chọn các từ khóa đúng để điền vào bài học rút ra từ câu chuyện này nhé!"
+            }
+        ],
+        "mic": "Đúng rồi, mỗi loài hoa có một vẻ đẹp riêng con ạ. Con người cũng vậy. Không phải ai cũng thành công chúa, nhưng điều đó không có gì đáng xấu hổ. Con gái bé nhỏ của mẹ, con có giọng đọc truyền cảm, rất hợp với vai người dẫn chuyện. Nếu thiếu người dẫn chuyện, vở kịch cũng khó mà thành công được con ạ."
+    },
+    "L4_Than_lan_xanh_va_tac_ke": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Thằn lằn xanh và tắc kè",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "match",
+                "min": 154,
+                "t": "Một buổi tối nọ, thằn lằn xanh đang bò trên cành cây. Đột nhiên, thằn lằn phát hiện tắc kè đang bò trên bức tường ở một ngôi nhà. Thằn lằn thầm nghĩ: “Ồ, một người bạn mới!”.\nThằn lằn cất tiếng chào:\n– Chào cậu! Tớ là thằn lằn xanh. Tớ thích đi kiếm thức ăn vào ban ngày.\n– Chào cậu! Tớ là tắc kè. Tớ thích đi kiếm thức ăn vào buổi tối. – Tắc kè đáp lời thằn lằn xanh.\nCả hai bạn cảm thấy thích thú về cuộc sống của nhau. Tắc kè liền nói:\n– Hay chúng mình thử đổi cuộc sống cho nhau đi! Tớ chán những bức tường lắm rồi. Tớ muốn kiếm ăn trên những cái cây và trong các bụi cỏ giống cậu.\nThằn lằn xanh khoái chí:\n– Còn tớ, tớ muốn bò lên tường để tìm thức ăn giống cậu. Mới nghĩ thế mà tớ đã thấy vui làm sao!\nVài ngày sau...\nThằn lằn xanh nhận ra tay và chân của mình không bám dính như tắc kè: “Mình không thể bò trên tường giống như tắc kè, cũng không thể kiếm ăn theo cách của tắc kè. Mình đói quá rồi!”.\nTrong khi đó, tắc kè cũng cảm thấy mình không thể chịu được sức nóng của ban ngày: “Da của mình không giống da của thằn lằn. Nóng quá! Mình không thể kiếm ăn ngoài trời! Mình đói quá rồi!”.\nThế là hai bạn quyết định đổi lại cuộc sống cho nhau. Thằn lằn xanh trở về với cái cây của mình và thích thú đi kiếm ăn vào ban ngày. Tắc kè quay trở lại bức tường thân yêu và vui vẻ đi tìm thức ăn vào buổi tối. Đôi bạn vẫn thi thoảng gặp nhau và trò chuyện về cuộc sống.",
+                "q": "BƯỚC 1: LÀM QUEN (Câu 1 SGK). Thằn lằn và tắc kè đã tự giới thiệu thế nào trong lần đầu gặp gỡ? Em hãy nối cho đúng nhé!",
+                "h": "Hãy đọc kĩ đoạn đầu, mỗi bạn có một khung giờ kiếm ăn yêu thích riêng.",
+                "p": [
+                    [
+                        "Thằn lằn xanh",
+                        "Thích đi kiếm thức ăn vào ban ngày"
+                    ],
+                    [
+                        "Tắc kè",
+                        "Thích đi kiếm thức ăn vào buổi tối"
+                    ]
+                ]
+            },
+            {
+                "k": "choice",
+                "min": 15,
+                "t": "Cả hai bạn cảm thấy thích thú về cuộc sống của nhau. Tắc kè liền nói:\n– Hay chúng mình thử đổi cuộc sống cho nhau đi! Tớ chán những bức tường lắm rồi. Tớ muốn kiếm ăn trên những cái cây và trong các bụi cỏ giống cậu.\nThằn lằn xanh khoái chí:\n– Còn tớ, tớ muốn bò lên tường để tìm thức ăn giống cậu. Mới nghĩ thế mà tớ đã thấy vui làm sao!",
+                "q": "BƯỚC 2: TÌM HIỂU NGUYÊN NHÂN (Câu 2 SGK). Vì sao hai bạn lại muốn đổi cuộc sống cho nhau?",
+                "o": [
+                    "Vì cả hai đều cảm thấy thích thú về cuộc sống của nhau và tò mò muốn thử.",
+                    "Vì cả hai đều đang bị đói và không tìm thấy thức ăn ở nhà mình.",
+                    "Vì hai bạn bị lạc đường và không thể trở về nhà."
+                ],
+                "a": 0,
+                "h": "Cả hai bạn đều thấy chán cuộc sống hiện tại và thấy cuộc sống của bạn kia có vẻ thú vị hơn."
+            },
+            {
+                "k": "multi",
+                "min": 20,
+                "t": "Thằn lằn xanh nhận ra tay và chân của mình không bám dính như tắc kè: “Mình không thể bò trên tường giống như tắc kè, cũng không thể kiếm ăn theo cách của tắc kè. Mình đói quá rồi!”.\nTrong khi đó, tắc kè cũng cảm thấy mình không thể chịu được sức nóng của ban ngày: “Da của mình không giống da của thằn lằn. Nóng quá! Mình không thể kiếm ăn ngoài trời! Mình đói quá rồi!”.",
+                "q": "BƯỚC 3: TRẢI NGHIỆM THỰC TẾ (Câu 3 SGK). Hai bạn đã nhận ra điều gì về ĐẶC ĐIỂM CƠ THỂ khi thay đổi môi trường sống? (Chọn nhiều đáp án)",
+                "o": [
+                    "Tay chân thằn lằn xanh không thể bám dính lên tường.",
+                    "Da tắc kè không chịu được sức nóng của ban ngày.",
+                    "Cả hai đều bị đói vì không thể kiếm được thức ăn.",
+                    "Tắc kè không biết trèo cây giống thằn lằn."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Thế là hai bạn quyết định đổi lại cuộc sống cho nhau. Thằn lằn xanh trở về với cái cây của mình và *thích_thú đi kiếm ăn vào ban ngày. Tắc kè quay trở lại bức tường *thân_yêu và *vui_vẻ đi tìm thức ăn vào buổi tối.",
+                "q": "BƯỚC 4: CẢM XÚC KHI TRỞ VỀ (Câu 4 SGK). Các bạn cảm thấy thế nào khi quay lại cuộc sống trước đây? Em hãy hái các TỪ CHỈ CẢM XÚC trong đoạn văn sau nhé!",
+                "h": "Tìm các tính từ thể hiện sự tích cực, vui mừng khi được về đúng ngôi nhà của mình."
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Đây là các thẻ tóm tắt sự việc: *1:Trở_về_nhà_thân_yêu, *1:Cảm_thấy_vui_vẻ, *2:Tay_chân_không_bám_dính, *2:Không_bò_lên_tường_được, *3:Da_bị_nóng_quá, *3:Không_chịu_được_nắng.",
+                "q": "BƯỚC 5: TÓM TẮT Ý CHÍNH (Câu 5 SGK). Em hãy xếp các thẻ sự kiện ngắn gọn vào đúng 3 Ý chính tương ứng với các đoạn văn trong bài nhé!",
+                "cats": [
+                    "Ý a: Hai bạn vui vẻ trở lại",
+                    "Ý b: Thằn lằn không thích nghi",
+                    "Ý c: Tắc kè không chịu được"
+                ]
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "Câu chuyện giúp ta hiểu rằng: Mỗi loài vật đều có những {đặc_điểm} riêng, sinh ra để phù hợp với {môi_trường} sống của mình. Chúng ta hãy biết {trân_trọng} và hài lòng với những gì mình đang có.",
+                "q": "BƯỚC 6: RÚT RA BÀI HỌC. Em hãy điền các từ khóa vào chỗ trống để đúc kết lại ý nghĩa sâu sắc của câu chuyện nhé!"
+            }
+        ],
+        "mic": "Thế là hai bạn quyết định đổi lại cuộc sống cho nhau. Thằn lằn xanh trở về với cái cây của mình và thích thú đi kiếm ăn vào ban ngày. Tắc kè quay trở lại bức tường thân yêu và vui vẻ đi tìm thức ăn vào buổi tối. Đôi bạn vẫn thi thoảng gặp nhau và trò chuyện về cuộc sống."
+    },
+    "L4_Nghe_si_trong": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Nghệ sĩ trống",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "match",
+                "min": 136,
+                "t": "Cô bé Mi-lô sống trên một hòn đảo ngập tràn không khí âm nhạc ở Cu-ba. Cô luôn mơ ước được chơi trống trong một ban nhạc.\nNgười dân trên đảo ngầm quy ước: chỉ con trai mới được chơi trống. Vì vậy, khi thấy Mi-lô tập chơi trống, mọi người thường hét lên: “Về nhà ngay! Nhạc cụ này không dành cho con gái.”. Nhưng Mi-lô vẫn không từ bỏ đam mê. Ban ngày, cô chăm chú lắng nghe tất cả những âm thanh xung quanh: tiếng những tàu lá cọ đu đưa trong gió, tiếng vỗ cánh của những chú chim ruồi, âm thanh phát ra khi cô chụm hai chân rồi nhảy vào vũng nước,... Khi màn đêm buông xuống, Mi-lô ngồi trên bãi cát và lắng nghe âm thanh của biển cả. “Tại sao mình không thể trở thành một tay trống nhỉ?” – Cô bé khẽ hỏi những con sóng xô bờ.\nThế rồi, Mi-lô thuyết phục cha cho cô tham gia một lớp nhạc cụ. Trống tim-pan-ni, trống công-ga, trống bông-gô,... loại nào cô cũng chơi được. Thầy cô nhận ra tài năng của Mi-lô và bắt đầu dạy cô mỗi ngày.\n– Sẽ đến ngày mình được chơi trong một ban nhạc thứ thiệt. – Mi-lô thầm nghĩ.\nKhi chị gái Ku-chi-tô thành lập Ana-ca-ô-na, nhóm nhạc nữ đầu tiên của Cu-ba, cô bé Mi-lô 10 tuổi đã gia nhập ban nhạc với vai trò một tay trống. Nghe tiếng trống của Mi-lô, ai cũng muốn nhún nhảy.\nCứ cố gắng như vậy, cuối cùng Mi-lô đã trở thành một nghệ sĩ trống nổi tiếng thế giới.",
+                "q": "BƯỚC 1: GIỚI THIỆU NHÂN VẬT (Câu 1 SGK). Em hãy nối các thông tin để tạo thành bản sơ yếu lí lịch của cô bé Mi-lô nhé!",
+                "h": "Hãy đọc đoạn đầu và đoạn cuối của bài văn để tìm ra thông tin về nơi ở, ước mơ, đam mê và thành tích của Mi-lô.",
+                "p": [
+                    [
+                        "Nơi ở",
+                        "Đảo ngập tràn âm nhạc ở Cu-ba"
+                    ],
+                    [
+                        "Ước mơ",
+                        "Được chơi trống trong một ban nhạc"
+                    ],
+                    [
+                        "Đam mê",
+                        "Chăm chú lắng nghe mọi âm thanh xung quanh"
+                    ],
+                    [
+                        "Thành tích nổi bật",
+                        "Trở thành nghệ sĩ trống nổi tiếng thế giới"
+                    ]
+                ]
+            },
+            {
+                "k": "choice",
+                "min": 15,
+                "t": "Người dân trên đảo ngầm quy ước: chỉ con trai mới được chơi trống. Vì vậy, khi thấy Mi-lô tập chơi trống, mọi người thường hét lên: “Về nhà ngay! Nhạc cụ này không dành cho con gái.”.",
+                "q": "BƯỚC 2: RÀO CẢN KHÓ KHĂN (Câu 2 SGK). Mọi người phản ứng thế nào khi thấy Mi-lô chơi trống và vì sao?",
+                "o": [
+                    "Mọi người vỗ tay tán thưởng vì Mi-lô chơi trống quá hay.",
+                    "Mọi người hét lên đuổi về vì quy ước trống không dành cho con gái.",
+                    "Mọi người khuyên Mi-lô nên chơi một loại nhạc cụ khác dễ hơn."
+                ],
+                "a": 1,
+                "h": "Người dân trên đảo có một quy ước ngầm về việc ai mới được chơi trống."
+            },
+            {
+                "k": "group",
+                "min": 25,
+                "t": "Những thông tin sau nói về hành trình của Mi-lô: *1:Chỉ_con_trai_mới_được_chơi_trống, *1:Bị_mọi_người_hét_đuổi_về, *2:Lắng_nghe_âm_thanh_thiên_nhiên, *2:Được_cha_cho_học_nhạc_cụ, *2:Thầy_cô_nhận_ra_tài_năng.",
+                "q": "BƯỚC 3: PHÂN TÍCH HÀNH TRÌNH (Câu 3 SGK). Em hãy phân loại các thẻ thông tin trên vào 2 nhóm Khó khăn và Thuận lợi nhé!",
+                "cats": [
+                    "Khó khăn",
+                    "Thuận lợi"
+                ]
+            },
+            {
+                "k": "multi",
+                "min": 20,
+                "t": "Ban ngày, cô chăm chú lắng nghe tất cả những âm thanh xung quanh: tiếng những tàu lá cọ đu đưa trong gió, tiếng vỗ cánh của những chú chim ruồi, âm thanh phát ra khi cô chụm hai chân rồi nhảy vào vũng nước,... Khi màn đêm buông xuống, Mi-lô ngồi trên bãi cát và lắng nghe âm thanh của biển cả.",
+                "q": "BƯỚC 4: RÈN LUYỆN ĐAM MÊ (Câu 5 SGK). Hành động nuôi dưỡng đam mê của Mi-lô thật đáng khâm phục. Cô bé đã lắng nghe những âm thanh nào trong thiên nhiên? (Chọn nhiều đáp án)",
+                "o": [
+                    "Tiếng tàu lá cọ đu đưa trong gió.",
+                    "Tiếng còi tàu ngoài bến cảng.",
+                    "Tiếng vỗ cánh của chú chim ruồi.",
+                    "Âm thanh của biển cả."
+                ],
+                "a": [
+                    0,
+                    2,
+                    3
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Dựa vào bài đọc, ta thấy Mi-lô trở thành nghệ sĩ nổi tiếng vì cô không bao giờ *từ_bỏ đam mê. Cô có sự nỗ lực *cố_gắng không ngừng nghỉ, luôn chăm chú *lắng_nghe và biết cách *thuyết_phục cha cho đi học.",
+                "q": "BƯỚC 5: TÌM TỪ KHÓA THÀNH CÔNG (Câu 4 SGK). Em hãy hái các ĐỘNG TỪ chỉ sự nỗ lực, quyết tâm giúp Mi-lô vươn tới thành công nhé!",
+                "h": "Em hãy tìm các từ như: từ bỏ (không từ bỏ), cố gắng, lắng nghe, thuyết phục."
+            },
+            {
+                "k": "fill",
+                "min": 25,
+                "t": "TỔNG KẾT TỪ VỰNG - MỞ RỘNG (Bài tập 2)\n+ Nhạc sĩ: Công việc là {sáng_tác} nhạc, Sản phẩm là {bản_nhạc}.\n+ Nhà văn: Công việc là {viết} văn, Sản phẩm là {tác_phẩm} văn học.\n+ Kiến trúc sư: Công việc là {thiết_kế}, Sản phẩm là bản {bản_vẽ} công trình.",
+                "q": "BƯỚC 6: TÍCH HỢP TỪ VÀ CÂU. Em hãy điền các từ khóa thích hợp để hoàn thiện bảng từ vựng về Nghề nghiệp - Công việc - Sản phẩm nhé!"
+            }
+        ],
+        "mic": "Khi chị gái Ku-chi-tô thành lập Ana-ca-ô-na, nhóm nhạc nữ đầu tiên của Cu-ba, cô bé Mi-lô 10 tuổi đã gia nhập ban nhạc với vai trò một tay trống. Nghe tiếng trống của Mi-lô, ai cũng muốn nhún nhảy. Cứ cố gắng như vậy, cuối cùng Mi-lô đã trở thành một nghệ sĩ trống nổi tiếng thế giới."
     }
 };
