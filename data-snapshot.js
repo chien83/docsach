@@ -1331,5 +1331,89 @@ window.LESSONS = {
             }
         ],
         "mic": "Khi chị gái Ku-chi-tô thành lập Ana-ca-ô-na, nhóm nhạc nữ đầu tiên của Cu-ba, cô bé Mi-lô 10 tuổi đã gia nhập ban nhạc với vai trò một tay trống. Nghe tiếng trống của Mi-lô, ai cũng muốn nhún nhảy. Cứ cố gắng như vậy, cuối cùng Mi-lô đã trở thành một nghệ sĩ trống nổi tiếng thế giới."
+    },
+    "L4_Cach_viet_bao_cao_thao_luan_nhom_SGK": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Cách viết báo cáo thảo luận nhóm(SGK)",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 83,
+                "t": "BÁO CÁO THẢO LUẬN NHÓM VỀ KẾ HOẠCH CHÀO MỪNG NGÀY NHÀ GIÁO VIỆT NAM\r\nKính gửi: Cô giáo chủ nhiệm lớp 4A.\r\nHôm nay vào lúc 8 giờ ngày 12 tháng 10 năm 2022, tại phòng học lớp 4A, nhóm 3 đã tiến hành thảo luận nhóm về: \"Kế hoạch hoạt động chào mừng ngày Nhà giáo Việt Nam\".\r\nThành phần tham gia:\r\n- Phan Anh (chủ toạ)\r\n- Hoàng Ngọc Xuân (thư kí)\r\n- Nguyễn Thu An, Trần Hải Yến, Vũ Nam Hải (thành viên)\r\nSau khi thảo luận, chủ toạ đã thống nhất ý kiến và phân công như sau:\r\n- Viết bài cho báo tường của lớp: Phan Anh, Vũ Nam Hải.\r\n- Chuẩn bị tiết mục tham gia Hội diễn văn nghệ chào mừng ngày Nhà giáo Việt Nam: Nguyễn Thu An, Trần Hải Yến.\r\n- Tham gia Hội thao chào mừng ngày Nhà giáo Việt Nam: Hoàng Ngọc Xuân.\r\nNgười viết báo cáo\r\nThư kí\r\n(kí tên)\r\nHoàng Ngọc Xuân",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU. Đọc kĩ bản báo cáo trên. Theo em, bản báo cáo này được nhóm 3 viết để làm gì?",
+                "o": [
+                    "Trình bày kế hoạch hoạt động chào mừng ngày Nhà giáo Việt Nam.",
+                    "Kể lại một kỉ niệm đáng nhớ với cô giáo chủ nhiệm lớp 4A.",
+                    "Tả lại quang cảnh buổi lễ kỉ niệm ngày 20/11 của trường."
+                ],
+                "a": 0,
+                "h": "Em hãy chú ý ngay phần Tiêu đề viết hoa ở đầu văn bản nhé!"
+            },
+            {
+                "k": "match",
+                "min": 20,
+                "t": "Báo cáo thảo luận nhóm là một văn bản nghiêm túc, thường bao gồm 3 phần rõ rệt.",
+                "q": "BƯỚC 2: ĐỊNH HÌNH BỘ KHUNG. Em hãy nối tên mỗi phần của bản báo cáo với nội dung tương ứng nhé!",
+                "h": "Phần đầu luôn là Tiêu đề. Phần chính chứa toàn bộ nội dung cuộc họp. Phần cuối dành cho chữ kí xác nhận.",
+                "p": [
+                    [
+                        "Phần đầu",
+                        "Tiêu đề và người nhận"
+                    ],
+                    [
+                        "Phần chính",
+                        "Thời gian, địa điểm, thành phần, kết quả"
+                    ],
+                    [
+                        "Phần cuối",
+                        "Chữ kí và tên người viết báo cáo"
+                    ]
+                ]
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Dưới đây là các thông tin có trong báo cáo: *1:Tiêu_đề, *1:Người_nhận, *2:Thời_gian_địa_điểm, *2:Thành_phần_tham_gia, *2:Kết_quả_phân_công, *3:Chữ_kí_người_viết.",
+                "q": "BƯỚC 3: SẮP XẾP BỐ CỤC. Em hãy nhặt các 'Thẻ thông tin' ở trên và phân loại vào đúng 3 phần của một bản báo cáo nhé!",
+                "cats": [
+                    "Phần đầu",
+                    "Phần chính",
+                    "Phần cuối"
+                ]
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Hôm nay vào lúc 8 giờ ngày 12 tháng 10 năm 2022, tại phòng học lớp 4A, nhóm 3 đã tiến hành thảo luận nhóm về: \"Kế hoạch hoạt động chào mừng ngày Nhà giáo Việt Nam\".\r\nThành phần tham gia:\r\n- Phan Anh (chủ toạ)\r\n- Hoàng Ngọc Xuân (thư kí)\r\n- Nguyễn Thu An, Trần Hải Yến, Vũ Nam Hải (thành viên)",
+                "q": "BƯỚC 4: GIẢI MÃ CHI TIẾT. Đọc lại trích đoạn trên. Trong \"Phần chính\" của bản báo cáo, nhóm 3 đã cung cấp những thông tin bắt buộc nào? (Chọn nhiều đáp án)",
+                "o": [
+                    "Thời gian và địa điểm họp.",
+                    "Thành phần tham gia.",
+                    "Chủ đề thảo luận.",
+                    "Cảm xúc của các thành viên."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Thành phần tham gia gồm có *chủ_toạ Phan Anh, *thư_kí Hoàng Ngọc Xuân và các *thành_viên. Sau khi thảo luận, nhóm đã *thống_nhất ý kiến và *phân_công nhiệm vụ rõ ràng.",
+                "q": "BƯỚC 5: THU HOẠCH TỪ VỰNG HÀNH CHÍNH. Báo cáo cần sử dụng từ ngữ trang trọng, chính xác. Em hãy hái các TỪ NGỮ CHỈ CHỨC DANH VÀ HOẠT ĐỘNG TỔ CHỨC trong đoạn sau nhé!",
+                "h": "Hãy tìm các từ gọi tên vị trí trong cuộc họp (chủ toạ, thư kí...) và các hành động làm việc nhóm (thống nhất, phân công)."
+            },
+            {
+                "k": "fill",
+                "min": 25,
+                "t": "GHI NHỚ:\r\nBáo cáo thảo luận nhóm thường gồm 3 phần:\r\n- Phần {đầu}: Tiêu đề, người nhận.\r\n- Phần {chính}: Thời gian, địa điểm, chủ đề, thành phần và {kết_quả} thảo luận.\r\n- Phần {cuối}: Chữ kí và {tên} người viết báo cáo.",
+                "q": "BƯỚC 6: TẬP LÀM ĐẠO DIỄN (CHỐT KIẾN THỨC). Em hãy chọn các từ khóa đúng điền vào chỗ trống để thuộc nằm lòng cấu trúc của văn bản này nhé!"
+            }
+        ],
+        "mic": "BÁO CÁO THẢO LUẬN NHÓM VỀ KẾ HOẠCH CHÀO MỪNG NGÀY NHÀ GIÁO VIỆT NAM\r\nKính gửi: Cô giáo chủ nhiệm lớp 4A.\r\nHôm nay vào lúc 8 giờ ngày 12 tháng 10 năm 2022, tại phòng học lớp 4A, nhóm 3 đã tiến hành thảo luận nhóm về: \"Kế hoạch hoạt động chào mừng ngày Nhà giáo Việt Nam\".\r\nThành phần tham gia:\r\n- Phan Anh (chủ toạ)\r\n- Hoàng Ngọc Xuân (thư kí)\r\n- Nguyễn Thu An, Trần Hải Yến, Vũ Nam Hải (thành viên)\r\nSau khi thảo luận, chủ toạ đã thống nhất ý kiến và phân công như sau:\r\n- Viết bài cho báo tường của lớp: Phan Anh, Vũ Nam Hải.\r\n- Chuẩn bị tiết mục tham gia Hội diễn văn nghệ chào mừng ngày Nhà giáo Việt Nam: Nguyễn Thu An, Trần Hải Yến.\r\n- Tham gia Hội thao chào mừng ngày Nhà giáo Việt Nam: Hoàng Ngọc Xuân.\r\nNgười viết báo cáo\r\nThư kí\r\n(kí tên)\r\nHoàng Ngọc Xuân"
     }
 };
