@@ -1415,5 +1415,66 @@ window.LESSONS = {
             }
         ],
         "mic": "BÁO CÁO THẢO LUẬN NHÓM VỀ KẾ HOẠCH CHÀO MỪNG NGÀY NHÀ GIÁO VIỆT NAM\r\nKính gửi: Cô giáo chủ nhiệm lớp 4A.\r\nHôm nay vào lúc 8 giờ ngày 12 tháng 10 năm 2022, tại phòng học lớp 4A, nhóm 3 đã tiến hành thảo luận nhóm về: \"Kế hoạch hoạt động chào mừng ngày Nhà giáo Việt Nam\".\r\nThành phần tham gia:\r\n- Phan Anh (chủ toạ)\r\n- Hoàng Ngọc Xuân (thư kí)\r\n- Nguyễn Thu An, Trần Hải Yến, Vũ Nam Hải (thành viên)\r\nSau khi thảo luận, chủ toạ đã thống nhất ý kiến và phân công như sau:\r\n- Viết bài cho báo tường của lớp: Phan Anh, Vũ Nam Hải.\r\n- Chuẩn bị tiết mục tham gia Hội diễn văn nghệ chào mừng ngày Nhà giáo Việt Nam: Nguyễn Thu An, Trần Hải Yến.\r\n- Tham gia Hội thao chào mừng ngày Nhà giáo Việt Nam: Hoàng Ngọc Xuân.\r\nNgười viết báo cáo\r\nThư kí\r\n(kí tên)\r\nHoàng Ngọc Xuân"
+    },
+    "L4_Nhung_buc_chan_dung": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Những bức chân dung",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "tap",
+                "min": 166,
+                "s": [
+                    "Màu Nước vẽ chân dung Bông Tuyết và Mắt Xanh.",
+                    "Hai bức chân dung thực sự là hai tác phẩm nghệ thuật, bởi người trong tranh được vẽ rất đẹp và rất giống người thật."
+                ],
+                "q": "BƯỚC 1: KHỞI ĐỘNG (Câu 1 SGK). Em hãy bấm chọn CÂU VĂN nêu nhận xét về hai bức chân dung của Bông Tuyết và Mắt Xanh nhé!",
+                "a": 1
+            },
+            {
+                "k": "choice",
+                "min": 20,
+                "t": "Màu Nước bắt đầu vẽ. Hoa Nhỏ liên tục đứng dậy xem và nài nỉ:\n– Bạn vẽ mắt tôi to thêm nữa! Kéo dài lông mi ra...\nCuối cùng, Hoa Nhỏ trong tranh có cặp mắt rất to, lông mi rất dài và cái miệng rất nhỏ. Bức chân dung chỉ hao hao giống cô bé thôi nhưng Hoa Nhỏ rất thích.",
+                "q": "BƯỚC 2: TÌM HIỂU SỰ VIỆC (Câu 2 SGK). Cách vẽ chân dung Hoa Nhỏ có gì khác với cách vẽ chân dung Bông Tuyết và Mắt Xanh?",
+                "o": [
+                    "Vẽ đúng như người thật, nên tranh rất giống Hoa Nhỏ.",
+                    "Vẽ theo yêu cầu (mắt to, mi dài, miệng nhỏ) nên tranh chỉ hao hao giống cô bé.",
+                    "Vẽ thành một người hoàn toàn khác, không giống Hoa Nhỏ chút nào."
+                ],
+                "a": 1,
+                "h": "Bông Tuyết và Mắt Xanh được vẽ giống người thật. Còn Hoa Nhỏ nài nỉ vẽ theo ý mình nên kết quả chỉ 'hao hao giống' thôi."
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Thế là ngoài hai bức chân dung của Bông Tuyết và Mắt Xanh, tất cả các bức tranh còn lại đều na ná giống nhau. Lúc đầu, cô bé nào cũng vui. Nhưng khi xếp các bức tranh cạnh nhau, thấy thật khó để nhận ra đâu là chân dung của mình, các cô bé mới hiểu rằng Màu Nước nói đúng.",
+                "q": "BƯỚC 3: NHẬN RA VẤN ĐỀ (Câu 4 SGK). Điều gì đã khiến các cô bé nhận ra Màu Nước nói đúng? (Chọn nhiều đáp án)",
+                "o": [
+                    "Các bức tranh vẽ theo yêu cầu đều na ná giống nhau.",
+                    "Xếp cạnh nhau thì rất khó nhận ra đâu là chân dung của mình.",
+                    "Màu Nước từ chối không vẽ cho các cô bé nữa.",
+                    "Bức tranh nào cũng xấu xí."
+                ],
+                "a": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Màu Nước giải thích với các bạn rằng mỗi người có thể đẹp một cách *khác_nhau. Bức chân dung đẹp phải là bức thể hiện được vẻ *riêng của người đó.",
+                "q": "BƯỚC 4: THU HOẠCH TỪ VỰNG. Theo Màu Nước, giá trị thực sự của mỗi người nằm ở đâu? Em hãy hái các từ ngữ chỉ sự độc đáo, không pha trộn trong đoạn văn sau nhé!",
+                "h": "Tìm từ trái nghĩa với 'giống nhau' và từ đồng nghĩa với 'đặc trưng cá nhân' (khác nhau, riêng)."
+            },
+            {
+                "k": "fill",
+                "min": 25,
+                "t": "Qua câu chuyện, em hiểu ra rằng mỗi người đều có một nét {đẹp} riêng biệt. Chúng ta không nên {bắt_chước} người khác, mà hãy tự tin và trân trọng vẻ đẹp {của_mình}.",
+                "q": "BƯỚC 5: RÚT RA BÀI HỌC (Câu 3 SGK). Nếu đóng vai Màu Nước, em sẽ nói gì để thuyết phục các bạn? Hãy chọn từ khóa điền vào chỗ trống để hoàn thiện thông điệp nhé!"
+            }
+        ],
+        "mic": "Thế là ngoài hai bức chân dung của Bông Tuyết và Mắt Xanh, tất cả các bức tranh còn lại đều na ná giống nhau. Lúc đầu, cô bé nào cũng vui. Nhưng khi xếp các bức tranh cạnh nhau, thấy thật khó để nhận ra đâu là chân dung của mình, các cô bé mới hiểu rằng Màu Nước nói đúng. Vẻ đẹp của các cô bé rất khác nhau, và bức chân dung đẹp phải là bức chân dung thể hiện được vẻ riêng đó."
     }
 };
