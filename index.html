@@ -734,9 +734,9 @@ function home() {
             '</div>' +
             '<div class="book-lessons">' +
                 '<div class="book-lessons-inner">' +
-                    ls.map(k =>
+                    ls.map((k, i) =>
                         '<button class="opt ls" data-k="' + k + '">' +
-                            '<span>' + esc(window.LESSONS_DATA[k].title) + ' <small style="color:#7f8c8d">(' + window.LESSONS_DATA[k].stations.length + ' trạm' + (window.LESSONS_DATA[k].isPoem ? ' · Thơ' : '') + ')</small></span>' +
+                            '<span>' + (i + 1) + '. ' + esc(window.LESSONS_DATA[k].title) + ' <small style="color:#7f8c8d">(' + window.LESSONS_DATA[k].stations.length + ' trạm' + (window.LESSONS_DATA[k].isPoem ? ' · Thơ' : '') + ')</small></span>' +
                             (isDone(k) ? '<span style="color:var(--ok);font-weight:900">✓ Đã xong</span>' : '<span>👉 Vào đọc</span>') +
                         '</button>'
                     ).join('') +
