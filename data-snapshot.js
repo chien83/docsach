@@ -2612,5 +2612,170 @@ window.LESSONS = {
         ],
         "glossary": "- Gùi: đồ làm bằng mây tre để mang đồ đạc (trên lưng), dùng ở một số khu vực miền núi.\n- Thung (thung lũng): dải đất trũng, thấp giữa các sườn (dãy) núi.",
         "mic": "Bình minh vừa tỉnh giấc\nNắng nhuộm hồng núi xanh\nTiếng trống rung vách đá\nGiục đôi chân bước nhanh. // Bóng em nhoà bóng núi\nHun hút mấy thung sâu\nGió đưa theo tiếng sáo\nLa đà trên tán lau. // Em đi tìm cái chữ\nVượt suối lại băng rừng\nĐường xa chân có mỏi\nChữ vẫn gùi trên lưng. // Cái chữ rơi xuống nương\nMùa cho bông trĩu hạt\nCái chữ bay lên ngàn\nRừng ríu ran chim hát. // Càng đi chân càng vững\nLớp học ngang lưng đồi\nMắt em như sao sáng\nGặt chữ trên đỉnh trời!"
+    },
+    "L4_Truoc_ngay_xa_que": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Trước ngày xa quê",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "tap",
+                "min": 148,
+                "s": [
+                    "Bố quyết định cho tôi lên thành phố học.",
+                    "Nghe bố nói, tôi oà khóc như khi bị đòn oan.",
+                    "Tôi không muốn đi nhưng vẫn phải chuẩn bị lên đường.",
+                    "Chiều trước ngày xa quê, các bạn đến chơi tiễn tôi, cả thầy giáo của tôi nữa.",
+                    "Khác hẳn mọi khi, chúng tôi chẳng mấy đứa cười đùa, kẹo cũng chẳng ăn.",
+                    "Trong khi thầy giáo ngồi nói chuyện với bố mẹ tôi, chúng tôi thầm nhắc lại những trò nghịch ngợm vừa qua và ngẩn ngơ hỏi nhau thành phố nơi tôi sắp đến như thế nào, có giống quê mình không...",
+                    "Tôi biết nơi đó có những chiếc xe sang trọng phóng vun vút trên đường nhựa phẳng lì.",
+                    "Nhưng nơi ấy thật xa lạ.",
+                    "Quê tôi ở đây, con đường làng gồ ghề, vàng óng rơm mùa gặt, những lùm cây giấu đầy quả ổi, quả mâm xôi chín mọng.",
+                    "Nước mắt tôi ứa ra.",
+                    "Không, tôi không thích đi.",
+                    "Tôi chỉ muốn được ở đây giữa các bạn và thầy giáo.",
+                    "Như đoán được ý nghĩ của tôi, thầy đến bên lau nước mắt cho tôi, xoa đầu tôi và cúi xuống nắm lấy hai bàn tay tôi:\n– Bao giờ nghỉ hè, em sẽ lại được về đây chơi với thầy và các bạn.",
+                    "Buổi chia tay kéo dài mãi đến khi trời tối mịt.",
+                    "Chúng tôi còn muốn ngồi với nhau nữa nhưng thầy nhắc các bạn phải về để mai tôi lên đường sớm.",
+                    "Tôi muốn nói điều gì đó với thầy và các bạn nhưng không sao nói nổi.",
+                    "Vậy là tôi phải xa quê, nơi tôi đã từng đội nắng đội gió mà lớn lên với tình thương yêu vô hạn."
+                ],
+                "q": "BƯỚC 1: KHỞI ĐỘNG ĐỌC THẨM THẤU (Câu 1 SGK). Cảm xúc của bạn nhỏ khi biết tin sẽ chuyển lên thành phố học được thể hiện qua chi tiết nào? (Em hãy bấm chọn CÂU VĂN đó nhé)",
+                "a": 1
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Chiều trước ngày xa quê, các bạn đến chơi tiễn tôi, cả thầy giáo của tôi nữa. Khác hẳn mọi khi, chúng tôi chẳng mấy đứa cười đùa, kẹo cũng chẳng ăn. Trong khi thầy giáo ngồi nói chuyện với bố mẹ tôi, chúng tôi thầm nhắc lại những trò nghịch ngợm vừa qua và ngẩn ngơ hỏi nhau thành phố nơi tôi sắp đến như thế nào...",
+                "q": "BƯỚC 2: TÌM HIỂU SỰ VIỆC (Câu 2 SGK). Buổi chia tay của bạn nhỏ với thầy giáo và các bạn có gì đặc biệt? (Chọn nhiều đáp án)",
+                "o": [
+                    "Chẳng mấy đứa cười đùa, kẹo cũng chẳng ăn.",
+                    "Chỉ thầm nhắc lại những trò nghịch ngợm và ngẩn ngơ hỏi về thành phố.",
+                    "Tổ chức liên hoan ca hát rất ồn ào và náo nhiệt.",
+                    "Chơi đùa thỏa thích ngoài vườn đến tận đêm khuya."
+                ],
+                "a": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "k": "match",
+                "min": 20,
+                "t": "Tôi biết nơi đó có những chiếc xe sang trọng phóng vun vút trên đường nhựa phẳng lì. Nhưng nơi ấy thật xa lạ. Quê tôi ở đây, con đường làng gồ ghề, vàng óng rơm mùa gặt, những lùm cây giấu đầy quả ổi, quả mâm xôi chín mọng.",
+                "q": "BƯỚC 3: PHÂN TÍCH HÌNH ẢNH (Câu 3 SGK). Trong tâm trí bạn nhỏ có sự đối lập giữa hai nơi. Em hãy nối cho đúng nhé!",
+                "h": "Thành phố thì hiện đại, phẳng lì. Quê hương tuy gồ ghề nhưng lại mang màu sắc ấm áp của rơm rạ và cây trái.",
+                "p": [
+                    [
+                        "Thành phố xa lạ",
+                        "Xe sang trọng, đường nhựa phẳng lì"
+                    ],
+                    [
+                        "Quê hương yêu dấu",
+                        "Đường làng gồ ghề, vàng óng rơm mùa gặt, lùm cây giấu đầy quả chín"
+                    ]
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 25,
+                "t": "Buổi chia tay kéo dài mãi đến khi trời tối mịt. Chúng tôi còn *muốn ngồi với nhau nữa nhưng thầy nhắc các bạn phải về. Tôi muốn nói điều gì đó với thầy và các bạn nhưng không sao nói nổi. Vậy là tôi phải xa quê, nơi tôi đã từng đội nắng đội gió mà *lớn_lên với tình *thương_yêu vô hạn.",
+                "q": "BƯỚC 4: TÍCH HỢP TỪ VÀ CÂU. Em hãy bấm hái các ĐỘNG TỪ thể hiện cảm xúc, sự gắn bó của bạn nhỏ (muốn, lớn lên, thương yêu) nhé!",
+                "h": "Em hãy bấm vào 3 từ có dấu * trong đoạn văn cuối bài."
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "Qua câu chuyện, tác giả muốn nói lên tình {yêu_quê_hương} sâu sắc của bạn nhỏ. Dù phải lên thành phố hiện đại, bạn vẫn luôn {nhớ_thương} những cảnh vật bình dị, những người bạn và người {thầy} giáo hiền từ nơi làng quê nghèo.",
+                "q": "BƯỚC 5: ĐÚC KẾT Ý NGHĨA (Câu 5 SGK). Theo em, tác giả muốn nói điều gì qua câu chuyện trên? Em hãy điền từ khóa nhé!"
+            }
+        ],
+        "glossary": "- Nghịch ngợm: hiếu động, hay bày trò trêu chọc, đùa nghịch.\n- Gồ ghề: có nhiều chỗ nhô lên, lõm xuống không bằng phẳng.",
+        "mic": "Bố quyết định cho tôi lên thành phố học. Nghe bố nói, tôi oà khóc như khi bị đòn oan. Tôi không muốn đi nhưng vẫn phải chuẩn bị lên đường.\nChiều trước ngày xa quê, các bạn đến chơi tiễn tôi, cả thầy giáo của tôi nữa. Khác hẳn mọi khi, chúng tôi chẳng mấy đứa cười đùa, kẹo cũng chẳng ăn. Trong khi thầy giáo ngồi nói chuyện với bố mẹ tôi, chúng tôi thầm nhắc lại những trò nghịch ngợm vừa qua và ngẩn ngơ hỏi nhau thành phố nơi tôi sắp đến như thế nào, có giống quê mình không... Tôi biết nơi đó có những chiếc xe sang trọng phóng vun vút trên đường nhựa phẳng lì. Nhưng nơi ấy thật xa lạ. Quê tôi ở đây, con đường làng gồ ghề, vàng óng rơm mùa gặt, những lùm cây giấu đầy quả ổi, quả mâm xôi chín mọng. Nước mắt tôi ứa ra. Không, tôi không thích đi. Tôi chỉ muốn được ở đây giữa các bạn và thầy giáo. Như đoán được ý nghĩ của tôi, thầy đến bên lau nước mắt cho tôi, xoa đầu tôi và cúi xuống nắm lấy hai bàn tay tôi:\n– Bao giờ nghỉ hè, em sẽ lại được về đây chơi với thầy và các bạn.\nBuổi chia tay kéo dài mãi đến khi trời tối mịt. Chúng tôi còn muốn ngồi với nhau nữa nhưng thầy nhắc các bạn phải về để mai tôi lên đường sớm. Tôi muốn nói điều gì đó với thầy và các bạn nhưng không sao nói nổi. Vậy là tôi phải xa quê, nơi tôi đã từng đội nắng đội gió mà lớn lên với tình thương yêu vô hạn."
+    },
+    "L4_On_tap_giua_ky_1": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Ôn tập giữa kỳ 1",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 127,
+                "t": "a. Biển động. Gió thét trên những rừng dương. Sóng đập dữ dội vào mạn thuyền. Cây cột buồm rít lên, lá cờ đuôi nheo bay phần phật. Mưa cắt ngang mặt những tia nước lạnh. Bãi cát vật vã với nước, với sóng.\nb. Những ngày hè đi bên bờ Hạ Long, Bãi Cháy hoặc Tuần Châu,... ta có cảm giác như đi trước cửa gió. Ngọn gió lúc êm ả như ru, lúc phần phật như quạt, mang cái trong lành, cái tươi mát của đại dương vào đất liền. Trong tiếng gió thổi, ta nghe tiếng thông reo, tiếng sóng vỗ, tiếng ve ran và cả tiếng máy, tiếng xe, tiếng cần trục từ trên các tầng thang, bến cảng vọng lại.\nc. Chuồn chuồn ngô mặc áo kẻ ca-rô đen vàng thích phơi mình ngoài nắng, trên ngọn chuối hoặc bờ ao. Chuồn chuồn ớt với bộ cánh đỏ rực hoặc vàng tươi, suốt ngày la cà hết chỗ này sang chỗ khác. Chuồn chuồn nước thích soi gương, ưa đứng im trên cọng khoai ngứa bên bờ ao ngắm bóng mình in dưới nước,... Ẻo lả và xinh xắn hơn cả là các bé chuồn kim, cả thân hình chỉ nhỉnh hơn chiếc kim khâu... Ngần ấy loại chuồn chuồn cũng đủ cho chúng tôi mê tơi trong suốt mùa hè.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN. Em hãy đọc kĩ 3 đoạn văn trên. Các tác giả đã miêu tả những cảnh vật, sự vật gì?",
+                "o": [
+                    "Cảnh biển động, cảnh gió biển Hạ Long và các loài chuồn chuồn.",
+                    "Cảnh rừng núi, cánh đồng lúa và con sông quê hương.",
+                    "Cảnh đường phố tấp nập, trường học và khu vui chơi."
+                ],
+                "a": 0,
+                "h": "Đọc lướt 3 đoạn văn, em sẽ thấy tác giả tả cảnh biển và những chú chuồn chuồn rất sinh động."
+            },
+            {
+                "k": "tap",
+                "min": 20,
+                "s": [
+                    "Biển động.",
+                    "Gió thét trên những rừng dương.",
+                    "Sóng đập dữ dội vào mạn thuyền.",
+                    "Cây cột buồm rít lên, lá cờ đuôi nheo bay phần phật.",
+                    "Mưa cắt ngang mặt những tia nước lạnh.",
+                    "Bãi cát vật vã với nước, với sóng."
+                ],
+                "q": "BƯỚC 2: TÌM CÂU CHỦ ĐỀ (Bài tập 2). Câu chủ đề là câu mang ý chính của cả đoạn. Em hãy bấm chọn CÂU CHỦ ĐỀ trong đoạn văn miêu tả cảnh biển dưới đây nhé!",
+                "a": 0
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Từ các bài ca dao, ta tìm được các danh từ sau: *1:phố, *1:cành_trúc, *1:nàng, *1:chuông, *1:gió, *2:Đồng_Đăng, *2:Kỳ_Lừa, *2:Tô_Thị, *2:Trấn_Vũ, *2:Thọ_Xương.",
+                "q": "BƯỚC 3: PHÂN BIỆT DANH TỪ (Bài tập 1). Em hãy nhặt các từ in đậm ở trên và xếp đúng vào 2 giỏ Danh từ chung và Danh từ riêng nhé!",
+                "cats": [
+                    "Danh từ chung",
+                    "Danh từ riêng"
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Biển động. Gió *thét trên những rừng dương. Sóng *đập dữ dội vào mạn thuyền. Cây cột buồm *rít lên, lá cờ đuôi nheo *bay phần phật.",
+                "q": "BƯỚC 4: TÌM ĐỘNG TỪ (Bài tập 3). Dựa vào đoạn văn trên, em hãy hái 4 ĐỘNG TỪ (từ chỉ hoạt động) của gió, sóng, cột buồm và lá cờ nhé!",
+                "h": "Động từ là những từ chỉ hành động mạnh mẽ của sự vật. Hãy bấm chọn: thét, đập, rít, bay."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Mỗi sự vật đều có những hoạt động đặc trưng riêng của chúng.",
+                "q": "BƯỚC 5: MỞ RỘNG ĐỘNG TỪ (Bài tập 4). Em hãy nối sự vật (bên trái) với các Động từ phù hợp với sự vật đó (bên phải) nhé!",
+                "h": "Học sinh thì đọc bài. Ong thì hút mật. Cá thì bơi lội. Thuyền thì lướt sóng.",
+                "p": [
+                    [
+                        "Học sinh",
+                        "đọc bài, viết chữ, vui chơi"
+                    ],
+                    [
+                        "Con ong",
+                        "bay, hút mật, xây tổ"
+                    ],
+                    [
+                        "Con cá",
+                        "bơi lội, đớp mồi, quẫy đuôi"
+                    ],
+                    [
+                        "Con thuyền",
+                        "trôi, lướt sóng, cập bến"
+                    ]
+                ]
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "GHI NHỚ: \n- Danh từ riêng luôn phải {viết_hoa} chữ cái đầu tiên.\n- Câu {chủ_đề} mang ý chính của đoạn văn, thường nằm ở đầu hoặc cuối đoạn.\n- Động từ là từ chỉ {hoạt_động} hoặc trạng thái của sự vật.",
+                "q": "BƯỚC 6: CHỐT KIẾN THỨC. Em hãy điền các từ khóa vào chỗ trống để tóm tắt lại toàn bộ kiến thức ngữ pháp của bài Ôn tập nhé!"
+            }
+        ],
+        "mic": "a. Biển động. Gió thét trên những rừng dương. Sóng đập dữ dội vào mạn thuyền. Cây cột buồm rít lên, lá cờ đuôi nheo bay phần phật. Mưa cắt ngang mặt những tia nước lạnh. Bãi cát vật vã với nước, với sóng.\nb. Những ngày hè đi bên bờ Hạ Long, Bãi Cháy hoặc Tuần Châu,... ta có cảm giác như đi trước cửa gió. Ngọn gió lúc êm ả như ru, lúc phần phật như quạt, mang cái trong lành, cái tươi mát của đại dương vào đất liền. Trong tiếng gió thổi, ta nghe tiếng thông reo, tiếng sóng vỗ, tiếng ve ran và cả tiếng máy, tiếng xe, tiếng cần trục từ trên các tầng thang, bến cảng vọng lại.\nc. Chuồn chuồn ngô mặc áo kẻ ca-rô đen vàng thích phơi mình ngoài nắng, trên ngọn chuối hoặc bờ ao. Chuồn chuồn ớt với bộ cánh đỏ rực hoặc vàng tươi, suốt ngày la cà hết chỗ này sang chỗ khác. Chuồn chuồn nước thích soi gương, ưa đứng im trên cọng khoai ngứa bên bờ ao ngắm bóng mình in dưới nước,... Ẻo lả và xinh xắn hơn cả là các bé chuồn kim, cả thân hình chỉ nhỉnh hơn chiếc kim khâu... Ngần ấy loại chuồn chuồn cũng đủ cho chúng tôi mê tơi trong suốt mùa hè."
     }
 };
