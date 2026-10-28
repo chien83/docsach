@@ -2377,5 +2377,240 @@ window.LESSONS = {
             }
         ],
         "mic": "Một hôm, trong vườn nhà Tú xuất hiện một con vẹt nhỏ bị thương ở cánh. Thương vẹt, Tú chăm sóc nó rất cẩn thận. Anh của Tú bảo, vẹt có thể bắt chước tiếng người nên Tú rất háo hức được nghe nó nói.\nĐi học về, Tú chạy đến bên con vẹt nhỏ. Nhận ra Tú, vẹt nhảy nhót há mỏ đòi ăn. Tú vừa cho ăn, vừa nói với nó như nựng trẻ con:\n– Vẹt à, dạ!\nVẹt xù lông cổ, rụt đầu, gù một cái, không thành tiếng dạ, nhưng Tú cũng xuýt xoa:\n– Giỏi lắm!\nChợt anh của Tú gọi:\n– Tú ơi!\nTú phụng phịu:\n– Cái gì?\n– Anh gọi mà em trả lời vậy à? Ra phụ anh đi.\nTú buồn bực, vừa đi vừa lẩm bẩm:\n– Kêu chi kêu hoài!\nLần nào Tú cũng phụng phịu như thế với anh khi đang chơi với vẹt.\nVẹt mỗi ngày một lớn, lông xanh óng ả, biết huýt sáo lảnh lót nhưng vẫn không nói tiếng nào. Một hôm, Tú gọi:\n– Vẹt à!\nNgờ đâu một giọng the thé gắt lại:\n– Cái gì?\nTrời ơi, con vẹt nói! Tú sướng quá, nhảy lên reo hò. Tú khoe khắp nơi. Hôm sau, mấy đứa bạn tới nhà. Tú hãnh diện gọi:\n– Vẹt à, dạ!\nVẹt đáp the thé:\n– Cái gì?\nCác bạn ngạc nhiên thích thú, cười ầm lên. Tú vờ nghiêm mặt:\n– Anh chăm sóc vẹt cực khổ, vậy mà anh gọi, vẹt trả lời \"cái gì\" à?\n– Kêu chi kêu hoài!\nCác bạn cười bò, tranh nhau gọi vẹt. Nhưng Tú sững sốt ngồi lặng thinh.\nBạn về rồi, Tú vẫn ngồi lặng như thế. Tú nhớ lại bao lần anh gọi, Tú đã trả lời \"Cái gì?\" và cằn nhằn \"Kêu chi kêu hoài\". Tú hối hận quá, chỉ mong anh gọi để Tú \"dạ\" một tiếng thật to, thật lễ phép. Con vẹt nhìn Tú, dường như cũng biết lỗi nên xù lông cổ, rụt đầu, gù một cái nghe như tiếng: \"Dạ!\"."
+    },
+    "L4_Luyen_viet_mo_bai_ket_bai_cho_bai_van_ke_lai_mot_cau_chuyen": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Luyện viết mở bài, kết bài cho bài văn kể lại một câu chuyện",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 139,
+                "t": "Tối nào cũng vậy, bằng giọng ấm áp, bà lại kể cho em nghe một câu chuyện cổ tích từ ngày xửa ngày xưa. Trong những câu chuyện bà kể, em nhớ mãi câu chuyện \"Cô bé Lọ Lem\" với bao nhiêu phép biến hoá nhiệm màu.\r\nChuyện kể rằng, Lọ Lem là một cô bé xinh đẹp nhưng mồ côi và phải sống cùng bà mẹ kế độc ác. Hằng ngày, cô phải làm việc quần quật trong xó bếp. Một ngày nọ, nhà vua mở hội. Mẹ kế bắt Lọ Lem ở nhà nhặt đậu lẫn trong đống tro. Lọ Lem khóc nức nở. May sao, một bà tiên hiền hậu đã xuất hiện. Bà dùng phép thuật biến quả bí ngô thành cỗ xe ngựa, biến bầy chuột thành người đánh xe và tặng Lọ Lem một bộ váy lộng lẫy cùng đôi giày thuỷ tinh trong suốt. Bà dặn cô phải về trước 12 giờ đêm.\r\nTại vũ hội, hoàng tử chỉ khiêu vũ với Lọ Lem. Đến 12 giờ, cô vội vã chạy về và đánh rơi một chiếc giày. Hoàng tử đã mang chiếc giày đi khắp nơi tìm chủ nhân. Khi Lọ Lem ướm thử thì vừa như in. Hoàng tử rước cô về cung và họ sống hạnh phúc mãi mãi.\r\nCâu chuyện \"Cô bé Lọ Lem\" dù đã kết thúc nhưng thế giới của những hoàng tử, công chúa, những bà tiên với phép màu kì diệu vẫn khiến em thao thức mãi. Ước gì trong giấc mơ, em được bước vào thế giới thần tiên ấy.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN. Em hãy đọc bài văn mẫu kể lại câu chuyện \"Cô bé Lọ Lem\" do một bạn nhỏ viết nhé. Theo em, bạn nhỏ biết đến câu chuyện này qua đâu?",
+                "o": [
+                    "Bạn đọc được trong cuốn sách \"100 truyện cổ tích\".",
+                    "Bạn được nghe bà kể vào mỗi buổi tối.",
+                    "Bạn xem trên tivi."
+                ],
+                "a": 1,
+                "h": "Em hãy đọc kĩ câu đầu tiên của phần Mở bài nhé."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Phần Ghi nhớ của bài học đã giải thích rất rõ về các kiểu Mở bài và Kết bài.",
+                "q": "BƯỚC 2: PHÂN LOẠI MỞ BÀI & KẾT BÀI. Em hãy nối tên mỗi kiểu viết với đặc điểm tương ứng của nó nhé!",
+                "h": "Trực tiếp là nói thẳng vào vấn đề. Gián tiếp là kể chuyện khác để dẫn dắt. Mở rộng là có thêm những liên tưởng xa hơn.",
+                "p": [
+                    [
+                        "Mở bài trực tiếp",
+                        "Giới thiệu ngay vào câu chuyện."
+                    ],
+                    [
+                        "Mở bài gián tiếp",
+                        "Nói chuyện khác để dẫn vào câu chuyện định kể."
+                    ],
+                    [
+                        "Kết bài không mở rộng",
+                        "Chỉ nêu suy nghĩ, cảm xúc về câu chuyện."
+                    ],
+                    [
+                        "Kết bài mở rộng",
+                        "Nêu cảm xúc và những liên tưởng, suy luận được gợi ra."
+                    ]
+                ]
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Sách giáo khoa có 3 đoạn Mở bài mẫu sau:\r\n*1:Lọ_Lem_nổi_tiếng (Giới thiệu ngay: Lọ Lem là câu chuyện cổ tích nổi tiếng...)\r\n*2:Sách_mẹ_tặng (Nêu bối cảnh đọc: Em được mẹ tặng cuốn sách...)\r\n*2:Bà_kể_chuyện (Nêu kỉ niệm: Tối nào cũng vậy, bà lại kể...)",
+                "q": "BƯỚC 3: THỰC HÀNH MỞ BÀI (Câu 1 SGK). Em hãy xếp 3 \"Thẻ mở bài\" vào đúng giỏ Trực tiếp hoặc Gián tiếp nhé!",
+                "cats": [
+                    "Mở bài trực tiếp",
+                    "Mở bài gián tiếp"
+                ]
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Tương tự, sách có 3 đoạn Kết bài mẫu:\r\n*1:Thích_câu_chuyện (Em rất thích câu chuyện Cô bé Lọ Lem.)\r\n*2:Bài_học_ý_nghĩa (Cái kết có hậu, truyện xứng đáng hay nhất thế giới.)\r\n*2:Ước_mơ_thần_tiên (Truyện đã kết thúc nhưng khiến em thao thức, ước mơ bước vào...)",
+                "q": "BƯỚC 4: THỰC HÀNH KẾT BÀI (Câu 2 SGK). Em hãy xếp 3 \"Thẻ kết bài\" vào đúng giỏ Không mở rộng hoặc Mở rộng nhé!",
+                "cats": [
+                    "Kết bài không mở rộng",
+                    "Kết bài mở rộng"
+                ]
+            },
+            {
+                "k": "tap",
+                "min": 20,
+                "s": [
+                    "Câu chuyện \"Cô bé Lọ Lem\" dù đã kết thúc nhưng thế giới của những hoàng tử, công chúa, những bà tiên với phép màu kì diệu vẫn khiến em thao thức mãi.",
+                    "Ước gì trong giấc mơ, em được bước vào thế giới thần tiên ấy."
+                ],
+                "q": "BƯỚC 5: GIẢI MÃ KẾT BÀI MỞ RỘNG. Trong đoạn Kết bài của bài văn trên, CÂU VĂN NÀO thể hiện \"sự liên tưởng, suy luận\" bay bổng của tác giả nhí? (Em hãy bấm chọn câu đó nhé)",
+                "a": 1
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "May sao, một bà tiên *hiền_hậu đã xuất hiện. Bà dùng phép thuật biến quả bí ngô thành cỗ xe ngựa, biến bầy chuột thành người đánh xe và tặng Lọ Lem một bộ váy *lộng_lẫy cùng đôi giày thuỷ tinh *trong_suốt.",
+                "q": "BƯỚC 6: THU HOẠCH TỪ VỰNG ĐẮT GIÁ. Để phần Thân bài hấp dẫn, em cần dùng các từ chỉ đặc điểm. Hãy hái 3 từ chỉ đặc điểm của Bà tiên, Bộ váy và Đôi giày nhé!",
+                "h": "Hãy tìm và bấm hái các từ miêu tả: hiền hậu, lộng lẫy, trong suốt."
+            }
+        ],
+        "mic": "Tối nào cũng vậy, bằng giọng ấm áp, bà lại kể cho em nghe một câu chuyện cổ tích từ ngày xửa ngày xưa. Trong những câu chuyện bà kể, em nhớ mãi câu chuyện \"Cô bé Lọ Lem\" với bao nhiêu phép biến hoá nhiệm màu.\r\nChuyện kể rằng, Lọ Lem là một cô bé xinh đẹp nhưng mồ côi và phải sống cùng bà mẹ kế độc ác. Hằng ngày, cô phải làm việc quần quật trong xó bếp. Một ngày nọ, nhà vua mở hội. Mẹ kế bắt Lọ Lem ở nhà nhặt đậu lẫn trong đống tro. Lọ Lem khóc nức nở. May sao, một bà tiên hiền hậu đã xuất hiện. Bà dùng phép thuật biến quả bí ngô thành cỗ xe ngựa, biến bầy chuột thành người đánh xe và tặng Lọ Lem một bộ váy lộng lẫy cùng đôi giày thuỷ tinh trong suốt. Bà dặn cô phải về trước 12 giờ đêm.\r\nTại vũ hội, hoàng tử chỉ khiêu vũ với Lọ Lem. Đến 12 giờ, cô vội vã chạy về và đánh rơi một chiếc giày. Hoàng tử đã mang chiếc giày đi khắp nơi tìm chủ nhân. Khi Lọ Lem ướm thử thì vừa như in. Hoàng tử rước cô về cung và họ sống hạnh phúc mãi mãi.\r\nCâu chuyện \"Cô bé Lọ Lem\" dù đã kết thúc nhưng thế giới của những hoàng tử, công chúa, những bà tiên với phép màu kì diệu vẫn khiến em thao thức mãi. Ước gì trong giấc mơ, em được bước vào thế giới thần tiên ấy."
+    },
+    "L4_Chan_troi_cuoi_pho": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Chân trời cuối phố",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 166,
+                "t": "Có chú cún sống trong ngôi nhà nhỏ. Từ cổng nhà, cún nhìn thấy dãy phố với những mái tôn cũ kĩ và con đường lầy lội mùa mưa. Từ đầu phố tới cuối phố chỉ vài trăm mét, nhưng cún chưa một lần đi hết dãy phố của mình. Đường vẫn còn lội, mà cún thì quá nhỏ. Mỗi lần chú định ra cổng là người lớn trong nhà lại nhắc: “Cún, vào nhà!”.\nNằm cuộn tròn trên chiếc chổi rơm đầu hè, cún nghĩ: “Ở cuối dãy phố có gì nhỉ?”. Đầu tiên vì tò mò. Rồi tò mò chuyển thành bực mình. Bực đến nỗi, đang nằm yên cún bỗng ngẩng cổ lên sủa:\n– Ẳng! Ẳng!...\nNgười lớn tưởng có khách, nhìn ra sân. Sân vắng hoe. Chỉ có chiếc lá mít vừa rụng, quay quay trước mũi cún.\nMột sáng trời đẹp, người nhà mở cổng cho cún ra ngoài. Cún mừng rỡ nhảy xuống sân rồi chạy vụt đi. Con đường trước nhà khô ráo sau trận gió đêm. Chú cứ thế phóng một mạch qua dãy phố yên ắng. Con đường dốc dần lên cao. Khi một cơn gió mát bất chợt ùa đến, cún dừng lại và ngẩng lên nhìn.\nBao nhiêu điều mới lạ mở oà ra trước mắt.\nCuối dãy phố của cún, bên trái là bắt đầu một dãy phố khác. Bên phải là bến sông với con đò đang trôi ra xa bờ. Trước mặt, dọc bờ sông bên kia: làng quê với những bãi bờ, cây cối, nhà cửa.\nCún đứng một mình trên đường, hết nhìn trước mặt lại ngó sang trái, sang phải.\nGiờ thì cún hiểu. Phố tiếp phố. Làng tiếp làng. Bến sông này nối dài tới bến sông khác... Cuối con phố của cún là những chân trời mở ra vô tận.\nNhững chân trời đang chờ cún lớn lên từng ngày.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN (Câu 1 SGK). Em hãy đọc kĩ câu chuyện trên. Câu chuyện kể về nhân vật nào và tính cách nổi bật của nhân vật đó là gì?",
+                "o": [
+                    "Chú cún nhỏ rất tò mò về thế giới bên ngoài.",
+                    "Chú mèo lười biếng chỉ thích nằm ngủ.",
+                    "Một chú chim chích chòe thích hót líu lo."
+                ],
+                "a": 0,
+                "h": "Em hãy đọc kĩ các đoạn đầu. Nhân vật chính là một 'chú cún' luôn tự hỏi 'Ở cuối dãy phố có gì nhỉ?'."
+            },
+            {
+                "k": "match",
+                "min": 20,
+                "t": "Chú cún trong câu chuyện có những đặc điểm rất đáng yêu.",
+                "q": "BƯỚC 2: TÌM HIỂU NHÂN VẬT (Câu 1 SGK). Em hãy nối các thông tin về nhân vật cún cho đúng nhé!",
+                "h": "Cún sống ở ngôi nhà nhỏ, kêu ẳng ẳng và rất tò mò muốn biết thế giới bên ngoài ra sao.",
+                "p": [
+                    [
+                        "Nơi ở",
+                        "Sống trong một ngôi nhà nhỏ"
+                    ],
+                    [
+                        "Tiếng kêu",
+                        "Ẳng! Ẳng!..."
+                    ],
+                    [
+                        "Tính cách",
+                        "Hay tò mò"
+                    ]
+                ]
+            },
+            {
+                "k": "tap",
+                "min": 20,
+                "s": [
+                    "Nằm cuộn tròn trên chiếc chổi rơm đầu hè, cún nghĩ: “Ở cuối dãy phố có gì nhỉ?",
+                    "”.",
+                    "Đầu tiên vì tò mò.",
+                    "Rồi tò mò chuyển thành bực mình.",
+                    "Bực đến nỗi, đang nằm yên cún bỗng ngẩng cổ lên sủa: – Ẳng!",
+                    "Ẳng!..."
+                ],
+                "q": "BƯỚC 3: TÌM HIỂU CHI TIẾT (Câu 2 SGK). Chi tiết nào cho thấy cún rất tò mò, thậm chí là \"bực mình\" vì khát khao muốn biết về dãy phố bên ngoài? (Em hãy bấm chọn CÂU VĂN đó nhé)",
+                "a": 3
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Cuối dãy phố của cún, bên trái là bắt đầu một dãy phố khác. Bên phải là bến sông với con đò đang trôi ra xa bờ. Trước mặt, dọc bờ sông bên kia: làng quê với những bãi bờ, cây cối, nhà cửa.",
+                "q": "BƯỚC 4: BỨC TRANH THIÊN NHIÊN (Câu 3 SGK). Khi chạy hết dãy phố, những cảnh vật nào đã hiện ra trước mắt cún? (Chọn nhiều đáp án)",
+                "o": [
+                    "Một dãy phố khác ở bên trái.",
+                    "Bến sông với con đò trôi xa bờ ở bên phải.",
+                    "Làng quê với bãi bờ, cây cối ở trước mặt.",
+                    "Một khu rừng rậm rạp với nhiều thú dữ."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Nằm cuộn tròn trên chiếc chổi rơm đầu hè, cún *tò_mò không biết cuối dãy phố có gì. Cảm xúc đó dần chuyển thành *bực_mình khiến chú ngẩng cổ lên sủa. Khi được mở cổng ra ngoài, cún *mừng_rỡ chạy vụt đi khám phá thế giới.",
+                "q": "BƯỚC 5: THU HOẠCH TỪ VỰNG (Câu 4 SGK). Xuyên suốt câu chuyện, cún có rất nhiều cung bậc cảm xúc. Em hãy hái các từ chỉ CẢM XÚC của cún nhé!",
+                "h": "Hãy tìm và hái 3 từ miêu tả cảm xúc: tò mò, bực mình, mừng rỡ."
+            },
+            {
+                "k": "fill",
+                "min": 25,
+                "t": "Giờ thì cún đã hiểu. Phố tiếp phố. Làng tiếp làng. Bến sông này nối dài tới bến sông khác... Cuối con phố của cún là những {chân_trời} mở ra {vô_tận}. Những chân trời ấy đang chờ cún {lớn_lên} từng ngày để khám phá.",
+                "q": "BƯỚC 6: ĐÚC KẾT Ý NGHĨA. Nhờ chạy ra ngoài, cún đã nhận ra điều gì? Em hãy điền các từ khóa để hoàn thiện ý nghĩa sâu sắc của câu chuyện nhé!"
+            }
+        ],
+        "mic": "Có chú cún sống trong ngôi nhà nhỏ. Từ cổng nhà, cún nhìn thấy dãy phố với những mái tôn cũ kĩ và con đường lầy lội mùa mưa. Từ đầu phố tới cuối phố chỉ vài trăm mét, nhưng cún chưa một lần đi hết dãy phố của mình. Đường vẫn còn lội, mà cún thì quá nhỏ. Mỗi lần chú định ra cổng là người lớn trong nhà lại nhắc: “Cún, vào nhà!”.\nNằm cuộn tròn trên chiếc chổi rơm đầu hè, cún nghĩ: “Ở cuối dãy phố có gì nhỉ?”. Đầu tiên vì tò mò. Rồi tò mò chuyển thành bực mình. Bực đến nỗi, đang nằm yên cún bỗng ngẩng cổ lên sủa:\n– Ẳng! Ẳng!...\nNgười lớn tưởng có khách, nhìn ra sân. Sân vắng hoe. Chỉ có chiếc lá mít vừa rụng, quay quay trước mũi cún.\nMột sáng trời đẹp, người nhà mở cổng cho cún ra ngoài. Cún mừng rỡ nhảy xuống sân rồi chạy vụt đi. Con đường trước nhà khô ráo sau trận gió đêm. Chú cứ thế phóng một mạch qua dãy phố yên ắng. Con đường dốc dần lên cao. Khi một cơn gió mát bất chợt ùa đến, cún dừng lại và ngẩng lên nhìn.\nBao nhiêu điều mới lạ mở oà ra trước mắt.\nCuối dãy phố của cún, bên trái là bắt đầu một dãy phố khác. Bên phải là bến sông với con đò đang trôi ra xa bờ. Trước mặt, dọc bờ sông bên kia: làng quê với những bãi bờ, cây cối, nhà cửa.\nCún đứng một mình trên đường, hết nhìn trước mặt lại ngó sang trái, sang phải.\nGiờ thì cún hiểu. Phố tiếp phố. Làng tiếp làng. Bến sông này nối dài tới bến sông khác... Cuối con phố của cún là những chân trời mở ra vô tận.\nNhững chân trời đang chờ cún lớn lên từng ngày."
+    },
+    "L4_Gat_chu_tren_non": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Gặt chữ trên non",
+        "isPoem": true,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 41,
+                "t": "Bình minh vừa tỉnh giấc\nNắng nhuộm hồng núi xanh\nTiếng trống rung vách đá\nGiục đôi chân bước nhanh. // Bóng em nhoà bóng núi\nHun hút mấy thung sâu\nGió đưa theo tiếng sáo\nLa đà trên tán lau. // Em đi tìm cái chữ\nVượt suối lại băng rừng\nĐường xa chân có mỏi\nChữ vẫn gùi trên lưng. // Cái chữ rơi xuống nương\nMùa cho bông trĩu hạt\nCái chữ bay lên ngàn\nRừng ríu ran chim hát. // Càng đi chân càng vững\nLớp học ngang lưng đồi\nMắt em như sao sáng\nGặt chữ trên đỉnh trời!",
+                "q": "BƯỚC 1: KHỞI ĐỘNG ĐỌC THẨM THẤU (Câu 1 SGK). Em hãy đọc toàn bài thơ trên. Bài thơ viết về các bạn nhỏ ở đâu?",
+                "o": [
+                    "Ở vùng đồng bằng ven biển.",
+                    "Ở vùng miền núi (vùng cao).",
+                    "Ở một thành phố lớn nhộn nhịp."
+                ],
+                "a": 1,
+                "h": "Em hãy chú ý các cảnh vật như 'núi xanh', 'vách đá', 'thung sâu', 'suối', 'rừng' nhé. Đó là cảnh của vùng núi."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Hành trình đi học của các bạn nhỏ vùng cao vừa gian nan, vất vả nhưng cũng rất đỗi thơ mộng.",
+                "q": "BƯỚC 2: TÌM HIỂU HÀNH TRÌNH (Câu 2, 3 SGK). Em hãy nối các chi tiết miêu tả sự vất vả và những âm thanh tươi vui trên đường đi học nhé!",
+                "h": "Sự vất vả là những trở ngại về địa hình, đường sá. Âm thanh tươi vui là những tiếng động rộn rã làm các bạn thêm vui bước.",
+                "p": [
+                    [
+                        "Sự vất vả",
+                        "Vượt suối, băng rừng, hun hút thung sâu, đường xa chân mỏi"
+                    ],
+                    [
+                        "Âm thanh tươi vui",
+                        "Tiếng trống rung vách đá, tiếng sáo, chim hát ríu ran"
+                    ]
+                ]
+            },
+            {
+                "k": "tap",
+                "min": 20,
+                "s": [
+                    "Em đi tìm cái chữ\nVượt suối lại băng rừng\nĐường xa chân có mỏi\nChữ vẫn gùi trên lưng.",
+                    "Cái chữ rơi xuống nương\nMùa cho bông trĩu hạt\nCái chữ bay lên ngàn\nRừng ríu ran chim hát.",
+                    "Càng đi chân càng vững\nLớp học ngang lưng đồi\nMắt em như sao sáng\nGặt chữ trên đỉnh trời!"
+                ],
+                "q": "BƯỚC 3: Ý CHÍ ĐẾN TRƯỜNG (Câu 4 SGK). KHỔ THƠ NÀO cho thấy các bạn nhỏ rất quyết tâm, dù đường xa mệt mỏi nhưng vẫn không bỏ cuộc để mang \"chữ\" về bản làng? (Em hãy bấm chọn khổ thơ đó nhé)",
+                "a": 0
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Bình minh vừa tỉnh giấc\nNắng *nhuộm_hồng núi xanh\nTiếng trống *rung vách đá\nGiục đôi chân bước nhanh. // Bóng em nhoà bóng núi\nHun hút mấy thung sâu\nGió đưa theo tiếng sáo\n*La_đà trên tán lau.",
+                "q": "BƯỚC 4: THU HOẠCH TỪ VỰNG. Bức tranh vùng cao buổi sáng thật sinh động! Em hãy hái các từ ngữ làm cho cảnh vật trở nên có hồn (nhuộm hồng, rung, la đà) nhé!",
+                "h": "Bấm chọn các từ gợi tả sinh động hoạt động của Nắng, Tiếng trống và Tiếng sáo."
+            },
+            {
+                "k": "fill",
+                "min": 25,
+                "t": "Bài thơ ca ngợi tinh thần {chăm_chỉ}, vượt khó đi học của các bạn nhỏ vùng cao. Niềm vui đến trường và ước mơ {gặt_chữ} đã giúp các bạn vượt qua mọi gian nan, thắp {sáng} một tương lai tươi đẹp cho bản làng.",
+                "q": "BƯỚC 5: ĐÚC KẾT Ý NGHĨA. Em hãy điền các từ khóa vào chỗ trống để hoàn thành nội dung và ý nghĩa của bài thơ nhé!"
+            }
+        ],
+        "glossary": "- Gùi: đồ làm bằng mây tre để mang đồ đạc (trên lưng), dùng ở một số khu vực miền núi.\n- Thung (thung lũng): dải đất trũng, thấp giữa các sườn (dãy) núi.",
+        "mic": "Bình minh vừa tỉnh giấc\nNắng nhuộm hồng núi xanh\nTiếng trống rung vách đá\nGiục đôi chân bước nhanh. // Bóng em nhoà bóng núi\nHun hút mấy thung sâu\nGió đưa theo tiếng sáo\nLa đà trên tán lau. // Em đi tìm cái chữ\nVượt suối lại băng rừng\nĐường xa chân có mỏi\nChữ vẫn gùi trên lưng. // Cái chữ rơi xuống nương\nMùa cho bông trĩu hạt\nCái chữ bay lên ngàn\nRừng ríu ran chim hát. // Càng đi chân càng vững\nLớp học ngang lưng đồi\nMắt em như sao sáng\nGặt chữ trên đỉnh trời!"
     }
 };
