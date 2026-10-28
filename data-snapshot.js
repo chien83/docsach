@@ -2292,5 +2292,90 @@ window.LESSONS = {
             }
         ],
         "mic": "Em được mẹ tặng cuốn sách có nhan đề \"100 câu chuyện cổ tích hay nhất thế giới\". Đối với em, thú vị nhất trong cuốn sách là câu chuyện \"Cô bé Lọ Lem\".\nChuyện kể rằng, đã lâu lắm rồi, ở một đất nước xa xôi, có cô bé xinh đẹp tên là Lọ Lem. Sau khi mẹ Lọ Lem mất, bố cô lấy vợ mới. Người vợ mới có hai cô con gái riêng và chẳng yêu thương Lọ Lem chút nào. Không lâu sau, bố Lọ Lem cũng qua đời, cuộc sống của cô càng khổ cực.\nMột ngày nọ, vua tổ chức vũ hội. Mẹ kế và hai cô con gái đi dự hội, bắt Lọ Lem ở nhà nhặt đậu lẫn trong đống tro. Lọ Lem khóc nức nở. Thế rồi, một bà tiên xuất hiện giúp cô nhặt đậu, hoá phép cho cô váy dạ hội và đôi giày thuỷ tinh tuyệt đẹp. Bà còn biến quả bí ngô thành cỗ xe ngựa đưa Lọ Lem đi dự hội. Bà dặn Lọ Lem phải về trước 12 giờ đêm, nếu không mọi phép thuật sẽ tan biến.\nỞ vũ hội, Lọ Lem xinh đẹp đến mức hoàng tử chỉ khiêu vũ với mình cô. Đến 12 giờ, vì vội ra về, Lọ Lem làm rơi một chiếc giày. Hoàng tử sai người đi khắp nơi tìm chủ nhân của chiếc giày. Hai cô chị cũng ướm thử giày nhưng không vừa. Tới lượt Lọ Lem thì vừa như in. Hoàng tử vui mừng đón cô về cung. Từ đó, họ sống bên nhau hạnh phúc đến cuối đời.\nEm rất thích câu chuyện này vì cái kết thật có hậu. \"Cô bé Lọ Lem\" xứng đáng là một trong những câu chuyện cổ tích hay nhất thế giới."
+    },
+    "L4_Con_vet_xanh": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Con vẹt xanh",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 191,
+                "t": "Một hôm, trong vườn nhà Tú xuất hiện một con vẹt nhỏ bị thương ở cánh. Thương vẹt, Tú chăm sóc nó rất cẩn thận. Anh của Tú bảo, vẹt có thể bắt chước tiếng người nên Tú rất háo hức được nghe nó nói.\nĐi học về, Tú chạy đến bên con vẹt nhỏ. Nhận ra Tú, vẹt nhảy nhót há mỏ đòi ăn. Tú vừa cho ăn, vừa nói với nó như nựng trẻ con:\n– Vẹt à, dạ!\nVẹt xù lông cổ, rụt đầu, gù một cái, không thành tiếng dạ, nhưng Tú cũng xuýt xoa:\n– Giỏi lắm!\nChợt anh của Tú gọi:\n– Tú ơi!\nTú phụng phịu:\n– Cái gì?\n– Anh gọi mà em trả lời vậy à? Ra phụ anh đi.\nTú buồn bực, vừa đi vừa lẩm bẩm:\n– Kêu chi kêu hoài!\nLần nào Tú cũng phụng phịu như thế với anh khi đang chơi với vẹt.\nVẹt mỗi ngày một lớn, lông xanh óng ả, biết huýt sáo lảnh lót nhưng vẫn không nói tiếng nào. Một hôm, Tú gọi:\n– Vẹt à!\nNgờ đâu một giọng the thé gắt lại:\n– Cái gì?\nTrời ơi, con vẹt nói! Tú sướng quá, nhảy lên reo hò. Tú khoe khắp nơi. Hôm sau, mấy đứa bạn tới nhà. Tú hãnh diện gọi:\n– Vẹt à, dạ!\nVẹt đáp the thé:\n– Cái gì?\nCác bạn ngạc nhiên thích thú, cười ầm lên. Tú vờ nghiêm mặt:\n– Anh chăm sóc vẹt cực khổ, vậy mà anh gọi, vẹt trả lời \"cái gì\" à?\n– Kêu chi kêu hoài!\nCác bạn cười bò, tranh nhau gọi vẹt. Nhưng Tú sững sốt ngồi lặng thinh.\nBạn về rồi, Tú vẫn ngồi lặng như thế. Tú nhớ lại bao lần anh gọi, Tú đã trả lời \"Cái gì?\" và cằn nhằn \"Kêu chi kêu hoài\". Tú hối hận quá, chỉ mong anh gọi để Tú \"dạ\" một tiếng thật to, thật lễ phép. Con vẹt nhìn Tú, dường như cũng biết lỗi nên xù lông cổ, rụt đầu, gù một cái nghe như tiếng: \"Dạ!\".",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN (Câu 1 SGK). Em hãy đọc kĩ câu chuyện trên. Tú đã làm gì khi thấy con vẹt bị thương trong vườn nhà?",
+                "o": [
+                    "Bỏ mặc con vẹt ngoài vườn.",
+                    "Thương vẹt, chăm sóc nó rất cẩn thận.",
+                    "Nhờ anh trai chăm sóc giúp."
+                ],
+                "a": 1,
+                "h": "Em hãy đọc kĩ đoạn đầu tiên của câu chuyện nhé."
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Đi học về, Tú chạy đến bên con vẹt nhỏ. Nhận ra Tú, vẹt nhảy nhót há mỏ đòi ăn. Tú vừa cho ăn, vừa nói với nó như nựng trẻ con:\n– Vẹt à, dạ!\nVẹt xù lông cổ, rụt đầu, gù một cái, không thành tiếng dạ, nhưng Tú cũng xuýt xoa:\n– Giỏi lắm!",
+                "q": "BƯỚC 2: TÌM HIỂU CHI TIẾT (Câu 2 SGK). Những chi tiết nào cho thấy Tú rất yêu thương con vẹt? (Chọn nhiều đáp án)",
+                "o": [
+                    "Đi học về là chạy đến bên con vẹt.",
+                    "Vừa cho vẹt ăn, vừa nói chuyện như nựng trẻ con.",
+                    "Khen vẹt \"Giỏi lắm!\" dù nó chưa phát âm thành tiếng.",
+                    "Bực tức mắng mỏ khi vẹt không chịu nói."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "match",
+                "min": 20,
+                "t": "Tâm trạng của Tú thay đổi liên tục trong quá trình nuôi và dạy vẹt nói.",
+                "q": "BƯỚC 3: DIỄN BIẾN TÂM LÝ (Câu 3 SGK). Em hãy nối tình huống với tâm trạng, cảm xúc tương ứng của Tú nhé!",
+                "h": "Lúc đầu Tú háo hức, khi vẹt nói thì reo hò sung sướng, nhưng khi vẹt nhắc lại lời nói hỗn thì Tú sững sốt và hối hận.",
+                "p": [
+                    [
+                        "Nghe anh trai nói vẹt có thể bắt chước tiếng người",
+                        "Háo hức"
+                    ],
+                    [
+                        "Lần đầu tiên nghe vẹt cất tiếng nói",
+                        "Sướng quá, nhảy lên reo hò"
+                    ],
+                    [
+                        "Nghe vẹt bắt chước những lời mình nói trống không với anh",
+                        "Sững sốt, ngồi lặng thinh và hối hận"
+                    ]
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Trời ơi, con vẹt nói! Tú sướng quá, nhảy lên *reo_hò. Tú khoe khắp nơi. Hôm sau, mấy đứa bạn tới nhà. Tú *hãnh_diện gọi vẹt biểu diễn.",
+                "q": "BƯỚC 4: THU HOẠCH TỪ VỰNG. Trước khi phát hiện ra sự thật, Tú đã rất vui vẻ. Em hãy hái 2 từ chỉ CẢM XÚC và HÀNH ĐỘNG thể hiện sự sung sướng của Tú nhé!",
+                "h": "Em hãy bấm vào từ 'reo hò' và 'hãnh diện'."
+            },
+            {
+                "k": "order",
+                "min": 30,
+                "t": "Câu chuyện diễn biến qua 4 sự việc chính.",
+                "q": "BƯỚC 5: TÓM TẮT CÂU CHUYỆN (Câu 5 SGK). Em hãy sắp xếp các sự việc dưới đây thành đoạn văn tóm tắt nội dung câu chuyện \"Con vẹt xanh\" theo ĐÚNG TRÌNH TỰ nhé!",
+                "items": [
+                    "Có một chú vẹt nhỏ bị thương ở cánh được Tú yêu thương và chăm sóc cẩn thận.",
+                    "Một ngày, vẹt bắt chước tiếng nói của Tú khiến Tú rất vui.",
+                    "Nhưng khi vẹt nói nhiều hơn, Tú thấy vẹt toàn bắt chước những lời Tú nói trống không với anh trai.",
+                    "Tú nhận ra mình đã không lễ phép với anh và rất hối hận về điều đó."
+                ]
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "Từ câu chuyện của Tú, em nhận ra rằng mình cần phải luôn {lễ_phép}, tôn trọng người lớn. Lời nói {trống_không}, cộc lốc sẽ trở thành thói quen {xấu}. Khi mắc lỗi, cần biết tự {nhận_lỗi} và sửa chữa.",
+                "q": "BƯỚC 6: RÚT RA BÀI HỌC (Câu 4 SGK). Đoạn kết cho biết Tú đã nhận ra lỗi lầm của mình. Em hãy điền các từ khóa để hoàn thành bài học rút ra từ câu chuyện nhé!"
+            }
+        ],
+        "mic": "Một hôm, trong vườn nhà Tú xuất hiện một con vẹt nhỏ bị thương ở cánh. Thương vẹt, Tú chăm sóc nó rất cẩn thận. Anh của Tú bảo, vẹt có thể bắt chước tiếng người nên Tú rất háo hức được nghe nó nói.\nĐi học về, Tú chạy đến bên con vẹt nhỏ. Nhận ra Tú, vẹt nhảy nhót há mỏ đòi ăn. Tú vừa cho ăn, vừa nói với nó như nựng trẻ con:\n– Vẹt à, dạ!\nVẹt xù lông cổ, rụt đầu, gù một cái, không thành tiếng dạ, nhưng Tú cũng xuýt xoa:\n– Giỏi lắm!\nChợt anh của Tú gọi:\n– Tú ơi!\nTú phụng phịu:\n– Cái gì?\n– Anh gọi mà em trả lời vậy à? Ra phụ anh đi.\nTú buồn bực, vừa đi vừa lẩm bẩm:\n– Kêu chi kêu hoài!\nLần nào Tú cũng phụng phịu như thế với anh khi đang chơi với vẹt.\nVẹt mỗi ngày một lớn, lông xanh óng ả, biết huýt sáo lảnh lót nhưng vẫn không nói tiếng nào. Một hôm, Tú gọi:\n– Vẹt à!\nNgờ đâu một giọng the thé gắt lại:\n– Cái gì?\nTrời ơi, con vẹt nói! Tú sướng quá, nhảy lên reo hò. Tú khoe khắp nơi. Hôm sau, mấy đứa bạn tới nhà. Tú hãnh diện gọi:\n– Vẹt à, dạ!\nVẹt đáp the thé:\n– Cái gì?\nCác bạn ngạc nhiên thích thú, cười ầm lên. Tú vờ nghiêm mặt:\n– Anh chăm sóc vẹt cực khổ, vậy mà anh gọi, vẹt trả lời \"cái gì\" à?\n– Kêu chi kêu hoài!\nCác bạn cười bò, tranh nhau gọi vẹt. Nhưng Tú sững sốt ngồi lặng thinh.\nBạn về rồi, Tú vẫn ngồi lặng như thế. Tú nhớ lại bao lần anh gọi, Tú đã trả lời \"Cái gì?\" và cằn nhằn \"Kêu chi kêu hoài\". Tú hối hận quá, chỉ mong anh gọi để Tú \"dạ\" một tiếng thật to, thật lễ phép. Con vẹt nhìn Tú, dường như cũng biết lỗi nên xù lông cổ, rụt đầu, gù một cái nghe như tiếng: \"Dạ!\"."
     }
 };
