@@ -1624,5 +1624,673 @@ window.LESSONS = {
             }
         ],
         "mic": "Thấy đò ngang đăm chiêu, thuyền mành nói với giọng thân mật:\n– Quan trọng nhất là đò ngang được mọi người quý mến vì làm công việc nối lại đôi bờ. Mỗi khi đò ngang cập bến, mọi người đều ùa ra reo mừng. Quả thật, tôi cũng muốn được như vậy.\nBên kia sông chợt vang lên tiếng: “Ơ... đò...”. Đò ngang chào thuyền mành rồi vội vã sang sông đón khách."
+    },
+    "L4_Bau_troi_trong_qua_trung": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Bầu trời trong quả trứng",
+        "isPoem": true,
+        "stations": [
+            {
+                "k": "multi",
+                "min": 65,
+                "t": "Tôi kể với các bạn\nMột màu trời đã lâu\nĐó là một màu nâu\nBầu trời trong quả trứng\nKhông có gió có nắng\nKhông có lắm sắc màu\nMột vòm trời như nhau\nBầu trời trong quả trứng.\nTôi chưa kêu \"chiếp chiếp\"\nChẳng biết tìm giun, sâu\nĐói, no chẳng biết đâu\nCứ việc mà yên ngủ...\nTôi cũng không hiểu rõ\nTôi sinh ra vì sao // Tôi đạp vỡ màu nâu\nBầu trời trong quả trứng\nBỗng thấy nhiều gió lộng\nBỗng thấy nhiều nắng reo\nBỗng tôi thấy thương yêu\nTôi biết là có mẹ\nĐói, tôi tìm giun dế\nĂn no xoải cánh phơi...\nBầu trời ở bên ngoài\nSao mà xanh đến thế!",
+                "q": "BƯỚC 1: KHỞI ĐỘNG (Câu 1 SGK). Gà con kể với các bạn thế nào về bầu trời ở bên trong quả trứng? (Chọn nhiều đáp án)",
+                "o": [
+                    "Chỉ có một màu nâu.",
+                    "Không có gió, không có nắng.",
+                    "Không có lắm sắc màu.",
+                    "Rất rộng lớn và mát mẻ."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Gà con đã cảm nhận được sự khác biệt rất lớn giữa hai thế giới trước và sau khi nở.",
+                "q": "BƯỚC 2: SO SÁNH (Câu 2 SGK). Em hãy nối để thấy sự khác biệt giữa hai bầu trời và cuộc sống của chú gà con nhé!",
+                "h": "Trong trứng thì chật hẹp, êm đềm. Bên ngoài thì rộng lớn, sinh động và phải tự lập.",
+                "p": [
+                    [
+                        "Trong quả trứng",
+                        "Màu nâu, không nắng gió, yên ngủ không biết đói no"
+                    ],
+                    [
+                        "Bên ngoài",
+                        "Trời xanh, nhiều nắng gió, tự tìm giun dế và có mẹ"
+                    ]
+                ]
+            },
+            {
+                "k": "tap",
+                "min": 20,
+                "s": [
+                    "Tôi kể với các bạn\nMột màu trời đã lâu\nĐó là một màu nâu\nBầu trời trong quả trứng\nKhông có gió có nắng\nKhông có lắm sắc màu\nMột vòm trời như nhau\nBầu trời trong quả trứng.\nTôi chưa kêu \"chiếp chiếp\"\nChẳng biết tìm giun, sâu\nĐói, no chẳng biết đâu\nCứ việc mà yên ngủ...\nTôi cũng không hiểu rõ\nTôi sinh ra vì sao",
+                    "Tôi đạp vỡ màu nâu\nBầu trời trong quả trứng\nBỗng thấy nhiều gió lộng\nBỗng thấy nhiều nắng reo\nBỗng tôi thấy thương yêu\nTôi biết là có mẹ\nĐói, tôi tìm giun dế\nĂn no xoải cánh phơi...\nBầu trời ở bên ngoài\nSao mà xanh đến thế!"
+                ],
+                "q": "BƯỚC 3: TÌNH CẢM GIA ĐÌNH. Cuộc sống bên ngoài không chỉ có cảnh sắc tuyệt đẹp mà còn mang đến cho gà con một điều ấm áp. KHỔ THƠ NÀO cho thấy gà con cảm nhận được tình mẫu tử? (Em hãy bấm chọn khổ thơ đó nhé)",
+                "a": 1
+            },
+            {
+                "k": "gold",
+                "min": 25,
+                "t": "Tôi *đạp vỡ màu nâu\nBầu trời trong quả trứng\nBỗng thấy nhiều gió *lộng\nBỗng thấy nhiều nắng *reo\nBỗng tôi thấy thương yêu\nTôi biết là có mẹ\nĐói, tôi *tìm giun dế\nĂn no xoải cánh *phơi...\nBầu trời ở bên ngoài\nSao mà xanh đến thế!",
+                "q": "BƯỚC 4: THU HOẠCH TỪ VỰNG. Thế giới bên ngoài quả trứng thật sinh động! Em hãy hái các từ chỉ HOẠT ĐỘNG của chú gà con (đạp, tìm, phơi) và từ gợi tả thiên nhiên (lộng, reo) nhé!",
+                "h": "Tìm các động từ mạnh mẽ của gà con và các từ làm cho gió, nắng trở nên sống động như con người."
+            },
+            {
+                "k": "choice",
+                "min": 15,
+                "t": "Nhà thơ Xuân Quỳnh đã mượn lời chú gà con mới nở để gửi gắm cho chúng ta một thông điệp rất nhẹ nhàng, ý nghĩa.",
+                "q": "BƯỚC 5: ĐÚC KẾT Ý NGHĨA (Câu 5 SGK). Tác giả muốn nói với chúng ta điều gì qua bài thơ?",
+                "o": [
+                    "Mỗi chặng đường của cuộc sống có những điều thú vị riêng.",
+                    "Ai cũng sẽ khôn lớn, trưởng thành theo thời gian.",
+                    "Cuộc sống có vô vàn điều bất ngờ ở phía trước."
+                ],
+                "a": 0,
+                "h": "Cuộc sống trong trứng tĩnh lặng, an toàn. Cuộc sống bên ngoài ồn ào, rộng mở. Mỗi nơi (mỗi chặng đường) đều có sự thú vị riêng."
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "Chú gà con đã dũng cảm đạp vỡ chiếc vỏ {màu_nâu} chật hẹp để bước ra thế giới bao la. Ở đó có gió lộng, nắng {reo} và đặc biệt là có tình {thương_yêu} ấm áp của {mẹ}.",
+                "q": "BƯỚC 6: TỔNG KẾT. Em hãy điền các từ khóa vào chỗ trống để hoàn thành đoạn tóm tắt bài thơ nhé!"
+            }
+        ],
+        "mic": "Tôi kể với các bạn\nMột màu trời đã lâu\nĐó là một màu nâu\nBầu trời trong quả trứng\nKhông có gió có nắng\nKhông có lắm sắc màu\nMột vòm trời như nhau\nBầu trời trong quả trứng.\nTôi chưa kêu \"chiếp chiếp\"\nChẳng biết tìm giun, sâu\nĐói, no chẳng biết đâu\nCứ việc mà yên ngủ...\nTôi cũng không hiểu rõ\nTôi sinh ra vì sao // Tôi đạp vỡ màu nâu\nBầu trời trong quả trứng\nBỗng thấy nhiều gió lộng\nBỗng thấy nhiều nắng reo\nBỗng tôi thấy thương yêu\nTôi biết là có mẹ\nĐói, tôi tìm giun dế\nĂn no xoải cánh phơi...\nBầu trời ở bên ngoài\nSao mà xanh đến thế!"
+    },
+    "L4_Cach_viet_bai_van_thuat_lai_mot_su_viec": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Cách viết bài văn thuật lại một sự việc",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 141,
+                "t": "Trong buổi sinh hoạt lớp chiều nay, lớp tôi tổ chức lễ phát động xây dựng thư viện lớp.\nTrước giờ sinh hoạt, bạn Minh \"hoạ sĩ\" của lớp tôi viết lên bảng dòng chữ: Chung tay xây dựng thư viện lớp 4B. Bạn còn vẽ trang trí những hình ảnh ngộ nghĩnh: chú gà con trong bài thơ \"Bầu trời trong quả trứng\" đội trên đầu một mảnh vỏ trứng nhỏ, chú dế mèn bước ra từ cuốn truyện \"Dế Mèn phiêu lưu kí\", những cuốn sách mở rộng như sải cánh bay,... Bàn chủ toạ được các bạn nữ phủ khăn trải bàn và đặt lọ hoa nhiều màu rực rỡ.\nTrống báo giờ sinh hoạt lớp vang lên. Các bạn ai nấy ngồi vào vị trí của mình. Đầu tiên, cô chủ nhiệm phát biểu khai mạc. Cô nói với chúng tôi về tầm quan trọng của sách và ý nghĩa của việc đọc sách. Nếu trong lớp có thư viện thì cả lớp sẽ cùng nhau đọc sách, trao đổi, chia sẻ về những điều thú vị mình đọc được.\nTiếp theo ý kiến của cô chủ nhiệm, bạn lớp trưởng phát động phong trào Chung tay xây dựng thư viện lớp. Các bạn hào hứng thảo luận, đề xuất các hình thức ủng hộ, đóng góp sách, báo, truyện,... Trong lớp vang lên những tiếng \"Đồng ý\", \"Nhất trí\",... Cô giáo nhắc cả lớp đây là việc làm tự nguyện, ai có nhiều góp nhiều, ai có ít góp ít.\nSau thời gian thảo luận, bạn lớp phó thông báo từ ngày mai các bạn bắt đầu quyên góp. Các tổ trưởng sẽ ghi tên sách theo tổ, sau đó tập hợp và xếp sách vào tủ sách của lớp.\nBuổi sinh hoạt lớp kết thúc. Cô giáo và cả lớp tôi vui lắm. Sắp tới, chúng tôi sẽ tha hồ đọc sách, đọc truyện ngay tại lớp mình.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN. Em hãy đọc kĩ bài văn trên và cho biết bài văn thuật lại sự việc gì?",
+                "o": [
+                    "Lễ phát động xây dựng thư viện lớp.",
+                    "Buổi đi tham quan thư viện trường.",
+                    "Buổi sinh hoạt lớp tổng kết cuối năm."
+                ],
+                "a": 0,
+                "h": "Em hãy chú ý đọc kĩ đoạn Mở bài (đoạn đầu tiên) nhé."
+            },
+            {
+                "k": "match",
+                "min": 20,
+                "t": "Bài văn thuật lại một sự việc luôn có cấu trúc 3 phần chặt chẽ.",
+                "q": "BƯỚC 2: ĐỊNH HÌNH BỘ KHUNG. Dựa vào phần Ghi nhớ, em hãy nối tên mỗi phần với nhiệm vụ tương ứng của nó nhé!",
+                "h": "Mở bài luôn dùng để giới thiệu. Thân bài kể lại chi tiết. Kết bài nói lên cảm xúc.",
+                "p": [
+                    [
+                        "Mở bài",
+                        "Giới thiệu sự việc được chứng kiến hoặc tham gia"
+                    ],
+                    [
+                        "Thân bài",
+                        "Thuật lại các hoạt động theo trình tự thời gian"
+                    ],
+                    [
+                        "Kết bài",
+                        "Nêu suy nghĩ, cảm xúc về sự việc"
+                    ]
+                ]
+            },
+            {
+                "k": "order",
+                "min": 25,
+                "t": "Dựa vào sơ đồ phân tích các hoạt động trong SGK.",
+                "q": "BƯỚC 2 (Tiếp): SẮP XẾP SỰ VIỆC. Các hoạt động trong phần Thân bài được diễn ra theo trình tự nào? Em hãy sắp xếp lại cho đúng nhé!",
+                "items": [
+                    "Việc các bạn Minh và các bạn nữ làm (Trước giờ sinh hoạt)",
+                    "Cô chủ nhiệm phát biểu khai mạc (Việc đầu tiên)",
+                    "Lớp trưởng phát động phong trào (Việc tiếp theo)",
+                    "Lớp phó thông báo thời gian quyên góp sách (Việc sau cùng)"
+                ]
+            },
+            {
+                "k": "tap",
+                "min": 15,
+                "s": [
+                    "Buổi sinh hoạt lớp kết thúc.",
+                    "Cô giáo và cả lớp tôi vui lắm.",
+                    "Sắp tới, chúng tôi sẽ tha hồ đọc sách, đọc truyện ngay tại lớp mình."
+                ],
+                "q": "BƯỚC 3: GIẢI MÃ KỸ THUẬT. Trong phần Kết bài, CÂU VĂN NÀO thể hiện trực tiếp cảm xúc của cô giáo và các bạn học sinh? (Em hãy bấm chọn câu đó nhé)",
+                "a": 1
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Để bài văn được liền mạch, tác giả đã khéo léo sử dụng các từ ngữ kết nối để báo hiệu sự thay đổi về thời gian và các mốc sự kiện.",
+                "q": "BƯỚC 3 (Tiếp): GIẢI MÃ TỪ NỐI THỜI GIAN. Những từ ngữ nào trong bài giúp em nhận biết các hoạt động được thuật lại theo đúng trình tự? (Chọn nhiều đáp án)",
+                "o": [
+                    "Trước giờ sinh hoạt, Trống báo giờ sinh hoạt vang lên.",
+                    "Đầu tiên, Tiếp theo, Sau thời gian thảo luận.",
+                    "Trong lớp vang lên những tiếng \"Đồng ý\".",
+                    "Cô giáo nhắc cả lớp đây là việc làm tự nguyện."
+                ],
+                "a": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Tiếp theo ý kiến của cô chủ nhiệm, bạn lớp trưởng *phát_động phong trào. Các bạn *hào_hứng thảo luận, *đề_xuất các hình thức ủng hộ, *đóng_góp sách báo.",
+                "q": "BƯỚC 4: THU HOẠCH TỪ VỰNG ĐẮT GIÁ. Một bài văn hay cần có các từ ngữ miêu tả sinh động. Em hãy hái các từ chỉ HOẠT ĐỘNG và TRẠNG THÁI của các bạn học sinh nhé!",
+                "h": "Em hãy hái các từ như: phát động, hào hứng, đề xuất, đóng góp."
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Sự việc được chia thành 2 mốc thời gian chính. Dưới đây là các hành động: *1:Viết_bảng_trang_trí, *1:Phủ_khăn_đặt_hoa, *2:Phát_biểu_khai_mạc, *2:Thảo_luận_sôi_nổi, *2:Thông_báo_quyên_góp.",
+                "q": "BƯỚC 4 (Tiếp): PHÂN LOẠI HOẠT ĐỘNG. Em hãy xếp các 'Thẻ hành động' trên vào đúng 2 giỏ mốc thời gian nhé!",
+                "cats": [
+                    "Trước giờ sinh hoạt",
+                    "Trong giờ sinh hoạt"
+                ]
+            },
+            {
+                "k": "fill",
+                "min": 25,
+                "t": "GHI NHỚ: Bài văn thuật lại một sự việc gồm 3 phần:\n- Mở bài: {Giới_thiệu} sự việc được chứng kiến hoặc tham gia.\n- Thân bài: Thuật lại các hoạt động theo {trình_tự} thời gian (hoặc không gian).\n- Kết bài: Nêu {cảm_xúc}, suy nghĩ về sự việc đó.",
+                "q": "BƯỚC 5: CHỐT KIẾN THỨC. Em hãy điền các từ khóa vào chỗ trống để thuộc lòng phần Ghi nhớ của bài học này nhé!"
+            }
+        ],
+        "mic": "Trong buổi sinh hoạt lớp chiều nay, lớp tôi tổ chức lễ phát động xây dựng thư viện lớp.\nTrước giờ sinh hoạt, bạn Minh \"hoạ sĩ\" của lớp tôi viết lên bảng dòng chữ: Chung tay xây dựng thư viện lớp 4B. Bạn còn vẽ trang trí những hình ảnh ngộ nghĩnh: chú gà con trong bài thơ \"Bầu trời trong quả trứng\" đội trên đầu một mảnh vỏ trứng nhỏ, chú dế mèn bước ra từ cuốn truyện \"Dế Mèn phiêu lưu kí\", những cuốn sách mở rộng như sải cánh bay,... Bàn chủ toạ được các bạn nữ phủ khăn trải bàn và đặt lọ hoa nhiều màu rực rỡ.\nTrống báo giờ sinh hoạt lớp vang lên. Các bạn ai nấy ngồi vào vị trí của mình. Đầu tiên, cô chủ nhiệm phát biểu khai mạc. Cô nói với chúng tôi về tầm quan trọng của sách và ý nghĩa của việc đọc sách. Nếu trong lớp có thư viện thì cả lớp sẽ cùng nhau đọc sách, trao đổi, chia sẻ về những điều thú vị mình đọc được.\nTiếp theo ý kiến của cô chủ nhiệm, bạn lớp trưởng phát động phong trào Chung tay xây dựng thư viện lớp. Các bạn hào hứng thảo luận, đề xuất các hình thức ủng hộ, đóng góp sách, báo, truyện,... Trong lớp vang lên những tiếng \"Đồng ý\", \"Nhất trí\",... Cô giáo nhắc cả lớp đây là việc làm tự nguyện, ai có nhiều góp nhiều, ai có ít góp ít.\nSau thời gian thảo luận, bạn lớp phó thông báo từ ngày mai các bạn bắt đầu quyên góp. Các tổ trưởng sẽ ghi tên sách theo tổ, sau đó tập hợp và xếp sách vào tủ sách của lớp.\nBuổi sinh hoạt lớp kết thúc. Cô giáo và cả lớp tôi vui lắm. Sắp tới, chúng tôi sẽ tha hồ đọc sách, đọc truyện ngay tại lớp mình."
+    },
+    "L4_Tieng_noi_cua_co_cay": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Tiếng nói của cỏ cây",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "tap",
+                "min": 158,
+                "s": [
+                    "Những ngày hè ở nhà ông bà, Ta-nhi-a được thoả thích chạy nhảy trong vườn.",
+                    "Thấy khóm hoa hồng bạch có vẻ chật chỗ, cô bé liền bứng một cây nhỏ nhất trồng vào chỗ đất trống dưới cửa sổ.",
+                    "Ngắm nghía một hồi, cảm thấy chưa hài lòng, cô đến bên khóm huệ, chọn một cây đem trồng cạnh cây hoa hồng.",
+                    "Những đêm hè thường có mưa rào làm cho đất dịu mát.",
+                    "Sáng sáng, mặt trời hiền hoà ló rạng trên bầu trời mới được tắm gội.",
+                    "Muôn hoa vui sướng chào đón ánh dương, cùng nhau tưng bừng nở rộ.",
+                    "Ô kìa!",
+                    "Bụi hoa hồng được chuyển chỗ mới đẹp làm sao!",
+                    "Những bông hoa màu trắng dịu, cánh hoa trong suốt lung linh.",
+                    "Hoa nở nhiều đến nỗi cả bụi như phủ đầy tuyết trắng.",
+                    "Hàng xóm đi qua trông thấy bụi hoa hồng dưới cửa sổ, đều hỏi:\n– Đây là giống hoa mới phải không?",
+                    "– Không ạ!",
+                    "Vẫn giống cây đó thôi.",
+                    "Ta-nhi-a chỉ cho mọi người khóm hồng cũ: Hoa của chúng nhỏ hơn và không rực rỡ bằng.",
+                    "Kì lạ thay, cây hoa huệ dưới cửa sổ giờ đây cũng đẹp trội hơn hẳn những cây mà nó sống cạnh trước kia.",
+                    "Những bông huệ trắng muốt, đẹp như một nàng tiên trong truyện cổ tích.",
+                    "Ta-nhi-a nghĩ mãi về nguyên nhân biến đổi của cây.",
+                    "Có lẽ là do chỗ ở mới của chúng thoáng hơn, không bị rễ của cây khác tranh chất màu dưới đất.",
+                    "Đêm ấy, bên cửa sổ mở rộng, có tiếng thở nhẹ mơ hồ xen lẫn tiếng thì thầm:\n– Bạn thân mến!",
+                    "– Bụi hoa hồng khẽ nói.",
+                    "– Hơi thở của bạn làm tôi dễ chịu quá.",
+                    "– Cảm ơn bạn.",
+                    "– Cây hoa huệ cất giọng nhẹ nhàng.",
+                    "– Không có bạn, tôi làm sao được tươi tắn thế này."
+                ],
+                "q": "BƯỚC 1: KHỞI ĐỘNG (Câu 1 SGK). Chi tiết nào cho thấy Ta-nhi-a cảm thấy thoải mái trong những ngày hè ở nhà ông bà? (Em hãy bấm chọn CÂU VĂN đó nhé)",
+                "a": 0
+            },
+            {
+                "k": "match",
+                "min": 20,
+                "t": "Ta-nhi-a đã làm những việc rất có ý nghĩa trong khu vườn nhà ông bà.",
+                "q": "BƯỚC 2: TÌM HIỂU SỰ VIỆC (Câu 2 SGK). Em hãy nối \"Việc Ta-nhi-a đã làm\" với \"Lí do\" tương ứng nhé!",
+                "h": "Cô bé tách cây hồng ra vì khóm hoa cũ chật chội, rồi trồng thêm hoa huệ vì cảm thấy cửa sổ trồng một cây thì chưa ưng ý.",
+                "p": [
+                    [
+                        "Bứng một cây hồng nhỏ đem trồng dưới cửa sổ",
+                        "Thấy khóm hoa hồng bạch có vẻ chật chỗ"
+                    ],
+                    [
+                        "Chọn một cây huệ đem trồng cạnh cây hoa hồng",
+                        "Ngắm nghía một hồi cảm thấy chưa hài lòng"
+                    ]
+                ]
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Bụi hoa hồng được chuyển chỗ mới đẹp làm sao! Những bông hoa màu trắng dịu, cánh hoa trong suốt lung linh. Hoa nở nhiều đến nỗi cả bụi như phủ đầy tuyết trắng.\nKì lạ thay, cây hoa huệ dưới cửa sổ giờ đây cũng đẹp trội hơn hẳn những cây mà nó sống cạnh trước kia. Những bông huệ trắng muốt, đẹp như một nàng tiên trong truyện cổ tích.",
+                "q": "BƯỚC 3: PHÂN TÍCH VẺ ĐẸP (Câu 3 SGK). Nhờ việc làm của Ta-nhi-a, cây hồng và cây huệ đã nở hoa đẹp như thế nào? (Chọn nhiều đáp án)",
+                "o": [
+                    "Hoa hồng màu trắng dịu, cánh trong suốt, nở nhiều như phủ tuyết.",
+                    "Hoa huệ trắng muốt, đẹp như một nàng tiên.",
+                    "Hoa hồng mọc cao vút lên tận mái nhà.",
+                    "Hoa huệ toả hương thơm ngát bay khắp xóm."
+                ],
+                "a": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "k": "choice",
+                "min": 20,
+                "t": "Ta-nhi-a nghĩ mãi về nguyên nhân biến đổi của cây. Có lẽ là do chỗ ở mới của chúng thoáng hơn, không bị rễ của cây khác tranh chất màu dưới đất.",
+                "q": "BƯỚC 4: LÍ GIẢI NGUYÊN NHÂN (Câu 4 SGK). Ta-nhi-a suy đoán nguyên nhân biến đổi của cây hồng và cây huệ là gì?",
+                "o": [
+                    "Do chỗ ở mới thoáng hơn và không bị rễ cây khác tranh chất màu.",
+                    "Do hàng xóm đi qua khen ngợi nhiều nên cây vui sướng nở hoa.",
+                    "Do đêm nào ông bà cũng ra tưới nước cho hai cây hoa đó."
+                ],
+                "a": 0,
+                "h": "Em hãy chú ý câu văn bắt đầu bằng từ 'Có lẽ là do...'"
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Trong bài có rất nhiều từ ngữ hay. Ví dụ như các từ: *1:vườn, *2:đi, *1:cây, *2:trồng, *1:đất, *2:chọn, *2:hỏi, *1:hoa, *1:bạn, *2:ngắm.",
+                "q": "BƯỚC 5: TÍCH HỢP TỪ VÀ CÂU. Em hãy nhặt các từ in đậm trong đoạn trên và xếp vào đúng 2 giỏ Danh từ (chỉ sự vật) và Động từ (chỉ hoạt động) nhé!",
+                "cats": [
+                    "Danh từ",
+                    "Động từ"
+                ]
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "Nhờ kì nghỉ hè ở nhà ông bà, Ta-nhi-a đã có thêm trải nghiệm về việc {trồng} cây và chăm sóc hoa. Cô bé hiểu được rằng cỏ cây cũng có {tiếng_nói}, có tình cảm và biết {yêu_thương}, giúp đỡ lẫn nhau giống như {con_người}.",
+                "q": "BƯỚC 6: ĐÚC KẾT Ý NGHĨA (Câu 5 SGK). Em hãy điền các từ khóa vào chỗ trống để rút ra bài học từ trải nghiệm mùa hè của Ta-nhi-a nhé!"
+            }
+        ],
+        "glossary": "- Bứng (cây): đào cây cùng bầu đất xung quanh rễ để chuyển đi trồng ở nơi khác.\n- Mơ hồ: không rõ ràng, không xác thực.",
+        "mic": "Những ngày hè ở nhà ông bà, Ta-nhi-a được thoả thích chạy nhảy trong vườn. Thấy khóm hoa hồng bạch có vẻ chật chỗ, cô bé liền bứng một cây nhỏ nhất trồng vào chỗ đất trống dưới cửa sổ. Ngắm nghía một hồi, cảm thấy chưa hài lòng, cô đến bên khóm huệ, chọn một cây đem trồng cạnh cây hoa hồng.\nNhững đêm hè thường có mưa rào làm cho đất dịu mát. Sáng sáng, mặt trời hiền hoà ló rạng trên bầu trời mới được tắm gội. Muôn hoa vui sướng chào đón ánh dương, cùng nhau tưng bừng nở rộ. Ô kìa! Bụi hoa hồng được chuyển chỗ mới đẹp làm sao! Những bông hoa màu trắng dịu, cánh hoa trong suốt lung linh. Hoa nở nhiều đến nỗi cả bụi như phủ đầy tuyết trắng. Hàng xóm đi qua trông thấy bụi hoa hồng dưới cửa sổ, đều hỏi:\n– Đây là giống hoa mới phải không?\n– Không ạ! Vẫn giống cây đó thôi.\nTa-nhi-a chỉ cho mọi người khóm hồng cũ: Hoa của chúng nhỏ hơn và không rực rỡ bằng. Kì lạ thay, cây hoa huệ dưới cửa sổ giờ đây cũng đẹp trội hơn hẳn những cây mà nó sống cạnh trước kia. Những bông huệ trắng muốt, đẹp như một nàng tiên trong truyện cổ tích.\nTa-nhi-a nghĩ mãi về nguyên nhân biến đổi của cây. Có lẽ là do chỗ ở mới của chúng thoáng hơn, không bị rễ của cây khác tranh chất màu dưới đất.\nĐêm ấy, bên cửa sổ mở rộng, có tiếng thở nhẹ mơ hồ xen lẫn tiếng thì thầm:\n– Bạn thân mến! – Bụi hoa hồng khẽ nói. – Hơi thở của bạn làm tôi dễ chịu quá.\n– Cảm ơn bạn. – Cây hoa huệ cất giọng nhẹ nhàng. – Không có bạn, tôi làm sao được tươi tắn thế này."
+    },
+    "L4_Lap_dan_y_cho_bai_van_thuat_lai_mot_su_viec": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Lập dàn ý cho bài văn thuật lại một sự việc",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 92,
+                "t": "Cuối tuần trước, trường em tổ chức một chuyến đi trải nghiệm vô cùng thú vị: tham quan làng gốm Bát Tràng. Chuyến đi đã để lại trong em nhiều ấn tượng khó phai.\r\nĐúng bảy giờ sáng, xe xuất phát. Đến nơi, chúng em được các nghệ nhân dẫn đi tham quan khu xưởng sản xuất và nghe giới thiệu về lịch sử làng nghề. \r\nTiếp theo, cả lớp vô cùng háo hức khi được tự tay nặn gốm. Dưới sự hướng dẫn tỉ mỉ của các bác thợ, em đã vuốt được một chiếc cốc nhỏ xinh xắn. Dù tay chân lấm lem bùn đất, nhưng ai nấy đều cười rạng rỡ. \r\nCuối cùng, chúng em mang sản phẩm đi nung và tô màu trang trí. Đây chính là hoạt động ấn tượng nhất vì em được thỏa sức sáng tạo và tự làm ra một món đồ mang về tặng mẹ.\r\nChuyến trải nghiệm kết thúc tốt đẹp, giúp em hiểu thêm về nghề làm gốm truyền thống của dân tộc. Em cảm thấy rất tự hào và thêm yêu quê hương đất nước mình.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN. Em hãy đọc kĩ bài văn trên. Bài văn thuật lại hoạt động trải nghiệm nào?",
+                "o": [
+                    "Tham quan làng gốm Bát Tràng.",
+                    "Tham gia câu lạc bộ bơi lội.",
+                    "Làm sản phẩm thủ công tại nhà."
+                ],
+                "a": 0,
+                "h": "Em hãy đọc câu Mở bài đầu tiên để biết tên hoạt động nhé."
+            },
+            {
+                "k": "match",
+                "min": 20,
+                "t": "Dựa vào Sơ đồ hướng dẫn trong Sách giáo khoa, bài văn thuật lại sự việc luôn gồm 3 phần.",
+                "q": "BƯỚC 2: ĐỊNH HÌNH BỘ KHUNG. Em hãy nối tên mỗi phần với nhiệm vụ tương ứng nhé!",
+                "h": "Mở bài để giới thiệu. Thân bài kể chi tiết. Kết bài nêu cảm xúc.",
+                "p": [
+                    [
+                        "Mở bài",
+                        "Giới thiệu hoạt động trải nghiệm"
+                    ],
+                    [
+                        "Thân bài",
+                        "Kể lại chi tiết diễn biến hoạt động"
+                    ],
+                    [
+                        "Kết bài",
+                        "Chia sẻ suy nghĩ và cảm xúc"
+                    ]
+                ]
+            },
+            {
+                "k": "match",
+                "min": 20,
+                "t": "Để lập được dàn ý chi tiết, chúng ta cần biết cách đặt câu hỏi tìm ý.",
+                "q": "BƯỚC 2.1: TƯ DUY TÌM Ý. Em hãy nối câu hỏi gợi ý với nội dung trả lời phù hợp về chuyến đi Bát Tràng nhé!",
+                "h": "Nối câu hỏi về trình tự với các hoạt động nặn gốm, tô màu. Nối câu hỏi về kết quả với sự hiểu biết, tự hào.",
+                "p": [
+                    [
+                        "Hoạt động đó là gì?",
+                        "Tham quan làng gốm Bát Tràng."
+                    ],
+                    [
+                        "Hoạt động diễn ra theo trình tự nào?",
+                        "Tham quan xưởng, tự nặn gốm, tô màu."
+                    ],
+                    [
+                        "Kết quả của hoạt động ra sao?",
+                        "Hiểu thêm về nghề truyền thống, tự hào quê hương."
+                    ]
+                ]
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Để viết bài mạch lạc, em cần chia các ý tưởng vào đúng 3 phần: *1:Giới_thiệu_chuyến_đi, *2:Tham_quan_khu_xưởng, *2:Tự_tay_nặn_gốm, *2:Tô_màu_sản_phẩm, *3:Hiểu_về_nghề_truyền_thống, *3:Tự_hào_quê_hương.",
+                "q": "BƯỚC 2.2: SẮP XẾP BỐ CỤC. Em hãy nhặt các \"Thẻ ý tưởng\" (ngắn gọn) ở trên và bỏ vào đúng 3 giỏ Mở bài, Thân bài, Kết bài nhé!",
+                "cats": [
+                    "Mở bài",
+                    "Thân bài",
+                    "Kết bài"
+                ]
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Đúng bảy giờ sáng, xe xuất phát. Đến nơi, chúng em được tham quan khu xưởng...\r\nTiếp theo, cả lớp vô cùng háo hức khi được tự tay nặn gốm...\r\nCuối cùng, chúng em mang sản phẩm đi nung và tô màu trang trí.",
+                "q": "BƯỚC 3: GIẢI MÃ KỸ THUẬT. Trong phần Thân bài, tác giả đã dùng những TỪ NỐI nào để thuật lại sự việc theo đúng trình tự thời gian? (Chọn nhiều đáp án)",
+                "o": [
+                    "Đúng bảy giờ sáng",
+                    "Tiếp theo",
+                    "Cuối cùng",
+                    "Tuy nhiên"
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Dưới sự hướng dẫn *tỉ_mỉ của các bác thợ, em đã vuốt được một chiếc cốc xinh xắn. Dù lấm lem bùn đất, nhưng ai nấy đều cười *rạng_rỡ. Đây chính là hoạt động ấn tượng nhất vì em được thỏa sức *sáng_tạo.",
+                "q": "BƯỚC 4: THU HOẠCH TỪ VỰNG. Bài văn hay cần dùng các từ chỉ đặc điểm, tính chất. Em hãy hái các từ miêu tả sự Cẩn thận (tỉ mỉ), Niềm vui (rạng rỡ) và Khả năng tư duy (sáng tạo) nhé!",
+                "h": "Tìm và bấm hái các từ: tỉ mỉ, rạng rỡ, sáng tạo."
+            },
+            {
+                "k": "fill",
+                "min": 25,
+                "t": "DÀN Ý THÂN BÀI:\r\n- Hoạt động 1: Nghe giới thiệu và {tham_quan} xưởng sản xuất.\r\n- Hoạt động 2 (Ấn tượng nhất): Tự tay {nặn_gốm}, được các bác thợ hướng dẫn tỉ mỉ.\r\n- Hoạt động 3: Nung sản phẩm và tô màu {trang_trí}.",
+                "q": "BƯỚC 5: TẬP LÀM ĐẠO DIỄN. Em hãy chọn đúng từ khóa để điền vào chỗ trống, hoàn thiện Dàn ý chi tiết của phần Thân bài nhé!"
+            }
+        ],
+        "mic": "Cuối tuần trước, trường em tổ chức một chuyến đi trải nghiệm vô cùng thú vị: tham quan làng gốm Bát Tràng. Chuyến đi đã để lại trong em nhiều ấn tượng khó phai.\r\nĐúng bảy giờ sáng, xe xuất phát. Đến nơi, chúng em được các nghệ nhân dẫn đi tham quan khu xưởng sản xuất và nghe giới thiệu về lịch sử làng nghề. \r\nTiếp theo, cả lớp vô cùng háo hức khi được tự tay nặn gốm. Dưới sự hướng dẫn tỉ mỉ của các bác thợ, em đã vuốt được một chiếc cốc nhỏ xinh xắn. Dù tay chân lấm lem bùn đất, nhưng ai nấy đều cười rạng rỡ. \r\nCuối cùng, chúng em mang sản phẩm đi nung và tô màu trang trí. Đây chính là hoạt động ấn tượng nhất vì em được thỏa sức sáng tạo và tự làm ra một món đồ mang về tặng mẹ.\r\nChuyến trải nghiệm kết thúc tốt đẹp, giúp em hiểu thêm về nghề làm gốm truyền thống của dân tộc. Em cảm thấy rất tự hào và thêm yêu quê hương đất nước mình."
+    },
+    "L4_Tap_lam_van": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Tập làm văn",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "tap",
+                "min": 183,
+                "s": [
+                    "Cuối tuần, ba cho tôi về quê để tôi tìm được nhiều ý cho bài văn “Tả cây hoa nhà em”.",
+                    "Ngồi đò dọc ba mươi cây số, tôi đã viết mở bài thế này:\nChiều thứ Bảy về quê, tôi gặp lại cây hoa hồng mà ngoại đã trồng ở mảnh vườn trước cửa.",
+                    "Nhưng về tới quê thì trời sập tối.",
+                    "Bụi hồng, bụi dạ li, bụi mẫu đơn trông không khác gì nhau nên tôi đành để dở dang bài văn.",
+                    "Hôm sau, trời còn mù sương, tôi đã có mặt ngoài vườn.",
+                    "Gió xào xạc trên tàu dừa.",
+                    "Cây hoa hồng bỗng giật mình, rung rinh, những giọt sương từ mặt lá rơi xuống.",
+                    "Ý văn cũng như sương lã chã:\nThân cây hoa to bằng ngón tay cái.",
+                    "Cành hoa nhỏ như ngón tay út, xoè ra nhiều lá hình trái tim viền răng cưa.",
+                    "Sương như những hòn bi ve tí xíu tụt từ lá xanh xuống bông đỏ, đi tìm mùi thơm ngào ngạt núp đâu giữa những cánh hoa...",
+                    "Tới đây thì bí quá!",
+                    "Tôi định chạy lại bậc thềm để đọc câu hỏi gợi ý trong sách, chẳng may đánh rơi cuốn vở dưới gốc cây hồng.",
+                    "Cúi xuống nhặt vở thì tay tôi bị gai cào một vết.",
+                    "Hoá ra cây hoa hồng còn có gai.",
+                    "Quên xuýt xoa, tôi nghĩ tiếp về bài văn của mình:\nHồng không phải mít mà cũng có gai.",
+                    "Gai hồng không nhể được ốc luộc như gai bưởi.",
+                    "Gai hồng giữ cho bông hồng thoả sức đẹp...",
+                    "Tới đây có thể kết luận được rồi.",
+                    "Tôi đọc gợi ý cuối cùng trong sách: “Em đã chăm sóc, bảo vệ cây hoa đó như thế nào?",
+                    "”.",
+                    "Khó ghê!",
+                    "Ông bà trồng và chăm sóc đấy chứ!",
+                    "Nhưng vẫn còn kịp.",
+                    "Tôi vào bếp lấy cái bình, múc nước rồi hăm hở bước theo ý văn của mình và té cái “oạch” trước khi viết đoạn kết:\nTừ tay tôi, cái bình tưới như chú voi con dễ thương đung đưa vòi, rắc lên cây hoa hồng một cơn mưa rào nhỏ."
+                ],
+                "q": "BƯỚC 1: KHỞI ĐỘNG (Câu 1 SGK). Chi tiết nào cho biết mục đích về quê của bạn nhỏ là gì? (Em hãy bấm chọn CÂU VĂN đó nhé)",
+                "a": 0
+            },
+            {
+                "k": "match",
+                "min": 20,
+                "t": "Bạn nhỏ đã rất nỗ lực để có thể hoàn thành bài văn miêu tả của mình.",
+                "q": "BƯỚC 2: TÌM HIỂU SỰ VIỆC (Câu 2 SGK). Khi ở quê, bạn nhỏ đã làm những gì để tả được cây hoa theo yêu cầu? Em hãy nối cho đúng nhé!",
+                "h": "Bạn nhỏ đã quan sát trực tiếp, vô tình bị gai cào và tự tay chăm sóc cây để lấy trải nghiệm thực tế viết văn.",
+                "p": [
+                    [
+                        "Dậy từ sáng sớm (lúc trời còn mù sương)",
+                        "Để quan sát thật kĩ cây hoa hồng."
+                    ],
+                    [
+                        "Cúi xuống nhặt vở bị rơi",
+                        "Phát hiện ra cây hồng có gai."
+                    ],
+                    [
+                        "Chạy vào bếp lấy bình múc nước tưới cây",
+                        "Để có ý tưởng viết phần kết bài về việc chăm sóc hoa."
+                    ]
+                ]
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Sương như những hòn bi ve tí xíu tụt từ lá xanh xuống bông đỏ, đi tìm mùi thơm ngào ngạt núp đâu giữa những cánh hoa...\nTừ tay tôi, cái bình tưới như chú voi con dễ thương đung đưa vòi, rắc lên cây hoa hồng một cơn mưa rào nhỏ.",
+                "q": "BƯỚC 3: PHÂN TÍCH VẺ ĐẸP (Câu 3 SGK). Những câu văn nào là kết quả của sự quan sát kết hợp với trí tưởng tượng phong phú của bạn nhỏ? (Chọn nhiều đáp án)",
+                "o": [
+                    "Sương như hòn bi ve tụt từ lá xanh xuống bông đỏ tìm mùi thơm.",
+                    "Từ tay tôi, cái bình tưới như chú voi con đung đưa vòi.",
+                    "Thân cây hoa to bằng ngón tay cái.",
+                    "Chiều thứ Bảy về quê, tôi gặp lại cây hoa hồng."
+                ],
+                "a": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "Sau khi đọc câu chuyện, em học được bí quyết để viết văn miêu tả hay là: Cần {quan_sát} thật kĩ đối tượng, kết hợp với trí {tưởng_tượng} phong phú, và đặc biệt là phải có trải nghiệm {thực_tế} bằng chính những việc làm và cảm xúc của mình.",
+                "q": "BƯỚC 4: RÚT RA BÀI HỌC (Câu 5 SGK). Em học được điều gì về cách viết văn miêu tả sau khi đọc câu chuyện trên? Hãy điền từ khóa nhé!"
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Rừng núi còn chìm đắm trong màn đêm. Bỗng một con gà trống cất cánh phành phạch và cất tiếng *1:gáy lảnh lót. Mấy con gà rừng cũng thức dậy *1:gáy te te. Trăng trên cành nhãn *2:lặn, sao *2:mờ. Bản làng đã thức giấc.",
+                "q": "BƯỚC 5: TÍCH HỢP TỪ VÀ CÂU (Luyện tập Động từ). Em hãy chọn và kéo thả ĐỘNG TỪ phù hợp để điền vào đoạn văn miêu tả buổi sáng sớm ở bản làng nhé! (Giỏ 1 điền vào chỗ gà trống/gà rừng, Giỏ 2 điền vào chỗ trăng/sao)",
+                "cats": [
+                    "gáy",
+                    "lặn/mờ"
+                ]
+            }
+        ],
+        "glossary": "- Xào xạc: từ mô phỏng tiếng như tiếng lá cây lay động và chạm nhẹ vào nhau.\n- Lã chã (nước mắt, mồ hôi): nhỏ xuống thành giọt, nối tiếp nhau không dứt.",
+        "mic": "Cuối tuần, ba cho tôi về quê để tôi tìm được nhiều ý cho bài văn “Tả cây hoa nhà em”. Ngồi đò dọc ba mươi cây số, tôi đã viết mở bài thế này:\nChiều thứ Bảy về quê, tôi gặp lại cây hoa hồng mà ngoại đã trồng ở mảnh vườn trước cửa.\nNhưng về tới quê thì trời sập tối. Bụi hồng, bụi dạ li, bụi mẫu đơn trông không khác gì nhau nên tôi đành để dở dang bài văn.\nHôm sau, trời còn mù sương, tôi đã có mặt ngoài vườn. Gió xào xạc trên tàu dừa. Cây hoa hồng bỗng giật mình, rung rinh, những giọt sương từ mặt lá rơi xuống. Ý văn cũng như sương lã chã:\nThân cây hoa to bằng ngón tay cái. Cành hoa nhỏ như ngón tay út, xoè ra nhiều lá hình trái tim viền răng cưa. Sương như những hòn bi ve tí xíu tụt từ lá xanh xuống bông đỏ, đi tìm mùi thơm ngào ngạt núp đâu giữa những cánh hoa...\nTới đây thì bí quá! Tôi định chạy lại bậc thềm để đọc câu hỏi gợi ý trong sách, chẳng may đánh rơi cuốn vở dưới gốc cây hồng. Cúi xuống nhặt vở thì tay tôi bị gai cào một vết. Hoá ra cây hoa hồng còn có gai. Quên xuýt xoa, tôi nghĩ tiếp về bài văn của mình:\nHồng không phải mít mà cũng có gai. Gai hồng không nhể được ốc luộc như gai bưởi. Gai hồng giữ cho bông hồng thoả sức đẹp...\nTới đây có thể kết luận được rồi. Tôi đọc gợi ý cuối cùng trong sách: “Em đã chăm sóc, bảo vệ cây hoa đó như thế nào?”. Khó ghê! Ông bà trồng và chăm sóc đấy chứ! Nhưng vẫn còn kịp. Tôi vào bếp lấy cái bình, múc nước rồi hăm hở bước theo ý văn của mình và té cái “oạch” trước khi viết đoạn kết:\nTừ tay tôi, cái bình tưới như chú voi con dễ thương đung đưa vòi, rắc lên cây hoa hồng một cơn mưa rào nhỏ."
+    },
+    "L4_Nha_phat_minh_6_tuoi": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Nhà phát minh 6 tuổi",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 108,
+                "t": "Ma-ri-a sinh ra trong một gia đình sáu đời có người là giáo sư đại học. Cô bé rất thích quan sát. Hồi cô 6 tuổi, có lần, gia đình tổ chức bữa tiệc. Cô bé nhận thấy một điều lạ: Mỗi lần gia nhân bưng trà lên, tách đựng trà thoạt đầu trượt trong đĩa. Nhưng khi nước trà rớt ra đĩa thì những tách trà kia bỗng nhiên dừng chuyển động, cứ như bị cái gì đó ngăn lại. Ma-ri-a nghĩ mãi mà vẫn không hiểu vì sao. Thế là cô lặng lẽ rời khỏi phòng khách.\nCô bé vào bếp, lấy một bộ đồ trà và tự mình làm đi làm lại thí nghiệm. Cuối cùng cô cũng hiểu ra: Khi giữa tách trà và đĩa có một chút nước thì tách trà sẽ đứng yên. Lúc ấy, Ma-ri-a chợt thấy cha đang vào bếp. Cô liền nói với cha phát hiện của mình. Cha cô hết sức vui mừng. Ông nâng bổng cô con gái nhỏ lên vai, đi thẳng ra phòng khách, hân hoan nói: “Đây sẽ là giáo sư đời thứ bảy của gia tộc tôi!”.\nVề sau, Ma-ri-a trở thành giáo sư nhiều trường đại học danh tiếng của Mỹ. Năm 1963, bà vinh dự được tặng Giải thưởng Nô-ben Vật lí.",
+                "q": "BƯỚC 1: KHỞI ĐỘNG ĐỌC THẨM THẤU (Câu 1 SGK). Điều lạ mà cô bé Ma-ri-a quan sát được khi gia nhân bưng trà lên là gì?",
+                "o": [
+                    "Tách trà bị vỡ khi gia nhân bưng lên.",
+                    "Tách trà thoạt đầu trượt trong đĩa, nhưng khi nước trà rớt ra thì tách bỗng dừng chuyển động.",
+                    "Tách trà dính chặt vào đĩa ngay từ đầu không thể nhấc lên."
+                ],
+                "a": 1,
+                "h": "Em hãy đọc kĩ đoạn 1. Hiện tượng lạ xảy ra khi 'nước trà rớt ra đĩa' nhé."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Cô bé vào bếp, lấy một bộ đồ trà và tự mình làm đi làm lại thí nghiệm.",
+                "q": "BƯỚC 2: TÌM KIẾM THÔNG TIN (Câu 2 SGK). Em hãy nối các thông tin về việc làm thí nghiệm của Ma-ri-a cho đúng nhé!",
+                "h": "Cô bé vào bếp (địa điểm), lấy bộ đồ trà (dụng cụ) để giải đáp thắc mắc của mình (mục đích).",
+                "p": [
+                    [
+                        "Địa điểm",
+                        "Trong bếp"
+                    ],
+                    [
+                        "Dụng cụ",
+                        "Một bộ đồ trà"
+                    ],
+                    [
+                        "Mục đích",
+                        "Tìm hiểu vì sao tách trà dừng chuyển động"
+                    ]
+                ]
+            },
+            {
+                "k": "choice",
+                "min": 20,
+                "t": "Cuối cùng cô cũng hiểu ra: Khi giữa tách trà và đĩa có một chút nước thì tách trà sẽ đứng yên. Lúc ấy, Ma-ri-a chợt thấy cha đang vào bếp. Cô liền nói với cha phát hiện của mình.",
+                "q": "BƯỚC 3: GIẢI MÃ BÍ ẨN (Câu 3 SGK). Câu trả lời Ma-ri-a tìm được sau khi làm thí nghiệm là gì?",
+                "o": [
+                    "Tách trà đứng yên vì đĩa bị mẻ.",
+                    "Tách trà đứng yên khi giữa tách và đĩa có một chút nước.",
+                    "Tách trà đứng yên vì gia nhân giữ chặt lại."
+                ],
+                "a": 1,
+                "h": "Khám phá của Ma-ri-a nằm ngay sau cụm từ 'Cuối cùng cô cũng hiểu ra:' đấy!"
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Cha cô hết sức vui mừng. Ông nâng bổng cô con gái nhỏ lên vai, đi thẳng ra phòng khách, hân hoan nói: “Đây sẽ là giáo sư đời thứ bảy của gia tộc tôi!”.",
+                "q": "BƯỚC 4: TÌNH CẢM GIA ĐÌNH (Câu 4 SGK). Câu nói của người cha thể hiện điều gì? (Chọn nhiều đáp án)",
+                "o": [
+                    "Sự tự hào, hãnh diện về cô con gái nhỏ thông minh.",
+                    "Niềm tin rằng cô bé sẽ trở thành một nhà khoa học tài năng.",
+                    "Sự tức giận vì cô bé làm vỡ bộ đồ trà.",
+                    "Mong muốn khoe khoang với khách khứa."
+                ],
+                "a": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Về sau, Ma-ri-a trở thành *giáo_sư nhiều trường đại học *danh_tiếng của Mỹ. Năm 1963, bà vinh dự được tặng Giải thưởng Nô-ben Vật lí.",
+                "q": "BƯỚC 5: THU HOẠCH TỪ VỰNG. Lời tiên đoán của cha đã thành sự thật. Em hãy hái từ chỉ NGHỀ NGHIỆP (giáo sư) và SỰ NỔI TIẾNG (danh tiếng) của Ma-ri-a nhé!",
+                "h": "Hãy bấm hái 2 từ có chứa dấu * trong đoạn văn."
+            },
+            {
+                "k": "fill",
+                "min": 25,
+                "t": "Ma-ri-a là một cô bé rất thích {quan_sát}, ham {tò_mò} và có ý thức tự tìm tòi, {nghiên_cứu}. Chính những phẩm chất đó đã giúp bà trở thành một nhà khoa học {vĩ_đại}.",
+                "q": "BƯỚC 6: ĐÚC KẾT Ý NGHĨA (Câu 5 SGK). Qua câu chuyện, em có cảm nghĩ gì về nhân vật Ma-ri-a? Hãy điền từ khóa để hoàn thiện nhận xét nhé!"
+            }
+        ],
+        "glossary": "- Gia tộc: tập hợp gồm nhiều gia đình có cùng huyết thống.\n- Giải thưởng Nô-ben: giải thưởng quốc tế mang tên nhà khoa học Nô-ben, trao cho những cá nhân xuất sắc trong các lĩnh vực vật lí, hoá học, y học, văn học, kinh tế và hoà bình.",
+        "mic": "Ma-ri-a sinh ra trong một gia đình sáu đời có người là giáo sư đại học. Cô bé rất thích quan sát. Hồi cô 6 tuổi, có lần, gia đình tổ chức bữa tiệc. Cô bé nhận thấy một điều lạ: Mỗi lần gia nhân bưng trà lên, tách đựng trà thoạt đầu trượt trong đĩa. Nhưng khi nước trà rớt ra đĩa thì những tách trà kia bỗng nhiên dừng chuyển động, cứ như bị cái gì đó ngăn lại. Ma-ri-a nghĩ mãi mà vẫn không hiểu vì sao. Thế là cô lặng lẽ rời khỏi phòng khách.\nCô bé vào bếp, lấy một bộ đồ trà và tự mình làm đi làm lại thí nghiệm. Cuối cùng cô cũng hiểu ra: Khi giữa tách trà và đĩa có một chút nước thì tách trà sẽ đứng yên. Lúc ấy, Ma-ri-a chợt thấy cha đang vào bếp. Cô liền nói với cha phát hiện của mình. Cha cô hết sức vui mừng. Ông nâng bổng cô con gái nhỏ lên vai, đi thẳng ra phòng khách, hân hoan nói: “Đây sẽ là giáo sư đời thứ bảy của gia tộc tôi!”.\nVề sau, Ma-ri-a trở thành giáo sư nhiều trường đại học danh tiếng của Mỹ. Năm 1963, bà vinh dự được tặng Giải thưởng Nô-ben Vật lí."
+    },
+    "L4_Cach_viet_bai_van_ke_lai_mot_cau_chuyen": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Cách viết bài văn kể lại một câu chuyện",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 149,
+                "t": "Em được mẹ tặng cuốn sách có nhan đề \"100 câu chuyện cổ tích hay nhất thế giới\". Đối với em, thú vị nhất trong cuốn sách là câu chuyện \"Cô bé Lọ Lem\".\nChuyện kể rằng, đã lâu lắm rồi, ở một đất nước xa xôi, có cô bé xinh đẹp tên là Lọ Lem. Sau khi mẹ Lọ Lem mất, bố cô lấy vợ mới. Người vợ mới có hai cô con gái riêng và chẳng yêu thương Lọ Lem chút nào. Không lâu sau, bố Lọ Lem cũng qua đời, cuộc sống của cô càng khổ cực.\nMột ngày nọ, vua tổ chức vũ hội. Mẹ kế và hai cô con gái đi dự hội, bắt Lọ Lem ở nhà nhặt đậu lẫn trong đống tro. Lọ Lem khóc nức nở. Thế rồi, một bà tiên xuất hiện giúp cô nhặt đậu, hoá phép cho cô váy dạ hội và đôi giày thuỷ tinh tuyệt đẹp. Bà còn biến quả bí ngô thành cỗ xe ngựa đưa Lọ Lem đi dự hội. Bà dặn Lọ Lem phải về trước 12 giờ đêm, nếu không mọi phép thuật sẽ tan biến.\nỞ vũ hội, Lọ Lem xinh đẹp đến mức hoàng tử chỉ khiêu vũ với mình cô. Đến 12 giờ, vì vội ra về, Lọ Lem làm rơi một chiếc giày. Hoàng tử sai người đi khắp nơi tìm chủ nhân của chiếc giày. Hai cô chị cũng ướm thử giày nhưng không vừa. Tới lượt Lọ Lem thì vừa như in. Hoàng tử vui mừng đón cô về cung. Từ đó, họ sống bên nhau hạnh phúc đến cuối đời.\nEm rất thích câu chuyện này vì cái kết thật có hậu. \"Cô bé Lọ Lem\" xứng đáng là một trong những câu chuyện cổ tích hay nhất thế giới.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN. Em hãy đọc kĩ bài văn trên và cho biết bài văn kể lại câu chuyện gì?",
+                "o": [
+                    "Cô bé Lọ Lem.",
+                    "Nàng Bạch Tuyết và Bảy chú lùn.",
+                    "Cô bé quàng khăn đỏ."
+                ],
+                "a": 0,
+                "h": "Em hãy đọc kĩ đoạn Mở bài để biết tên câu chuyện nhé."
+            },
+            {
+                "k": "match",
+                "min": 20,
+                "t": "Bài văn kể lại một câu chuyện gồm 3 phần rõ rệt.",
+                "q": "BƯỚC 2: ĐỊNH HÌNH BỘ KHUNG. Dựa vào phần Ghi nhớ, em hãy nối tên mỗi phần với nhiệm vụ tương ứng của nó nhé!",
+                "h": "Mở bài dùng để giới thiệu. Thân bài kể chi tiết. Kết bài nêu cảm xúc.",
+                "p": [
+                    [
+                        "Mở bài",
+                        "Giới thiệu tên câu chuyện và lí do biết"
+                    ],
+                    [
+                        "Thân bài",
+                        "Kể lại câu chuyện theo trình tự diễn ra các sự việc"
+                    ],
+                    [
+                        "Kết bài",
+                        "Nêu suy nghĩ, cảm xúc về câu chuyện"
+                    ]
+                ]
+            },
+            {
+                "k": "order",
+                "min": 25,
+                "t": "Phần Thân bài kể lại rất nhiều sự việc theo đúng diễn biến của câu chuyện.",
+                "q": "BƯỚC 2 (Tiếp): SẮP XẾP SỰ VIỆC. Em hãy sắp xếp các sự việc sau theo ĐÚNG TRÌNH TỰ xảy ra trong câu chuyện nhé!",
+                "items": [
+                    "Mẹ Lọ Lem mất, bố lấy vợ mới, rồi bố cũng qua đời.",
+                    "Vua tổ chức vũ hội, mẹ kế bắt Lọ Lem ở nhà nhặt đậu.",
+                    "Bà tiên xuất hiện giúp Lọ Lem và hoá phép cho cô đi dự hội.",
+                    "Lọ Lem dự hội, đánh rơi giày, hoàng tử tìm được và đón cô về cung."
+                ]
+            },
+            {
+                "k": "tap",
+                "min": 15,
+                "s": [
+                    "Em rất thích câu chuyện này vì cái kết thật có hậu.",
+                    "\"Cô bé Lọ Lem\" xứng đáng là một trong những câu chuyện cổ tích hay nhất thế giới."
+                ],
+                "q": "BƯỚC 3: GIẢI MÃ KỸ THUẬT. Trong phần Kết bài, CÂU VĂN NÀO nêu lí do bạn nhỏ thích câu chuyện này? (Em hãy bấm chọn câu đó nhé)",
+                "a": 0
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Để bài văn được liền mạch, tác giả đã sử dụng các từ ngữ in đậm để kết nối các sự việc (Chuyện kể rằng, Không lâu sau, Một ngày nọ, Thế rồi, Từ đó).",
+                "q": "BƯỚC 3 (Tiếp): GIẢI MÃ TỪ NỐI. Những từ được in đậm trong bài văn có tác dụng gì? (Chọn nhiều đáp án)",
+                "o": [
+                    "Giúp dẫn dắt và kết nối các sự việc lại với nhau.",
+                    "Báo hiệu sự chuyển đổi về mặt thời gian hoặc sự kiện mới.",
+                    "Để giới thiệu tên các nhân vật trong truyện.",
+                    "Để miêu tả vẻ đẹp của Lọ Lem."
+                ],
+                "a": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Thế rồi, một bà tiên xuất hiện giúp cô nhặt đậu, *hoá_phép cho cô váy dạ hội tuyệt đẹp. Bà còn *biến quả bí ngô thành cỗ xe ngựa và *dặn Lọ Lem phải về trước 12 giờ đêm.",
+                "q": "BƯỚC 4: THU HOẠCH TỪ VỰNG. Phép thuật của bà tiên thật kì diệu! Em hãy hái các từ chỉ HOẠT ĐỘNG kì diệu và sự dặn dò của bà tiên nhé!",
+                "h": "Em hãy tìm các từ như: hoá phép, biến, dặn."
+            },
+            {
+                "k": "fill",
+                "min": 25,
+                "t": "GHI NHỚ: Bài văn kể lại một câu chuyện thường gồm 3 phần:\n- Mở bài: Giới thiệu về {câu_chuyện} (tên câu chuyện, lí do biết...)\n- Thân bài: Kể lại câu chuyện theo {trình_tự} diễn ra các {sự_việc} (chú ý sử dụng từ ngữ kết nối).\n- Kết bài: Nêu {suy_nghĩ}, cảm xúc của em về câu chuyện.",
+                "q": "BƯỚC 5: CHỐT KIẾN THỨC. Em hãy điền các từ khóa vào chỗ trống để thuộc lòng phần Ghi nhớ của bài học này nhé!"
+            }
+        ],
+        "mic": "Em được mẹ tặng cuốn sách có nhan đề \"100 câu chuyện cổ tích hay nhất thế giới\". Đối với em, thú vị nhất trong cuốn sách là câu chuyện \"Cô bé Lọ Lem\".\nChuyện kể rằng, đã lâu lắm rồi, ở một đất nước xa xôi, có cô bé xinh đẹp tên là Lọ Lem. Sau khi mẹ Lọ Lem mất, bố cô lấy vợ mới. Người vợ mới có hai cô con gái riêng và chẳng yêu thương Lọ Lem chút nào. Không lâu sau, bố Lọ Lem cũng qua đời, cuộc sống của cô càng khổ cực.\nMột ngày nọ, vua tổ chức vũ hội. Mẹ kế và hai cô con gái đi dự hội, bắt Lọ Lem ở nhà nhặt đậu lẫn trong đống tro. Lọ Lem khóc nức nở. Thế rồi, một bà tiên xuất hiện giúp cô nhặt đậu, hoá phép cho cô váy dạ hội và đôi giày thuỷ tinh tuyệt đẹp. Bà còn biến quả bí ngô thành cỗ xe ngựa đưa Lọ Lem đi dự hội. Bà dặn Lọ Lem phải về trước 12 giờ đêm, nếu không mọi phép thuật sẽ tan biến.\nỞ vũ hội, Lọ Lem xinh đẹp đến mức hoàng tử chỉ khiêu vũ với mình cô. Đến 12 giờ, vì vội ra về, Lọ Lem làm rơi một chiếc giày. Hoàng tử sai người đi khắp nơi tìm chủ nhân của chiếc giày. Hai cô chị cũng ướm thử giày nhưng không vừa. Tới lượt Lọ Lem thì vừa như in. Hoàng tử vui mừng đón cô về cung. Từ đó, họ sống bên nhau hạnh phúc đến cuối đời.\nEm rất thích câu chuyện này vì cái kết thật có hậu. \"Cô bé Lọ Lem\" xứng đáng là một trong những câu chuyện cổ tích hay nhất thế giới."
     }
 };
