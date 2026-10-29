@@ -2777,5 +2777,188 @@ window.LESSONS = {
             }
         ],
         "mic": "a. Biển động. Gió thét trên những rừng dương. Sóng đập dữ dội vào mạn thuyền. Cây cột buồm rít lên, lá cờ đuôi nheo bay phần phật. Mưa cắt ngang mặt những tia nước lạnh. Bãi cát vật vã với nước, với sóng.\nb. Những ngày hè đi bên bờ Hạ Long, Bãi Cháy hoặc Tuần Châu,... ta có cảm giác như đi trước cửa gió. Ngọn gió lúc êm ả như ru, lúc phần phật như quạt, mang cái trong lành, cái tươi mát của đại dương vào đất liền. Trong tiếng gió thổi, ta nghe tiếng thông reo, tiếng sóng vỗ, tiếng ve ran và cả tiếng máy, tiếng xe, tiếng cần trục từ trên các tầng thang, bến cảng vọng lại.\nc. Chuồn chuồn ngô mặc áo kẻ ca-rô đen vàng thích phơi mình ngoài nắng, trên ngọn chuối hoặc bờ ao. Chuồn chuồn ớt với bộ cánh đỏ rực hoặc vàng tươi, suốt ngày la cà hết chỗ này sang chỗ khác. Chuồn chuồn nước thích soi gương, ưa đứng im trên cọng khoai ngứa bên bờ ao ngắm bóng mình in dưới nước,... Ẻo lả và xinh xắn hơn cả là các bé chuồn kim, cả thân hình chỉ nhỉnh hơn chiếc kim khâu... Ngần ấy loại chuồn chuồn cũng đủ cho chúng tôi mê tơi trong suốt mùa hè."
+    },
+    "L4_Trai_ngoc_va_hai_quy": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Trai ngọc và hải quỳ",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 166,
+                "t": "Cá mực tung tăng đi học trong làn nước biển xanh biếc, cái lọ mực kè kè một bên.\n– Bé mực đi đâu đấy? – Cô trai he hé cái vỏ sần sùi ra hỏi.\n– Thưa cô, cháu đi học ạ!\nCá mực lễ phép trả lời rồi vội vã bơi đi, nó hơi sợ khi nhìn thấy vỏ ngoài của cô trai. Cá mực bơi nhanh đến một bông hoa nhiều màu sắc bên kia lối đi. Bông hoa có nhiều cánh hồng hồng, tím tím, mềm mại như gọi chào. Cá mực đến gần hơn, những cánh hoa mừng rỡ múa mãi lên. Chợt tiếng cô trai gọi giật lại:\n– Bé mực, không được đến gần nó, nguy hiểm đấy!\nCá mực ngập ngừng, không biết nên tin ai. Vừa lúc đó, một chú cá cơm bé tí bơi đến đùa nghịch với những cánh hoa mềm mại đang toả ra quẫy lấy chú. Cô trai lớn tiếng gọi cá cơm, nhưng không kịp, những ngón tay hoa đã khép lại. Cá mực định ném lọ mực vào bông hoa để mực loang ra, cá cơm có thể chạy trốn. Nhưng cá cơm đã bị những cánh hoa thít chặt lấy và kéo tuột vào lòng bông hoa. Thế là mất hút chú cá cơm.\nCá mực sợ hãi, chạy lại gần cô trai. Lúc này cô trai mở to miệng nhìn cảnh tượng vừa xảy ra. Cá mực kinh ngạc thấy trong lòng cô trai có một viên ngọc sáng đẹp lạ thường.\nCô trai căn dặn:\n– Bông hoa đẹp đẽ thế kia nhưng rất dữ. Đó là hải quỳ. Cháu phải tránh xa.\nBé mực cảm động. Nó định nói với cô trai: “Còn cô, bên trong tấm áo xấu xí của cô là một tấm lòng bằng ngọc.”.\nHoá ra, cái đẹp bên ngoài chưa hẳn là cái tốt, cái xấu bên ngoài chưa hẳn là cái xấu.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN (Câu 1, 2 SGK). Em hãy đọc kĩ câu chuyện. Cá mực mang vật gì đi học và cảm thấy thế nào khi nhìn thấy cô trai?",
+                "o": [
+                    "Mang theo lọ mực và thấy hơi sợ vỏ ngoài sần sùi của cô trai.",
+                    "Mang theo hộp bút và rất thích vỏ ngoài của cô trai.",
+                    "Mang theo rong biển và sợ bông hoa hải quỳ."
+                ],
+                "a": 0,
+                "h": "Em hãy đọc kĩ đoạn đầu tiên. Mực kè kè 'cái lọ mực' và bơi vội đi vì 'hơi sợ' vỏ ngoài của cô trai."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Trong đại dương bao la, ngoại hình và bản chất của các loài sinh vật đôi khi rất khác nhau.",
+                "q": "BƯỚC 2: TÌM HIỂU NHÂN VẬT (Câu 3, 4, 5 SGK). Ngoại hình và tính cách của Hải quỳ và Cô trai có sự đối lập. Em hãy nối cho đúng nhé!",
+                "h": "Hải quỳ thì đẹp nhưng nguy hiểm. Cô trai vỏ xấu xí nhưng hay giúp đỡ người khác và có ngọc sáng.",
+                "p": [
+                    [
+                        "Hải quỳ",
+                        "Bên ngoài đẹp đẽ, mềm mại nhưng rất dữ, ăn thịt cá cơm"
+                    ],
+                    [
+                        "Cô trai",
+                        "Bên ngoài sần sùi, xấu xí nhưng tốt bụng, có tấm lòng bằng ngọc"
+                    ]
+                ]
+            },
+            {
+                "k": "tap",
+                "min": 20,
+                "s": [
+                    "Cá mực ngập ngừng, không biết nên tin ai.",
+                    "Vừa lúc đó, một chú cá cơm bé tí bơi đến đùa nghịch với những cánh hoa mềm mại đang toả ra quẫy lấy chú.",
+                    "Cô trai lớn tiếng gọi cá cơm, nhưng không kịp, những ngón tay hoa đã khép lại.",
+                    "Cá mực định ném lọ mực vào bông hoa để mực loang ra, cá cơm có thể chạy trốn.",
+                    "Nhưng cá cơm đã bị những cánh hoa thít chặt lấy và kéo tuột vào lòng bông hoa.",
+                    "Thế là mất hút chú cá cơm."
+                ],
+                "q": "BƯỚC 3: PHÂN TÍCH SỰ VIỆC. CÂU VĂN NÀO cho thấy cá mực rất thông minh, biết dùng vũ khí tự nhiên của mình để tìm cách cứu bạn cá cơm? (Bấm chọn câu văn đó)",
+                "a": 3
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Cá mực lễ phép trả lời rồi vội vã *bơi đi. Cá mực *đến gần hơn, những cánh hoa mừng rỡ *múa mãi lên. Cá mực sợ hãi, *chạy lại gần cô trai.",
+                "q": "BƯỚC 4: TÌM ĐỘNG TỪ (Bài tập 8 SGK). Em hãy hái các ĐỘNG TỪ (từ chỉ hoạt động, di chuyển) của cá mực và cánh hoa hải quỳ trong các câu trên nhé!",
+                "h": "Hãy tìm và bấm chọn các từ: bơi, đến, múa, chạy."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Tiếng Việt của chúng ta có rất nhiều từ đồng nghĩa (các từ có nghĩa giống nhau hoặc gần giống nhau).",
+                "q": "BƯỚC 5: TỪ ĐỒNG NGHĨA (Bài tập 7 SGK). Em hãy nối các từ ở cột trái với những từ ĐỒNG NGHĨA tương ứng ở cột phải nhé!",
+                "h": "Vội vã giống với hối hả. Mừng rỡ giống vui sướng. Sợ hãi giống hoảng sợ. Cảm động giống xúc động.",
+                "p": [
+                    [
+                        "vội vã",
+                        "hối hả, vội vàng"
+                    ],
+                    [
+                        "mừng rỡ",
+                        "vui sướng, hân hoan"
+                    ],
+                    [
+                        "sợ hãi",
+                        "hoảng sợ, khiếp đảm"
+                    ],
+                    [
+                        "cảm động",
+                        "xúc động, bùi ngùi"
+                    ]
+                ]
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "Qua câu chuyện, em rút ra được bài học: Cái {đẹp} bên ngoài chưa hẳn là cái {tốt}, cái {xấu} bên ngoài chưa hẳn là cái xấu. Ta không nên chỉ đánh giá người khác qua {ngoại_hình} mà phải xem xét phẩm chất, {tấm_lòng} bên trong của họ.",
+                "q": "BƯỚC 6: ĐÚC KẾT BÀI HỌC (Câu 6 SGK). Em rút ra được bài học gì từ câu chuyện này? Hãy điền từ khóa vào chỗ trống nhé!"
+            }
+        ],
+        "mic": "Cá mực tung tăng đi học trong làn nước biển xanh biếc, cái lọ mực kè kè một bên.\n– Bé mực đi đâu đấy? – Cô trai he hé cái vỏ sần sùi ra hỏi.\n– Thưa cô, cháu đi học ạ!\nCá mực lễ phép trả lời rồi vội vã bơi đi, nó hơi sợ khi nhìn thấy vỏ ngoài của cô trai. Cá mực bơi nhanh đến một bông hoa nhiều màu sắc bên kia lối đi. Bông hoa có nhiều cánh hồng hồng, tím tím, mềm mại như gọi chào. Cá mực đến gần hơn, những cánh hoa mừng rỡ múa mãi lên. Chợt tiếng cô trai gọi giật lại:\n– Bé mực, không được đến gần nó, nguy hiểm đấy!\nCá mực ngập ngừng, không biết nên tin ai. Vừa lúc đó, một chú cá cơm bé tí bơi đến đùa nghịch với những cánh hoa mềm mại đang toả ra quẫy lấy chú. Cô trai lớn tiếng gọi cá cơm, nhưng không kịp, những ngón tay hoa đã khép lại. Cá mực định ném lọ mực vào bông hoa để mực loang ra, cá cơm có thể chạy trốn. Nhưng cá cơm đã bị những cánh hoa thít chặt lấy và kéo tuột vào lòng bông hoa. Thế là mất hút chú cá cơm.\nCá mực sợ hãi, chạy lại gần cô trai. Lúc này cô trai mở to miệng nhìn cảnh tượng vừa xảy ra. Cá mực kinh ngạc thấy trong lòng cô trai có một viên ngọc sáng đẹp lạ thường.\nCô trai căn dặn:\n– Bông hoa đẹp đẽ thế kia nhưng rất dữ. Đó là hải quỳ. Cháu phải tránh xa.\nBé mực cảm động. Nó định nói với cô trai: “Còn cô, bên trong tấm áo xấu xí của cô là một tấm lòng bằng ngọc.”.\nHoá ra, cái đẹp bên ngoài chưa hẳn là cái tốt, cái xấu bên ngoài chưa hẳn là cái xấu."
+    },
+    "L4_Ve_mau": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Vẽ màu",
+        "isPoem": true,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 45,
+                "t": "Màu đỏ cánh hoa hồng\nNhuộm bừng cho đôi má\nCòn màu xanh chiếc lá\nLàm mát những rặng cây. // Bình minh treo trên mây\nThả nắng vàng xuống đất\nGió mang theo hương ngát\nCho ong giỏ mật đầy. // Còn chiếc áo tím này\nTặng hoàng hôn sẫm tối\nNhững đôi mắt biết nói\nVẽ màu biển biếc trong. // Màu nâu này biết không\nTừ đại ngàn xa thẳm\nRiêng đêm như màu mực\nĐể thắp sao lên trời. // Mắt nhìn khắp muôn nơi\nSắc màu không kể hết\nEm tô thêm màu trắng\nTrên tóc mẹ sương rơi...",
+                "q": "BƯỚC 1: KHỞI ĐỘNG ĐỌC THẨM THẤU. Em hãy đọc toàn bộ bài thơ trên. Bài thơ nhắc đến những màu sắc nào của thiên nhiên?",
+                "o": [
+                    "Đỏ, xanh, vàng, tím, nâu, đen (màu mực), trắng.",
+                    "Xanh lá, đỏ tươi, hồng nhạt, cam, xám.",
+                    "Tím mộng mơ, vàng tươi, xanh ngọc, đen nhánh."
+                ],
+                "a": 0,
+                "h": "Em hãy đọc lướt các khổ thơ, tác giả đã gọi tên trực tiếp các màu: đỏ, xanh, vàng, tím, nâu, màu mực (đen), trắng."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Mỗi sự vật trong tự nhiên đều được bạn nhỏ tô điểm bằng một màu sắc tuyệt đẹp.",
+                "q": "BƯỚC 2: KHÁM PHÁ MÀU SẮC (Câu 1 SGK). Em hãy nối các sự vật với màu sắc tương ứng được nhắc đến trong bài thơ nhé!",
+                "h": "Cánh hoa hồng màu đỏ, lá cây màu xanh, nắng màu vàng, áo hoàng hôn màu tím, đại ngàn màu nâu.",
+                "p": [
+                    [
+                        "Hoa hồng",
+                        "Màu đỏ"
+                    ],
+                    [
+                        "Chiếc lá",
+                        "Màu xanh"
+                    ],
+                    [
+                        "Nắng",
+                        "Màu vàng"
+                    ],
+                    [
+                        "Hoàng hôn",
+                        "Màu tím"
+                    ],
+                    [
+                        "Đại ngàn",
+                        "Màu nâu"
+                    ]
+                ]
+            },
+            {
+                "k": "multi",
+                "min": 20,
+                "t": "Bình minh treo trên mây\nThả nắng vàng xuống đất\nGió mang theo hương ngát\nCho ong giỏ mật đầy. // Còn chiếc áo tím này\nTặng hoàng hôn sẫm tối\nNhững đôi mắt biết nói\nVẽ màu biển biếc trong. // Màu nâu này biết không\nTừ đại ngàn xa thẳm\nRiêng đêm như màu mực\nĐể thắp sao lên trời.",
+                "q": "BƯỚC 3: THỜI GIAN TRONG NGÀY (Câu 2 SGK). Các khổ thơ trên (khổ 2, 3, 4) đã nói về màu sắc của cảnh vật ở những thời điểm nào trong ngày? (Chọn nhiều đáp án)",
+                "o": [
+                    "Bình minh (buổi sáng)",
+                    "Hoàng hôn (chiều tối)",
+                    "Đêm (tối mịt)",
+                    "Trưa hè oi ả"
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "tap",
+                "min": 20,
+                "s": [
+                    "Màu nâu này biết không\nTừ đại ngàn xa thẳm\nRiêng đêm như màu mực\nĐể thắp sao lên trời.",
+                    "Mắt nhìn khắp muôn nơi\nSắc màu không kể hết\nEm tô thêm màu trắng\nTrên tóc mẹ sương rơi..."
+                ],
+                "q": "BƯỚC 4: TÌNH MẪU TỬ (Câu 3 SGK). KHỔ THƠ NÀO thể hiện tình yêu thương và sự xót xa của bạn nhỏ khi thấy mẹ ngày càng già đi, vất vả vì mình? (Em hãy bấm chọn khổ thơ đó nhé)",
+                "a": 1
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Gió mang theo hương ngát\nCho ong giỏ mật *đầy.\nCòn chiếc áo tím này\n*Tặng hoàng hôn sẫm tối\nNhững đôi mắt biết nói\n*Vẽ màu biển biếc trong.",
+                "q": "BƯỚC 5: THU HOẠCH TỪ VỰNG. Bức tranh thiên nhiên được vẽ bằng những từ chỉ hành động và trạng thái rất sinh động. Em hãy hái các từ đó (đầy, tặng, vẽ) nhé!",
+                "h": "Em hãy bấm hái 3 từ có dấu * trong đoạn thơ trên."
+            },
+            {
+                "k": "fill",
+                "min": 25,
+                "t": "Bài thơ là một bức tranh đầy {màu_sắc} về thiên nhiên. Qua đó, ta thấy được tình {yêu_thiên_nhiên} và đặc biệt là lòng {hiếu_thảo}, tình yêu thương sâu sắc mà bạn nhỏ dành cho {mẹ} của mình.",
+                "q": "BƯỚC 6: ĐÚC KẾT Ý NGHĨA. Em hãy điền các từ khóa vào chỗ trống để hoàn thiện ý nghĩa của bài thơ nhé!"
+            }
+        ],
+        "glossary": "- Đại ngàn: rừng lớn, có nhiều cây to và lâu đời.",
+        "mic": "Màu đỏ cánh hoa hồng\nNhuộm bừng cho đôi má\nCòn màu xanh chiếc lá\nLàm mát những rặng cây. // Bình minh treo trên mây\nThả nắng vàng xuống đất\nGió mang theo hương ngát\nCho ong giỏ mật đầy. // Còn chiếc áo tím này\nTặng hoàng hôn sẫm tối\nNhững đôi mắt biết nói\nVẽ màu biển biếc trong. // Màu nâu này biết không\nTừ đại ngàn xa thẳm\nRiêng đêm như màu mực\nĐể thắp sao lên trời. // Mắt nhìn khắp muôn nơi\nSắc màu không kể hết\nEm tô thêm màu trắng\nTrên tóc mẹ sương rơi..."
     }
 };
