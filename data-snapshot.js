@@ -3044,5 +3044,199 @@ window.LESSONS = {
         ],
         "glossary": "- Đạo mạo: có vẻ mặt, điệu bộ trang nghiêm, đứng đắn.\n- Tần ngần: trạng thái đang mải nghĩ ngợi, đắn đo, chưa biết nên quyết định ra sao.",
         "mic": "Mùa xuân, ngày nào cũng là ngày hội. Những anh chuồn ớt đỏ thắm như ngọn lửa. Những cô chuồn chuồn kim thướt tha bay lượn. Các chú bọ ngựa vung gươm tập múa võ. Các chị cào cào xoè áo lụa đỏm dáng. Đạo mạo như bác giang, bác dẽ cũng vui vẻ dạo chơi.\n\nBụi tre tần ngần gỡ tóc\nHàng bưởi đu đưa bế lũ con\nSấm ghé xuống sân khanh khách cười\nCây dừa sải tay bơi\nNgọn mùng tơi nhảy múa.\n\nMầm cây tỉnh giấc, vườn đầy tiếng chim\nHạt mưa mải miết trốn tìm\nCây đào trước cửa lim dim mắt cười\nQuất gom từng giọt nắng rơi\nLàm thành quả trăm mặt trời vàng mơ."
+    },
+    "L4_Cach_viet_doan_van_tuong_tuong": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Cách viết đoạn văn tưởng tượng",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 46,
+                "t": "Ngày xưa, muôn loài sống trong rừng già tối tăm, ẩm ướt. Gõ kiến được giao nhiệm vụ đến các nhà hỏi xem ai có thể đi tìm mặt trời. Gõ kiến gõ cửa nhà công, công mải múa, chỉ trả lời: \"Tớ còn bận tập múa.\". Gõ kiến đến nhà liếu điếu, liếu điếu bận cãi nhau. Gõ kiến gõ cửa nhà chích choè, chích choè liến thoắng: \"Tớ còn bận luyện giọng. Với lại, đường xa vạn dặm, tớ thì bé nhỏ, chân yếu cánh mềm, làm sao đi được!\". Chỉ có gà trống nhận lời đi tìm mặt trời.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN (Câu 1 SGK). Đoạn văn trên kể về hành trình đi tìm mặt trời của các loài vật. Ai là người được giao nhiệm vụ đi hỏi các nhà?",
+                "o": [
+                    "Công",
+                    "Gõ kiến",
+                    "Chích chòe",
+                    "Gà trống"
+                ],
+                "a": 1,
+                "h": "Em hãy đọc câu văn thứ 2: 'Gõ kiến được giao nhiệm vụ...' nhé."
+            },
+            {
+                "k": "tap",
+                "min": 20,
+                "s": [
+                    "Ngày xưa, muôn loài sống trong rừng già tối tăm, ẩm ướt.",
+                    "Gõ kiến được giao nhiệm vụ đến các nhà hỏi xem ai có thể đi tìm mặt trời.",
+                    "Gõ kiến gõ cửa nhà công, công mải múa, chỉ trả lời: \"Tớ còn bận tập múa.",
+                    "\".",
+                    "Gõ kiến đến nhà liếu điếu, liếu điếu bận cãi nhau.",
+                    "Gõ kiến gõ cửa nhà chích choè, chích choè liến thoắng: \"Tớ còn bận luyện giọng.",
+                    "Với lại, đường xa vạn dặm, tớ thì bé nhỏ, chân yếu cánh mềm, làm sao đi được!",
+                    "\".",
+                    "Chỉ có gà trống nhận lời đi tìm mặt trời."
+                ],
+                "q": "BƯỚC 2: PHÁT HIỆN CHI TIẾT SÁNG TẠO (Câu 1a SGK). So với bản gốc chỉ kể lại sự việc, đoạn văn này đã viết thêm điều gì để câu chuyện sinh động hơn? (Em hãy bấm chọn một câu văn chứa lời thoại nhé)",
+                "a": 2
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Để viết đoạn văn tưởng tượng, ta có 3 cách chính: *1:Lời_kể, *1:Miêu_tả, *2:Thêm_lời_thoại, *2:Hành_động_mới, *3:Thay_đoạn_kết, *3:Viết_tiếp_câu_chuyện.",
+                "q": "BƯỚC 3: PHÂN LOẠI CÁCH VIẾT TƯỞNG TƯỢNG (Câu 2 SGK). Dựa vào sơ đồ trong sách, em hãy xếp các \"Thẻ ý tưởng\" in đậm ở trên vào 3 giỏ tương ứng nhé!",
+                "cats": [
+                    "Bổ sung chi tiết",
+                    "Thêm cho nhân vật",
+                    "Thay đổi kết truyện"
+                ]
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Đoạn văn tưởng tượng này thú vị vì các con vật không chỉ có hành động (múa, cãi nhau, hót) mà còn biết nói chuyện, đưa ra lí do từ chối rất giống con người. Công thì điệu đà, chích chòe thì liến thoắng, sợ khổ.",
+                "q": "BƯỚC 4: GIẢI MÃ SỰ THÚ VỊ (Câu 1b SGK). Theo em, việc tưởng tượng thêm lời thoại trong đoạn văn có tác dụng gì? (Chọn nhiều đáp án)",
+                "o": [
+                    "Làm cho các con vật trở nên sinh động, giống con người hơn.",
+                    "Thể hiện rõ tính cách của từng con vật (công điệu đà, chích chòe hay lí do).",
+                    "Giúp đoạn văn dài hơn để đỡ phải nghĩ nhiều.",
+                    "Làm cho câu chuyện bớt nhàm chán so với việc chỉ kể lướt qua sự việc."
+                ],
+                "a": [
+                    0,
+                    1,
+                    3
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 20,
+                "t": "Gõ kiến gõ cửa nhà chích choè, chích choè *liến_thoắng: \"Tớ còn bận luyện giọng. Với lại, đường xa *vạn_dặm, tớ thì bé nhỏ, chân *yếu cánh mềm, làm sao đi được!\".",
+                "q": "BƯỚC 5: THU HOẠCH TỪ VỰNG ĐẮT GIÁ. Lời thoại của chích chòe rất ấn tượng. Em hãy hái các từ miêu tả cách nói chuyện nhanh (liến thoắng), sự xa xôi (vạn dặm) và sự yếu ớt (yếu) của chích chòe nhé!",
+                "h": "Em hãy bấm vào 3 từ: liến thoắng, vạn dặm, yếu."
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "GHI NHỚ: Khi viết đoạn văn tưởng tượng dựa trên một câu chuyện đã đọc, đã nghe, người viết cần phát huy {trí_tưởng_tượng} để thay đổi, bổ sung chi tiết. Có nhiều cách viết như: bổ sung {chi_tiết} (lời kể, tả), bổ sung {lời_thoại} của nhân vật, hoặc thay đổi đoạn {kết_thúc}.",
+                "q": "BƯỚC 6: CHỐT KIẾN THỨC (Ghi nhớ SGK). Em hãy điền các từ khóa vào chỗ trống để nắm vững bí quyết viết văn tưởng tượng nhé!"
+            }
+        ],
+        "mic": "Ngày xưa, muôn loài sống trong rừng già tối tăm, ẩm ướt. Gõ kiến được giao nhiệm vụ đến các nhà hỏi xem ai có thể đi tìm mặt trời. Gõ kiến gõ cửa nhà công, công mải múa, chỉ trả lời: \"Tớ còn bận tập múa.\". Gõ kiến đến nhà liếu điếu, liếu điếu bận cãi nhau. Gõ kiến gõ cửa nhà chích choè, chích choè liến thoắng: \"Tớ còn bận luyện giọng. Với lại, đường xa vạn dặm, tớ thì bé nhỏ, chân yếu cánh mềm, làm sao đi được!\". Chỉ có gà trống nhận lời đi tìm mặt trời."
+    },
+    "L4_Dong_co_no_hoa": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Đồng cỏ nở hoa",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "tap",
+                "min": 155,
+                "s": [
+                    "Bống là một cô bé có tài hội hoạ.",
+                    "Người phát hiện ra điều này trước nhất là bác Lan, chị gái của bố Bống.",
+                    "Thực ra, lúc đầu bác Lan chỉ thấy hơi là lạ, vì con bé mới học tiểu học mà sao nó lại mê vẽ thế.",
+                    "Nó vẽ như người ta thở, như người ta nhìn, như người ta nghe.",
+                    "Nó vẽ các nàng tiên, các cô công chúa, các chàng công tử.",
+                    "Cái Bống rất hay vẽ, nhưng đáng chú ý hơn là nó vẽ rất giống.",
+                    "Con mèo Kết ra con mèo Kết.",
+                    "Con chó Lu ra con chó Lu.",
+                    "Cây cau ra cây cau.",
+                    "Bố Lít nó ra bố Lít.",
+                    "Mẹ Phít nó cũng chẳng lẫn được với ai, cái mặt tròn như đồng xu với hai con mắt lá răm.",
+                    "Bác Lan đưa tranh của Bống cho ông hoạ sĩ Phan xem để hỏi ý kiến.",
+                    "Ông hoạ sĩ xem cả xấp tranh vẽ con chó, con mèo, cây cau, chân dung bố và mẹ Bống thì tặc tặc lưỡi trầm trồ: “Chà chà!",
+                    "Vẽ như đồng cỏ đến kì nở hoa!",
+                    "Vẽ được lắm, được lắm!",
+                    "”.",
+                    "Đoạn, ông nói: “Còn những bức nào nữa, cho ông xem với nào!",
+                    "”.",
+                    "Bống đưa cho ông cả tập tranh giấu trong cặp.",
+                    "Ông trố mắt, chỉ từng bức:\n– Sao dưới bụng con gà mái mẹ lại có một hàng chấm chấm?",
+                    "– Đó là tí của nó ạ.",
+                    "Không có tí, gà con bú mẹ sao được ạ.",
+                    "– Thế con chuột nhắt đứng cạnh cái vòng tròn có hai chóp nhọn là cái gì?",
+                    "– Là lưng con mèo.",
+                    "Ý cháu là...",
+                    "hỡi tên chuột kia, mi hãy giờ hồn, mèo chưa quay đầu lại đâu!"
+                ],
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN (Câu 1 SGK). Ở đoạn mở đầu, chi tiết nào cho thấy Bống vô cùng đam mê hội hoạ? (Em hãy bấm chọn CÂU VĂN đó nhé)",
+                "a": 3
+            },
+            {
+                "k": "choice",
+                "min": 20,
+                "t": "Cái Bống rất hay vẽ, nhưng đáng chú ý hơn là nó vẽ rất giống. Con mèo Kết ra con mèo Kết. Con chó Lu ra con chó Lu. Cây cau ra cây cau. Bố Lít nó ra bố Lít. Mẹ Phít nó cũng chẳng lẫn được với ai, cái mặt tròn như đồng xu với hai con mắt lá răm.",
+                "q": "BƯỚC 2: TÌM HIỂU CHI TIẾT (Câu 2 SGK). Điều đáng chú ý nhất trong những bức tranh Bống vẽ là gì?",
+                "o": [
+                    "Bống chỉ thích vẽ về các con vật nuôi trong nhà.",
+                    "Bống vẽ tranh rất giống với ngoài đời thực.",
+                    "Bống tô màu rất rực rỡ và bắt mắt."
+                ],
+                "a": 1,
+                "h": "Ngay câu đầu tiên của đoạn 2 tác giả đã khẳng định: 'đáng chú ý hơn là nó vẽ rất giống'."
+            },
+            {
+                "k": "choice",
+                "min": 20,
+                "t": "Ông hoạ sĩ xem cả xấp tranh vẽ con chó, con mèo, cây cau, chân dung bố và mẹ Bống thì tặc tặc lưỡi trầm trồ: “Chà chà! Vẽ như đồng cỏ đến kì nở hoa! Vẽ được lắm, được lắm!”.",
+                "q": "BƯỚC 3: PHÂN TÍCH Ý NGHĨA (Câu 3 SGK). Lời nhận xét “Vẽ như đồng cỏ đến kì nở hoa!” của ông hoạ sĩ Phan có ý nghĩa gì?",
+                "o": [
+                    "Khen tranh của Bống vẽ rất sinh động, tự nhiên.",
+                    "Chê tranh của Bống lộn xộn như bãi cỏ dại.",
+                    "Khuyên Bống nên chuyển sang vẽ hoa cỏ thay vì vẽ người."
+                ],
+                "a": 0,
+                "h": "Đồng cỏ nở hoa là hình ảnh tươi đẹp, đầy sức sống. Ông họa sĩ mượn hình ảnh đó để khen tranh của Bống rất sinh động và tự nhiên."
+            },
+            {
+                "k": "multi",
+                "min": 30,
+                "t": "– Sao dưới bụng con gà mái mẹ lại có một hàng chấm chấm?\n– Đó là tí của nó ạ. Không có tí, gà con bú mẹ sao được ạ.\n– Thế con chuột nhắt đứng cạnh cái vòng tròn có hai chóp nhọn là cái gì?\n– Là lưng con mèo. Ý cháu là... hỡi tên chuột kia, mi hãy giờ hồn, mèo chưa quay đầu lại đâu!",
+                "q": "BƯỚC 4: KHÁM PHÁ TRÍ TƯỞNG TƯỢNG (Câu 4 SGK). Những chi tiết nào cho thấy Bống có trí tưởng tượng rất phong phú và ngộ nghĩnh? (Chọn nhiều đáp án)",
+                "o": [
+                    "Vẽ thêm một hàng 'tí' dưới bụng gà mái mẹ để gà con bú.",
+                    "Vẽ lưng mèo thành một cái vòng tròn có hai chóp nhọn đe dọa con chuột.",
+                    "Vẽ con chó Lu và con mèo Kết đang chạy nhảy ngoài sân.",
+                    "Vẽ khuôn mặt tròn như đồng xu của mẹ Phít."
+                ],
+                "a": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Sáng tác, sáng tạo và sáng chế đều là những hoạt động tạo ra cái mới, nhưng sắc thái nghĩa khác nhau.",
+                "q": "BƯỚC 5: TÍCH HỢP TỪ VÀ CÂU (Luyện từ - SGK). Em hãy nối các từ ở cột trái với nét nghĩa phù hợp ở cột phải nhé!",
+                "h": "Sáng tác dùng cho nghệ thuật (thơ, nhạc, tranh). Sáng tạo dùng cho tinh thần/vật chất nói chung. Sáng chế dùng cho máy móc, kĩ thuật.",
+                "p": [
+                    [
+                        "sáng tác",
+                        "làm ra tác phẩm văn học, nghệ thuật"
+                    ],
+                    [
+                        "sáng tạo",
+                        "tạo ra những giá trị mới về vật chất hoặc tinh thần"
+                    ],
+                    [
+                        "sáng chế",
+                        "nghĩ và chế tạo ra cái trước đó chưa từng có"
+                    ]
+                ]
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "Câu chuyện về cô bé Bống cho ta thấy trẻ em luôn có một thế giới {tưởng_tượng} vô cùng phong phú và đáng yêu. Nếu được phát hiện và bồi dưỡng đúng cách, những năng khiếu nghệ thuật sẽ như \"đồng cỏ đến kì {nở_hoa}\".",
+                "q": "BƯỚC 6: ĐÚC KẾT BÀI HỌC. Em hãy điền từ khóa vào chỗ trống để rút ra ý nghĩa của câu chuyện nhé!"
+            }
+        ],
+        "glossary": "- Mắt lá răm: mắt một mí nhưng tròng to, đuôi mắt dài và sắc trông như đuôi của lá rau răm.\n- Xấp tranh: nhiều bức tranh cùng loại, xếp chồng lên nhau một cách ngay ngắn.\n- Giờ hồn: có ý nói phải coi chừng, mang tính đe doạ.",
+        "mic": "Bống là một cô bé có tài hội hoạ. Người phát hiện ra điều này trước nhất là bác Lan, chị gái của bố Bống. Thực ra, lúc đầu bác Lan chỉ thấy hơi là lạ, vì con bé mới học tiểu học mà sao nó lại mê vẽ thế. Nó vẽ như người ta thở, như người ta nhìn, như người ta nghe. Nó vẽ các nàng tiên, các cô công chúa, các chàng công tử.\nCái Bống rất hay vẽ, nhưng đáng chú ý hơn là nó vẽ rất giống. Con mèo Kết ra con mèo Kết. Con chó Lu ra con chó Lu. Cây cau ra cây cau. Bố Lít nó ra bố Lít. Mẹ Phít nó cũng chẳng lẫn được với ai, cái mặt tròn như đồng xu với hai con mắt lá răm.\nBác Lan đưa tranh của Bống cho ông hoạ sĩ Phan xem để hỏi ý kiến. Ông hoạ sĩ xem cả xấp tranh vẽ con chó, con mèo, cây cau, chân dung bố và mẹ Bống thì tặc tặc lưỡi trầm trồ: “Chà chà! Vẽ như đồng cỏ đến kì nở hoa! Vẽ được lắm, được lắm!”. Đoạn, ông nói: “Còn những bức nào nữa, cho ông xem với nào!”. Bống đưa cho ông cả tập tranh giấu trong cặp. Ông trố mắt, chỉ từng bức:\n– Sao dưới bụng con gà mái mẹ lại có một hàng chấm chấm?\n– Đó là tí của nó ạ. Không có tí, gà con bú mẹ sao được ạ.\n– Thế con chuột nhắt đứng cạnh cái vòng tròn có hai chóp nhọn là cái gì?\n– Là lưng con mèo. Ý cháu là... hỡi tên chuột kia, mi hãy giờ hồn, mèo chưa quay đầu lại đâu!"
     }
 };
