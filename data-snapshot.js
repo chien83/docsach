@@ -2960,5 +2960,89 @@ window.LESSONS = {
         ],
         "glossary": "- Đại ngàn: rừng lớn, có nhiều cây to và lâu đời.",
         "mic": "Màu đỏ cánh hoa hồng\nNhuộm bừng cho đôi má\nCòn màu xanh chiếc lá\nLàm mát những rặng cây. // Bình minh treo trên mây\nThả nắng vàng xuống đất\nGió mang theo hương ngát\nCho ong giỏ mật đầy. // Còn chiếc áo tím này\nTặng hoàng hôn sẫm tối\nNhững đôi mắt biết nói\nVẽ màu biển biếc trong. // Màu nâu này biết không\nTừ đại ngàn xa thẳm\nRiêng đêm như màu mực\nĐể thắp sao lên trời. // Mắt nhìn khắp muôn nơi\nSắc màu không kể hết\nEm tô thêm màu trắng\nTrên tóc mẹ sương rơi..."
+    },
+    "L4_Bien_phap_nhan_hoa": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Biện pháp nhân hoá",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 62,
+                "t": "Mùa xuân, ngày nào cũng là ngày hội. Những anh chuồn ớt đỏ thắm như ngọn lửa. Những cô chuồn chuồn kim thướt tha bay lượn. Các chú bọ ngựa vung gươm tập múa võ. Các chị cào cào xoè áo lụa đỏm dáng. Đạo mạo như bác giang, bác dẽ cũng vui vẻ dạo chơi.\n\nBụi tre tần ngần gỡ tóc\nHàng bưởi đu đưa bế lũ con\nSấm ghé xuống sân khanh khách cười\nCây dừa sải tay bơi\nNgọn mùng tơi nhảy múa.\n\nMầm cây tỉnh giấc, vườn đầy tiếng chim\nHạt mưa mải miết trốn tìm\nCây đào trước cửa lim dim mắt cười\nQuất gom từng giọt nắng rơi\nLàm thành quả trăm mặt trời vàng mơ.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN. Em hãy đọc 3 đoạn trích trên. Nhờ cách miêu tả của các nhà văn, nhà thơ, thế giới thiên nhiên hiện lên như thế nào?",
+                "o": [
+                    "Rất tĩnh lặng, buồn bã và không có sức sống.",
+                    "Rất sinh động, gần gũi và có những hành động giống hệt con người.",
+                    "Rất hung dữ và xa lạ với con người."
+                ],
+                "a": 1,
+                "h": "Em hãy để ý các loài vật, cây cối đều biết múa võ, gỡ tóc, cười, trốn tìm... giống hệt con người nhé."
+            },
+            {
+                "k": "match",
+                "min": 20,
+                "t": "Tác giả Xuân Quỳnh đã dùng những từ ngữ xưng hô của con người để gọi các con vật.",
+                "q": "BƯỚC 2: NHÂN HOÁ BẰNG CÁCH GỌI TÊN (Bài tập 1). Em hãy nối các từ gọi người với con vật tương ứng nhé!",
+                "h": "Em hãy nhớ lại: anh chuồn ớt, cô chuồn kim, chú bọ ngựa, chị cào cào và bác giang, dẽ.",
+                "p": [
+                    [
+                        "anh",
+                        "chuồn ớt"
+                    ],
+                    [
+                        "cô",
+                        "chuồn chuồn kim"
+                    ],
+                    [
+                        "chú",
+                        "bọ ngựa"
+                    ],
+                    [
+                        "chị",
+                        "cào cào"
+                    ],
+                    [
+                        "bác",
+                        "giang, dẽ"
+                    ]
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 25,
+                "t": "Bụi tre tần ngần *gỡ_tóc\nHàng bưởi đu đưa *bế lũ con\nSấm ghé xuống sân khanh khách *cười\nCây dừa sải tay *bơi\nNgọn mùng tơi *nhảy_múa.",
+                "q": "BƯỚC 3: NHÂN HOÁ BẰNG HOẠT ĐỘNG (Bài tập 2). Tác giả Trần Đăng Khoa đã gán hoạt động của con người cho cây cối, sấm sét. Em hãy hái các từ chỉ HOẠT ĐỘNG đó nhé!",
+                "h": "Hãy bấm chọn các động từ: gỡ tóc, bế, cười, bơi, nhảy múa."
+            },
+            {
+                "k": "tap",
+                "min": 25,
+                "s": [
+                    "Đồng làng vương chút heo may\nMầm cây tỉnh giấc, vườn đầy tiếng chim\nHạt mưa mải miết trốn tìm // Cây đào trước cửa lim dim mắt cười\nQuất gom từng giọt nắng rơi\nLàm thành quả trăm mặt trời vàng mơ."
+                ],
+                "q": "BƯỚC 4: TÌM HÌNH ẢNH NHÂN HOÁ (Bài tập 3). KHỔ THƠ NÀO nhắc đến một hiện tượng tự nhiên đang chơi trò chơi của trẻ em? (Em hãy bấm chọn khổ thơ đó nhé)",
+                "a": 0
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Có 2 cách nhân hoá phổ biến. Em hãy xếp các từ sau vào đúng giỏ nhé: *1:anh, *1:cô, *1:bác, *2:tỉnh_giấc, *2:trốn_tìm, *2:lim_dim.",
+                "q": "BƯỚC 5: TỔNG HỢP CÁC CÁCH NHÂN HOÁ. Dựa vào các từ in đậm ở trên, em hãy phân loại chúng vào 2 giỏ cho đúng nhé!",
+                "cats": [
+                    "Từ dùng để GỌI",
+                    "Từ dùng để TẢ (hoạt động, trạng thái)"
+                ]
+            },
+            {
+                "k": "fill",
+                "min": 25,
+                "t": "GHI NHỚ: Nhân hoá là gọi hoặc tả con vật, cây cối, đồ vật,... bằng những từ ngữ vốn được dùng để gọi hoặc tả {con_người}; làm cho thế giới loài vật, cây cối trở nên {gần_gũi}, {sinh_động} hơn.",
+                "q": "BƯỚC 6: CHỐT KIẾN THỨC. Em hãy điền các từ khóa vào chỗ trống để thuộc lòng Ghi nhớ của bài học hôm nay nhé!"
+            }
+        ],
+        "glossary": "- Đạo mạo: có vẻ mặt, điệu bộ trang nghiêm, đứng đắn.\n- Tần ngần: trạng thái đang mải nghĩ ngợi, đắn đo, chưa biết nên quyết định ra sao.",
+        "mic": "Mùa xuân, ngày nào cũng là ngày hội. Những anh chuồn ớt đỏ thắm như ngọn lửa. Những cô chuồn chuồn kim thướt tha bay lượn. Các chú bọ ngựa vung gươm tập múa võ. Các chị cào cào xoè áo lụa đỏm dáng. Đạo mạo như bác giang, bác dẽ cũng vui vẻ dạo chơi.\n\nBụi tre tần ngần gỡ tóc\nHàng bưởi đu đưa bế lũ con\nSấm ghé xuống sân khanh khách cười\nCây dừa sải tay bơi\nNgọn mùng tơi nhảy múa.\n\nMầm cây tỉnh giấc, vườn đầy tiếng chim\nHạt mưa mải miết trốn tìm\nCây đào trước cửa lim dim mắt cười\nQuất gom từng giọt nắng rơi\nLàm thành quả trăm mặt trời vàng mơ."
     }
 };
