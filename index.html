@@ -794,14 +794,47 @@ function home() {
 
 function bindAuthInputs() {
     if ($('#nm')) $('#nm').oninput = e => { NAME = e.target.value.trim(); $('#nm').style.borderColor = ''; if ($('#auth-err')) $('#auth-err').style.display = 'none'; };
-    if ($('#pw')) $('#pw').oninput = e => { PW = e.target.value.trim(); $('#pw').style.borderColor = ''; if ($('#auth-err')) $('#auth-err').style.display = 'none'; };
+    if ($('#pw')) {
+        $('#pw').oninput = e => { PW = e.target.value.trim(); $('#pw').style.borderColor = ''; if ($('#auth-err')) $('#auth-err').style.display = 'none'; };
+        $('#pw').onkeypress = e => { if (e.key === 'Enter' && $('#btn-stu-login')) $('#btn-stu-login').click(); };
+    }
+
+    if ($('#btn-stu-login')) {
+        $('#btn-stu-login').onclick = () => {
+            const btn = $('#btn-stu-login');
+            btn.disabled = true;
+            btn.textContent = '⏳ Đang kiểm tra...';
+            verifyStudentAuth(
+                () => home(),
+                () => {
+                    if (btn) {
+                        btn.disabled = false;
+                        btn.textContent = '🔓 Đăng nhập';
+                    }
+                }
+            );
+        };
+    }
+
+    if ($('#btn-logout-stu')) {
+        $('#btn-logout-stu').onclick = () => {
+            isStudentLoggedIn = false;
+            NAME = '';
+            PW = '';
+            S = null;
+            localStorage.removeItem('hv_saved_name');
+            localStorage.removeItem('hv_saved_pw');
+            updateStudentNav();
+            home();
+        };
+    }
 
     if ($('#btn-toggle-cpw')) {
         $('#btn-toggle-cpw').onclick = () => {
             const box = $('#cpw-box');
             box.style.display = box.style.display === 'none' ? 'block' : 'none';
             if (box.style.display === 'block') {
-                $('#cpw-old').value = $('#pw') ? $('#pw').value.trim() : '';
+                $('#cpw-old').value = $('#pw') ? $('#pw').value.trim() : PW;
                 $('#cpw-new').focus();
             }
         };
@@ -809,7 +842,7 @@ function bindAuthInputs() {
 
     if ($('#btn-save-cpw')) {
         $('#btn-save-cpw').onclick = () => {
-            const nameVal = $('#nm') ? $('#nm').value.trim() : '';
+            const nameVal = $('#nm') ? $('#nm').value.trim() : NAME;
             const oldP = $('#cpw-old').value.trim();
             const newP = $('#cpw-new').value.trim();
             const msgEl = $('#cpw-msg');
@@ -817,7 +850,7 @@ function bindAuthInputs() {
             if (!nameVal) {
                 msgEl.style.color = 'var(--bad)';
                 msgEl.textContent = '⚠️ Em hãy nhập Họ và tên ở ô bên trên trước nhé!';
-                $('#nm').focus();
+                if ($('#nm')) $('#nm').focus();
                 return;
             }
             if (!oldP || !newP) {
@@ -856,11 +889,13 @@ function bindAuthInputs() {
                         playSound('error');
                         return;
                     }
-                    // Cập nhật mật khẩu mới
                     db.ref('hocvan/users/' + uKey + '/pass').set(newP).then(() => {
+                        NAME = u.name || nameVal;
                         PW = newP;
+                        isStudentLoggedIn = true;
+                        updateStudentNav();
                         if ($('#pw')) $('#pw').value = newP;
-                        localStorage.setItem('hv_saved_name', nameVal);
+                        localStorage.setItem('hv_saved_name', NAME);
                         localStorage.setItem('hv_saved_pw', newP);
                         msgEl.style.color = 'var(--ok)';
                         msgEl.textContent = '✅ Đã đổi mật khẩu thành công! Em hãy nhớ mật khẩu mới nhé.';
@@ -868,7 +903,6 @@ function bindAuthInputs() {
                         setTimeout(() => { if ($('#cpw-box')) $('#cpw-box').style.display = 'none'; }, 1800);
                     });
                 } else {
-                    // Nếu học sinh chưa từng đăng nhập nhưng dùng đúng mật khẩu gốc để đổi luôn
                     if (!ALLOW_NEW_REG) {
                         msgEl.style.color = 'var(--bad)';
                         msgEl.textContent = '⛔ Hệ thống đang khóa đăng ký mới. Vui lòng báo cô giáo!';
@@ -883,9 +917,12 @@ function bindAuthInputs() {
                             createdAt: new Date().toLocaleDateString('vi-VN')
                         };
                         db.ref('hocvan/users/' + uKey).set(newUser).then(() => {
+                            NAME = nameVal;
                             PW = newP;
+                            isStudentLoggedIn = true;
+                            updateStudentNav();
                             if ($('#pw')) $('#pw').value = newP;
-                            localStorage.setItem('hv_saved_name', nameVal);
+                            localStorage.setItem('hv_saved_name', NAME);
                             localStorage.setItem('hv_saved_pw', newP);
                             msgEl.style.color = 'var(--ok)';
                             msgEl.textContent = '✅ Đã kích hoạt tên của em và lưu mật khẩu mới thành công!';
@@ -920,59 +957,71 @@ function showAuthError(msg, targetInput) {
     }
 }
 
-function begin(k) {
-    NAME = $('#nm') ? $('#nm').value.trim() : '';
-    PW = $('#pw') ? $('#pw').value.trim() : '';
-    DEMO = $('#dm') ? $('#dm').checked : DEMO;
+function verifyStudentAuth(onSuccess, onFail) {
+    if ($('#nm')) NAME = $('#nm').value.trim();
+    if ($('#pw')) PW = $('#pw').value.trim();
 
     if (!NAME) {
-        showAuthError('⚠️ Em hãy nhập Họ và tên của mình ở Bước 1 trước khi vào bài đọc nhé!', $('#nm'));
+        showAuthError('⚠️ Em hãy nhập Họ và tên của mình ở Bước 1 trước nhé!', $('#nm'));
+        if (typeof onFail === 'function') onFail();
         return;
     }
     if (!PW) {
         showAuthError('🔑 Em hãy nhập Mật khẩu ở Bước 1 để mở khóa bài học nhé!', $('#pw'));
+        if (typeof onFail === 'function') onFail();
         return;
     }
 
     const uKey = userKey(NAME);
     if (!uKey) {
         showAuthError('⚠️ Tên không hợp lệ, em hãy nhập rõ Họ và tên nhé!', $('#nm'));
+        if (typeof onFail === 'function') onFail();
         return;
     }
 
-    const startLessonNow = () => {
+    const onAuthOk = (displayName) => {
+        if (displayName) NAME = displayName;
+        isStudentLoggedIn = true;
         localStorage.setItem('hv_saved_name', NAME);
         localStorage.setItem('hv_saved_pw', PW);
-        S = { name: NAME, lid: k, i: 0, secs: 0, ok: 0, tot: 0, rush: 0, mic: null, done: false, words: [], date: new Date().toLocaleDateString('vi-VN') };
-        upsert();
-        station();
+        updateStudentNav();
+        if (typeof onSuccess === 'function') onSuccess();
     };
 
     if (!db) {
-        // Dự phòng nếu mất kết nối Firebase
-        if (PW === MASTER_REG_PASS) startLessonNow();
-        else showAuthError('❌ Mật khẩu chưa đúng!', $('#pw'));
+        if (PW === MASTER_REG_PASS) {
+            playSound('success');
+            onAuthOk(NAME);
+        } else {
+            showAuthError('❌ Mật khẩu chưa đúng!', $('#pw'));
+            if (typeof onFail === 'function') onFail();
+        }
         return;
     }
 
-    // Kiểm tra mật khẩu trên Firebase
     db.ref('hocvan/users/' + uKey).once('value').then(snap => {
         const u = snap.val();
         if (u) {
             if (u.locked) {
+                isStudentLoggedIn = false;
+                updateStudentNav();
                 showAuthError('⛔ Tài khoản "' + NAME + '" hiện đang tạm khóa. Em vui lòng báo cô giáo nhé!', $('#nm'));
+                if (typeof onFail === 'function') onFail();
                 return;
             }
             if (String(u.pass) === String(PW)) {
                 playSound('success');
-                startLessonNow();
+                onAuthOk(u.name || NAME);
             } else {
+                isStudentLoggedIn = false;
+                updateStudentNav();
                 showAuthError('❌ Mật khẩu của "' + NAME + '" chưa đúng! (Nếu em đã đổi mật khẩu riêng, hãy nhập mật khẩu mới của em nhé).', $('#pw'));
+                if (typeof onFail === 'function') onFail();
             }
         } else {
-            // Học sinh lần đầu tiên đăng nhập với tên mới
             if (!ALLOW_NEW_REG) {
                 showAuthError('⛔ Hệ thống đang khóa tạo tài khoản mới. Em hãy gõ chính xác Họ tên đã đăng ký hoặc báo cô giáo cấp tài khoản nhé!', $('#nm'));
+                if (typeof onFail === 'function') onFail();
                 return;
             }
             if (String(PW) === String(MASTER_REG_PASS)) {
@@ -984,14 +1033,28 @@ function begin(k) {
                 };
                 db.ref('hocvan/users/' + uKey).set(newUser).then(() => {
                     playSound('success');
-                    startLessonNow();
+                    onAuthOk(NAME);
+                }).catch(() => {
+                    showAuthError('⚠️ Không thể lưu tài khoản mới lên máy chủ. Em thử lại nhé!', $('#pw'));
+                    if (typeof onFail === 'function') onFail();
                 });
             } else {
                 showAuthError('❌ Mật khẩu khởi tạo chưa đúng! Em hãy nhập đúng mật khẩu được cô giáo cấp nhé.', $('#pw'));
+                if (typeof onFail === 'function') onFail();
             }
         }
     }).catch(() => {
         showAuthError('⚠️ Lỗi kết nối mạng khi kiểm tra mật khẩu. Em thử bấm lại nhé!', $('#pw'));
+        if (typeof onFail === 'function') onFail();
+    });
+}
+
+function begin(k) {
+    DEMO = $('#dm') ? $('#dm').checked : DEMO;
+    verifyStudentAuth(() => {
+        S = { name: NAME, lid: k, i: 0, secs: 0, ok: 0, tot: 0, rush: 0, mic: null, done: false, words: [], date: new Date().toLocaleDateString('vi-VN') };
+        upsert();
+        station();
     });
 }
 
