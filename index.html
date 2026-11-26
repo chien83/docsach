@@ -389,7 +389,15 @@ let NAME = localStorage.getItem('hv_saved_name') || '';
 let PW = localStorage.getItem('hv_saved_pw') || '';
 let GR = null;
 let isAdmin = false;
+let isStudentLoggedIn = false;
 const T = n => DEMO ? Math.min(n, 3) : n;
+
+function updateStudentNav() {
+    const btnS = $('#tS');
+    if (btnS) {
+        btnS.textContent = (isStudentLoggedIn && NAME) ? ('👩‍🎓 ' + NAME) : '👩‍🎓 Học sinh';
+    }
+}
 
 const GRADES = [1, 2, 3, 4, 5];
 const BOOKS = { sgk: 'Sách giáo khoa Tiếng Việt', vm: 'Sách văn mẫu', nc: 'Sách nâng cao' };
@@ -688,16 +696,7 @@ function home() {
     const isDone = k => rs.some(r => r.name === NAME && r.lid === k && r.status === 'Hoàn thành');
 
     const demo = isAdmin ? '<label class="ck"><input type="checkbox" id="dm" ' + (DEMO ? 'checked' : '') + '> Chế độ Giáo viên xem thử (rút ngắn thời gian chờ xuống 3 giây)</label>' : '';
-    const nm = '<div class="cols" style="margin-top:10px">' +
-        '<input id="nm" maxlength="40" autocomplete="off" placeholder="👤 Nhập họ và tên..." value="' + esc(NAME) + '" style="margin-bottom:0">' +
-        '<input id="pw" type="password" maxlength="20" placeholder="🔑 Mật khẩu..." value="' + esc(PW) + '" style="margin-bottom:0">' +
-    '</div>' +
-    '<div id="auth-err" style="display:none; color:var(--bad); font-weight:800; margin-top:10px; padding:10px 14px; background:#fdecea; border-radius:10px; border-left:4px solid var(--bad);"></div>' +
-    '<div style="margin-top:10px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">' +
-        '<small style="color:#7f8c8d">💡 Lần đầu vào học: Nhập tên của em và mật khẩu cô giáo cấp.</small>' +
-        '<button type="button" id="btn-toggle-cpw" style="background:none; border:none; color:var(--pu); font-weight:800; cursor:pointer; padding:4px 0; font-size:14px; text-decoration:underline; box-shadow:none;">🔑 Đổi mật khẩu cá nhân</button>' +
-    '</div>' +
-    '<div id="cpw-box" style="display:none; margin-top:12px; padding:15px; background:#f4f1ff; border:2px dashed var(--pu); border-radius:12px;">' +
+    const cpwBox = '<div id="cpw-box" style="display:none; margin-top:12px; padding:15px; background:#f4f1ff; border:2px dashed var(--pu); border-radius:12px;">' +
         '<div style="font-weight:900; color:var(--pu); margin-bottom:10px;">🔄 Tự đổi mật khẩu riêng của em</div>' +
         '<div class="cols" style="gap:10px;">' +
             '<input id="cpw-old" type="password" maxlength="20" placeholder="Mật khẩu hiện tại..." style="margin-bottom:0; background:#fff;">' +
@@ -708,6 +707,28 @@ function home() {
             '<span id="cpw-msg" style="font-weight:800; font-size:14px;"></span>' +
         '</div>' +
     '</div>';
+
+    const nm = (isStudentLoggedIn ? (
+        '<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; padding:12px 16px; background:#e8f8f5; border:2px solid #1fae6b; border-radius:12px; margin-top:10px;">' +
+            '<div style="font-size:16px; color:#1e8449;">✅ Xin chào <b>' + esc(NAME) + '</b>! Em đã đăng nhập thành công.</div>' +
+            '<div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">' +
+                '<button type="button" id="btn-toggle-cpw" style="background:none; border:none; color:var(--pu); font-weight:800; cursor:pointer; padding:4px 0; font-size:14px; text-decoration:underline; box-shadow:none;">🔑 Đổi mật khẩu</button>' +
+                '<button type="button" id="btn-logout-stu" style="background:var(--bad); color:#fff; border:none; padding:6px 14px; border-radius:8px; font-weight:800; font-size:14px; cursor:pointer; box-shadow:none;">🚪 Đăng xuất</button>' +
+            '</div>' +
+        '</div>' +
+        '<div id="auth-err" style="display:none; color:var(--bad); font-weight:800; margin-top:10px; padding:10px 14px; background:#fdecea; border-radius:10px; border-left:4px solid var(--bad);"></div>'
+    ) : (
+        '<div class="cols" style="margin-top:10px">' +
+            '<input id="nm" maxlength="40" autocomplete="off" placeholder="👤 Nhập họ và tên..." value="' + esc(NAME) + '" style="margin-bottom:0">' +
+            '<input id="pw" type="password" maxlength="20" placeholder="🔑 Mật khẩu..." value="' + esc(PW) + '" style="margin-bottom:0">' +
+        '</div>' +
+        '<div id="auth-err" style="display:none; color:var(--bad); font-weight:800; margin-top:10px; padding:10px 14px; background:#fdecea; border-radius:10px; border-left:4px solid var(--bad);"></div>' +
+        '<div style="margin-top:12px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">' +
+            '<button type="button" id="btn-stu-login" style="background:var(--pu); color:#fff; padding:10px 22px; font-size:16px; border-radius:10px; border:none; font-weight:900; cursor:pointer; box-shadow:0 4px 0 #3a1ea3;">🔓 Đăng nhập</button>' +
+            '<button type="button" id="btn-toggle-cpw" style="background:none; border:none; color:var(--pu); font-weight:800; cursor:pointer; padding:4px 0; font-size:14px; text-decoration:underline; box-shadow:none;">🔑 Đổi mật khẩu cá nhân</button>' +
+        '</div>' +
+        '<div style="margin-top:8px;"><small style="color:#7f8c8d">💡 Lần đầu vào học: Nhập tên của em và mật khẩu cô giáo cấp rồi bấm Đăng nhập.</small></div>'
+    )) + cpwBox;
 
     if (fixed) {
         app.innerHTML = '<div class="card">' +
