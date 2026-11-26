@@ -3238,5 +3238,444 @@ window.LESSONS = {
         ],
         "glossary": "- Mắt lá răm: mắt một mí nhưng tròng to, đuôi mắt dài và sắc trông như đuôi của lá rau răm.\n- Xấp tranh: nhiều bức tranh cùng loại, xếp chồng lên nhau một cách ngay ngắn.\n- Giờ hồn: có ý nói phải coi chừng, mang tính đe doạ.",
         "mic": "Bống là một cô bé có tài hội hoạ. Người phát hiện ra điều này trước nhất là bác Lan, chị gái của bố Bống. Thực ra, lúc đầu bác Lan chỉ thấy hơi là lạ, vì con bé mới học tiểu học mà sao nó lại mê vẽ thế. Nó vẽ như người ta thở, như người ta nhìn, như người ta nghe. Nó vẽ các nàng tiên, các cô công chúa, các chàng công tử.\nCái Bống rất hay vẽ, nhưng đáng chú ý hơn là nó vẽ rất giống. Con mèo Kết ra con mèo Kết. Con chó Lu ra con chó Lu. Cây cau ra cây cau. Bố Lít nó ra bố Lít. Mẹ Phít nó cũng chẳng lẫn được với ai, cái mặt tròn như đồng xu với hai con mắt lá răm.\nBác Lan đưa tranh của Bống cho ông hoạ sĩ Phan xem để hỏi ý kiến. Ông hoạ sĩ xem cả xấp tranh vẽ con chó, con mèo, cây cau, chân dung bố và mẹ Bống thì tặc tặc lưỡi trầm trồ: “Chà chà! Vẽ như đồng cỏ đến kì nở hoa! Vẽ được lắm, được lắm!”. Đoạn, ông nói: “Còn những bức nào nữa, cho ông xem với nào!”. Bống đưa cho ông cả tập tranh giấu trong cặp. Ông trố mắt, chỉ từng bức:\n– Sao dưới bụng con gà mái mẹ lại có một hàng chấm chấm?\n– Đó là tí của nó ạ. Không có tí, gà con bú mẹ sao được ạ.\n– Thế con chuột nhắt đứng cạnh cái vòng tròn có hai chóp nhọn là cái gì?\n– Là lưng con mèo. Ý cháu là... hỡi tên chuột kia, mi hãy giờ hồn, mèo chưa quay đầu lại đâu!"
+    },
+    "L4_Thanh_am_cua_nui": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Thanh âm của núi",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 112,
+                "t": "Ai đã một lần lên Tây Bắc, được nghe tiếng khèn của người Mông, sẽ thấy nhớ, thấy thương, thấy vấn vương trong lòng... Âm thanh cây khèn của người Mông có thể làm đắm say cả những du khách khó tính nhất.\nKhèn của người Mông được chế tác bằng gỗ cùng sáu ống trúc lớn, nhỏ, dài, ngắn khác nhau. Sáu ống trúc tượng trưng cho tình anh em tụ họp. Chúng được xếp khéo léo, song song trên thân khèn. Nhìn và tưởng tượng thêm một chút thấy chúng như dòng nước đang trôi. Dòng nước đó chở thứ âm thanh huyền diệu, chảy mãi từ nguồn lịch sử cho đến tận bến bờ hiện tại.\nTiếng khèn gắn bó với người Mông mỗi khi lên nương, xuống chợ. Tiếng khèn hoà với tiếng cười reo vang náo nức khắp làng bản mỗi độ xuân về. Tiếng khèn trở thành báu vật của người Mông xưa truyền lại cho các thế hệ sau.\nĐến Tây Bắc, bạn sẽ gặp những nghệ nhân người Mông thổi khèn nơi đỉnh núi mênh mang lộng gió. Hình bóng họ in trên nền trời xanh hệt như một tuyệt tác của thiên nhiên. Núi vút ngàn cao, rừng bao la rộng cũng chẳng thể làm chìm khuất tiếng khèn đầy khát khao, dạt dào sức sống.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN (Câu 1 SGK). Em hãy đọc kĩ toàn bài. Khi lên Tây Bắc và được nghe tiếng khèn của người Mông, du khách thường có cảm nhận như thế nào?",
+                "o": [
+                    "Thấy nhớ, thấy thương, thấy vấn vương trong lòng và đắm say cả những du khách khó tính nhất.",
+                    "Thấy lạ tai, trầm buồn nhưng rất êm dịu giữa núi rừng.",
+                    "Thấy sôi động, náo nhiệt như tiếng trống ngày hội."
+                ],
+                "a": 0,
+                "h": "Em hãy đọc kĩ đoạn mở đầu: du khách 'sẽ thấy nhớ, thấy thương, thấy vấn vương trong lòng...' và âm thanh cây khèn 'làm đắm say cả những du khách khó tính nhất'."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Khèn của người Mông được chế tác bằng gỗ cùng sáu ống trúc lớn, nhỏ, dài, ngắn khác nhau. Sáu ống trúc tượng trưng cho tình anh em tụ họp. Chúng được xếp khéo léo, song song trên thân khèn. Nhìn và tưởng tượng thêm một chút thấy chúng như dòng nước đang trôi. Dòng nước đó chở thứ âm thanh huyền diệu, chảy mãi từ nguồn lịch sử cho đến tận bến bờ hiện tại.",
+                "q": "BƯỚC 2: KHÁM PHÁ CHIẾC KHÈN (Câu 2 SGK). Đóng vai một người Mông giới thiệu chiếc khèn, em hãy nối các chi tiết ở cột trái với đặc điểm và hình ảnh liên tưởng tương ứng ở cột phải nhé!",
+                "h": "Em đọc lại đoạn 2: khèn làm bằng gỗ và sáu ống trúc; sáu ống trúc tượng trưng cho tình anh em; xếp song song như dòng nước trôi chở âm thanh từ lịch sử đến hiện tại.",
+                "p": [
+                    [
+                        "Vật liệu chế tác khèn",
+                        "Gỗ cùng sáu ống trúc lớn, nhỏ, dài, ngắn khác nhau"
+                    ],
+                    [
+                        "Sáu ống trúc tụ họp",
+                        "Tượng trưng cho tình anh em đoàn kết"
+                    ],
+                    [
+                        "Cách xếp song song trên thân khèn",
+                        "Nhìn như dòng nước đang trôi"
+                    ],
+                    [
+                        "Dòng nước âm thanh huyền diệu",
+                        "Chảy mãi từ nguồn lịch sử đến hiện tại"
+                    ]
+                ]
+            },
+            {
+                "k": "multi",
+                "min": 20,
+                "t": "Tiếng khèn gắn bó với người Mông mỗi khi lên nương, xuống chợ. Tiếng khèn hoà với tiếng cười reo vang náo nức khắp làng bản mỗi độ xuân về. Tiếng khèn trở thành báu vật của người Mông xưa truyền lại cho các thế hệ sau.",
+                "q": "BƯỚC 3: BÁU VẬT CỦA NGƯỜI MÔNG (Câu 3 SGK). Vì sao tiếng khèn trở thành báu vật của người Mông? (Em hãy chọn tất cả các đáp án đúng)",
+                "o": [
+                    "Gắn bó với người Mông mỗi khi lên nương, xuống chợ.",
+                    "Hoà với tiếng cười reo vang náo nức khắp làng bản mỗi độ xuân về.",
+                    "Là nét đẹp văn hoá được người Mông xưa truyền lại cho các thế hệ sau.",
+                    "Vì chiếc khèn được làm bằng những loại đá quý hiếm nhất."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "tap",
+                "min": 20,
+                "s": [
+                    "Đến Tây Bắc, bạn sẽ gặp những nghệ nhân người Mông thổi khèn nơi đỉnh núi mênh mang lộng gió.",
+                    "Hình bóng họ in trên nền trời xanh hệt như một tuyệt tác của thiên nhiên.",
+                    "Núi vút ngàn cao, rừng bao la rộng cũng chẳng thể làm chìm khuất tiếng khèn đầy khát khao, dạt dào sức sống."
+                ],
+                "q": "BƯỚC 4: CẢM NHẬN ĐOẠN CUỐI (Câu 4 SGK). CÂU VĂN NÀO khẳng định sức sống mãnh liệt, không gì khuất phục được của tiếng khèn giữa núi rừng Tây Bắc rộng lớn? (Em hãy bấm chọn câu văn đó)",
+                "a": 2
+            },
+            {
+                "k": "choice",
+                "min": 15,
+                "t": "Qua những lời văn giàu hình ảnh về chiếc khèn, âm thanh huyền diệu và người nghệ nhân thổi khèn trên đỉnh núi Tây Bắc, bài đọc đã làm nổi bật giá trị bền vững của một nét văn hoá dân tộc.",
+                "q": "BƯỚC 5: XÁC ĐỊNH CHỦ ĐỀ BÀI ĐỌC (Câu 5 SGK). Em hãy chọn câu trả lời đúng nhất về chủ đề của bài đọc \"Thanh âm của núi\" nhé!",
+                "o": [
+                    "Nét đặc sắc của văn hoá các vùng miền trường tồn cùng thời gian.",
+                    "Các nhạc cụ dân tộc thể hiện sự sáng tạo đáng tự hào của người Việt Nam.",
+                    "Tiếng khèn của người Mông là nét văn hoá quý báu, cần được lưu giữ, bảo tồn.",
+                    "Du khách rất thích đến Tây Bắc – mảnh đất có những nét văn hoá đặc sắc."
+                ],
+                "a": 2,
+                "h": "Toàn bài ca ngợi chiếc khèn và tiếng khèn của người Mông như một báu vật truyền lại cho các thế hệ sau — đó là nét văn hoá quý báu cần được lưu giữ, bảo tồn."
+            },
+            {
+                "k": "gold",
+                "min": 25,
+                "t": "Chim *mừng, ríu cánh vỗ\n*Rủ_nhau về càng đông\nCào cào áo xanh, đỏ\n*Giã_gạo ngay ngoài đồng.\nHạt *níu hạt trĩu bông\nĐung đưa nhờ chị gió\n*Mách_tin mùa chín rộ\nĐến từng ngõ, từng nhà.",
+                "q": "BƯỚC 6: LUYỆN TỪ VÀ CÂU – HÁI TỪ NHÂN HOÁ (Bài tập 1a SGK). Trong đoạn thơ của Quang Khải, chim, cào cào, hạt lúa và chị gió có những hoạt động, cảm xúc rất giống người. Em hãy bấm hái 5 từ đó (mừng, rủ nhau, giã gạo, níu, mách tin) nhé!",
+                "h": "Em hãy tìm và bấm chọn 5 từ: mừng, rủ nhau, giã gạo, níu, mách tin."
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Trong các đoạn văn, đoạn thơ phần Luyện từ và câu, tác giả đã nhân hoá sự vật bằng 3 cách. Em hãy xếp các hình ảnh sau vào đúng giỏ: *1:thím_chích_choè, *1:nàng_gà_mái, *1:bà_chuối_mật, *1:ông_ngô_bắp, *2:reo_hát, *2:nhanh_nhảu, *2:trầm_ngâm, *3:vẫy_tay_chào, *3:Lớn_mau_lên_nhé.",
+                "q": "BƯỚC 7: LUYỆN TỪ VÀ CÂU – PHÂN LOẠI 3 CÁCH NHÂN HOÁ (Bài tập 1b, 1c & 2 SGK). Em hãy chọn từng giỏ bên dưới rồi bấm vào các hình ảnh nhân hoá phù hợp để xếp vào đúng nhóm nhé!",
+                "cats": [
+                    "Gọi bằng từ chỉ người",
+                    "Tả hoạt động, đặc điểm của người",
+                    "Trò chuyện như với người"
+                ]
+            }
+        ],
+        "glossary": "- Tây Bắc: vùng núi phía tây ở miền Bắc nước ta.\n- Vấn vương (như vương vấn): thường cứ phải nghĩ đến, nhớ đến, không dứt ra được.\n- Huyền diệu: rất kì lạ, không thể hiểu hết được.",
+        "mic": "Ai đã một lần lên Tây Bắc, được nghe tiếng khèn của người Mông, sẽ thấy nhớ, thấy thương, thấy vấn vương trong lòng... Âm thanh cây khèn của người Mông có thể làm đắm say cả những du khách khó tính nhất.\nKhèn của người Mông được chế tác bằng gỗ cùng sáu ống trúc lớn, nhỏ, dài, ngắn khác nhau. Sáu ống trúc tượng trưng cho tình anh em tụ họp. Chúng được xếp khéo léo, song song trên thân khèn. Nhìn và tưởng tượng thêm một chút thấy chúng như dòng nước đang trôi. Dòng nước đó chở thứ âm thanh huyền diệu, chảy mãi từ nguồn lịch sử cho đến tận bến bờ hiện tại.\nTiếng khèn gắn bó với người Mông mỗi khi lên nương, xuống chợ. Tiếng khèn hoà với tiếng cười reo vang náo nức khắp làng bản mỗi độ xuân về. Tiếng khèn trở thành báu vật của người Mông xưa truyền lại cho các thế hệ sau.\nĐến Tây Bắc, bạn sẽ gặp những nghệ nhân người Mông thổi khèn nơi đỉnh núi mênh mang lộng gió. Hình bóng họ in trên nền trời xanh hệt như một tuyệt tác của thiên nhiên. Núi vút ngàn cao, rừng bao la rộng cũng chẳng thể làm chìm khuất tiếng khèn đầy khát khao, dạt dào sức sống."
+    },
+    "L4_Bau_troi_mua_thu": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Bầu trời mùa thu",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 150,
+                "t": "Giờ học hôm nay, thầy giáo cùng cả lớp đi ra cánh đồng. Buổi sáng mùa thu mát mẻ. Thầy nói:\n– Các em hãy nhìn lên bầu trời. Mùa hè, nó rất nóng với những tia nắng mặt trời chói chang. Còn bây giờ, bầu trời thế nào? Các em hãy suy nghĩ và chọn những từ ngữ thích hợp để nói về bầu trời.\nCác cô cậu học trò nhìn lên trời và suy nghĩ. Sau vài phút, một em nói:\n– Bầu trời xanh như mặt nước mệt mỏi trong ao.\n– Vì sao mặt nước lại mệt mỏi? – Thầy hỏi.\n– Thưa thầy, mùa hè, nước dạo chơi cùng những làn sóng. Mùa thu, nó mệt nên đứng yên với màu xanh nhạt.\nCác bạn khác tiếp tục nói:\n– Bầu trời được rửa mặt sau cơn mưa.\n– Bầu trời xanh biếc.\nThấy cô bé Va-li-a vẻ mặt đăm chiêu, thầy giáo hỏi:\n– Còn Va-li-a, vì sao em im lặng thế?\n– Em muốn nói bằng những từ ngữ của mình.\n– Em đã tìm được chưa?\n– Bầu trời dịu dàng. – Va-li-a khẽ nói và mỉm cười.\nSau đó, mỗi em đều muốn nói về bầu trời bằng những từ ngữ của riêng mình:\n– Bầu trời buồn bã. Những đám mây xám đang từ phương bắc trôi tới.\n– Bầu trời trầm ngâm. Nó nhớ đến tiếng hót của bầy chim sơn ca.\n– Bầu trời ghé sát mặt đất. Mùa hè, nó cao hơn và có những con chim én bay lượn. Còn bây giờ, chẳng có chim én nữa, vì thế bầu trời cúi xuống lắng nghe để tìm xem chim én đang ở trong bụi cây hay ở nơi nào.\nCứ thế, các cô cậu hào hứng suy nghĩ và tưởng tượng để nói về bầu trời theo cách của riêng mình.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN (Câu 1 SGK). Em hãy đọc kĩ toàn bài. Trong giờ học ngoài cánh đồng, thầy giáo đã giao cho các bạn học sinh nhiệm vụ gì?",
+                "o": [
+                    "Nhìn lên bầu trời mùa thu, suy nghĩ và chọn những từ ngữ thích hợp để nói về bầu trời.",
+                    "Vẽ một bức tranh cánh đồng mùa thu rồi kể lại cho các bạn nghe.",
+                    "Tìm xem đàn chim én và bầy chim sơn ca đang trốn ở bụi cây nào."
+                ],
+                "a": 0,
+                "h": "Em hãy đọc lại lời thầy giáo ở đầu bài: thầy bảo các em nhìn lên bầu trời, suy nghĩ và chọn những từ ngữ thích hợp để nói về bầu trời mùa thu."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Các bạn học sinh đã tưởng tượng và miêu tả bầu trời mùa thu bằng những hình ảnh rất phong phú, giàu cảm xúc.",
+                "q": "BƯỚC 2: KHÁM PHÁ CÁC CÂU VĂN TẢ BẦU TRỜI (Câu 2 & 3 SGK). Em hãy nối mỗi câu tả bầu trời ở cột trái với hình ảnh hoặc cách cảm nhận tương ứng ở cột phải nhé!",
+                "h": "Em hãy nhớ lại lời của từng bạn nhỏ trong bài: mặt nước mệt nên đứng yên màu xanh nhạt, Va-li-a nói 'Bầu trời dịu dàng', còn bầu trời ghé sát mặt đất để lắng nghe tìm chim én.",
+                "p": [
+                    [
+                        "Bầu trời xanh như mặt nước mệt mỏi",
+                        "Mùa thu nước đứng yên với màu xanh nhạt"
+                    ],
+                    [
+                        "Bầu trời được rửa mặt sau cơn mưa",
+                        "Bầu trời sạch sẽ, tươi mát và trong trẻo"
+                    ],
+                    [
+                        "Bầu trời dịu dàng",
+                        "Cách tả nhẹ nhàng, riêng biệt của cô bé Va-li-a"
+                    ],
+                    [
+                        "Bầu trời ghé sát mặt đất",
+                        "Bầu trời cúi xuống lắng nghe để tìm bầy chim én"
+                    ]
+                ]
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "– Bầu trời được rửa mặt sau cơn mưa.\n– Bầu trời dịu dàng.\n– Bầu trời buồn bã. Những đám mây xám đang từ phương bắc trôi tới.\n– Bầu trời trầm ngâm. Nó nhớ đến tiếng hót của bầy chim sơn ca.\n– Bầu trời ghé sát mặt đất... cúi xuống lắng nghe để tìm xem chim én đang ở trong bụi cây hay ở nơi nào.",
+                "q": "BƯỚC 3: PHÂN TÍCH CÁCH TẢ & CẢM NHẬN (Câu 2 & 4 SGK). Vì sao hình ảnh bầu trời trong câu văn của mỗi bạn nhỏ rất khác nhau và sinh động đến vậy? (Chọn nhiều đáp án đúng)",
+                "o": [
+                    "Mỗi bạn có cách quan sát tinh tế và cảm xúc riêng trước bầu trời mùa thu.",
+                    "Mỗi bạn có trí tưởng tượng phong phú và muốn nói bằng từ ngữ của riêng mình.",
+                    "Các bạn đã dùng biện pháp nhân hoá khiến bầu trời gần gũi, có tâm trạng như con người.",
+                    "Vì mỗi bạn đang đứng ngắm bầu trời ở một mùa khác nhau trong năm."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 25,
+                "t": "Các bạn nhỏ miêu tả bầu trời mùa thu thật sinh động như con người: khi thì được *rửa_mặt sau cơn mưa, lúc lại *dịu_dàng, *buồn_bã hay *trầm_ngâm nhớ tiếng hót chim sơn ca, rồi *ghé_sát mặt đất và cúi xuống *lắng_nghe để tìm bầy chim én.",
+                "q": "BƯỚC 4: THU HOẠCH TỪ NGỮ NHÂN HOÁ. Em hãy bấm hái 6 từ ngữ nhân hoá dùng để miêu tả hoạt động, tính cách, tâm trạng của bầu trời mùa thu trong đoạn văn trên nhé!",
+                "h": "Em hãy tìm và bấm chọn 6 từ ngữ chỉ hoạt động, tính cách, tâm trạng của con người: rửa mặt, dịu dàng, buồn bã, trầm ngâm, ghé sát, lắng nghe."
+            },
+            {
+                "k": "choice",
+                "min": 20,
+                "t": "Trong bài đọc \"Bầu trời mùa thu\", các bạn học sinh đã vận dụng rất khéo léo biện pháp so sánh và biện pháp nhân hoá để câu văn thêm sinh động.",
+                "q": "BƯỚC 5: LUYỆN TẬP THEO VĂN BẢN ĐỌC (Câu 1 SGK). Câu văn nào dưới đây sử dụng CẢ HAI biện pháp so sánh và nhân hoá?",
+                "o": [
+                    "Bầu trời xanh như mặt nước mệt mỏi trong ao.",
+                    "Mùa hè, nước dạo chơi cùng những làn sóng.",
+                    "Bầu trời được rửa mặt sau cơn mưa.",
+                    "Bầu trời dịu dàng."
+                ],
+                "a": 0,
+                "h": "Em hãy tìm câu vừa có từ so sánh 'như' ('xanh như mặt nước'), vừa có từ ngữ nhân hoá chỉ trạng thái của con người ('mệt mỏi')."
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Những chị *1:mây trắng *2:dạo_chơi trên cao; cô *1:gió *2:hát_ru hàng cây; tia *1:nắng sớm *2:nhảy_nhót ngoài sân; hạt *1:mưa *2:thì_thầm cùng lá; còn cơn *1:bão thì *2:giận_dữ ngoài khơi.",
+                "q": "BƯỚC 6: LUYỆN TẬP TẢ HIỆN TƯỢNG TỰ NHIÊN (Câu 2 SGK). Để đặt câu tả các hiện tượng tự nhiên (mây, gió, nắng, mưa, bão) có biện pháp nhân hoá, em hãy xếp các từ ngữ trong câu mẫu vào đúng 2 giỏ nhé!",
+                "cats": [
+                    "Hiện tượng tự nhiên",
+                    "Từ ngữ nhân hoá"
+                ]
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "Để viết được những câu văn tả bầu trời mùa thu hay và giàu cảm xúc, chúng ta cần biết {quan_sát} kĩ lưỡng, phát huy trí {tưởng_tượng} phong phú và diễn đạt bằng từ ngữ của {riêng_mình} kết hợp với biện pháp {nhân_hoá}.",
+                "q": "BƯỚC 7: ĐÚC KẾT BÍ QUYẾT VIẾT VĂN (Câu 4 & 5 SGK). Em hãy chọn từ ngữ thích hợp điền vào các chỗ trống để ghi nhớ cách viết câu văn tả bầu trời hay nhé!"
+            }
+        ],
+        "glossary": "- Trầm ngâm: có dáng vẻ đang suy nghĩ, nghiền ngẫm điều gì.",
+        "mic": "Giờ học hôm nay, thầy giáo cùng cả lớp đi ra cánh đồng. Buổi sáng mùa thu mát mẻ. Thầy nói:\n– Các em hãy nhìn lên bầu trời. Mùa hè, nó rất nóng với những tia nắng mặt trời chói chang. Còn bây giờ, bầu trời thế nào? Các em hãy suy nghĩ và chọn những từ ngữ thích hợp để nói về bầu trời.\nCác cô cậu học trò nhìn lên trời và suy nghĩ. Sau vài phút, một em nói:\n– Bầu trời xanh như mặt nước mệt mỏi trong ao.\n– Vì sao mặt nước lại mệt mỏi? – Thầy hỏi.\n– Thưa thầy, mùa hè, nước dạo chơi cùng những làn sóng. Mùa thu, nó mệt nên đứng yên với màu xanh nhạt.\nCác bạn khác tiếp tục nói:\n– Bầu trời được rửa mặt sau cơn mưa.\n– Bầu trời xanh biếc.\nThấy cô bé Va-li-a vẻ mặt đăm chiêu, thầy giáo hỏi:\n– Còn Va-li-a, vì sao em im lặng thế?\n– Em muốn nói bằng những từ ngữ của mình.\n– Em đã tìm được chưa?\n– Bầu trời dịu dàng. – Va-li-a khẽ nói và mỉm cười.\nSau đó, mỗi em đều muốn nói về bầu trời bằng những từ ngữ của riêng mình:\n– Bầu trời buồn bã. Những đám mây xám đang từ phương bắc trôi tới.\n– Bầu trời trầm ngâm. Nó nhớ đến tiếng hót của bầy chim sơn ca.\n– Bầu trời ghé sát mặt đất. Mùa hè, nó cao hơn và có những con chim én bay lượn. Còn bây giờ, chẳng có chim én nữa, vì thế bầu trời cúi xuống lắng nghe để tìm xem chim én đang ở trong bụi cây hay ở nơi nào.\nCứ thế, các cô cậu hào hứng suy nghĩ và tưởng tượng để nói về bầu trời theo cách của riêng mình."
+    },
+    "L4_Buc_tuong_co_nhieu_phep_la": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Bức tường có nhiều phép lạ",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 165,
+                "t": "Quy chống tay, tì má, nhìn lên bức tường trước mặt. Màu vôi xanh mát hiện ra như tấm màn ảnh rộng. Quy đọc nhẩm đề bài tập làm văn: “Em hãy tả lại quang cảnh một trận mưa rào.”. Quy thở dài: “Trời thì nắng mà bài văn lại yêu cầu tả mưa.”.\nQuy nghĩ đến bố. Bố Quy là một người viết văn. Bố tài thật, cứ ngồi vào bàn là bố viết được ngay. Cũng có khi, bố tì cằm lên tay, nhìn thẳng vào bức tường trước mặt. Nhìn một lúc, lúc nữa... rồi bố cầm bút, viết lia lịa, quên cả ăn cơm. Bức tường này có phép lạ gì đây? Nhưng sao Quy nhìn mãi mà bức tường chưa bảo Quy cách làm bài?\nBố vào. Đúng lúc quá!\nQuy chạy lại:\n– Bố ạ, con nhìn mãi bức tường như bố nhìn mà chẳng thấy trận mưa rào đâu cả.\nBố hiểu ngay, tủm tỉm:\n– Bố thấy những trận mưa rào hồi năm ngoái, năm kia. Con chạy ra nghịch mưa, ướt hết.\nQuy nhoẻn miệng cười:\n– Vâng.\n– Bố còn gặp lại trận mưa bão khi bố còn bé tí. Bà nội đi cấy về, sấm chớp liên hồi.\nQuy chớp mắt:\n– Bố có thấy cái thuyền giấy con thả ở rãnh nước không ạ?\n– Có chứ!\n– Cả chiếc ô tô chạy trong mưa? Hôm ấy, trời đang nắng thì mưa...\nBố lại tủm tỉm:\n– Thế mà con bảo chẳng thấy gì.\nQuy ngơ ngác:\n– Thật đấy ạ.\n– Bây giờ con ngồi vào bàn. Mắt nhìn bức tường, nhưng con hãy nghĩ đến những trận mưa mà con biết!\nQuy ngồi vào bàn, nhìn lên bức tường và thấy chiếc thuyền giấy trôi bồng bềnh giữa sân, những vai áo ướt sũng nước mưa của người đi cày, những hạt mưa đan nhau rơi xuống rào rào,...\nQuy cầm bút, cắm cúi viết, quên cả ngẩng lên nhìn bức tường có nhiều phép lạ.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN (Câu 1 SGK). Em hãy đọc kĩ toàn bài. Chi tiết nào miêu tả không gian nơi Quy đang ngồi học?",
+                "o": [
+                    "Trước mặt là bức tường có màu vôi xanh mát hiện ra như tấm màn ảnh rộng.",
+                    "Trước bàn học là ô cửa sổ rộng mở hướng ra cánh đồng đang mưa rào.",
+                    "Trên bức tường trước mặt treo đầy những bức tranh vẽ chiếc thuyền giấy và ô tô."
+                ],
+                "a": 0,
+                "h": "Em hãy đọc lại ngay hai câu mở đầu bài đọc: Quy nhìn lên bức tường trước mặt, nơi có 'màu vôi xanh mát hiện ra như tấm màn ảnh rộng'."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Quy chống tay, tì má, nhìn lên bức tường và thở dài vì trời đang nắng mà bài văn lại yêu cầu tả mưa. Quy nhớ bố cứ nhìn thẳng vào bức tường một lúc rồi cầm bút viết lia lịa, quên cả ăn cơm, nên thắc mắc bức tường này có phép lạ gì.",
+                "q": "BƯỚC 2: KHÓ KHĂN VÀ SUY NGHĨ CỦA QUY (Câu 2 & 3 SGK). Em hãy nối mỗi chi tiết trong bài ở cột trái với ý nghĩa tương ứng ở cột phải nhé!",
+                "h": "Em nhớ lại mạch truyện: Quy chống tay, thở dài vì bí ý; thấy bố nhìn tường rồi viết lia lịa nên tưởng tường có phép lạ; nhờ bố tủm tỉm gợi chuyện mưa, Quy mới nhớ ra kỉ niệm.",
+                "p": [
+                    [
+                        "Chống tay, tì má, thở dài khi đọc đề bài",
+                        "Cho thấy Quy đang gặp khó khăn với bài văn tả mưa"
+                    ],
+                    [
+                        "Bố nhìn bức tường rồi cầm bút viết lia lịa",
+                        "Khiến Quy ngỡ bức tường vôi xanh có phép lạ"
+                    ],
+                    [
+                        "Quy chạy lại hỏi bố vì nhìn mãi chẳng thấy mưa",
+                        "Thể hiện sự ngây thơ và lúng túng của Quy"
+                    ],
+                    [
+                        "Bố tủm tỉm kể lại những trận mưa năm ngoái",
+                        "Giúp Quy mở ra mạch suy nghĩ và kỉ niệm"
+                    ]
+                ]
+            },
+            {
+                "k": "choice",
+                "min": 20,
+                "t": "– Bố thấy những trận mưa rào hồi năm ngoái, năm kia. Con chạy ra nghịch mưa, ướt hết.\n– Bố còn gặp lại trận mưa bão khi bố còn bé tí. Bà nội đi cấy về, sấm chớp liên hồi.\n– Bây giờ con ngồi vào bàn. Mắt nhìn bức tường, nhưng con hãy nghĩ đến những trận mưa mà con biết!",
+                "q": "BƯỚC 3: HIỂU DỤNG Ý CỦA BỐ (Câu 4 SGK). Vì sao bố kể cho Quy nghe về những trận mưa? Em hãy chọn câu trả lời đúng nhất!",
+                "o": [
+                    "Vì những trận mưa gắn với kỉ niệm tuổi thơ của bố.",
+                    "Vì bố muốn Quy tả những trận mưa mà bố đã từng gặp.",
+                    "Vì bố muốn gợi cho Quy nhớ lại những trận mưa mà Quy đã gặp.",
+                    "Vì bố muốn Quy nhớ về bà nội của mình."
+                ],
+                "a": 2,
+                "h": "Bố kể chuyện mưa rào năm ngoái và mưa bão năm xưa là để đánh thức kí ức, gợi cho Quy tự nhớ lại những trận mưa mà chính Quy đã từng chứng kiến."
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Quy ngồi vào bàn, nhìn lên bức tường và thấy chiếc thuyền giấy trôi bồng bềnh giữa sân, những vai áo ướt sũng nước mưa của người đi cày, những hạt mưa đan nhau rơi xuống rào rào,...\nQuy cầm bút, cắm cúi viết, quên cả ngẩng lên nhìn bức tường có nhiều phép lạ.",
+                "q": "BƯỚC 4: PHÉP LẠ ĐẾN TỪ ĐÂU? (Câu 5 SGK). Vì sao cuối cùng Quy có thể cắm cúi viết bài văn mà không cần nhìn bức tường có nhiều phép lạ nữa? (Chọn nhiều đáp án đúng)",
+                "o": [
+                    "Vì Quy đã nhớ lại được những trận mưa thực tế mà mình từng chứng kiến.",
+                    "Vì trong đầu Quy hiện lên rõ nét hình ảnh thuyền giấy, vai áo ướt sũng và hạt mưa rơi.",
+                    "Vì Quy đã biết vận dụng trí tưởng tượng và cảm xúc của chính mình để viết.",
+                    "Vì bức tường vôi xanh bỗng hiện chữ hướng dẫn từng câu cho Quy chép lại."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 25,
+                "t": "Màu vôi *xanh_mát hiện ra như tấm màn ảnh *rộng. Ngồi vào bàn, bố cầm bút viết *lia_lịa, còn Quy tưởng tượng ra chiếc thuyền giấy trôi *bồng_bềnh giữa sân, những vai áo *ướt_sũng nước mưa của người đi cày và hạt mưa rơi xuống *rào_rào.",
+                "q": "BƯỚC 5: LUYỆN TẬP – TÌM TÍNH TỪ TRONG BÀI (Câu 1 Luyện tập SGK). Em hãy bấm hái 6 tính từ chỉ đặc điểm của sự vật và hoạt động có trong bài \"Bức tường có nhiều phép lạ\" nhé!",
+                "h": "Em hãy tìm và bấm chọn 6 tính từ: xanh mát, rộng, lia lịa, bồng bềnh, ướt sũng, rào rào."
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Mới đầu, hạt mưa rơi *1:tí_tách trên mái lá *2:xanh_mướt rồi gõ *1:lộp_độp xuống hiên nhà. Chẳng mấy chốc, cơn mưa đổ xuống *1:rào_rào, *1:ào_ào làm con đường làng *2:trắng_xoá và mặt đất *2:ướt_đẫm, *2:mát_lạnh.",
+                "q": "BƯỚC 6: LUYỆN TẬP – VỐN TỪ TẢ CƠN MƯA (Câu 2 Luyện tập SGK). Để viết đoạn văn tả cơn mưa thật sinh động, em hãy xếp các tính từ trong đoạn mẫu vào đúng 2 giỏ nhé!",
+                "cats": [
+                    "Tính từ tả tiếng mưa",
+                    "Tính từ tả cảnh vật trong mưa"
+                ]
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "Phép lạ thật sự không nằm trên bức tường vôi xanh mà ở chính tâm trí của người viết. Để làm được bài văn hay, chúng ta cần biết {quan_sát} cuộc sống xung quanh, gợi nhớ những {kỉ_niệm} thực tế và kết hợp với trí {tưởng_tượng} phong phú để viết nên những trang văn {chân_thật}.",
+                "q": "BƯỚC 7: ĐÚC KẾT BÍ QUYẾT LÀM VĂN HAY. Em hãy điền 4 từ khóa vào chỗ trống để ghi nhớ bài học ý nghĩa từ câu chuyện của Quy nhé!"
+            }
+        ],
+        "glossary": "- Lia lịa: liên tiếp và rất nhanh, không ngừng nghỉ.\n- Tủm tỉm: cười khẽ, kín đáo, không mở miệng, thể hiện vẻ vui thích, hóm hỉnh.\n- Bồng bềnh: nổi lên và nhấp nhô nhẹ nhàng theo mặt nước.",
+        "mic": "Quy chống tay, tì má, nhìn lên bức tường trước mặt. Màu vôi xanh mát hiện ra như tấm màn ảnh rộng. Quy đọc nhẩm đề bài tập làm văn: “Em hãy tả lại quang cảnh một trận mưa rào.”. Quy thở dài: “Trời thì nắng mà bài văn lại yêu cầu tả mưa.”.\nQuy nghĩ đến bố. Bố Quy là một người viết văn. Bố tài thật, cứ ngồi vào bàn là bố viết được ngay. Cũng có khi, bố tì cằm lên tay, nhìn thẳng vào bức tường trước mặt. Nhìn một lúc, lúc nữa... rồi bố cầm bút, viết lia lịa, quên cả ăn cơm. Bức tường này có phép lạ gì đây? Nhưng sao Quy nhìn mãi mà bức tường chưa bảo Quy cách làm bài?\nBố vào. Đúng lúc quá!\nQuy chạy lại:\n– Bố ạ, con nhìn mãi bức tường như bố nhìn mà chẳng thấy trận mưa rào đâu cả.\nBố hiểu ngay, tủm tỉm:\n– Bố thấy những trận mưa rào hồi năm ngoái, năm kia. Con chạy ra nghịch mưa, ướt hết.\nQuy nhoẻn miệng cười:\n– Vâng.\n– Bố còn gặp lại trận mưa bão khi bố còn bé tí. Bà nội đi cấy về, sấm chớp liên hồi.\nQuy chớp mắt:\n– Bố có thấy cái thuyền giấy con thả ở rãnh nước không ạ?\n– Có chứ!\n– Cả chiếc ô tô chạy trong mưa? Hôm ấy, trời đang nắng thì mưa...\nBố lại tủm tỉm:\n– Thế mà con bảo chẳng thấy gì.\nQuy ngơ ngác:\n– Thật đấy ạ.\n– Bây giờ con ngồi vào bàn. Mắt nhìn bức tường, nhưng con hãy nghĩ đến những trận mưa mà con biết!\nQuy ngồi vào bàn, nhìn lên bức tường và thấy chiếc thuyền giấy trôi bồng bềnh giữa sân, những vai áo ướt sũng nước mưa của người đi cày, những hạt mưa đan nhau rơi xuống rào rào,...\nQuy cầm bút, cắm cúi viết, quên cả ngẩng lên nhìn bức tường có nhiều phép lạ."
+    },
+    "L4_Bet_to_ven_va_Ban_xo_nat_Anh_trang": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Bét-tô-ven và Bản xô-nát Ánh trăng",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 168,
+                "t": "Lút-vích van Bét-tô-ven là một nhà soạn nhạc cổ điển lừng danh thế giới. Trong sự nghiệp sáng tác đồ sộ của ông, Bản xô-nát Ánh trăng là tác phẩm bất hủ gắn liền với một câu chuyện vô cùng cảm động.\nChuyện kể rằng vào một buổi tối trăng thanh gió mát ở thành Viên, Bét-tô-ven dạo bước trên cây cầu bắc qua dòng sông Đa-nuýp thơ mộng. Đứng giữa bầu không khí tĩnh mịch, ông say mê chiêm ngưỡng mặt nước lấp lánh ánh bạc. Bỗng đâu, tiếng đàn dương cầm thánh thót từ phía khu phố lao động vọng tới. Lần theo âm thanh ấy, ông tìm đến một ngôi nhà nhỏ đơn sơ và bắt gặp người cha đang lặng lẽ ngồi nghe cô con gái khiếm thị chơi đàn.\nNhận ra vị nhạc sĩ thiên tài, người cha buồn bã tâm sự rằng ước nguyện lớn nhất đời của con gái ông là được một lần ngắm nhìn ánh trăng soi bóng trên dòng sông Đa-nuýp. Thế nhưng ông vô cùng xót xa vì đôi mắt con không thể nhìn thấy, còn bản thân ông chẳng biết làm cách nào để giúp con thực hiện giấc mơ ấy.\nXúc động trước tình phụ tử sâu nặng và tiếng đàn tha thiết của cô gái, Bét-tô-ven lặng lẽ tiến lại bên cây dương cầm rồi đặt tay lên phím. Những giai điệu ngẫu hứng tuôn chảy từ trái tim nhân hậu của ông, khi êm dịu, nhẹ nhàng như dải lụa ánh trăng, lúc lại cuộn trào, mạnh mẽ như những con sóng lớn trên sông. Trong tâm tưởng hai cha con, mọi nỗi nhọc nhằn thường nhật dường như tan biến, chỉ còn lại một khung cảnh huyền ảo, lung linh ngập tràn ánh sáng. Cô gái trẻ ngỡ như mình đang thực sự ngắm nhìn và đùa vui cùng ánh trăng trên mặt sông quê hương.\nBản xô-nát Ánh trăng nổi tiếng đã ra đời từ đêm trăng kì diệu ấy.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN (Câu 1 SGK). Em hãy đọc kĩ toàn bài. Đoạn mở đầu giới thiệu những gì về Bét-tô-ven?",
+                "o": [
+                    "Ông là nhà soạn nhạc cổ điển lừng danh thế giới và là tác giả của Bản xô-nát Ánh trăng nổi tiếng.",
+                    "Ông là một họa sĩ vẽ tranh phong cảnh sông Đa-nuýp nổi tiếng ở thành Viên.",
+                    "Ông là người thợ chế tạo đàn dương cầm đầu tiên tại châu Âu."
+                ],
+                "a": 0,
+                "h": "Em hãy đọc lại ngay hai câu đầu tiên của bài đọc để biết nghề nghiệp và tác phẩm nổi tiếng của Bét-tô-ven nhé."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Một đêm trăng sáng ở thành Viên, tiếng đàn dương cầm từ khu phố lao động đã đưa Bét-tô-ven đến với hai cha con cô gái khiếm thị. Cảm động trước tình cha con và ước mơ của cô gái, ông đã ngồi vào đàn và chơi một bản nhạc tuyệt đẹp.",
+                "q": "BƯỚC 2: KHÁM PHÁ CÂU CHUYỆN RA ĐỜI BẢN NHẠC (Câu 2 & 3 SGK). Em hãy nối mỗi chi tiết ở cột trái với nội dung tương ứng ở cột phải nhé!",
+                "h": "Em hãy nhớ lại trình tự cuộc gặp gỡ: Bét-tô-ven nghe tiếng đàn đến ngôi nhà nhỏ, biết ước mơ ngắm trăng của cô gái và nỗi buồn của người cha nên đã chơi đàn tặng hai cha con.",
+                "p": [
+                    [
+                        "Hoàn cảnh gặp gỡ hai cha con",
+                        "Đêm trăng sáng, lần theo tiếng đàn dương cầm vào ngôi nhà nhỏ"
+                    ],
+                    [
+                        "Ước mơ của cô gái khiếm thị",
+                        "Được một lần ngắm nhìn ánh trăng trên dòng sông Đa-nuýp"
+                    ],
+                    [
+                        "Nỗi buồn của người cha",
+                        "Xót xa vì không thể giúp con thực hiện ước mơ"
+                    ],
+                    [
+                        "Việc làm của Bét-tô-ven",
+                        "Ngồi vào cây dương cầm và chơi bản nhạc chan chứa yêu thương"
+                    ]
+                ]
+            },
+            {
+                "k": "tap",
+                "min": 20,
+                "s": [
+                    "Xúc động trước tình phụ tử sâu nặng và tiếng đàn tha thiết của cô gái, Bét-tô-ven lặng lẽ tiến lại bên cây dương cầm rồi đặt tay lên phím.",
+                    "Những giai điệu ngẫu hứng tuôn chảy từ trái tim nhân hậu của ông, khi êm dịu, nhẹ nhàng như dải lụa ánh trăng, lúc lại cuộn trào, mạnh mẽ như những con sóng lớn trên sông.",
+                    "Trong tâm tưởng hai cha con, mọi nỗi nhọc nhằn thường nhật dường như tan biến, chỉ còn lại một khung cảnh huyền ảo, lung linh ngập tràn ánh sáng.",
+                    "Cô gái trẻ ngỡ như mình đang thực sự ngắm nhìn và đùa vui cùng ánh trăng trên mặt sông quê hương."
+                ],
+                "q": "BƯỚC 3: CẢM NHẬN VẺ ĐẸP BẢN NHẠC (Câu 4 SGK). CÂU VĂN NÀO miêu tả trực tiếp những giai điệu lúc êm dịu như ánh trăng, lúc mạnh mẽ như sóng sông Đa-nuýp của bản nhạc? (Em hãy bấm chọn câu văn đó)",
+                "a": 1
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Bản nhạc của Bét-tô-ven mang đến cho hai cha con một thế giới huyền ảo, lung linh ngập tràn ánh sáng, khiến cô gái trẻ có cảm giác như đang thực sự ngắm nhìn và đùa vui cùng ánh trăng trên dòng sông Đa-nuýp.",
+                "q": "BƯỚC 4: Ý NGHĨA TÊN GỌI \"BẢN XÔ-NÁT ÁNH TRĂNG\" (Câu 5 SGK). Vì sao bản nhạc Bét-tô-ven dành tặng cô gái khiếm thị có tên gọi như vậy? (Em hãy chọn tất cả các đáp án đúng)",
+                "o": [
+                    "Vì bản nhạc ra đời vào một đêm trăng sáng bên dòng sông Đa-nuýp thơ mộng.",
+                    "Vì giai điệu êm dịu, lung linh gợi lên khung cảnh ngập tràn ánh trăng.",
+                    "Vì bản nhạc đã giúp cô gái cảm nhận và thực hiện ước mơ ngắm ánh trăng trên sông.",
+                    "Vì cây đàn dương cầm trong nhà được sơn màu vàng giống mặt trăng."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Giữa thành Viên bên dòng sông *2:thơ_mộng, *2:lấp_lánh và *2:tĩnh_mịch, tiếng đàn *1:tha_thiết cất lên rồi hòa cùng giai điệu lúc *1:êm_dịu, *1:nhẹ_nhàng, lúc *1:mạnh_mẽ vẽ nên khung cảnh *2:lung_linh ngập tràn ánh trăng.",
+                "q": "BƯỚC 5: LUYỆN TỪ VÀ CÂU – TÌM TÍNH TỪ TRONG BÀI (Bài tập 1 SGK). Em hãy chọn từng giỏ rồi bấm vào các tính từ để xếp vào đúng 2 nhóm: đặc điểm của tiếng nhạc và đặc điểm của dòng sông, cảnh đêm trăng nhé!",
+                "cats": [
+                    "Tính từ chỉ đặc điểm của tiếng nhạc",
+                    "Tính từ chỉ đặc điểm của dòng sông, cảnh vật"
+                ]
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Trong tiếng Việt có rất nhiều cụm từ so sánh giàu hình ảnh dùng tính từ (trắng, đen, đỏ, hiền, xấu, đẹp) để làm nổi bật mức độ của đặc điểm.",
+                "q": "BƯỚC 6: LUYỆN TỪ VÀ CÂU – GHÉP TÍNH TỪ SO SÁNH (Bài tập 2 SGK). Em hãy nối mỗi tính từ ở cột trái với vế so sánh thích hợp ở cột phải để tạo thành cụm từ quen thuộc nhé!",
+                "h": "Hãy nhẩm lại các câu nói quen thuộc trong dân gian: hiền như bụt, đen như than, đỏ như gấc, xấu như ma, trắng như tuyết, đẹp như tiên.",
+                "p": [
+                    [
+                        "hiền",
+                        "như bụt"
+                    ],
+                    [
+                        "đen",
+                        "như than"
+                    ],
+                    [
+                        "đỏ",
+                        "như gấc"
+                    ],
+                    [
+                        "xấu",
+                        "như ma"
+                    ],
+                    [
+                        "trắng",
+                        "như tuyết"
+                    ],
+                    [
+                        "đẹp",
+                        "như tiên"
+                    ]
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 25,
+                "t": "Em dạo bước quanh làng quê\nLũy tre *xanh_ngắt rì rào gió đưa\nMặt ao *xanh_mát buổi trưa\nCánh đồng *xanh_biếc lúa vừa trổ bông\nBầu trời *xanh_thẳm mênh mông\nMái trường ngói đỏ tươi hồng nắng mai.",
+                "q": "BƯỚC 7: LUYỆN TỪ VÀ CÂU – TÌM TÍNH TỪ CHỈ MÀU XANH (Vận dụng Bài tập 3 SGK). Em hãy bấm hái 4 tính từ miêu tả các sắc độ màu xanh khác nhau của lũy tre, mặt ao, cánh đồng và bầu trời trong đoạn thơ trên nhé!",
+                "h": "Em hãy tìm và bấm chọn 4 tính từ chỉ màu xanh: xanh ngắt, xanh mát, xanh biếc, xanh thẳm."
+            }
+        ],
+        "glossary": "- Xô-nát: một thể loại nhạc cổ điển thường gồm ba hoặc bốn chương nối tiếp nhau với nhịp điệu khác nhau.\n- Sông Đa-nuýp: con sông lớn đứng thứ hai ở châu Âu, chảy qua nhiều quốc gia trong đó có nước Áo.\n- Thành Viên: thủ đô nổi tiếng về âm nhạc cổ điển của nước Áo.\n- Đàn dương cầm: tên gọi khác của đàn pi-a-nô.",
+        "mic": "Lút-vích van Bét-tô-ven là một nhà soạn nhạc cổ điển lừng danh thế giới. Trong sự nghiệp sáng tác đồ sộ của ông, Bản xô-nát Ánh trăng là tác phẩm bất hủ gắn liền với một câu chuyện vô cùng cảm động.\nChuyện kể rằng vào một buổi tối trăng thanh gió mát ở thành Viên, Bét-tô-ven dạo bước trên cây cầu bắc qua dòng sông Đa-nuýp thơ mộng. Đứng giữa bầu không khí tĩnh mịch, ông say mê chiêm ngưỡng mặt nước lấp lánh ánh bạc. Bỗng đâu, tiếng đàn dương cầm thánh thót từ phía khu phố lao động vọng tới. Lần theo âm thanh ấy, ông tìm đến một ngôi nhà nhỏ đơn sơ và bắt gặp người cha đang lặng lẽ ngồi nghe cô con gái khiếm thị chơi đàn.\nNhận ra vị nhạc sĩ thiên tài, người cha buồn bã tâm sự rằng ước nguyện lớn nhất đời của con gái ông là được một lần ngắm nhìn ánh trăng soi bóng trên dòng sông Đa-nuýp. Thế nhưng ông vô cùng xót xa vì đôi mắt con không thể nhìn thấy, còn bản thân ông chẳng biết làm cách nào để giúp con thực hiện giấc mơ ấy.\nXúc động trước tình phụ tử sâu nặng và tiếng đàn tha thiết của cô gái, Bét-tô-ven lặng lẽ tiến lại bên cây dương cầm rồi đặt tay lên phím. Những giai điệu ngẫu hứng tuôn chảy từ trái tim nhân hậu của ông, khi êm dịu, nhẹ nhàng như dải lụa ánh trăng, lúc lại cuộn trào, mạnh mẽ như những con sóng lớn trên sông. Trong tâm tưởng hai cha con, mọi nỗi nhọc nhằn thường nhật dường như tan biến, chỉ còn lại một khung cảnh huyền ảo, lung linh ngập tràn ánh sáng. Cô gái trẻ ngỡ như mình đang thực sự ngắm nhìn và đùa vui cùng ánh trăng trên mặt sông quê hương.\nBản xô-nát Ánh trăng nổi tiếng đã ra đời từ đêm trăng kì diệu ấy."
     }
 };
