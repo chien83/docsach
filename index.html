@@ -799,6 +799,24 @@
             box-shadow: 0 3px 0 #148f54;
         }
 
+        .hdr-home-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            padding: 8px 15px;
+            border-radius: 999px;
+            font-size: 15px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: none;
+            margin: 0;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .hdr-home-btn:hover {
+            background: rgba(255, 255, 255, 0.32);
+        }
+
         @media (max-width: 768px) {
             .lesson-grid { grid-template-columns: 1fr; }
             .next-banner { flex-direction: column; align-items: stretch; }
@@ -813,12 +831,12 @@
 </head>
 <body>
 <header id="main-header">
-    <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:center;">
+    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:center;">
+        <button id="btn-hdr-home" class="hdr-home-btn" title="Về màn hình chính chọn lại bài">🏠 Trang chủ</button>
         <b id="brand-home" style="cursor:pointer;" title="Quay về Trang chủ chọn bài">📚 Trạm Đọc Thông Minh</b>
         <span id="lesson-count-badge" class="hdr-badge" style="display:none;"></span>
     </div>
     <nav id="main-nav">
-        <button id="btn-hdr-home" title="Về màn hình chính chọn lại bài">🏠 Trang chủ</button>
         <button id="tS" class="on">👩‍🎓 Học sinh</button>
         <button id="btn-hdr-cpw" style="display:none;" title="Đổi mật khẩu cá nhân">🔑 Đổi MK</button>
         <button id="tT">👩‍🏫 Giáo viên</button>
