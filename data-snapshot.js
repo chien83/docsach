@@ -3677,5 +3677,235 @@ window.LESSONS = {
         ],
         "glossary": "- Xô-nát: một thể loại nhạc cổ điển thường gồm ba hoặc bốn chương nối tiếp nhau với nhịp điệu khác nhau.\n- Sông Đa-nuýp: con sông lớn đứng thứ hai ở châu Âu, chảy qua nhiều quốc gia trong đó có nước Áo.\n- Thành Viên: thủ đô nổi tiếng về âm nhạc cổ điển của nước Áo.\n- Đàn dương cầm: tên gọi khác của đàn pi-a-nô.",
         "mic": "Lút-vích van Bét-tô-ven là một nhà soạn nhạc cổ điển lừng danh thế giới. Trong sự nghiệp sáng tác đồ sộ của ông, Bản xô-nát Ánh trăng là tác phẩm bất hủ gắn liền với một câu chuyện vô cùng cảm động.\nChuyện kể rằng vào một buổi tối trăng thanh gió mát ở thành Viên, Bét-tô-ven dạo bước trên cây cầu bắc qua dòng sông Đa-nuýp thơ mộng. Đứng giữa bầu không khí tĩnh mịch, ông say mê chiêm ngưỡng mặt nước lấp lánh ánh bạc. Bỗng đâu, tiếng đàn dương cầm thánh thót từ phía khu phố lao động vọng tới. Lần theo âm thanh ấy, ông tìm đến một ngôi nhà nhỏ đơn sơ và bắt gặp người cha đang lặng lẽ ngồi nghe cô con gái khiếm thị chơi đàn.\nNhận ra vị nhạc sĩ thiên tài, người cha buồn bã tâm sự rằng ước nguyện lớn nhất đời của con gái ông là được một lần ngắm nhìn ánh trăng soi bóng trên dòng sông Đa-nuýp. Thế nhưng ông vô cùng xót xa vì đôi mắt con không thể nhìn thấy, còn bản thân ông chẳng biết làm cách nào để giúp con thực hiện giấc mơ ấy.\nXúc động trước tình phụ tử sâu nặng và tiếng đàn tha thiết của cô gái, Bét-tô-ven lặng lẽ tiến lại bên cây dương cầm rồi đặt tay lên phím. Những giai điệu ngẫu hứng tuôn chảy từ trái tim nhân hậu của ông, khi êm dịu, nhẹ nhàng như dải lụa ánh trăng, lúc lại cuộn trào, mạnh mẽ như những con sóng lớn trên sông. Trong tâm tưởng hai cha con, mọi nỗi nhọc nhằn thường nhật dường như tan biến, chỉ còn lại một khung cảnh huyền ảo, lung linh ngập tràn ánh sáng. Cô gái trẻ ngỡ như mình đang thực sự ngắm nhìn và đùa vui cùng ánh trăng trên mặt sông quê hương.\nBản xô-nát Ánh trăng nổi tiếng đã ra đời từ đêm trăng kì diệu ấy."
+    },
+    "L4_Nguoi_tim_duong_len_cac_vi_sao": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Người tìm đường lên các vì sao",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 120,
+                "t": "Từ nhỏ, Xi-ôn-cốp-xki đã mơ ước được bay lên bầu trời. Có lần, ông dại dột nhảy qua cửa sổ để bay theo những cánh chim. Kết quả, ông bị ngã gãy chân. Nhưng rủi ro lại làm nảy ra trong đầu óc non nớt của ông lúc bấy giờ một câu hỏi: “Vì sao quả bóng không có cánh mà vẫn bay được?”.\nĐể tìm hiểu điều bí mật đó, Xi-ôn-cốp-xki đọc không biết bao nhiêu là sách. Nghĩ ra điều gì, ông lại hì hục làm thí nghiệm, có khi đến hàng trăm lần.\nCó người bạn hỏi:\n– Cậu làm thế nào mà mua được nhiều sách và dụng cụ thí nghiệm như thế?\nXi-ôn-cốp-xki cười:\n– Có gì đâu, mình chỉ tiết kiệm thôi.\nĐúng là quanh năm ông chỉ ăn bánh mì suông. Qua nhiều lần thí nghiệm, ông đã tìm ra cách chế tạo khí cầu bay bằng kim loại. Sa hoàng chưa tin nên không ủng hộ. Không nản chí, ông tiếp tục đi sâu vào lí thuyết bay trong không gian. Được gợi ý từ chiếc pháo thăng thiên, sau này, ông đã đề xuất mô hình tên lửa nhiều tầng trở thành một phương tiện bay tới các vì sao.\nHơn bốn mươi năm khổ công nghiên cứu, tìm tòi, Xi-ôn-cốp-xki đã thực hiện được điều ông hằng tâm niệm: “Các vì sao không phải để tôn thờ mà là để chinh phục.”.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN (Câu 1 SGK). Em hãy đọc kĩ toàn bài. Chi tiết nào cho thấy từ nhỏ Xi-ôn-cốp-xki đã ham tìm tòi, khám phá?",
+                "o": [
+                    "Mơ ước bay lên bầu trời, nhảy qua cửa sổ bắt chước cánh chim, đặt câu hỏi vì sao quả bóng không có cánh vẫn bay được, rồi đọc rất nhiều sách và hì hục làm hàng trăm thí nghiệm.",
+                    "Ông chỉ thích đứng bên cửa sổ ngắm bầu trời đêm chứ không thích đọc sách hay làm thí nghiệm.",
+                    "Ông xin vua Sa hoàng cấp thật nhiều tiền để đi du lịch khắp các nước."
+                ],
+                "a": 0,
+                "h": "Em hãy đọc kĩ 2 đoạn đầu: từ nhỏ ông đã mơ bay lên trời, đặt câu hỏi về quả bóng bay, đọc không biết bao nhiêu là sách và hì hục làm thí nghiệm có khi hàng trăm lần."
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Để tìm hiểu điều bí mật đó, Xi-ôn-cốp-xki đọc không biết bao nhiêu là sách. Nghĩ ra điều gì, ông lại hì hục làm thí nghiệm, có khi đến hàng trăm lần. Quanh năm ông chỉ ăn bánh mì suông để tiết kiệm tiền mua sách và dụng cụ thí nghiệm. Khi Sa hoàng chưa tin và không ủng hộ, ông không nản chí mà tiếp tục nghiên cứu suốt hơn bốn mươi năm.",
+                "q": "BƯỚC 2: SỰ KIÊN TRÌ ĐÁNG KHÂM PHỤC (Câu 2 SGK). Xi-ôn-cốp-xki đã kiên trì thực hiện ước mơ của mình như thế nào? (Em hãy chọn tất cả các đáp án đúng)",
+                "o": [
+                    "Đọc không biết bao nhiêu là sách và hì hục làm thí nghiệm, có khi đến hàng trăm lần.",
+                    "Tiết kiệm tiền, quanh năm chỉ ăn bánh mì suông để mua sách và dụng cụ thí nghiệm.",
+                    "Không nản chí khi bị Sa hoàng từ chối ủng hộ, bền bỉ nghiên cứu suốt hơn bốn mươi năm.",
+                    "Bỏ cuộc ngay khi chiếc khí cầu kim loại chưa được Sa hoàng tin tưởng."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "order",
+                "min": 25,
+                "t": "Suốt hơn bốn mươi năm khổ công nghiên cứu, Xi-ôn-cốp-xki đã đi từng bước vững chắc từ câu hỏi tuổi thơ đến phát minh vĩ đại giúp con người chinh phục không gian.",
+                "q": "BƯỚC 3: HÀNH TRÌNH VÀ KẾT QUẢ NGHIÊN CỨU (Câu 3 SGK). Em hãy sắp xếp các sự kiện theo đúng trình tự quá trình tìm tòi và thành quả của Xi-ôn-cốp-xki nhé!",
+                "items": [
+                    "Đặt câu hỏi vì sao quả bóng không có cánh vẫn bay được rồi đọc sách, làm hàng trăm thí nghiệm.",
+                    "Tiết kiệm tiền mua dụng cụ và tìm ra cách chế tạo khí cầu bay bằng kim loại.",
+                    "Không nản chí khi Sa hoàng chưa ủng hộ, tiếp tục đi sâu vào lí thuyết bay trong không gian.",
+                    "Từ gợi ý của chiếc pháo thăng thiên, đề xuất mô hình tên lửa nhiều tầng bay tới các vì sao."
+                ]
+            },
+            {
+                "k": "tap",
+                "min": 20,
+                "s": [
+                    "Qua nhiều lần thí nghiệm, ông đã tìm ra cách chế tạo khí cầu bay bằng kim loại.",
+                    "Không nản chí, ông tiếp tục đi sâu vào lí thuyết bay trong không gian.",
+                    "Được gợi ý từ chiếc pháo thăng thiên, sau này, ông đã đề xuất mô hình tên lửa nhiều tầng trở thành một phương tiện bay tới các vì sao.",
+                    "Hơn bốn mươi năm khổ công nghiên cứu, tìm tòi, Xi-ôn-cốp-xki đã thực hiện được điều ông hằng tâm niệm: “Các vì sao không phải để tôn thờ mà là để chinh phục."
+                ],
+                "q": "BƯỚC 4: LỜI TÂM NIỆM CỦA NHÀ KHOA HỌC (Câu 3 & 4 SGK). CÂU VĂN NÀO nêu lên lời tâm niệm nổi tiếng khẳng định quyết tâm chinh phục vũ trụ của Xi-ôn-cốp-xki? (Em hãy bấm chọn câu văn đó)",
+                "a": 3
+            },
+            {
+                "k": "choice",
+                "min": 20,
+                "t": "Hơn bốn mươi năm khổ công nghiên cứu, tìm tòi, Xi-ôn-cốp-xki đã thực hiện được điều ông hằng tâm niệm: “Các vì sao không phải để tôn thờ mà là để chinh phục.”",
+                "q": "BƯỚC 5: HIỂU Ý NGHĨA NHAN ĐỀ (Câu 4 SGK). Theo em, nhan đề “Người tìm đường lên các vì sao” muốn nói điều gì về Xi-ôn-cốp-xki?",
+                "o": [
+                    "Ca ngợi niềm đam mê khoa học, ý chí kiên trì vượt khó và công lao mở đường đưa con người chinh phục vũ trụ của ông.",
+                    "Kể lại chuyến đi ngắm các vì sao trên bầu trời đêm cùng người bạn thân của ông.",
+                    "Giới thiệu về một nhà thám hiểm tìm ra con đường núi dẫn lên đỉnh cao nhất nước Nga."
+                ],
+                "a": 0,
+                "h": "Nhan đề tôn vinh Xi-ôn-cốp-xki — người đã kiên trì nghiên cứu suốt đời và đề xuất mô hình tên lửa nhiều tầng mở đường đưa con người bay tới các vì sao."
+            },
+            {
+                "k": "gold",
+                "min": 25,
+                "t": "Để tạo nên những phát minh vĩ đại, các nhà khoa học luôn làm việc *miệt_mài với trí tuệ *thông_thái và tinh thần *kiên_trì. Họ không ngừng *sáng_tạo, giữ thái độ *cẩn_trọng trong từng thí nghiệm và luôn *dũng_cảm vượt qua mọi thử thách.",
+                "q": "BƯỚC 6: LUYỆN TẬP – PHẨM CHẤT NHÀ KHOA HỌC (Câu 1 Luyện tập SGK). Em hãy bấm hái 6 tính từ nêu phẩm chất tốt đẹp của nhà khoa học (miệt mài, thông thái, kiên trì, sáng tạo, cẩn trọng, dũng cảm) trong đoạn văn trên nhé!",
+                "h": "Em hãy tìm và bấm chọn 6 tính từ: miệt mài, thông thái, kiên trì, sáng tạo, cẩn trọng, dũng cảm."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Nhờ niềm say mê tìm tòi và lòng kiên trì, nhiều nhà khoa học trên thế giới và ở Việt Nam đã tạo nên những phát minh làm thay đổi cuộc sống con người.",
+                "q": "BƯỚC 7: LUYỆN TẬP – NHÀ KHOA HỌC VÀ PHÁT MINH (Câu 5 SGK & Câu 2 Luyện tập). Em hãy nối tên mỗi nhà khoa học ở cột trái với phát minh tiêu biểu ở cột phải để làm vốn hiểu biết đặt câu giới thiệu nhé!",
+                "h": "Em nhớ lại các phát minh nổi tiếng: Xi-ôn-cốp-xki (tên lửa nhiều tầng), Ê-đi-xơn (bóng đèn điện), anh em nhà Rai (máy bay), Lương Định Của (giống lúa năng suất cao).",
+                "p": [
+                    [
+                        "Xi-ôn-cốp-xki",
+                        "Đề xuất mô hình tên lửa nhiều tầng bay lên các vì sao"
+                    ],
+                    [
+                        "Ê-đi-xơn",
+                        "Sáng chế ra bóng đèn điện thắp sáng cho nhân loại"
+                    ],
+                    [
+                        "Anh em nhà Rai",
+                        "Chế tạo chiếc máy bay có động cơ đầu tiên"
+                    ],
+                    [
+                        "Lương Định Của",
+                        "Nghiên cứu và lai tạo nhiều giống lúa mới năng suất cao"
+                    ]
+                ]
+            }
+        ],
+        "glossary": "- Khí cầu: dụng cụ hình quả cầu, chứa đầy khí nhẹ, có thể bay lên cao.\n- Sa hoàng: vua nước Nga (từ năm 1547 đến năm 1721).",
+        "mic": "Từ nhỏ, Xi-ôn-cốp-xki đã mơ ước được bay lên bầu trời. Có lần, ông dại dột nhảy qua cửa sổ để bay theo những cánh chim. Kết quả, ông bị ngã gãy chân. Nhưng rủi ro lại làm nảy ra trong đầu óc non nớt của ông lúc bấy giờ một câu hỏi: “Vì sao quả bóng không có cánh mà vẫn bay được?”.\nĐể tìm hiểu điều bí mật đó, Xi-ôn-cốp-xki đọc không biết bao nhiêu là sách. Nghĩ ra điều gì, ông lại hì hục làm thí nghiệm, có khi đến hàng trăm lần.\nCó người bạn hỏi:\n– Cậu làm thế nào mà mua được nhiều sách và dụng cụ thí nghiệm như thế?\nXi-ôn-cốp-xki cười:\n– Có gì đâu, mình chỉ tiết kiệm thôi.\nĐúng là quanh năm ông chỉ ăn bánh mì suông. Qua nhiều lần thí nghiệm, ông đã tìm ra cách chế tạo khí cầu bay bằng kim loại. Sa hoàng chưa tin nên không ủng hộ. Không nản chí, ông tiếp tục đi sâu vào lí thuyết bay trong không gian. Được gợi ý từ chiếc pháo thăng thiên, sau này, ông đã đề xuất mô hình tên lửa nhiều tầng trở thành một phương tiện bay tới các vì sao.\nHơn bốn mươi năm khổ công nghiên cứu, tìm tòi, Xi-ôn-cốp-xki đã thực hiện được điều ông hằng tâm niệm: “Các vì sao không phải để tôn thờ mà là để chinh phục.”."
+    },
+    "L4_Bay_cung_uoc_mo": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Bay cùng ước mơ",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 170,
+                "t": "Đuổi bắt nhau chán, chúng tớ nằm lăn ra bãi cỏ ở lưng đồi. Từ đây nhìn xuống làng, thật khó có bức tranh nào đẹp hơn. Những mái nhà cao thấp, nhấp nhô. Những rặng dừa cao vút ôm quanh ao phủ đầy bèo tây hoa nở tím lịm. Những vườn mía lá xanh rờn. Những vườn rau xanh mướt, với rất nhiều bù nhìn làm bằng rơm vàng óng hoặc nâu sậm, gắn thêm các mảnh áo mưa bay phấp phới.\nNhìn xuống rồi lại nhìn lên. Trời cao vời vợi. Và xanh thăm thẳm.\nĐiệp chỉ tay:\n– Ước gì tớ được bay như đám mây kia.\n– Cậu ngủ mơ à? – Lê cười.\n– Đấy không phải ngủ mơ mà là ước mơ. Ước mơ thì không cần ngủ, mở mắt và mơ thôi.\nThế là cả lũ kể về ước mơ của mình. Tuyết ước mơ làm cô giáo. Văn ước mơ làm chú bộ đội ngoài đảo, để tha hồ đọc thư của học sinh gửi cho. Điệp mơ làm y tá, vì muốn chăm sóc sức khoẻ cho ông nó. Lê mơ thành lái xe, ngồi trên cái xe thật xịn đi lại vòng vòng cho oách. Thành mơ làm phi công. Phi công nhảy dù cực mát.\n– Thôi, tớ không làm bộ đội hải quân nữa, tớ cũng làm phi công lái máy bay giống Thành. – Văn bảo.\n– Tớ cũng không lái xe nữa, tớ lái tàu vũ trụ. – Lê nói.\n– Tớ làm hoạ sĩ, vẽ tất cả các thứ mà mọi người mơ. – Tuyết lập tức từ bỏ ước mơ làm cô giáo.\nCứ thế, chúng tớ thay đổi ước mơ liên tục, cho đến khi những tia nắng cuối ngày nấp sau lưng đồi hoặc đi ngủ từ lúc nào không hay.\nĐêm ấy, tớ mơ thấy các ước mơ như những quả bóng bay lớn đủ màu sắc, chao liệng khắp đồi. Cả hội bám vào những quả bóng ước mơ của mình, lửng lơ bay lên, vào thăm thẳm trời xanh.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN (Câu 1 & 2 SGK). Em hãy đọc kĩ toàn bài. Câu chuyện các bạn nhỏ kể về ước mơ diễn ra trong bối cảnh nào và các bạn cảm nhận cảnh vật ra sao?",
+                "o": [
+                    "Vào buổi chiều trên bãi cỏ ở lưng đồi; nhìn xuống làng và lên bầu trời, các bạn thấy thật khó có bức tranh nào đẹp hơn.",
+                    "Vào buổi sáng sớm trong sân trường; các bạn nhìn qua cửa sổ thấy trời nhiều mây xám.",
+                    "Vào đêm trăng sáng bên bờ sông; các bạn cùng nhau thả đèn hoa đăng và ngắm sao."
+                ],
+                "a": 0,
+                "h": "Em đọc lại đoạn đầu và câu 'cho đến khi những tia nắng cuối ngày nấp sau lưng đồi': thời gian là buổi chiều, địa điểm là bãi cỏ ở lưng đồi, nơi cảnh làng quê đẹp như bức tranh."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Trên bãi cỏ lưng đồi, năm bạn nhỏ Tuyết, Văn, Điệp, Lê và Thành hào hứng kể cho nhau nghe về ước mơ của mình, rồi liên tục đổi ước mơ theo những ý tưởng thú vị của bạn bè.",
+                "q": "BƯỚC 2: KHÁM PHÁ ƯỚC MƠ CỦA CÁC BẠN NHỎ (Câu 3 SGK). Em hãy nối tên mỗi bạn nhỏ ở cột trái với ước mơ tương ứng của bạn ấy ở cột phải nhé!",
+                "h": "Em nhớ lại lời từng bạn: Điệp muốn làm y tá chăm ông, Thành mơ làm phi công, Văn đổi từ bộ đội ngoài đảo sang phi công, Lê đổi từ lái xe sang lái tàu vũ trụ, Tuyết đổi từ cô giáo sang hoạ sĩ.",
+                "p": [
+                    [
+                        "Tuyết",
+                        "Mơ làm cô giáo, rồi đổi sang làm hoạ sĩ vẽ ước mơ của mọi người"
+                    ],
+                    [
+                        "Văn",
+                        "Mơ làm chú bộ đội ngoài đảo, rồi đổi sang làm phi công giống Thành"
+                    ],
+                    [
+                        "Điệp",
+                        "Mơ làm y tá vì muốn chăm sóc sức khoẻ cho ông"
+                    ],
+                    [
+                        "Lê",
+                        "Mơ làm lái xe thật xịn, rồi đổi sang lái tàu vũ trụ"
+                    ],
+                    [
+                        "Thành",
+                        "Mơ làm phi công vì nhảy dù cực mát"
+                    ]
+                ]
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Đêm ấy, tớ mơ thấy các ước mơ như những quả bóng bay lớn đủ màu sắc, chao liệng khắp đồi. Cả hội bám vào những quả bóng ước mơ của mình, lửng lơ bay lên, vào thăm thẳm trời xanh.",
+                "q": "BƯỚC 3: CẢM NGHĨ VỀ HÌNH ẢNH QUẢ BÓNG ƯỚC MƠ (Câu 4 & 5 SGK). Hình ảnh các bạn nhỏ bám vào quả bóng ước mơ bay lên trời xanh thể hiện ý nghĩa đẹp đẽ nào? (Chọn nhiều đáp án đúng)",
+                "o": [
+                    "Thể hiện tâm hồn hồn nhiên, trong sáng và trí tưởng tượng bay bổng của tuổi thơ.",
+                    "Cho thấy ước mơ của mỗi bạn đều rực rỡ, đáng trân trọng và luôn hướng tới điều cao đẹp.",
+                    "Gửi gắm khát vọng, niềm tin ước mơ sẽ bay cao, bay xa và trở thành hiện thực.",
+                    "Cho thấy các bạn chỉ thích chơi thả bóng bay chứ không muốn học tập."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 25,
+                "t": "Từ lưng đồi nhìn xuống làng, những mái nhà cao thấp, *nhấp_nhô. Những rặng dừa *cao_vút ôm quanh ao phủ đầy bèo tây hoa nở *tím_lịm. Những vườn mía lá *xanh_rờn. Những vườn rau *xanh_mướt, với rất nhiều bù nhìn làm bằng rơm vàng óng hoặc nâu sậm. Nhìn lên, bầu trời cao *vời_vợi và xanh thăm thẳm.",
+                "q": "BƯỚC 4: THU HOẠCH TÍNH TỪ TẢ CẢNH QUÊ HƯƠNG. Em hãy bấm hái 6 tính từ giàu sức gợi tả hình dáng, độ cao và màu sắc của làng quê, bầu trời (nhấp nhô, cao vút, tím lịm, xanh rờn, xanh mướt, vời vợi) nhé!",
+                "h": "Em hãy tìm và bấm chọn 6 tính từ: nhấp nhô, cao vút, tím lịm, xanh rờn, xanh mướt, vời vợi."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Mặt trời vừa hé những tia nắng đầu ngày. Thoáng chốc, nắng đã bừng lên toả khắp nơi, khiến vạn vật đều rất vàng theo màu nắng. Những đám mây trôi rất chậm trên nền trời hơi xanh như dùng dằng chờ gió đến đẩy đi. Chờ mãi gió không tới, mây lại đứng soi mình xuống mặt hồ nước rất trong, phẳng lặng.",
+                "q": "BƯỚC 5: LUYỆN TỪ VÀ CÂU – THỂ HIỆN MỨC ĐỘ CỦA TÍNH TỪ (Bài tập 1 & 4 SGK). Em hãy nối độ cao tăng dần của các con vật và các cụm từ trong đoạn văn trên với tính từ thay thế giàu hình ảnh hơn nhé!",
+                "h": "Thứ tự cao dần: ngựa (hơi cao) -> lạc đà (khá cao) -> voi (cao) -> hươu cao cổ (rất cao). Trong đoạn văn: rất vàng = vàng rực, rất chậm = chậm rãi, hơi xanh = xanh xanh, rất trong = trong veo.",
+                "p": [
+                    [
+                        "Độ cao tăng dần (ngựa -> lạc đà -> voi -> hươu cao cổ)",
+                        "hơi cao -> khá cao -> cao -> rất cao"
+                    ],
+                    [
+                        "rất vàng (màu nắng bừng lên toả khắp nơi)",
+                        "vàng rực"
+                    ],
+                    [
+                        "rất chậm (những đám mây trôi trên bầu trời)",
+                        "chậm rãi"
+                    ],
+                    [
+                        "hơi xanh (nền trời buổi sáng)",
+                        "xanh xanh"
+                    ],
+                    [
+                        "rất trong (mặt hồ nước phẳng lặng)",
+                        "trong veo"
+                    ]
+                ]
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Để tả đặc điểm sự vật và con vật chính xác hơn, ta dùng từ thể hiện mức độ thấp hoặc mức độ cao: gấu túi di chuyển *1:hơi_chậm, đám mây trôi *1:chầm_chậm trên nền trời *1:xanh_xanh, cánh hoa *1:đo_đỏ; còn chú báo chạy *2:rất_nhanh, hươu cổ *2:rất_cao, bầu trời *2:xanh_ngắt và mặt trời *2:đỏ_chót.",
+                "q": "BƯỚC 6: LUYỆN TỪ VÀ CÂU – PHÂN LOẠI MỨC ĐỘ ĐẶC ĐIỂM (Bài tập 2 & 3 SGK). Em hãy chọn từng giỏ rồi bấm vào các từ ngữ phù hợp để phân loại tính từ chỉ mức độ thấp và mức độ cao nhé!",
+                "cats": [
+                    "Mức độ thấp (hơi, chầm chậm, từ láy giảm nhẹ)",
+                    "Mức độ cao (rất, từ gợi tả mạnh)"
+                ]
+            },
+            {
+                "k": "fill",
+                "min": 25,
+                "t": "Qua bài văn miêu tả chú rùa Su, em ghi nhớ bài văn miêu tả con vật thường gồm 3 phần:\n- Mở bài: Giới thiệu về con vật theo cách mở bài {trực_tiếp} hoặc {gián_tiếp}.\n- Thân bài: Miêu tả đặc điểm {ngoại_hình} (mai, đầu, mắt, chân...) và {hoạt_động} nổi bật của con vật.\n- Kết bài: Nêu suy nghĩ, cảm xúc về con vật theo cách kết bài {mở_rộng} hoặc không mở rộng.",
+                "q": "BƯỚC 7: VIẾT – TÌM HIỂU CÁCH VIẾT BÀI VĂN MIÊU TẢ CON VẬT (Ghi nhớ SGK). Em hãy chọn từ ngữ thích hợp điền vào 5 chỗ trống để nắm chắc cấu tạo 3 phần của bài văn miêu tả con vật nhé!"
+            }
+        ],
+        "glossary": "- Bù nhìn: vật giả hình người, thường làm bằng rơm, dùng để doạ chim, thú.\n- Vời vợi: rất cao hoặc rất xa, đến mức hút tầm mắt.\n- Lửng lơ: ở trạng thái trôi nổi, treo nhẹ trên không trung.",
+        "mic": "Đuổi bắt nhau chán, chúng tớ nằm lăn ra bãi cỏ ở lưng đồi. Từ đây nhìn xuống làng, thật khó có bức tranh nào đẹp hơn. Những mái nhà cao thấp, nhấp nhô. Những rặng dừa cao vút ôm quanh ao phủ đầy bèo tây hoa nở tím lịm. Những vườn mía lá xanh rờn. Những vườn rau xanh mướt, với rất nhiều bù nhìn làm bằng rơm vàng óng hoặc nâu sậm, gắn thêm các mảnh áo mưa bay phấp phới.\nNhìn xuống rồi lại nhìn lên. Trời cao vời vợi. Và xanh thăm thẳm.\nĐiệp chỉ tay:\n– Ước gì tớ được bay như đám mây kia.\n– Cậu ngủ mơ à? – Lê cười.\n– Đấy không phải ngủ mơ mà là ước mơ. Ước mơ thì không cần ngủ, mở mắt và mơ thôi.\nThế là cả lũ kể về ước mơ của mình. Tuyết ước mơ làm cô giáo. Văn ước mơ làm chú bộ đội ngoài đảo, để tha hồ đọc thư của học sinh gửi cho. Điệp mơ làm y tá, vì muốn chăm sóc sức khoẻ cho ông nó. Lê mơ thành lái xe, ngồi trên cái xe thật xịn đi lại vòng vòng cho oách. Thành mơ làm phi công. Phi công nhảy dù cực mát.\n– Thôi, tớ không làm bộ đội hải quân nữa, tớ cũng làm phi công lái máy bay giống Thành. – Văn bảo.\n– Tớ cũng không lái xe nữa, tớ lái tàu vũ trụ. – Lê nói.\n– Tớ làm hoạ sĩ, vẽ tất cả các thứ mà mọi người mơ. – Tuyết lập tức từ bỏ ước mơ làm cô giáo.\nCứ thế, chúng tớ thay đổi ước mơ liên tục, cho đến khi những tia nắng cuối ngày nấp sau lưng đồi hoặc đi ngủ từ lúc nào không hay.\nĐêm ấy, tớ mơ thấy các ước mơ như những quả bóng bay lớn đủ màu sắc, chao liệng khắp đồi. Cả hội bám vào những quả bóng ước mơ của mình, lửng lơ bay lên, vào thăm thẳm trời xanh."
     }
 };
