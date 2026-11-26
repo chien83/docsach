@@ -719,6 +719,86 @@
             border-radius: 14px;
         }
 
+        /* CSS THU GỌN MẶC ĐỊNH & CHIA CỤM BÀI ĐỌC */
+        .picker-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .btn-collapse-list {
+            background: #f4f1ff;
+            border: 1px solid #d1c4e9;
+            color: var(--pu);
+            padding: 6px 12px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: none;
+            margin: 0;
+        }
+        .btn-collapse-list:hover {
+            background: #e9e2ff;
+        }
+        .drawer-hint {
+            text-align: center;
+            padding: 10px 12px;
+            font-size: 14px;
+            color: #7f8c8d;
+            font-weight: 700;
+            background: #fafbfe;
+            border: 1px dashed #d1c4e9;
+            border-radius: 12px;
+            margin-top: 8px;
+        }
+        .cluster-bar {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+            padding: 10px;
+            background: #f8f7ff;
+            border: 1px solid #e2dcf9;
+            border-radius: 12px;
+        }
+        .cluster-pill {
+            background: #fff;
+            border: 2px solid #d7d2f2;
+            color: #4a3a8a;
+            padding: 6px 13px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: none;
+            margin: 0;
+            transition: all 0.15s;
+        }
+        .cluster-pill:hover {
+            border-color: var(--pu);
+            background: #f4f1ff;
+        }
+        .cluster-pill.all-done {
+            background: #f4fcf8;
+            border-color: #a9dfbf;
+            color: #1e8449;
+        }
+        .cluster-pill.active {
+            background: var(--pu);
+            border-color: var(--pu);
+            color: #fff;
+            box-shadow: 0 3px 0 #3a1ea3;
+        }
+        .cluster-pill.all-done.active {
+            background: #1fae6b;
+            border-color: #1fae6b;
+            color: #fff;
+            box-shadow: 0 3px 0 #148f54;
+        }
+
         @media (max-width: 768px) {
             .lesson-grid { grid-template-columns: 1fr; }
             .next-banner { flex-direction: column; align-items: stretch; }
@@ -734,10 +814,11 @@
 <body>
 <header id="main-header">
     <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:center;">
-        <b>📚 Trạm Đọc Thông Minh</b>
+        <b id="brand-home" style="cursor:pointer;" title="Quay về Trang chủ chọn bài">📚 Trạm Đọc Thông Minh</b>
         <span id="lesson-count-badge" class="hdr-badge" style="display:none;"></span>
     </div>
     <nav id="main-nav">
+        <button id="btn-hdr-home" title="Về màn hình chính chọn lại bài">🏠 Trang chủ</button>
         <button id="tS" class="on">👩‍🎓 Học sinh</button>
         <button id="btn-hdr-cpw" style="display:none;" title="Đổi mật khẩu cá nhân">🔑 Đổi MK</button>
         <button id="tT">👩‍🏫 Giáo viên</button>
@@ -790,6 +871,9 @@ let GR = +localStorage.getItem('hv_saved_grade') || null;
 let ACTIVE_BOOK = localStorage.getItem('hv_saved_book') || 'sgk';
 let ACTIVE_FILTER = 'all'; // 'all' | 'todo' | 'done'
 let SEARCH_QUERY = '';
+let LIST_EXPANDED = false;   // Mặc định thu gọn danh sách bài đọc
+let ACTIVE_CLUSTER = 0;      // Cụm bài đang xem (mỗi cụm 10 bài)
+const CLUSTER_SIZE = 10;
 let isAdmin = false;
 let isStudentLoggedIn = !!(NAME && PW && localStorage.getItem('hv_auto_login') === '1');
 const T = n => DEMO ? Math.min(n, 3) : n;
@@ -991,6 +1075,16 @@ if (db) {
 function upsert() {
     if (!S || !L()) return;
     const rs = load(), n = L().stations.length;
+    const i = rs.findIndex(x => userKey(x.name) === userKey(S.name) && x.lid === S.lid);
+    const prev = i > -1 ? rs[i] : null;
+
+    // BẢO VỆ BÀI ĐÃ HOÀN THÀNH:
+    // Nếu bài này đã "Hoàn thành" trước đó, khi học sinh vô tình mở lại mà chưa học xong lượt mới (!S.done),
+    // tuyệt đối không ghi đè thành "Đang đọc" để giữ nguyên kết quả đã học.
+    if (prev && prev.status === 'Hoàn thành' && !S.done) {
+        return;
+    }
+
     let statusText = S.done ? 'Hoàn thành' : 'Đang đọc (Trạm ' + Math.min(S.i + 1, n) + '/' + n + ')';
     const rec = {
         name: S.name, lid: S.lid,
@@ -998,7 +1092,6 @@ function upsert() {
         secs: S.secs, ok: S.ok, tot: S.tot, rush: S.rush, mic: S.mic,
         words: S.words || [], date: S.date || new Date().toLocaleDateString('vi-VN')
     };
-    const i = rs.findIndex(x => x.name === S.name && x.lid === S.lid);
     i > -1 ? rs[i] = rec : rs.push(rec);
     store(rs);
 
@@ -1261,7 +1354,9 @@ function home() {
         return;
     }
 
-    // 3. ĐÃ ĐĂNG NHẬP -> TỰ CHỌN LỚP & HIỂN THỊ GIAO DIỆN CHỌN BÀI THÔNG MINH
+    // 3. ĐÃ ĐĂNG NHẬP -> TỰ CHỌN LỚP & HIỂN THỊ GIAO DIỆN THU GỌN CHIA CỤM (CÁCH 3)
+    const isDoneSafe = k => rs.some(r => userKey(r.name) === userKey(NAME) && r.lid === k && r.status === 'Hoàn thành');
+
     const activeGrades = GRADES.filter(g => Object.values(window.LESSONS_DATA).some(l => l.grade === g));
     if (!GR || !activeGrades.includes(GR)) {
         GR = activeGrades[0] || null;
@@ -1285,7 +1380,7 @@ function home() {
                 data: window.LESSONS_DATA[k],
                 book: b,
                 idxInBook: idx + 1,
-                done: isDone(k),
+                done: isDoneSafe(k),
                 searchKey: stripVN(window.LESSONS_DATA[k].title)
             });
         });
@@ -1333,22 +1428,29 @@ function home() {
             '<div class="next-info">' +
                 '<span class="next-tag">🏆 Hoàn thành xuất sắc</span>' +
                 '<span class="next-title">Em đã vượt qua tất cả ' + totalDoneInGrade + '/' + totalLessonsInGrade + ' bài đọc Lớp ' + GR + '!</span>' +
-                '<span class="next-meta">Em có thể bấm vào bất kỳ bài nào bên dưới để luyện đọc lại nhé.</span>' +
+                '<span class="next-meta">Em có thể bấm vào các mục sách bên dưới để chọn bài ôn lại nhé.</span>' +
             '</div>' +
         '</div>';
     }
 
     app.innerHTML = gradeBarHTML +
         nextBannerHTML +
-        '<div class="card">' +
-            '<h2 style="margin-top:0; margin-bottom:14px;">📚 Chọn bài đọc ' + (GR ? '(Lớp ' + GR + ')' : '') + '</h2>' +
+        '<div class="card" id="lesson-picker-card">' +
+            '<div class="picker-head">' +
+                '<h2 style="margin:0;">📚 Chọn bài đọc ' + (GR ? '(Lớp ' + GR + ')' : '') + '</h2>' +
+                '<button type="button" id="btn-collapse-list" class="btn-collapse-list" style="display:none;">▲ Thu gọn</button>' +
+            '</div>' +
             (totalLessonsInGrade ? (
                 '<div id="book-tabs-wrap" class="book-tabs"></div>' +
-                '<div class="toolbar-row">' +
+                '<div class="toolbar-row" style="margin-bottom:0;">' +
                     '<input id="lesson-search" type="search" autocomplete="off" value="' + esc(SEARCH_QUERY) + '" placeholder="🔍 Tìm nhanh tên bài đọc (gõ không dấu cũng được)...">' +
-                    '<div id="filter-pills-wrap" class="filter-pills"></div>' +
                 '</div>' +
-                '<div id="lesson-grid-wrap"></div>'
+                '<div id="drawer-hint" class="drawer-hint">👆 Nhấn vào tên sách ở trên hoặc gõ từ khóa để mở danh sách bài đọc.</div>' +
+                '<div id="lesson-drawer" style="display:none; margin-top:14px;">' +
+                    '<div id="filter-pills-wrap" class="filter-pills" style="margin-bottom:12px;"></div>' +
+                    '<div id="cluster-bar-wrap"></div>' +
+                    '<div id="lesson-grid-wrap"></div>' +
+                '</div>'
             ) : '<p class="sm">Lớp này chưa có bài đọc.</p>') +
         '</div>' +
         (demo ? '<div class="card">' + demo + '</div>' : '');
@@ -1358,6 +1460,8 @@ function home() {
         GR = +b.dataset.g;
         SEARCH_QUERY = '';
         ACTIVE_FILTER = 'all';
+        ACTIVE_CLUSTER = 0;
+        LIST_EXPANDED = false;
         localStorage.setItem('hv_saved_grade', GR);
         home();
     });
@@ -1368,35 +1472,58 @@ function home() {
     if (!totalLessonsInGrade) return;
 
     function renderLessonsView() {
-        // 1. Vẽ thanh Tab ngang chọn loại sách
+        const isOpen = LIST_EXPANDED || SEARCH_QUERY.trim() !== '';
+
+        // 1. Vẽ thanh Tab ngang (chỉ tô đậm tab đang mở; mũi tên ▼ / ▲ rõ ràng)
         const tabsWrap = $('#book-tabs-wrap');
         if (tabsWrap) {
             const tabItemsHTML = availableBooks.map(b => {
                 const cnt = orderedLessons.filter(x => x.book === b).length;
-                return '<button type="button" class="book-tab ' + (ACTIVE_BOOK === b ? 'active' : '') + '" data-b="' + esc(b) + '">' +
+                const isAct = isOpen && ACTIVE_BOOK === b;
+                return '<button type="button" class="book-tab ' + (isAct ? 'active' : '') + '" data-b="' + esc(b) + '">' +
                     '<span>' + (ICON[b] || '📚') + ' ' + esc(BOOKS[b] || b) + '</span>' +
                     '<span class="tab-cnt">' + cnt + '</span>' +
+                    '<span style="font-size:11px; opacity:0.8;">' + (isAct ? '▲' : '▼') + '</span>' +
                 '</button>';
             });
             if (availableBooks.length > 1) {
+                const isActAll = isOpen && ACTIVE_BOOK === 'all';
                 tabItemsHTML.push(
-                    '<button type="button" class="book-tab ' + (ACTIVE_BOOK === 'all' ? 'active' : '') + '" data-b="all">' +
+                    '<button type="button" class="book-tab ' + (isActAll ? 'active' : '') + '" data-b="all">' +
                         '<span>📚 Tất cả sách</span>' +
                         '<span class="tab-cnt">' + orderedLessons.length + '</span>' +
+                        '<span style="font-size:11px; opacity:0.8;">' + (isActAll ? '▲' : '▼') + '</span>' +
                     '</button>'
                 );
             }
             tabsWrap.innerHTML = tabItemsHTML.join('');
             tabsWrap.querySelectorAll('.book-tab').forEach(tb => {
                 tb.onclick = () => {
-                    ACTIVE_BOOK = tb.dataset.b;
-                    localStorage.setItem('hv_saved_book', ACTIVE_BOOK);
+                    const clickedBook = tb.dataset.b;
+                    if (LIST_EXPANDED && ACTIVE_BOOK === clickedBook && SEARCH_QUERY.trim() === '') {
+                        LIST_EXPANDED = false;
+                    } else {
+                        ACTIVE_BOOK = clickedBook;
+                        ACTIVE_CLUSTER = 0;
+                        LIST_EXPANDED = true;
+                        localStorage.setItem('hv_saved_book', ACTIVE_BOOK);
+                    }
                     renderLessonsView();
                 };
             });
         }
 
-        // 2. Lấy danh sách bài thuộc Tab đang chọn & vẽ bộ lọc Trạng thái
+        const drawer = $('#lesson-drawer');
+        const hint = $('#drawer-hint');
+        const btnCollapse = $('#btn-collapse-list');
+
+        if (drawer) drawer.style.display = isOpen ? 'block' : 'none';
+        if (hint) hint.style.display = isOpen ? 'none' : 'block';
+        if (btnCollapse) btnCollapse.style.display = isOpen ? 'inline-block' : 'none';
+
+        if (!isOpen) return;
+
+        // 2. Bộ lọc trạng thái (Tất cả / Chưa học / Đã xong)
         const inTab = ACTIVE_BOOK === 'all' ? orderedLessons : orderedLessons.filter(x => x.book === ACTIVE_BOOK);
         const cAll = inTab.length;
         const cTodo = inTab.filter(x => !x.done).length;
@@ -1412,12 +1539,13 @@ function home() {
             filterWrap.querySelectorAll('.filter-pill').forEach(fp => {
                 fp.onclick = () => {
                     ACTIVE_FILTER = fp.dataset.f;
+                    ACTIVE_CLUSTER = 0;
                     renderLessonsView();
                 };
             });
         }
 
-        // 3. Lọc theo trạng thái + từ khóa tìm kiếm & vẽ Lưới thẻ 2 cột
+        // 3. Lọc theo trạng thái + từ khóa tìm kiếm
         const q = stripVN(SEARCH_QUERY.trim());
         const filtered = inTab.filter(item => {
             if (ACTIVE_FILTER === 'todo' && item.done) return false;
@@ -1426,10 +1554,12 @@ function home() {
             return true;
         });
 
+        const clusterWrap = $('#cluster-bar-wrap');
         const gridWrap = $('#lesson-grid-wrap');
         if (!gridWrap) return;
 
         if (!filtered.length) {
+            if (clusterWrap) clusterWrap.innerHTML = '';
             let emptyHTML = '';
             if (q && ACTIVE_BOOK !== 'all') {
                 const matchInAll = orderedLessons.filter(x => x.searchKey.includes(q)).length;
@@ -1449,6 +1579,7 @@ function home() {
                 $('#btn-switch-all').onclick = () => {
                     ACTIVE_BOOK = 'all';
                     ACTIVE_FILTER = 'all';
+                    ACTIVE_CLUSTER = 0;
                     localStorage.setItem('hv_saved_book', 'all');
                     renderLessonsView();
                 };
@@ -1456,8 +1587,49 @@ function home() {
             return;
         }
 
+        // 4. Chia theo cụm (mỗi cụm 10 bài: Bài 1–10, Bài 11–20, Bài 21–30...)
+        const totalClusters = Math.ceil(filtered.length / CLUSTER_SIZE);
+        if (ACTIVE_CLUSTER >= totalClusters) ACTIVE_CLUSTER = 0;
+
+        if (clusterWrap) {
+            if (!q && totalClusters > 1) {
+                const pills = [];
+                for (let c = 0; c < totalClusters; c++) {
+                    const start = c * CLUSTER_SIZE;
+                    const chunk = filtered.slice(start, start + CLUSTER_SIZE);
+                    const first = chunk[0];
+                    const last = chunk[chunk.length - 1];
+                    const todoCnt = chunk.filter(x => !x.done).length;
+                    const rangeLbl = ACTIVE_BOOK === 'all'
+                        ? ('Cụm ' + (c + 1) + ' (' + (start + 1) + '–' + (start + chunk.length) + ')')
+                        : (first.idxInBook === last.idxInBook ? ('Bài ' + first.idxInBook) : ('Bài ' + first.idxInBook + '–' + last.idxInBook));
+                    const statusSuffix = todoCnt === 0 ? ' ✓' : (' · còn ' + todoCnt);
+
+                    pills.push(
+                        '<button type="button" class="cluster-pill ' + (todoCnt === 0 ? 'all-done ' : '') + (ACTIVE_CLUSTER === c ? 'active' : '') + '" data-c="' + c + '">' +
+                            rangeLbl + statusSuffix +
+                        '</button>'
+                    );
+                }
+                clusterWrap.innerHTML = '<div class="cluster-bar">' + pills.join('') + '</div>';
+                clusterWrap.querySelectorAll('.cluster-pill').forEach(cp => {
+                    cp.onclick = () => {
+                        ACTIVE_CLUSTER = +cp.dataset.c;
+                        renderLessonsView();
+                    };
+                });
+            } else {
+                clusterWrap.innerHTML = '';
+            }
+        }
+
+        // 5. Vẽ lưới bài của cụm hiện tại (tối đa 10 bài = 5 hàng trên máy tính)
+        const pageItems = (!q && totalClusters > 1)
+            ? filtered.slice(ACTIVE_CLUSTER * CLUSTER_SIZE, (ACTIVE_CLUSTER + 1) * CLUSTER_SIZE)
+            : filtered;
+
         gridWrap.innerHTML = '<div class="lesson-grid">' +
-            filtered.map(item => {
+            pageItems.map(item => {
                 const bookPrefix = ACTIVE_BOOK === 'all' ? ((ICON[item.book] || '📚') + ' ' + shortBookName(item.book) + ' · ') : '';
                 return '<button type="button" class="lesson-card ' + (item.done ? 'is-done' : '') + '" data-k="' + esc(item.k) + '">' +
                     '<div class="lc-top">' +
@@ -1473,16 +1645,49 @@ function home() {
         '</div>';
 
         gridWrap.querySelectorAll('.lesson-card').forEach(btn => {
-            btn.onclick = () => begin(btn.dataset.k);
+            btn.onclick = () => {
+                LIST_EXPANDED = false;
+                begin(btn.dataset.k);
+            };
         });
     }
 
     renderLessonsView();
 
+    // Nút Thu gọn thủ công (hữu ích cho điện thoại / máy tính bảng)
+    if ($('#btn-collapse-list')) {
+        $('#btn-collapse-list').onclick = () => {
+            LIST_EXPANDED = false;
+            SEARCH_QUERY = '';
+            if ($('#lesson-search')) $('#lesson-search').value = '';
+            renderLessonsView();
+        };
+    }
+
+    // Gõ tìm kiếm -> tự sổ danh sách ra
     if ($('#lesson-search')) {
         $('#lesson-search').oninput = e => {
             SEARCH_QUERY = e.target.value;
+            if (SEARCH_QUERY.trim() !== '') LIST_EXPANDED = true;
+            ACTIVE_CLUSTER = 0;
             renderLessonsView();
+        };
+    }
+
+    // Di chuột ra khỏi khung Chọn bài đọc -> tự thu gọn sau 250ms (trừ khi đang gõ tìm kiếm)
+    const pickerCard = $('#lesson-picker-card');
+    let collapseTimer = null;
+    if (pickerCard) {
+        pickerCard.onmouseenter = () => {
+            if (collapseTimer) { clearTimeout(collapseTimer); collapseTimer = null; }
+        };
+        pickerCard.onmouseleave = () => {
+            if (!LIST_EXPANDED) return;
+            if (document.activeElement === $('#lesson-search') || SEARCH_QUERY.trim() !== '') return;
+            collapseTimer = setTimeout(() => {
+                LIST_EXPANDED = false;
+                renderLessonsView();
+            }, 250);
         };
     }
 }
@@ -2715,6 +2920,30 @@ function teacher() {
         a.click();
     };
 }
+
+function goHome() {
+    // Nếu đang làm dở bài mới (chưa từng hoàn thành và đã vượt qua Trạm 1) thì hỏi nhẹ để tránh mất công
+    if (S && !S.done && S.i > 0) {
+        const rs = load();
+        const alreadyDone = rs.some(r => userKey(r.name) === userKey(S.name) && r.lid === S.lid && r.status === 'Hoàn thành');
+        if (!alreadyDone && !confirm('Em đang làm dở bài đọc. Quay về Trang chủ để chọn bài khác nhé?')) {
+            return;
+        }
+    }
+    clearInterval(iv);
+    S = null;
+    LIST_EXPANDED = false;
+    SEARCH_QUERY = '';
+    if (location.hash) {
+        history.replaceState(null, '', location.pathname + location.search);
+    }
+    $('#tS').classList.add('on');
+    $('#tT').classList.remove('on');
+    home();
+}
+
+if ($('#btn-hdr-home')) $('#btn-hdr-home').onclick = goHome;
+if ($('#brand-home')) $('#brand-home').onclick = goHome;
 
 $('#tS').onclick = () => {
     const wasOnStudent = $('#tS').classList.contains('on');
