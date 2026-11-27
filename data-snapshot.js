@@ -4340,5 +4340,322 @@ window.LESSONS = {
         ],
         "glossary": "- Thuốc trường sinh: loại thuốc uống vào sẽ sống lâu theo quan niệm của người xưa.\n- Sáng chế: tìm ra, tạo ra một vật mới hoặc cách làm mới chưa từng có trước đó.\n- Liên danh: sự kết hợp nhiều tên gọi, lĩnh vực thành một cụm thống nhất (như Việt – Pháp, khoa học – công nghệ).",
         "mic": "Tin-tin và Mi-tin được một bà tiên giúp đỡ, đã vượt qua nhiều thử thách, đến nhiều xứ sở để tìm con chim xanh về chữa bệnh cho một bạn hàng xóm. Đoạn trích dưới đây thuật lại việc hai em tới Vương quốc Tương Lai và trò chuyện với những người bạn nhỏ sắp ra đời trong công xưởng xanh.\nCảnh trí: Một gian phòng rộng có những hàng cột và mái vòm bằng ngọc bích. Phòng có một số ghế băng, đồ đạc, cây cối. Có nhiều trẻ em đang chơi đùa hoặc làm việc. Có em đi lại hoặc ngồi suy nghĩ.\nNhân vật: Tin-tin; Mi-tin (em gái Tin-tin); Một số em bé.\nTin-tin: – Cậu đang làm gì với đôi cánh xanh ấy?\nEm bé thứ nhất: – Mình sẽ dùng nó vào việc sáng chế trên Trái Đất.\nTin-tin: – Cậu sáng chế cái gì?\nEm bé thứ nhất: – Khi nào ra đời, mình sẽ chế ra một vật làm cho con người hạnh phúc.\nMi-tin: – Vật đó ăn ngon chứ? Nó có ồn ào không?\nEm bé thứ nhất: – Không đâu, chẳng ồn ào gì cả. Mình chế sắp xong rồi, cậu có muốn xem không?\nTin-tin: – Có chứ! Nó đâu?\nEm bé thứ hai: – Cậu có muốn xem vật mình sáng chế không?\nTin-tin: – Có chứ, cái gì đấy?\nEm bé thứ hai: – Có ba mươi vị thuốc trường sinh ở kia, trong những chiếc lọ xanh.\nEm bé thứ ba: – (Từ trong đám đông đi ra) Mình mang đến một thứ ánh sáng mà chưa ai biết cả. (Em bé toả ra một thứ ánh sáng lạ thường). Thật là kì lạ phải không?\nEm bé thứ tư: – (Kéo tay Tin-tin) Cậu lại đây xem cái máy của mình, nó biết bay trên không như một con chim.\nEm bé thứ năm: – Hãy lại xem cái máy của mình đã. Nó biết dò tìm những kho báu còn giấu kín trên mặt trăng."
+    },
+    "L4_Canh_chim_nho": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Cánh chim nhỏ",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 136,
+                "t": "Có một cậu bé mơ ước được bay như chim. Nhìn những cánh chim chao liệng trên trời cao, cậu nghĩ tại sao mình lại không thể bay nhỉ.\nMột hôm, cậu đến công viên chơi và gặp một cậu bé đang ngồi nghịch cát. Hai cậu làm quen với nhau. Cậu bé mơ ước được bay như chim hỏi bạn có ước mơ giống mình không.\n– Không! Mình chỉ muốn biết cảm giác đi và chạy giống các cậu sẽ như thế nào. – Người bạn mới mỉm cười, đáp. Thì ra, bạn ấy bị liệt.\n– Ồ, ước gì mình chia sẻ được với cậu cảm giác đó. – Cậu bé muốn bay như chim nói với bạn.\nThế rồi hai cậu bé cùng nhau xây những toà lâu đài bằng cát và cười giòn tan. Khi cha của cậu bé bị liệt nói đã tới lúc về, cậu bé mơ ước biết bay đến thầm thì vào tai ông và được ông đồng ý. Cậu bảo bạn:\n– Mình chưa biết làm thế nào để giúp cậu đi và chạy được như mình. Nhưng điều này thì mình làm được.\nDứt lời, cậu xoay người lại cõng bạn. Người bạn nhỏ ôm ghì lấy cậu. Lúc đầu, cậu đi từng bước ngắn. Rồi như được tiếp thêm sức mạnh, cậu bắt đầu chạy cho tới lúc gió tạt mạnh vào mặt cả hai.\nNgười cha đứng lặng nhìn theo, mắt rưng rưng. Đứa con không đi được của ông đang dang rộng đôi cánh tay, vung vẩy trong gió và luôn miệng hét to:\n– Con đang bay, bố ơi! Con đang bay!",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN (Câu 1 SGK). Em hãy đọc kĩ toàn bài. Hai cậu bé gặp nhau ở đâu và mỗi bạn có ước mơ, mong muốn gì?",
+                "o": [
+                    "Gặp nhau ở công viên; một cậu bé mơ ước được bay như chim, còn bạn mới bị liệt chỉ mong biết cảm giác đi và chạy.",
+                    "Gặp nhau ở sân trường; cả hai bạn đều mơ ước lớn lên sẽ trở thành phi công lái máy bay.",
+                    "Gặp nhau ở bãi biển; một bạn thích xây lâu đài cát, còn bạn kia thích nuôi chim bồ câu."
+                ],
+                "a": 0,
+                "h": "Em hãy đọc kĩ đoạn 1, 2 và 3: hai bạn gặp nhau khi đi chơi ở công viên; một cậu bé mơ bay như chim, còn cậu bé bị liệt chỉ muốn biết cảm giác đi và chạy."
+            },
+            {
+                "k": "order",
+                "min": 25,
+                "t": "Khi biết mong muốn giản dị của người bạn mới gặp, cậu bé mơ ước biết bay đã nghĩ ra một cách rất ấm áp để chia sẻ niềm vui với bạn.",
+                "q": "BƯỚC 2: VIỆC LÀM ẤM ÁP CỦA CẬU BÉ (Câu 2 SGK). Em hãy sắp xếp 4 hành động sau theo đúng trình tự cậu bé mơ ước biết bay đã làm cho người bạn mới gặp nhé!",
+                "items": [
+                    "Cùng bạn xây những toà lâu đài bằng cát và cười giòn tan.",
+                    "Khi bố bạn gọi về, chạy đến thầm thì xin phép bố của bạn và được ông đồng ý.",
+                    "Xoay người lại cõng bạn trên lưng, lúc đầu đi từng bước ngắn.",
+                    "Như được tiếp thêm sức mạnh, bắt đầu chạy cho tới lúc gió tạt mạnh vào mặt cả hai."
+                ]
+            },
+            {
+                "k": "tap",
+                "min": 20,
+                "s": [
+                    "Rồi như được tiếp thêm sức mạnh, cậu bắt đầu chạy cho tới lúc gió tạt mạnh vào mặt cả hai.",
+                    "Người cha đứng lặng nhìn theo, mắt rưng rưng.",
+                    "Đứa con không đi được của ông đang dang rộng đôi cánh tay, vung vẩy trong gió và luôn miệng hét to.",
+                    "– Con đang bay, bố ơi!",
+                    "Con đang bay!"
+                ],
+                "q": "BƯỚC 3: KHOẢNH KHẮC DIỆU KÌ TRONG CÔNG VIÊN (Câu 3 SGK). CÂU VĂN NÀO miêu tả cử chỉ dang tay đầy phấn khích như cánh chim của cậu bé bị liệt khi được bạn cõng chạy? (Em hãy bấm chọn câu văn đó)",
+                "a": 2
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Người cha đứng lặng nhìn theo, mắt rưng rưng. Đứa con không đi được của ông đang dang rộng đôi cánh tay, vung vẩy trong gió và luôn miệng hét to:\n– Con đang bay, bố ơi! Con đang bay!",
+                "q": "BƯỚC 4: CẢM XÚC VÀ NHẬN XÉT VỀ VIỆC LÀM CỦA BẠN NHỎ (Câu 3 & 4 SGK). Em hãy chọn TẤT CẢ các nhận xét đúng về cảm xúc của cậu bé bị liệt và việc làm của cậu bé mơ ước biết bay nhé!",
+                "o": [
+                    "Cậu bé bị liệt vô cùng sung sướng, phấn khích và hạnh phúc như đang thực sự bay lên.",
+                    "Cậu bé mơ ước biết bay rất tốt bụng, biết đồng cảm và sẻ chia với hoàn cảnh của bạn.",
+                    "Cậu bé rất thông minh, lễ phép (biết xin phép bố của bạn) và giàu lòng nhân ái.",
+                    "Cậu bé chỉ cõng bạn đi chơi cho vui chứ không quan tâm đến ước mơ của bạn."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 25,
+                "t": "Người bạn mới *mỉm_cười, đáp rằng mình chỉ muốn biết cảm giác đi và chạy. Hai bạn cùng xây lâu đài cát và *cười_giòn_tan. Khi bạn xoay người cõng, cậu bé *ôm_ghì lấy bạn rồi *dang_rộng đôi cánh tay, *vung_vẩy trong gió và luôn miệng *hét_to đầy sung sướng.",
+                "q": "BƯỚC 5: LUYỆN TẬP – TÌM TỪ NGỮ GỢI TẢ CẢM XÚC (Bài tập 1 SGK). Em hãy bấm hái 6 từ ngữ gợi tả niềm vui, sự tin cậy và cảm xúc vỡ oà của hai bạn nhỏ trong bài đọc (mỉm cười, cười giòn tan, ôm ghì, dang rộng, vung vẩy, hét to) nhé!",
+                "h": "Em hãy tìm và bấm chọn 6 từ ngữ: mỉm cười, cười giòn tan, ôm ghì, dang rộng, vung vẩy, hét to."
+            },
+            {
+                "k": "match",
+                "min": 20,
+                "t": "Mỗi nhân vật trong câu chuyện ngắn “Cánh chim nhỏ” đều để lại một khoảnh khắc đẹp, đầy xúc động về tình bạn và tình yêu thương.",
+                "q": "BƯỚC 6: KẾT NỐI NHÂN VẬT VÀ CẢM XÚC. Em hãy nối mỗi nhân vật ở cột trái với biểu hiện cảm xúc tương ứng trong câu chuyện ở cột phải nhé!",
+                "h": "Em nhớ lại từng nhân vật: người cha đứng lặng mắt rưng rưng; cậu bé bị liệt hét to đầy hạnh phúc; hai bạn cùng xây lâu đài cát cười giòn tan; cậu bé cõng bạn như được tiếp thêm sức mạnh.",
+                "p": [
+                    [
+                        "Cậu bé mơ ước biết bay",
+                        "Đồng cảm, hào hứng cõng bạn chạy trong gió như được tiếp thêm sức mạnh"
+                    ],
+                    [
+                        "Cậu bé bị liệt",
+                        "Mỉm cười thân thiện, rồi vỡ oà sung sướng hét to 'Con đang bay, bố ơi!'"
+                    ],
+                    [
+                        "Người cha của cậu bé bị liệt",
+                        "Đứng lặng nhìn theo hai đứa trẻ, mắt rưng rưng xúc động"
+                    ],
+                    [
+                        "Hai bạn nhỏ khi mới làm quen",
+                        "Cùng nhau xây những toà lâu đài bằng cát và cười giòn tan"
+                    ]
+                ]
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "Câu chuyện “Cánh chim nhỏ” ca ngợi tấm lòng {nhân_ái} và sự {sẻ_chia} đáng quý giữa hai bạn nhỏ. Nhờ trái tim yêu thương và cách làm đầy {sáng_tạo}, cậu bé không chỉ đem lại niềm {hạnh_phúc} mà còn giúp người bạn kém may mắn chạm tới {ước_mơ} bay lên trong gió.",
+                "q": "BƯỚC 7: ĐÚC KẾT Ý NGHĨA CÂU CHUYỆN. Em hãy chọn 5 từ khóa thích hợp điền vào chỗ trống để ghi nhớ thông điệp đẹp đẽ của bài đọc “Cánh chim nhỏ” nhé!"
+            }
+        ],
+        "glossary": "- Chao liệng: nghiêng cánh bay lượn nhẹ nhàng qua lại trên không trung.\n- Cười giòn tan: tiếng cười vang lên trong trẻo, liên tiếp, thể hiện sự rất vui vẻ, hồn nhiên.\n- Ôm ghì: ôm thật chặt vào người để bám vững hoặc bày tỏ sự tin cậy, vui sướng.\n- Rưng rưng: có nước mắt ứ đầy ở khóe mắt sắp trào ra vì quá xúc động.",
+        "mic": "Có một cậu bé mơ ước được bay như chim. Nhìn những cánh chim chao liệng trên trời cao, cậu nghĩ tại sao mình lại không thể bay nhỉ.\nMột hôm, cậu đến công viên chơi và gặp một cậu bé đang ngồi nghịch cát. Hai cậu làm quen với nhau. Cậu bé mơ ước được bay như chim hỏi bạn có ước mơ giống mình không.\n– Không! Mình chỉ muốn biết cảm giác đi và chạy giống các cậu sẽ như thế nào. – Người bạn mới mỉm cười, đáp. Thì ra, bạn ấy bị liệt.\n– Ồ, ước gì mình chia sẻ được với cậu cảm giác đó. – Cậu bé muốn bay như chim nói với bạn.\nThế rồi hai cậu bé cùng nhau xây những toà lâu đài bằng cát và cười giòn tan. Khi cha của cậu bé bị liệt nói đã tới lúc về, cậu bé mơ ước biết bay đến thầm thì vào tai ông và được ông đồng ý. Cậu bảo bạn:\n– Mình chưa biết làm thế nào để giúp cậu đi và chạy được như mình. Nhưng điều này thì mình làm được.\nDứt lời, cậu xoay người lại cõng bạn. Người bạn nhỏ ôm ghì lấy cậu. Lúc đầu, cậu đi từng bước ngắn. Rồi như được tiếp thêm sức mạnh, cậu bắt đầu chạy cho tới lúc gió tạt mạnh vào mặt cả hai.\nNgười cha đứng lặng nhìn theo, mắt rưng rưng. Đứa con không đi được của ông đang dang rộng đôi cánh tay, vung vẩy trong gió và luôn miệng hét to:\n– Con đang bay, bố ơi! Con đang bay!"
+    },
+    "L4_Neu_chung_minh_co_phep_la": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Nếu chúng mình có phép lạ",
+        "isPoem": true,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 54,
+                "t": "Nếu chúng mình có phép lạ\nBắt hạt giống nảy mầm nhanh\nChớp mắt thành cây đầy quả\nTha hồ hái chén ngọt lành. // Nếu chúng mình có phép lạ\nNgủ dậy thành người lớn ngay\nĐứa thì lặn xuống đáy biển\nĐứa thì ngồi lái máy bay. // Nếu chúng mình có phép lạ\nHái triệu vì sao xuống cùng\nĐúc thành ông mặt trời mới\nMãi mãi không còn mùa đông. // Nếu chúng mình có phép lạ\nHoá trái bom thành trái ngon\nTrong ruột không còn thuốc nổ\nChỉ toàn kẹo với bi tròn. // Nếu chúng mình có phép lạ!\nNếu chúng mình có phép lạ!",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN BÀI THƠ (Câu 1 SGK). Em hãy đọc kĩ cả 5 khổ thơ. Nếu có phép lạ, các bạn nhỏ đã ước những điều gì?",
+                "o": [
+                    "Hạt giống nảy mầm thành cây đầy quả ngay; thành người lớn để lặn biển, lái máy bay; đúc ông mặt trời mới để không còn mùa đông; hoá trái bom thành trái ngon chứa kẹo và bi tròn.",
+                    "Biến ngôi trường thành lâu đài bằng kẹo ngọt và có đôi cánh bay lên mặt trăng.",
+                    "Có thật nhiều tiền bạc và đồ chơi để cất giữ trong khu vườn riêng."
+                ],
+                "a": 0,
+                "h": "Em hãy đọc lại 4 khổ thơ đầu: các bạn nhỏ ước 4 điều kỳ diệu gắn với cây trái, khám phá bầu trời - biển cả, xua tan giá lạnh mùa đông và biến trái bom thành trái ngon."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Nếu chúng mình có phép lạ\nBắt hạt giống nảy mầm nhanh\nChớp mắt thành cây đầy quả\nTha hồ hái chén ngọt lành. // Nếu chúng mình có phép lạ\nNgủ dậy thành người lớn ngay\nĐứa thì lặn xuống đáy biển\nĐứa thì ngồi lái máy bay. // Nếu chúng mình có phép lạ\nHái triệu vì sao xuống cùng\nĐúc thành ông mặt trời mới\nMãi mãi không còn mùa đông. // Nếu chúng mình có phép lạ\nHoá trái bom thành trái ngon\nTrong ruột không còn thuốc nổ\nChỉ toàn kẹo với bi tròn.",
+                "q": "BƯỚC 2: KHÁM PHÁ Ý NGHĨA CÁC ĐIỀU ƯỚC (Câu 1 & 2 SGK). Em hãy nối mỗi điều ước trong 4 khổ thơ ở cột trái với ý nghĩa đẹp đẽ tương ứng ở cột phải nhé!",
+                "h": "Mỗi điều ước đều ẩn chứa mong muốn tốt đẹp cho con người: no đủ, trưởng thành để khám phá, thế giới luôn ấm áp không còn mùa đông và hoà bình không còn chiến tranh.",
+                "p": [
+                    [
+                        "Bắt hạt giống nảy mầm nhanh, thành cây đầy quả",
+                        "Mong cuộc sống no đủ, cây cối mau ra trái ngọt lành"
+                    ],
+                    [
+                        "Ngủ dậy thành người lớn, lặn biển, lái máy bay",
+                        "Mong sớm trưởng thành để khám phá thế giới và làm việc có ích"
+                    ],
+                    [
+                        "Đúc thành ông mặt trời mới, không còn mùa đông",
+                        "Mong thời tiết luôn ấm áp, không còn giá rét, thiên tai"
+                    ],
+                    [
+                        "Hoá trái bom thành trái ngon toàn kẹo với bi tròn",
+                        "Mong thế giới hoà bình, không còn chiến tranh, bom đạn"
+                    ]
+                ]
+            },
+            {
+                "k": "tap",
+                "min": 20,
+                "s": [
+                    "Nếu chúng mình có phép lạ\nBắt hạt giống nảy mầm nhanh\nChớp mắt thành cây đầy quả\nTha hồ hái chén ngọt lành.",
+                    "Nếu chúng mình có phép lạ\nNgủ dậy thành người lớn ngay\nĐứa thì lặn xuống đáy biển\nĐứa thì ngồi lái máy bay.",
+                    "Nếu chúng mình có phép lạ\nHái triệu vì sao xuống cùng\nĐúc thành ông mặt trời mới\nMãi mãi không còn mùa đông.",
+                    "Nếu chúng mình có phép lạ\nHoá trái bom thành trái ngon\nTrong ruột không còn thuốc nổ\nChỉ toàn kẹo với bi tròn.",
+                    "Nếu chúng mình có phép lạ!\nNếu chúng mình có phép lạ!"
+                ],
+                "q": "BƯỚC 3: TÌM KHỔ THƠ ƯỚC MƠ HOÀ BÌNH (Câu 2 & 3 SGK). KHỔ THƠ NÀO thể hiện khát vọng xoá bỏ chiến tranh, biến vũ khí thành trái ngon đầy kẹo và bi tròn cho trẻ thơ? (Em hãy bấm chọn cả khổ thơ đó nhé!)",
+                "a": 3
+            },
+            {
+                "k": "multi",
+                "min": 20,
+                "t": "Nếu chúng mình có phép lạ\nHoá trái bom thành trái ngon\nTrong ruột không còn thuốc nổ\nChỉ toàn kẹo với bi tròn. // Nếu chúng mình có phép lạ!\nNếu chúng mình có phép lạ!",
+                "q": "BƯỚC 4: Ý NGHĨA ĐOẠN KẾT BÀI THƠ (Câu 4 SGK). Việc lặp lại hai lần câu thơ “Nếu chúng mình có phép lạ!” ở cuối bài thơ nói lên điều gì? (Em hãy chọn tất cả các đáp án đúng)",
+                "o": [
+                    "Nhấn mạnh ước mơ của các bạn nhỏ vô cùng tha thiết và cháy bỏng.",
+                    "Cho thấy các bạn nhỏ còn rất nhiều ước mơ đẹp đẽ, cao cả khác nữa.",
+                    "Khẳng định khát vọng biến thế giới trở nên tốt đẹp, ấm no và hoà bình hơn.",
+                    "Cho thấy các bạn nhỏ đã quên mất mình muốn ước thêm điều gì."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Em hãy xếp 9 từ ngữ trong Bài tập 1 Luyện từ và câu (chú ý 3 từ dễ xếp nhầm loại: biến, trái quả, bom) vào đúng 3 giỏ: *1:mùa_đông, *1:trái_quả, *1:bom, *2:biến, *2:hái, *2:lặn, *3:nhanh, *3:ngon, *3:lạ.",
+                "q": "BƯỚC 5: LUYỆN TỪ VÀ CÂU – PHÂN LOẠI TỪ LOẠI (Bài tập 1 SGK tr. 133). Em hãy chọn từng giỏ rồi bấm vào các từ ngữ để xếp đúng nhóm Danh từ, Động từ và Tính từ (nhớ phát hiện đúng từ loại của 'biến', 'trái quả', 'bom') nhé!",
+                "cats": [
+                    "Danh từ",
+                    "Động từ",
+                    "Tính từ"
+                ]
+            },
+            {
+                "k": "fill",
+                "min": 30,
+                "t": "a. Tôi sinh ra và lớn lên trong một gia đình kiến đỏ {đông_đúc}. Gia đình tôi có hàng nghìn miệng ăn, tuy không thật {sung_túc} nhưng ai cũng được no đủ quanh năm. Tất cả chị em chúng tôi sống {quây_quần} bên nhau, dưới một mái nhà ấm cúng, {yên_vui}.\nb. Nửa đêm, trời nổi cơn mưa lớn. Tôi và dế trũi {trú_mưa} dưới tàu lá chuối, cả đêm nghe mưa {rơi} như đánh trống trên đầu. Sáng hôm sau, bừng mắt dậy, trời đã {tạnh} hẳn. Tôi {nhìn} ra trước mặt, thấy một làn nước mưa {chảy} vèo vèo giữa đôi bờ cỏ. Đấy là một con sông mà đêm qua tối trời, chúng tôi không nhìn rõ.",
+                "q": "BƯỚC 6: LUYỆN TỪ VÀ CÂU – CHỌN TỪ THAY BÔNG HOA (Bài tập 2 SGK tr. 133). Em hãy chọn các tính từ và động từ thích hợp điền vào chỗ trống để hoàn chỉnh hai đoạn văn trên nhé!"
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Bức thư bạn Phương Linh ở Hà Nội gửi cho Việt Phương ngày 19 tháng 7 năm 2022 giúp chúng ta nhận biết rõ 3 phần quan trọng của một bức thư: Phần đầu, Phần chính và Phần cuối.",
+                "q": "BƯỚC 7: VIẾT – TÌM HIỂU CÁCH VIẾT THƯ (SGK tr. 134). Em hãy nối mỗi phần của bức thư ở cột trái với đúng nội dung tương ứng ở cột phải để ghi nhớ cách viết thư nhé!",
+                "h": "Phần đầu ghi địa điểm, thời gian, lời thưa gửi; Phần chính thăm hỏi và chia sẻ tin tức; Phần cuối ghi lời chúc, hứa hẹn, chữ kí và tên người viết.",
+                "p": [
+                    [
+                        "Phần đầu bức thư",
+                        "Địa điểm, thời gian viết thư và lời thưa gửi, lời chào đầu thư"
+                    ],
+                    [
+                        "Phần chính bức thư",
+                        "Thăm hỏi người nhận thư và chia sẻ tin tức, ước mơ của người viết"
+                    ],
+                    [
+                        "Phần cuối bức thư",
+                        "Lời chúc, lời cảm ơn, hứa hẹn cùng chữ kí và tên người viết"
+                    ],
+                    [
+                        "Bức thư mẫu trong SGK",
+                        "Bạn Phương Linh ở Hà Nội gửi cho bạn Việt Phương chia sẻ ước mơ làm bác sĩ thú y"
+                    ]
+                ]
+            }
+        ],
+        "glossary": "- Bom: vũ khí, vỏ bằng kim loại, chứa chất nổ, gây sát thương, thường do máy bay thả xuống.\n- Thuốc nổ: chất có khả năng phá hoại và sát thương bằng sức ép của nó khi bị gây nổ.\n- Sung túc: đầy đủ, giàu có về vật chất.",
+        "mic": "Nếu chúng mình có phép lạ\nBắt hạt giống nảy mầm nhanh\nChớp mắt thành cây đầy quả\nTha hồ hái chén ngọt lành. // Nếu chúng mình có phép lạ\nNgủ dậy thành người lớn ngay\nĐứa thì lặn xuống đáy biển\nĐứa thì ngồi lái máy bay. // Nếu chúng mình có phép lạ\nHái triệu vì sao xuống cùng\nĐúc thành ông mặt trời mới\nMãi mãi không còn mùa đông. // Nếu chúng mình có phép lạ\nHoá trái bom thành trái ngon\nTrong ruột không còn thuốc nổ\nChỉ toàn kẹo với bi tròn. // Nếu chúng mình có phép lạ!\nNếu chúng mình có phép lạ!"
+    },
+    "L4_Anh_Ba": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Anh Ba",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 133,
+                "t": "Hồi ấy, ở Sài Gòn, anh Ba được một người bạn đưa đến một tiệm cà phê của Pháp để xem đèn điện, xem chiếu bóng và máy nước... Những cái đó, trước kia, anh chưa hề thấy bao giờ. Anh thấy rất lạ.\nÍt hôm sau, anh đột nhiên hỏi người bạn rằng:\n– Anh Lê, anh có yêu nước không?\nNgười bạn đáp:\n– Tất nhiên là có chứ!\nAnh Ba hỏi tiếp:\n– Anh có thể giữ bí mật không?\nNgười bạn đáp:\n– Có.\nAnh Ba nói tiếp:\n– Tôi muốn đi ra nước ngoài, xem nước Pháp và các nước khác. Sau khi xem xét họ làm như thế nào, tôi sẽ trở về giúp đồng bào chúng ta. Nhưng nếu đi một mình, thật ra cũng có nhiều mạo hiểm... Anh muốn đi với tôi không?\nAnh Lê đáp:\n– Nhưng bạn ơi! Chúng ta lấy đâu ra tiền mà đi?\n– Đây, tiền đây! – anh Ba vừa nói vừa giơ hai bàn tay. – Chúng ta sẽ làm việc, chúng ta sẽ làm bất cứ việc gì để sống và để đi. Anh cùng đi với tôi chứ?\nBị lôi cuốn vì lòng hăng hái của anh Ba, người bạn đồng ý. Nhưng sau khi suy nghĩ kĩ, thấy cuộc đi có vẻ phiêu lưu, anh Lê không đủ can đảm để giữ lời hứa.\nSau này, anh Lê mới biết người thanh niên yêu nước đầy nhiệt huyết ấy đã đi khắp năm châu bốn biển để tìm ra con đường cứu dân cứu nước. Người thanh niên ấy chính là Bác Hồ của chúng ta.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN (Câu 1 SGK). Em hãy đọc kĩ toàn bài. Trước khi đề nghị anh Lê ra nước ngoài với mình, anh Ba đã hỏi anh Lê những gì?",
+                "o": [
+                    "Hỏi anh Lê có yêu nước không và có thể giữ bí mật không.",
+                    "Hỏi anh Lê có bao nhiêu tiền và có biết nói tiếng Pháp không.",
+                    "Hỏi anh Lê đã bao giờ đi xem đèn điện, chiếu bóng và máy nước chưa."
+                ],
+                "a": 0,
+                "h": "Em hãy đọc kĩ phần mở đầu cuộc trò chuyện: anh Ba hỏi 2 câu rất dứt khoát là 'Anh Lê, anh có yêu nước không?' và 'Anh có thể giữ bí mật không?'."
+            },
+            {
+                "k": "tap",
+                "min": 20,
+                "s": [
+                    "Tôi muốn đi ra nước ngoài, xem nước Pháp và các nước khác.",
+                    "Sau khi xem xét họ làm như thế nào, tôi sẽ trở về giúp đồng bào chúng ta.",
+                    "Nhưng nếu đi một mình, thật ra cũng có nhiều mạo hiểm.",
+                    "Anh muốn đi với tôi không?"
+                ],
+                "q": "BƯỚC 2: MỤC ĐÍCH RA NƯỚC NGOÀI CỦA ANH BA (Câu 2 SGK). Trong lời nói của anh Ba, CÂU VĂN NÀO khẳng định rõ mục đích cao cả cuối cùng của chuyến đi là học hỏi để trở về giúp đồng bào? (Em hãy bấm chọn câu văn đó)",
+                "a": 1
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "– Đây, tiền đây! – anh Ba vừa nói vừa giơ hai bàn tay. – Chúng ta sẽ làm việc, chúng ta sẽ làm bất cứ việc gì để sống và để đi. Anh cùng đi với tôi chứ?",
+                "q": "BƯỚC 3: Ý CHÍ QUYẾT TÂM CỦA ANH BA (Câu 3 SGK). Cử chỉ giơ hai bàn tay cùng câu nói “Chúng ta sẽ làm việc, chúng ta sẽ làm bất cứ việc gì để sống và để đi.” thể hiện điều gì? (Chọn tất cả đáp án đúng)",
+                "o": [
+                    "Thể hiện ý chí quyết tâm sắt đá, sẵn sàng vượt qua mọi gian khổ để ra đi tìm đường cứu nước.",
+                    "Thể hiện tinh thần tự lực cánh sinh, tin vào sức lao động từ chính đôi bàn tay của mình.",
+                    "Thể hiện lòng yêu nước sâu sắc và bản lĩnh dũng cảm, không ngại khó khăn, vất vả.",
+                    "Cho thấy anh Ba đã chuẩn bị sẵn rất nhiều tiền vàng trước khi lên tàu."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "order",
+                "min": 25,
+                "t": "Câu chuyện về cuộc trò chuyện giữa anh Ba và anh Lê tại Sài Gòn khắc hoạ khoảnh khắc lịch sử trước ngày Bác Hồ ra đi tìm đường cứu nước.",
+                "q": "BƯỚC 4: TÓM TẮT MẠCH CÂU CHUYỆN (Chuẩn bị Câu 5 SGK). Em hãy sắp xếp 4 sự việc sau theo đúng trình tự diễn biến của bài đọc “Anh Ba” nhé!",
+                "items": [
+                    "Ở Sài Gòn, anh Ba cùng bạn vào tiệm cà phê của Pháp xem đèn điện, chiếu bóng và máy nước.",
+                    "Ít hôm sau, anh Ba hỏi anh Lê có yêu nước và giữ bí mật không, rồi ngỏ ý rủ bạn cùng ra nước ngoài.",
+                    "Khi anh Lê lo không có tiền, anh Ba giơ hai bàn tay khẳng định sẽ làm bất cứ việc gì để sống và để đi.",
+                    "Sau này, anh Lê mới biết người thanh niên đầy nhiệt huyết đi khắp năm châu cứu nước chính là Bác Hồ."
+                ]
+            },
+            {
+                "k": "choice",
+                "min": 20,
+                "t": "Sau này, anh Lê mới biết người thanh niên yêu nước đầy nhiệt huyết ấy đã đi khắp năm châu bốn biển để tìm ra con đường cứu dân cứu nước. Người thanh niên ấy chính là Bác Hồ của chúng ta.",
+                "q": "BƯỚC 5: Ý NGHĨA CÂU CHUYỆN (Câu 4 SGK). Theo em, tác giả Trần Dân Tiên muốn nói điều gì qua câu chuyện “Anh Ba”?",
+                "o": [
+                    "Ca ngợi lòng yêu nước nồng nàn, tinh thần nhiệt huyết và ý chí quyết tâm vượt mọi gian khổ để tìm đường cứu nước của Bác Hồ thời trẻ.",
+                    "Giới thiệu những tiện nghi hiện đại như đèn điện, chiếu bóng ở Sài Gòn ngày xưa.",
+                    "Kể lại chuyến du lịch khám phá các đất nước xinh đẹp ở châu Âu của hai người bạn."
+                ],
+                "a": 0,
+                "h": "Câu chuyện làm nổi bật lòng yêu nước tha thiết, hoài bão lớn lao và bản lĩnh kiên cường của chàng thanh niên Nguyễn Tất Thành (anh Ba – Bác Hồ) khi ra đi tìm đường cứu nước."
+            },
+            {
+                "k": "gold",
+                "min": 25,
+                "t": "Hồi ấy ở *Sài_Gòn, anh *Ba được người bạn thân tên là *Lê đưa đến một tiệm cà phê của *Pháp xem đèn điện và chiếu bóng. Về sau, người bạn mới biết chàng thanh niên yêu nước đầy nhiệt huyết năm xưa chính là *Bác_Hồ kính yêu của dân tộc ta.",
+                "q": "BƯỚC 6: LUYỆN TẬP – TÌM DANH TỪ RIÊNG (Bài tập 1 SGK tr. 136). Em hãy bấm hái 5 danh từ riêng chỉ tên người và tên địa lí xuất hiện trong bài đọc “Anh Ba” (Sài Gòn, Ba, Lê, Pháp, Bác Hồ) nhé!",
+                "h": "Danh từ riêng được viết hoa các chữ cái đầu mỗi tiếng tạo thành tên riêng: Sài Gòn, Ba, Lê, Pháp, Bác Hồ."
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Để mở rộng vốn từ đặt câu về tinh thần của anh Ba, em hãy xếp 8 từ ngữ sau vào đúng 2 giỏ đồng nghĩa: *1:nhiệt_tình, *1:sôi_nổi, *1:hăng_say, *1:tích_cực, *2:dũng_cảm, *2:gan_dạ, *2:mạnh_dạn, *2:anh_dũng.",
+                "q": "BƯỚC 7: LUYỆN TẬP – TỪ ĐỒNG NGHĨA (Bài tập 2 SGK tr. 136). Em hãy chọn từng giỏ rồi bấm vào các từ có nghĩa giống với “hăng hái” và “can đảm” để xếp vào đúng nhóm làm vốn từ đặt câu nhé!",
+                "cats": [
+                    "Từ cùng nghĩa với “hăng hái”",
+                    "Từ cùng nghĩa với “can đảm”"
+                ]
+            }
+        ],
+        "glossary": "- Mạo hiểm: liều lĩnh làm một việc dù biết là nguy hiểm, có thể gây ra hậu quả tai hại.\n- Đô hộ: thống trị, cai quản một nước phụ thuộc.\n- Nhiệt huyết: lòng hăng hái, say mê đầy sức sống và sẵn sàng cống hiến.",
+        "mic": "Hồi ấy, ở Sài Gòn, anh Ba được một người bạn đưa đến một tiệm cà phê của Pháp để xem đèn điện, xem chiếu bóng và máy nước... Những cái đó, trước kia, anh chưa hề thấy bao giờ. Anh thấy rất lạ.\nÍt hôm sau, anh đột nhiên hỏi người bạn rằng:\n– Anh Lê, anh có yêu nước không?\nNgười bạn đáp:\n– Tất nhiên là có chứ!\nAnh Ba hỏi tiếp:\n– Anh có thể giữ bí mật không?\nNgười bạn đáp:\n– Có.\nAnh Ba nói tiếp:\n– Tôi muốn đi ra nước ngoài, xem nước Pháp và các nước khác. Sau khi xem xét họ làm như thế nào, tôi sẽ trở về giúp đồng bào chúng ta. Nhưng nếu đi một mình, thật ra cũng có nhiều mạo hiểm... Anh muốn đi với tôi không?\nAnh Lê đáp:\n– Nhưng bạn ơi! Chúng ta lấy đâu ra tiền mà đi?\n– Đây, tiền đây! – anh Ba vừa nói vừa giơ hai bàn tay. – Chúng ta sẽ làm việc, chúng ta sẽ làm bất cứ việc gì để sống và để đi. Anh cùng đi với tôi chứ?\nBị lôi cuốn vì lòng hăng hái của anh Ba, người bạn đồng ý. Nhưng sau khi suy nghĩ kĩ, thấy cuộc đi có vẻ phiêu lưu, anh Lê không đủ can đảm để giữ lời hứa.\nSau này, anh Lê mới biết người thanh niên yêu nước đầy nhiệt huyết ấy đã đi khắp năm châu bốn biển để tìm ra con đường cứu dân cứu nước. Người thanh niên ấy chính là Bác Hồ của chúng ta."
     }
 };
