@@ -3907,5 +3907,438 @@ window.LESSONS = {
         ],
         "glossary": "- Bù nhìn: vật giả hình người, thường làm bằng rơm, dùng để doạ chim, thú.\n- Vời vợi: rất cao hoặc rất xa, đến mức hút tầm mắt.\n- Lửng lơ: ở trạng thái trôi nổi, treo nhẹ trên không trung.",
         "mic": "Đuổi bắt nhau chán, chúng tớ nằm lăn ra bãi cỏ ở lưng đồi. Từ đây nhìn xuống làng, thật khó có bức tranh nào đẹp hơn. Những mái nhà cao thấp, nhấp nhô. Những rặng dừa cao vút ôm quanh ao phủ đầy bèo tây hoa nở tím lịm. Những vườn mía lá xanh rờn. Những vườn rau xanh mướt, với rất nhiều bù nhìn làm bằng rơm vàng óng hoặc nâu sậm, gắn thêm các mảnh áo mưa bay phấp phới.\nNhìn xuống rồi lại nhìn lên. Trời cao vời vợi. Và xanh thăm thẳm.\nĐiệp chỉ tay:\n– Ước gì tớ được bay như đám mây kia.\n– Cậu ngủ mơ à? – Lê cười.\n– Đấy không phải ngủ mơ mà là ước mơ. Ước mơ thì không cần ngủ, mở mắt và mơ thôi.\nThế là cả lũ kể về ước mơ của mình. Tuyết ước mơ làm cô giáo. Văn ước mơ làm chú bộ đội ngoài đảo, để tha hồ đọc thư của học sinh gửi cho. Điệp mơ làm y tá, vì muốn chăm sóc sức khoẻ cho ông nó. Lê mơ thành lái xe, ngồi trên cái xe thật xịn đi lại vòng vòng cho oách. Thành mơ làm phi công. Phi công nhảy dù cực mát.\n– Thôi, tớ không làm bộ đội hải quân nữa, tớ cũng làm phi công lái máy bay giống Thành. – Văn bảo.\n– Tớ cũng không lái xe nữa, tớ lái tàu vũ trụ. – Lê nói.\n– Tớ làm hoạ sĩ, vẽ tất cả các thứ mà mọi người mơ. – Tuyết lập tức từ bỏ ước mơ làm cô giáo.\nCứ thế, chúng tớ thay đổi ước mơ liên tục, cho đến khi những tia nắng cuối ngày nấp sau lưng đồi hoặc đi ngủ từ lúc nào không hay.\nĐêm ấy, tớ mơ thấy các ước mơ như những quả bóng bay lớn đủ màu sắc, chao liệng khắp đồi. Cả hội bám vào những quả bóng ước mơ của mình, lửng lơ bay lên, vào thăm thẳm trời xanh."
+    },
+    "L4_Con_trai_nguoi_lam_vuon": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Con trai người làm vườn",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 169,
+                "t": "Có một cậu bé vô cùng yêu biển. Cậu biết đến biển qua sách báo. Cậu nói với cha:\n– Con muốn trở thành thuyền trưởng.\n– Con trai, cha mong con trở thành người làm vườn giống cha. – Người cha nói.\nĐể con kế thừa công việc của mình, ngày nào ông cũng đưa cậu ra vườn để giảng giải về các loại cây. Thấy con không chú ý nghe, ông hỏi:\n– Con đang nghĩ gì vậy?\n– Con đang nghĩ biển trông như thế nào cha ạ. – Ánh mắt cậu hướng về phía xa xăm, chất chứa niềm khát khao mãnh liệt.\n– Công việc làm vườn không phải rất tốt hay sao? – Người cha buồn bã nói.\nNhưng cậu bé vẫn rất thích biển. Cậu tìm báo, tạp chí giới thiệu về các loại tàu thuyền. Cậu cắt hình những con tàu dán lên đầu giường để hễ mở mắt là nhìn thấy chúng.\nThời gian trôi qua, cậu bé đã lớn khôn. Bạn bè anh đều tiếp quản công việc của cha mẹ mình. Còn anh vẫn giữ nguyên tình yêu với biển.\nMột ngày, anh tạm biệt cha lên đường. Anh lên tàu, trở thành thuỷ thủ, hằng ngày được nhìn thấy biển cả mênh mông. Một lần, trong đêm bão to, tàu của anh gặp hải tặc. Thuyền trưởng, thuyền phó đều gặp nạn. Anh bình tĩnh hướng dẫn mọi người đối phó với mưa bão và chiến thắng hải tặc. Tất cả mọi người trên tàu đều nể phục tài năng và sự dũng cảm của anh.\nNhiều năm sau, khi đã là một thuyền trưởng, anh trở về thăm cha. Nhìn anh tràn trề sinh lực, sắc mặt tươi tắn, bờ vai to khoẻ, người cha cảm động rơi nước mắt:\n– Con trai, bằng lòng kiên trì, con đã chứng minh được ước mơ của con không phải là hão huyền. Cha đã sai rồi.\nThuyền trưởng cao lớn cũng rơi lệ. Đó là những giọt nước mắt của niềm tự hào, hạnh phúc.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN (Câu 1 SGK). Em hãy đọc kĩ toàn bài. Ước mơ của cậu bé và mong muốn của người cha khác nhau như thế nào?",
+                "o": [
+                    "Cậu bé ước mơ trở thành thuyền trưởng đi biển, còn người cha mong con kế thừa nghề làm vườn giống mình.",
+                    "Cậu bé thích ở nhà trồng cây làm vườn, còn người cha muốn con đi làm thuỷ thủ.",
+                    "Cả hai cha con đều muốn cậu bé trở thành nhà báo viết về tàu thuyền."
+                ],
+                "a": 0,
+                "h": "Em đọc lại lời đối thoại ở đầu bài: cậu bé nói 'Con muốn trở thành thuyền trưởng', còn người cha bảo 'cha mong con trở thành người làm vườn giống cha'."
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Ngày nào cha cũng đưa cậu ra vườn giảng giải về các loại cây nhưng cậu vẫn nghĩ về biển, ánh mắt hướng về phía xa xăm, chất chứa niềm khát khao mãnh liệt. Cậu tìm báo, tạp chí giới thiệu về các loại tàu thuyền; cắt hình những con tàu dán lên đầu giường để hễ mở mắt là nhìn thấy chúng. Lớn lên, bạn bè đều tiếp quản công việc của cha mẹ, còn anh vẫn giữ nguyên tình yêu với biển.",
+                "q": "BƯỚC 2: ƯỚC MƠ MÃNH LIỆT CỦA CẬU BÉ (Câu 2 SGK). Những chi tiết nào thể hiện ước mơ mãnh liệt được ra biển của cậu bé? (Em hãy chọn tất cả các đáp án đúng)",
+                "o": [
+                    "Ánh mắt hướng về phía xa xăm, chất chứa niềm khát khao mãnh liệt khi nghĩ về biển.",
+                    "Tìm đọc báo, tạp chí giới thiệu về các loại tàu thuyền và cắt hình con tàu dán lên đầu giường.",
+                    "Khi lớn khôn vẫn giữ nguyên tình yêu với biển và tạm biệt cha lên đường làm thuỷ thủ.",
+                    "Vui vẻ từ bỏ giấc mơ biển cả để ở nhà làm vườn giống bạn bè cùng trang lứa."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "order",
+                "min": 25,
+                "t": "Từ một cậu bé chỉ biết đến biển qua sách báo, anh đã bền bỉ theo đuổi đam mê, vượt qua thử thách hiểm nguy trên biển để chạm tay tới ước mơ trở thành thuyền trưởng.",
+                "q": "BƯỚC 3: HÀNH TRÌNH CHINH PHỤC ƯỚC MƠ. Em hãy sắp xếp 4 sự việc sau theo đúng trình tự diễn biến của câu chuyện nhé!",
+                "items": [
+                    "Từ nhỏ cậu bé vô cùng yêu biển, cắt hình tàu thuyền dán lên đầu giường và mơ làm thuyền trưởng.",
+                    "Lớn khôn, anh tạm biệt cha lên đường, lên tàu trở thành thuỷ thủ.",
+                    "Trong đêm bão to gặp hải tặc, anh bình tĩnh chỉ huy mọi người vượt qua nguy hiểm nên được cả tàu nể phục.",
+                    "Nhiều năm sau, anh trở về thăm cha với tư cách một thuyền trưởng, hai cha con xúc động rơi nước mắt."
+                ]
+            },
+            {
+                "k": "group",
+                "min": 25,
+                "t": "Khi đã là một thuyền trưởng *1:cao_lớn trở về thăm cha, anh hiện ra *1:tràn_trề_sinh_lực, *1:sắc_mặt_tươi_tắn, *1:bờ_vai_to_khoẻ. Gặp lại cha, anh xúc động *2:rơi_lệ trong niềm *2:tự_hào và *2:hạnh_phúc.",
+                "q": "BƯỚC 4: HÌNH ẢNH NGƯỜI CON KHI TRỞ VỀ (Câu 3 SGK). Em hãy chọn từng giỏ rồi bấm vào các từ ngữ miêu tả người con khi đã trở thành thuyền trưởng về thăm cha theo 2 nhóm: Ngoại hình và Cảm xúc nhé!",
+                "cats": [
+                    "Ngoại hình",
+                    "Cảm xúc"
+                ]
+            },
+            {
+                "k": "tap",
+                "min": 20,
+                "s": [
+                    "Nhiều năm sau, khi đã là một thuyền trưởng, anh trở về thăm cha.",
+                    "Nhìn anh tràn trề sinh lực, sắc mặt tươi tắn, bờ vai to khoẻ, người cha cảm động rơi nước mắt.",
+                    "– Con trai, bằng lòng kiên trì, con đã chứng minh được ước mơ của con không phải là hão huyền.",
+                    "Cha đã sai rồi.",
+                    "Thuyền trưởng cao lớn cũng rơi lệ.",
+                    "Đó là những giọt nước mắt của niềm tự hào, hạnh phúc."
+                ],
+                "q": "BƯỚC 5: GIỌT NƯỚC MẮT CỦA NGƯỜI CHA (Câu 4 SGK). CÂU VĂN NÀO ghi lại lời người cha cảm động thừa nhận sự kiên trì đã giúp con chứng minh ước mơ của mình không hão huyền? (Em hãy bấm chọn câu văn đó)",
+                "a": 2
+            },
+            {
+                "k": "choice",
+                "min": 15,
+                "t": "Bằng tình yêu mãnh liệt dành cho biển cả, bản lĩnh dũng cảm trong giông bão và lòng kiên trì theo đuổi mục tiêu suốt nhiều năm, con trai người làm vườn đã trở thành vị thuyền trưởng đáng tự hào.",
+                "q": "BƯỚC 6: Ý NGHĨA CÂU CHUYỆN (Câu 5 SGK). Câu chuyện muốn nói với chúng ta điều gì? Em hãy chọn câu trả lời đúng nhất!",
+                "o": [
+                    "Nên biết ước mơ vừa với sức của mình.",
+                    "Có đam mê và lòng kiên trì thì sẽ thực hiện được ước mơ.",
+                    "Kế thừa công việc của cha mẹ là việc tốt nhất đối với con cái.",
+                    "Muốn thành công phải có thật nhiều ước mơ."
+                ],
+                "a": 1,
+                "h": "Câu chuyện khẳng định chỉ cần có đam mê chân chính và lòng kiên trì theo đuổi đến cùng thì chúng ta sẽ thực hiện được ước mơ của mình."
+            },
+            {
+                "k": "gold",
+                "min": 25,
+                "t": "Anh lên tàu, trở thành *thuỷ_thủ, hằng ngày được nhìn thấy biển cả mênh mông. Một lần, trong đêm bão to, tàu của anh gặp hải tặc. *Thuyền_trưởng, *thuyền_phó đều gặp nạn. Anh bình tĩnh hướng dẫn mọi người đối phó với mưa bão và chiến thắng hải tặc.",
+                "q": "BƯỚC 7: LUYỆN TẬP THEO VĂN BẢN ĐỌC (Bài 1 SGK). Em hãy bấm hái 3 danh từ chỉ người làm việc trên biển có trong đoạn văn trên nhé!",
+                "h": "Em hãy tìm 3 danh từ chỉ nghề nghiệp, chức danh làm việc trên tàu biển: thuỷ thủ, Thuyền trưởng, thuyền phó (lưu ý 'hải tặc' là kẻ cướp biển, không phải người làm việc trên biển nhé!)."
+            }
+        ],
+        "glossary": "- Kế thừa: tiếp nhận và nối tiếp công việc, sự nghiệp của người đi trước.\n- Hải tặc: kẻ cướp hoạt động trên biển.\n- Hão huyền: viển vông, không có thực, khó có thể trở thành hiện thực.",
+        "mic": "Có một cậu bé vô cùng yêu biển. Cậu biết đến biển qua sách báo. Cậu nói với cha:\n– Con muốn trở thành thuyền trưởng.\n– Con trai, cha mong con trở thành người làm vườn giống cha. – Người cha nói.\nĐể con kế thừa công việc của mình, ngày nào ông cũng đưa cậu ra vườn để giảng giải về các loại cây. Thấy con không chú ý nghe, ông hỏi:\n– Con đang nghĩ gì vậy?\n– Con đang nghĩ biển trông như thế nào cha ạ. – Ánh mắt cậu hướng về phía xa xăm, chất chứa niềm khát khao mãnh liệt.\n– Công việc làm vườn không phải rất tốt hay sao? – Người cha buồn bã nói.\nNhưng cậu bé vẫn rất thích biển. Cậu tìm báo, tạp chí giới thiệu về các loại tàu thuyền. Cậu cắt hình những con tàu dán lên đầu giường để hễ mở mắt là nhìn thấy chúng.\nThời gian trôi qua, cậu bé đã lớn khôn. Bạn bè anh đều tiếp quản công việc của cha mẹ mình. Còn anh vẫn giữ nguyên tình yêu với biển.\nMột ngày, anh tạm biệt cha lên đường. Anh lên tàu, trở thành thuỷ thủ, hằng ngày được nhìn thấy biển cả mênh mông. Một lần, trong đêm bão to, tàu của anh gặp hải tặc. Thuyền trưởng, thuyền phó đều gặp nạn. Anh bình tĩnh hướng dẫn mọi người đối phó với mưa bão và chiến thắng hải tặc. Tất cả mọi người trên tàu đều nể phục tài năng và sự dũng cảm của anh.\nNhiều năm sau, khi đã là một thuyền trưởng, anh trở về thăm cha. Nhìn anh tràn trề sinh lực, sắc mặt tươi tắn, bờ vai to khoẻ, người cha cảm động rơi nước mắt:\n– Con trai, bằng lòng kiên trì, con đã chứng minh được ước mơ của con không phải là hão huyền. Cha đã sai rồi.\nThuyền trưởng cao lớn cũng rơi lệ. Đó là những giọt nước mắt của niềm tự hào, hạnh phúc."
+    },
+    "L4_Neu_em_co_mot_khu_vuon": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Nếu em có một khu vườn",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 132,
+                "t": "Nếu em có một khu vườn thật rộng, em sẽ trồng thật nhiều loại cây.\nEm sẽ trồng cây mít, hái lá mít làm một bầy trâu chia cho các bạn. Mỗi chiều, chiếc lá mít sẽ thành chong chóng, em chạy ù ù để gió thổi lồng lộng cho chong chóng xoay tít. Em sẽ xâu những chiếc lá vàng, lá đỏ thành vòng lá, đội lên đầu, hoá thành công chúa.\nEm sẽ trồng cây me. Gốc me mát rượi. Mẹ quét sạch bong đất cát, để mỗi xế trưa ngủ dậy, hai chị em dẫn nhau ra ngồi chơi. Lá me non mẹ nấu canh cá nục, vị chua thơm ăn quanh năm không ngán.\nEm sẽ trồng những cây anh đào làm hàng rào. Hoa sẽ nở rộ mỗi độ xuân về. Những chùm hoa phơn phớt hồng, phơn phớt tím, thoang thoảng hương, hoà lẫn với mùi rơm rạ trong buổi sáng đẫm sương.\nEm cũng sẽ dành một khoảnh vườn để trồng hoa giấy, hoa hồng, hoa nhài và cả những khóm hoa dại bé xíu, trắng muốt. Từng đàn bướm vàng, bướm trắng,... sẽ cứ thế rủ nhau bay về...\nTiếng chim nhao nhác ngoài ban công khiến em sực tỉnh. Chắc là đàn chim sẻ đang nhảy nhót trong chậu cải mới nhú mầm li ti. Từ ngày cả nhà chuyển ra thành phố, mẹ dạy em trồng cây trong những chiếc chậu be bé xinh xinh.\nVà ngày nào em cũng không thôi mơ ước, nếu em có một khu vườn như ở quê...",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN (Câu 1 SGK). Em hãy đọc kĩ toàn bài. Trong khu vườn mơ ước, bạn nhỏ muốn trồng cây mít để làm gì?",
+                "o": [
+                    "Hái lá mít làm bầy trâu chia cho các bạn, làm chong chóng xoay tít và xâu lá vàng, lá đỏ thành vòng đội đầu hoá công chúa.",
+                    "Thu hoạch thật nhiều quả mít chín thơm mang ra chợ thành phố bán lấy tiền.",
+                    "Lấy thân cây mít làm hàng rào bao quanh cả khu vườn và ban công nhà mình."
+                ],
+                "a": 0,
+                "h": "Em hãy đọc kĩ đoạn 2: bạn nhỏ muốn trồng cây mít để chơi những trò chơi tuổi thơ thú vị từ lá mít như làm bầy trâu, làm chong chóng và xâu vòng lá hoá thành công chúa."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Trong khu vườn tưởng tượng của bạn nhỏ, mỗi loài cây, hoa, lá đều mang một vẻ đẹp riêng và gắn với những kỉ niệm ngọt ngào ở quê.",
+                "q": "BƯỚC 2: KHÁM PHÁ CÁC LOÀI CÂY, HOA, LÁ (Câu 2 SGK). Em hãy nối tên mỗi loài cây, hoa, lá ở cột trái với đặc điểm tương ứng trong bài đọc ở cột phải nhé!",
+                "h": "Em nhớ lại các chi tiết trong đoạn 3, 4, 5: gốc me mát rượi, lá me non vị chua thơm, hoa anh đào phơn phớt hồng tím thoang thoảng hương, còn hoa dại thì bé xíu trắng muốt.",
+                "p": [
+                    [
+                        "Lá me",
+                        "Non, có vị chua thơm mẹ nấu canh cá nục"
+                    ],
+                    [
+                        "Hoa anh đào",
+                        "Phơn phớt hồng, phơn phớt tím, thoang thoảng hương"
+                    ],
+                    [
+                        "Những khóm hoa dại",
+                        "Bé xíu, trắng muốt thu hút đàn bướm bay về"
+                    ],
+                    [
+                        "Gốc me",
+                        "Mát rượi, mẹ quét sạch bong đất cát để hai chị em ngồi chơi"
+                    ]
+                ]
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Từ ngày cả nhà chuyển ra thành phố, mẹ dạy em trồng cây trong những chiếc chậu be bé xinh xinh. Và ngày nào em cũng không thôi mơ ước, nếu em có một khu vườn như ở quê...",
+                "q": "BƯỚC 3: CẢM NHẬN KHU VƯỜN MƠ ƯỚC (Câu 3 & 4 SGK). Vì sao khu vườn hiện ra rất sống động trong trí tưởng tượng của bạn nhỏ? (Em hãy chọn tất cả các đáp án đúng)",
+                "o": [
+                    "Vì bạn nhỏ có trí tưởng tượng rất phong phú và tâm hồn hồn nhiên.",
+                    "Vì bạn nhỏ đã có những trải nghiệm, kỉ niệm gắn bó về một khu vườn ở quê.",
+                    "Vì bạn nhỏ rất yêu thiên nhiên, cây cỏ và hoa lá.",
+                    "Vì bạn nhỏ chỉ thích sống ở thành phố, không nhớ khu vườn ở quê."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 25,
+                "t": "Dưới gốc me *mát_rượi, hai chị em dẫn nhau ra ngồi chơi. Hàng rào anh đào nở chùm hoa *phơn_phớt hồng, *thoang_thoảng hương sớm mai. Khoảnh vườn còn có những khóm hoa dại *bé_xíu, *trắng_muốt, còn ngoài ban công thành phố là những chiếc chậu *xinh_xinh.",
+                "q": "BƯỚC 4: THU HOẠCH TỪ NGỮ GỢI TẢ ĐẸP. Em hãy bấm hái 6 tính từ, từ láy gợi tả vẻ đẹp mát lành, dịu nhẹ và đáng yêu của khu vườn (mát rượi, phơn phớt, thoang thoảng, bé xíu, trắng muốt, xinh xinh) nhé!",
+                "h": "Em hãy tìm và bấm chọn 6 từ ngữ gợi tả: mát rượi, phơn phớt, thoang thoảng, bé xíu, trắng muốt, xinh xinh."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Trong bài Luyện từ và câu, chúng ta tìm hiểu 3 công dụng quan trọng của dấu gạch ngang qua các ví dụ về trồng cây trong chậu, chương trình học bổng ba miền và lời đối thoại của nhân vật.",
+                "q": "BƯỚC 5: LUYỆN TỪ VÀ CÂU – CÔNG DỤNG DẤU GẠCH NGANG (Bài tập 1, 2 & 3 SGK). Em hãy nối mỗi ví dụ có dùng dấu gạch ngang ở cột trái với đúng công dụng của nó ở cột phải nhé!",
+                "h": "Nhớ 3 công dụng: dấu gạch đầu dòng các bước làm là liệt kê; dấu gạch giữa Bắc – Trung – Nam hay Hà Nội – Huế – Sài Gòn là nối các từ trong liên danh; dấu gạch đầu lời thoại là đánh dấu lời nói trực tiếp.",
+                "p": [
+                    [
+                        "Chuẩn bị đất; Dùng xẻng xới đất; Đặt cây vào chậu; Tưới nước",
+                        "Đánh dấu các ý trong một đoạn liệt kê"
+                    ],
+                    [
+                        "Chương trình đến với học sinh ba miền Bắc – Trung – Nam",
+                        "Nối các từ ngữ trong một liên danh"
+                    ],
+                    [
+                        "Bài thơ Hà Nội – Huế – Sài Gòn của nhà thơ Lê Nguyên",
+                        "Nối các địa danh trong một liên danh"
+                    ],
+                    [
+                        "– Con đã hiểu chưa? – Dạ, con hiểu rồi ạ!",
+                        "Đánh dấu lời nói trực tiếp của nhân vật"
+                    ]
+                ]
+            },
+            {
+                "k": "fill",
+                "min": 20,
+                "t": "Ghi nhớ về dấu gạch ngang: Dấu gạch ngang được dùng để đánh dấu {lời_nói} trực tiếp của {nhân_vật}, đánh dấu các ý trong một đoạn {liệt_kê} và nối các từ ngữ trong một {liên_danh}.",
+                "q": "BƯỚC 6: LUYỆN TỪ VÀ CÂU – GHI NHỚ DẤU GẠCH NGANG (SGK tr. 120). Em hãy điền 4 từ khóa vào chỗ trống để hoàn thiện phần Ghi nhớ công dụng của dấu gạch ngang nhé!"
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Qua 3 đoạn văn mẫu của các nhà văn Vũ Tú Nam, Nguyễn Văn Chương và Vũ Hùng, em hãy xếp các chi tiết miêu tả nổi bật sau vào đúng giỏ con vật: *1:bụng_tròn_bóng_loáng, *1:xanh_như_hạt_ngọc, *1:chân_trước_vuốt_râu, *2:bám_theo_vây_mẹ, *2:phóng_vút_mũi_tên, *2:tròn_miệng_thở_bong_bóng, *3:phun_bụi_đất_lưng, *3:đập_vòi_chan_chát, *3:bẻ_cành_vơ_cỏ.",
+                "q": "BƯỚC 7: LUYỆN VIẾT ĐOẠN VĂN MIÊU TẢ CON VẬT (Bài tập 1 SGK tr. 120–121). Các tác giả đã dùng tính từ, so sánh và nhân hoá rất sinh động để tả 3 con vật. Em hãy chọn từng giỏ rồi bấm vào các chi tiết tương ứng nhé!",
+                "cats": [
+                    "Con ong xanh",
+                    "Cá rô ron",
+                    "Chú voi con"
+                ]
+            }
+        ],
+        "glossary": "- Xế trưa: khoảng thời gian đầu buổi chiều, lúc mặt trời đã hơi nghiêng về phía tây.\n- Phơn phớt: có màu sắc nhạt, thoang thoảng nhẹ trên bề mặt.\n- Nhao nhác: có dáng vẻ hoặc âm thanh rối rít, xôn xao, không yên.\n- Sực tỉnh: chợt tỉnh lại ngay, thoát khỏi trạng thái mơ màng hay suy tưởng.",
+        "mic": "Nếu em có một khu vườn thật rộng, em sẽ trồng thật nhiều loại cây.\nEm sẽ trồng cây mít, hái lá mít làm một bầy trâu chia cho các bạn. Mỗi chiều, chiếc lá mít sẽ thành chong chóng, em chạy ù ù để gió thổi lồng lộng cho chong chóng xoay tít. Em sẽ xâu những chiếc lá vàng, lá đỏ thành vòng lá, đội lên đầu, hoá thành công chúa.\nEm sẽ trồng cây me. Gốc me mát rượi. Mẹ quét sạch bong đất cát, để mỗi xế trưa ngủ dậy, hai chị em dẫn nhau ra ngồi chơi. Lá me non mẹ nấu canh cá nục, vị chua thơm ăn quanh năm không ngán.\nEm sẽ trồng những cây anh đào làm hàng rào. Hoa sẽ nở rộ mỗi độ xuân về. Những chùm hoa phơn phớt hồng, phơn phớt tím, thoang thoảng hương, hoà lẫn với mùi rơm rạ trong buổi sáng đẫm sương.\nEm cũng sẽ dành một khoảnh vườn để trồng hoa giấy, hoa hồng, hoa nhài và cả những khóm hoa dại bé xíu, trắng muốt. Từng đàn bướm vàng, bướm trắng,... sẽ cứ thế rủ nhau bay về...\nTiếng chim nhao nhác ngoài ban công khiến em sực tỉnh. Chắc là đàn chim sẻ đang nhảy nhót trong chậu cải mới nhú mầm li ti. Từ ngày cả nhà chuyển ra thành phố, mẹ dạy em trồng cây trong những chiếc chậu be bé xinh xinh.\nVà ngày nào em cũng không thôi mơ ước, nếu em có một khu vườn như ở quê..."
+    },
+    "L4_Bon_mua_mo_uoc": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Bốn mùa mơ ước",
+        "isPoem": true,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 60,
+                "t": "Em mơ mình là cánh én\nGọi nắng xuân về muôn nơi\nTrong veo nỗi niềm thương mến\nHoà trong rộn rã tiếng cười. // Em mơ mình là cơn gió\nGiữa ngày nắng hạ nồng oi\nCùng mây bay đi đây đó\nĐem mưa dịu mát muôn nơi. // Em mơ là vầng trăng tỏ\nLung linh giữa trời thu xanh\nVui cùng những ngôi sao nhỏ\nNhư ngàn đôi mắt long lanh. // Em mơ mình là ngọn lửa\nXua tan giá lạnh mùa đông\nĐàn chim vui bay về tổ\nBữa cơm chiều quê ấm nồng... // Yêu từng dặm dài đất nước\nEm mơ về con đường xa\nBốn mùa còn bao mơ ước\nỞ phía chân trời bao la.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN BÀI THƠ (Câu 1 SGK). Em hãy đọc kĩ cả 5 khổ thơ. Qua bốn mùa xuân, hạ, thu, đông, bạn nhỏ đã lần lượt mơ ước mình hoá thân thành những gì?",
+                "o": [
+                    "Cánh én (mùa xuân), cơn gió (mùa hạ), vầng trăng tỏ (mùa thu) và ngọn lửa (mùa đông).",
+                    "Nắng xuân (mùa xuân), đám mây (mùa hạ), ngôi sao nhỏ (mùa thu) và đàn chim (mùa đông).",
+                    "Tiếng cười (mùa xuân), cơn mưa (mùa hạ), bầu trời xanh (mùa thu) và con đường xa (mùa đông)."
+                ],
+                "a": 0,
+                "h": "Em hãy đọc lại câu đầu của 4 khổ thơ đầu tiên: cánh én (xuân), cơn gió (hạ), vầng trăng tỏ (thu) và ngọn lửa (đông)."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Em mơ mình là cánh én\nGọi nắng xuân về muôn nơi\nTrong veo nỗi niềm thương mến\nHoà trong rộn rã tiếng cười. // Em mơ mình là cơn gió\nGiữa ngày nắng hạ nồng oi\nCùng mây bay đi đây đó\nĐem mưa dịu mát muôn nơi. // Em mơ là vầng trăng tỏ\nLung linh giữa trời thu xanh\nVui cùng những ngôi sao nhỏ\nNhư ngàn đôi mắt long lanh. // Em mơ mình là ngọn lửa\nXua tan giá lạnh mùa đông\nĐàn chim vui bay về tổ\nBữa cơm chiều quê ấm nồng...",
+                "q": "BƯỚC 2: KHÁM PHÁ LÍ DO VÀ VẺ ĐẸP MỖI MÙA (Câu 1, 2 & 3 SGK). Em hãy nối ước mơ của bạn nhỏ trong mỗi mùa ở cột trái với lí do và khung cảnh đẹp tương ứng ở cột phải nhé!",
+                "h": "Mỗi ước mơ đều gắn với điều tốt đẹp cho từng mùa: cánh én gọi nắng xuân, cơn gió đem mưa dịu mát ngày hạ, vầng trăng lung linh trời thu, ngọn lửa xua tan giá lạnh mùa đông.",
+                "p": [
+                    [
+                        "Mùa xuân – mơ là cánh én",
+                        "Gọi nắng xuân về trong veo, rộn rã tiếng cười"
+                    ],
+                    [
+                        "Mùa hạ – mơ là cơn gió",
+                        "Cùng mây bay đi đây đó, đem mưa dịu mát muôn nơi"
+                    ],
+                    [
+                        "Mùa thu – mơ là vầng trăng tỏ",
+                        "Lung linh giữa trời thu xanh, vui cùng những ngôi sao nhỏ"
+                    ],
+                    [
+                        "Mùa đông – mơ là ngọn lửa",
+                        "Xua tan giá lạnh, sưởi ấm bữa cơm chiều quê ấm nồng"
+                    ]
+                ]
+            },
+            {
+                "k": "tap",
+                "min": 20,
+                "s": [
+                    "Em mơ mình là cánh én\nGọi nắng xuân về muôn nơi\nTrong veo nỗi niềm thương mến\nHoà trong rộn rã tiếng cười.",
+                    "Em mơ mình là cơn gió\nGiữa ngày nắng hạ nồng oi\nCùng mây bay đi đây đó\nĐem mưa dịu mát muôn nơi.",
+                    "Em mơ là vầng trăng tỏ\nLung linh giữa trời thu xanh\nVui cùng những ngôi sao nhỏ\nNhư ngàn đôi mắt long lanh.",
+                    "Em mơ mình là ngọn lửa\nXua tan giá lạnh mùa đông\nĐàn chim vui bay về tổ\nBữa cơm chiều quê ấm nồng...",
+                    "Yêu từng dặm dài đất nước\nEm mơ về con đường xa\nBốn mùa còn bao mơ ước\nỞ phía chân trời bao la."
+                ],
+                "q": "BƯỚC 3: TÌM KHỔ THƠ TẢ ĐÊM THU ĐẸP (Câu 3 SGK). KHỔ THƠ NÀO vẽ nên khung cảnh lung linh của bầu trời mùa thu với ánh trăng sáng và những ngôi sao nhỏ như ngàn đôi mắt long lanh? (Em hãy bấm chọn cả khổ thơ đó nhé!)",
+                "a": 2
+            },
+            {
+                "k": "multi",
+                "min": 20,
+                "t": "Em mơ mình là ngọn lửa\nXua tan giá lạnh mùa đông\nĐàn chim vui bay về tổ\nBữa cơm chiều quê ấm nồng... // Yêu từng dặm dài đất nước\nEm mơ về con đường xa\nBốn mùa còn bao mơ ước\nỞ phía chân trời bao la.",
+                "q": "BƯỚC 4: Ý NGHĨA KHỔ THƠ CUỐI (Câu 4 SGK). Theo em, khổ thơ cuối muốn nói lên những điều đẹp đẽ nào về mơ ước của tuổi thơ? (Em hãy chọn tất cả các đáp án đúng)",
+                "o": [
+                    "Mơ ước tuổi thơ nối dài tới tận chân trời bao la.",
+                    "Mơ ước cho em được đến mọi miền đất nước.",
+                    "Mơ ước đưa trẻ thơ đi tới tương lai tươi sáng.",
+                    "Mơ ước của bạn nhỏ chỉ dừng lại khi mùa đông kết thúc."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "gold",
+                "min": 25,
+                "t": "Em mơ mình là cánh én\nGọi nắng xuân về muôn nơi\n*Trong_veo nỗi niềm thương mến\nHoà trong *rộn_rã tiếng cười. // Em mơ mình là cơn gió\nGiữa ngày nắng hạ nồng oi\nCùng mây bay đi đây đó\nĐem mưa *dịu_mát muôn nơi. // Em mơ là vầng trăng tỏ\n*Lung_linh giữa trời thu xanh\nVui cùng những ngôi sao nhỏ\nNhư ngàn đôi mắt *long_lanh.",
+                "q": "BƯỚC 5: THU HOẠCH TỪ NGỮ GỢI TẢ ĐẸP. Em hãy bấm hái 5 từ ngữ gợi tả vẻ đẹp trong sáng, tươi vui và lấp lánh của thiên nhiên (trong veo, rộn rã, dịu mát, lung linh, long lanh) trong 3 khổ thơ trên nhé!",
+                "h": "Em hãy tìm và bấm chọn 5 từ ngữ gợi tả: Trong veo, rộn rã, dịu mát, Lung linh, long lanh."
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Em hãy xếp 7 thành ngữ và từ ngữ nói về ước mơ dưới đây vào đúng 2 giỏ (các từ ngữ khác như được voi đòi tiên, cò bay thẳng cánh, rừng vàng biển bạc, cao đẹp, ngóng trông, to lớn, kì diệu không thuộc hai nhóm này): *1:Cầu_được_ước_thấy, *1:Ước_sao_được_vậy, *1:Muốn_gì_được_nấy, *2:ao_ước, *2:mong_ước, *2:hoài_bão, *2:khát_vọng.",
+                "q": "BƯỚC 6: LUYỆN TẬP – MỞ RỘNG VỐN TỪ VỀ ƯỚC MƠ (Bài tập 1 & 2 SGK tr. 123). Em hãy chọn từng giỏ rồi bấm vào các thành ngữ và từ đồng nghĩa với 'ước mơ' để xếp vào đúng nhóm nhé!",
+                "cats": [
+                    "Thành ngữ nói về ước mơ",
+                    "Từ cùng nghĩa với ước mơ"
+                ]
+            },
+            {
+                "k": "fill",
+                "min": 25,
+                "t": "Để lập dàn ý cho bài văn miêu tả con vật (sau khi lựa chọn con vật, quan sát hoặc nhớ lại và chọn trình tự miêu tả), em ghi nhớ bố cục 3 phần: Mở bài là {giới_thiệu} về con vật; Thân bài miêu tả đặc điểm {ngoại_hình} (tả bao quát và tả chi tiết) cùng {hoạt_động} và thói quen nổi bật; Kết bài nêu {tình_cảm}, suy nghĩ hoặc điều mong muốn của em đối với con vật.",
+                "q": "BƯỚC 7: VIẾT – LẬP DÀN Ý BÀI VĂN MIÊU TẢ CON VẬT (SGK tr. 123–124). Em hãy chọn 4 từ khóa điền vào chỗ trống để nắm vững dàn ý 3 phần của bài văn miêu tả con vật nhé!"
+            }
+        ],
+        "glossary": "- Nồng oi: cảm giác nóng bức, ngột ngạt và khó chịu trong ngày hè.\n- Vầng trăng tỏ: vầng trăng sáng rõ và trong trẻo giữa bầu trời đêm.\n- Hoài bão: ước mơ, khát vọng lớn lao và cao đẹp hướng tới tương lai.",
+        "mic": "Em mơ mình là cánh én\nGọi nắng xuân về muôn nơi\nTrong veo nỗi niềm thương mến\nHoà trong rộn rã tiếng cười. // Em mơ mình là cơn gió\nGiữa ngày nắng hạ nồng oi\nCùng mây bay đi đây đó\nĐem mưa dịu mát muôn nơi. // Em mơ là vầng trăng tỏ\nLung linh giữa trời thu xanh\nVui cùng những ngôi sao nhỏ\nNhư ngàn đôi mắt long lanh. // Em mơ mình là ngọn lửa\nXua tan giá lạnh mùa đông\nĐàn chim vui bay về tổ\nBữa cơm chiều quê ấm nồng... // Yêu từng dặm dài đất nước\nEm mơ về con đường xa\nBốn mùa còn bao mơ ước\nỞ phía chân trời bao la."
+    },
+    "L4_O_Vuong_quoc_Tuong_Lai": {
+        "grade": 4,
+        "book": "sgk",
+        "title": "Ở Vương quốc Tương Lai",
+        "isPoem": false,
+        "stations": [
+            {
+                "k": "choice",
+                "min": 164,
+                "t": "Tin-tin và Mi-tin được một bà tiên giúp đỡ, đã vượt qua nhiều thử thách, đến nhiều xứ sở để tìm con chim xanh về chữa bệnh cho một bạn hàng xóm. Đoạn trích dưới đây thuật lại việc hai em tới Vương quốc Tương Lai và trò chuyện với những người bạn nhỏ sắp ra đời trong công xưởng xanh.\nCảnh trí: Một gian phòng rộng có những hàng cột và mái vòm bằng ngọc bích. Phòng có một số ghế băng, đồ đạc, cây cối. Có nhiều trẻ em đang chơi đùa hoặc làm việc. Có em đi lại hoặc ngồi suy nghĩ.\nNhân vật: Tin-tin; Mi-tin (em gái Tin-tin); Một số em bé.\nTin-tin: – Cậu đang làm gì với đôi cánh xanh ấy?\nEm bé thứ nhất: – Mình sẽ dùng nó vào việc sáng chế trên Trái Đất.\nTin-tin: – Cậu sáng chế cái gì?\nEm bé thứ nhất: – Khi nào ra đời, mình sẽ chế ra một vật làm cho con người hạnh phúc.\nMi-tin: – Vật đó ăn ngon chứ? Nó có ồn ào không?\nEm bé thứ nhất: – Không đâu, chẳng ồn ào gì cả. Mình chế sắp xong rồi, cậu có muốn xem không?\nTin-tin: – Có chứ! Nó đâu?\nEm bé thứ hai: – Cậu có muốn xem vật mình sáng chế không?\nTin-tin: – Có chứ, cái gì đấy?\nEm bé thứ hai: – Có ba mươi vị thuốc trường sinh ở kia, trong những chiếc lọ xanh.\nEm bé thứ ba: – (Từ trong đám đông đi ra) Mình mang đến một thứ ánh sáng mà chưa ai biết cả. (Em bé toả ra một thứ ánh sáng lạ thường). Thật là kì lạ phải không?\nEm bé thứ tư: – (Kéo tay Tin-tin) Cậu lại đây xem cái máy của mình, nó biết bay trên không như một con chim.\nEm bé thứ năm: – Hãy lại xem cái máy của mình đã. Nó biết dò tìm những kho báu còn giấu kín trên mặt trăng.",
+                "q": "BƯỚC 1: ĐỌC THẨM THẤU TOÀN VĂN (Câu 1 SGK). Em hãy đọc kĩ toàn bộ đoạn trích kịch. Vở kịch “Ở Vương quốc Tương Lai” có những nhân vật nào?",
+                "o": [
+                    "Tin-tin, Mi-tin (em gái Tin-tin) và một số em bé (từ em bé thứ nhất đến em bé thứ năm).",
+                    "Bà tiên, bạn hàng xóm bị bệnh và con chim xanh.",
+                    "Tin-tin, Mi-tin và nhà bác học Ma-ri Quy-ri."
+                ],
+                "a": 0,
+                "h": "Em hãy nhìn lại mục Nhân vật ở đầu màn kịch và các vai đối thoại trong bài: Tin-tin, Mi-tin và năm em bé sắp ra đời."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Trong công xưởng xanh, các em bé sắp ra đời hào hứng giới thiệu với Tin-tin và Mi-tin những sáng chế kì diệu sẽ mang tới cho Trái Đất.",
+                "q": "BƯỚC 2: CÔNG DỤNG CÁC SÁNG CHẾ (Câu 2 SGK). Em hãy nối mỗi sự vật do các em bé ở Vương quốc Tương Lai sáng chế ở cột trái với công dụng tương ứng ở cột phải nhé!",
+                "h": "Em nhớ lại công dụng từng sáng chế: thuốc trường sinh giúp sống lâu, thứ ánh sáng kì lạ làm cuộc sống tràn ngập ánh sáng, máy dò tìm kho báu để làm giàu, máy biết bay giúp di chuyển nhanh và thú vị.",
+                "p": [
+                    [
+                        "thuốc trường sinh",
+                        "giúp con người sống lâu"
+                    ],
+                    [
+                        "một thứ ánh sáng kì lạ",
+                        "để cuộc sống của con người tràn ngập ánh sáng"
+                    ],
+                    [
+                        "máy giúp dò tìm kho báu",
+                        "để làm giàu cho mọi người"
+                    ],
+                    [
+                        "cái máy biết bay trên không",
+                        "giúp con người di chuyển nhanh và thú vị"
+                    ]
+                ]
+            },
+            {
+                "k": "multi",
+                "min": 25,
+                "t": "Em bé thứ nhất chế ra vật làm con người hạnh phúc; em bé thứ hai có ba mươi vị thuốc trường sinh; em bé thứ ba mang đến thứ ánh sáng chưa ai biết; em bé thứ tư chế máy biết bay như chim; em bé thứ năm làm máy dò tìm kho báu giấu kín trên mặt trăng.",
+                "q": "BƯỚC 3: THÔNG ĐIỆP QUA CÁC EM BÉ (Câu 3 & 5 SGK). Qua nhân vật các em bé ở Vương quốc Tương Lai, tác giả muốn gửi gắm những điều gì? (Em hãy chọn tất cả các đáp án đúng)",
+                "o": [
+                    "Ca ngợi ước mơ cao đẹp, trí tưởng tượng phong phú và óc sáng tạo của trẻ thơ.",
+                    "Thể hiện khát vọng chinh phục khoa học để mang lại cuộc sống hạnh phúc, văn minh cho con người.",
+                    "Khích lệ các bạn nhỏ nuôi dưỡng niềm đam mê sáng chế những điều có ích cho tương lai.",
+                    "Cho thấy các em bé chỉ muốn giữ bí mật phát minh cho riêng mình."
+                ],
+                "a": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "k": "choice",
+                "min": 15,
+                "t": "Nơi Tin-tin và Mi-tin ghé thăm là công xưởng xanh ngập tràn những phát minh mới mẻ giúp con người sống lâu, hạnh phúc, bay trên không và khám phá cả mặt trăng.",
+                "q": "BƯỚC 4: Ý NGHĨA TÊN GỌI XỨ SỞ (Câu 4 SGK). Theo em, vì sao nơi Tin-tin và Mi-tin đến có tên là “Vương quốc Tương Lai”? Em hãy chọn câu trả lời đúng nhất!",
+                "o": [
+                    "Vì các bạn nhỏ sẽ đón tiếp Tin-tin và Mi-tin trong tương lai.",
+                    "Vì nơi đó có cuộc sống mơ ước trong tương lai.",
+                    "Vì tất cả mọi người sẽ chuyển đến sống ở đây."
+                ],
+                "a": 1,
+                "h": "Nơi ấy gọi là 'Vương quốc Tương Lai' vì ở đó hội tụ những phát minh kì diệu và cuộc sống tốt đẹp mà con người hằng mơ ước trong tương lai."
+            },
+            {
+                "k": "gold",
+                "min": 25,
+                "t": "Công xưởng xanh là một gian phòng rộng có hàng cột và mái vòm bằng *ngọc_bích. Tại đây, các em bé sắp ra đời hăng say *sáng_chế những vật làm con người *hạnh_phúc như vị *thuốc_trường_sinh, thứ ánh sáng *kì_lạ và chiếc máy dò tìm *kho_báu trên mặt trăng.",
+                "q": "BƯỚC 5: THU HOẠCH TỪ NGỮ KÌ DIỆU. Em hãy bấm hái 6 từ ngữ nổi bật nói về cảnh trí và những phát minh ở Vương quốc Tương Lai (ngọc bích, sáng chế, hạnh phúc, thuốc trường sinh, kì lạ, kho báu) nhé!",
+                "h": "Em hãy tìm và bấm chọn 6 từ ngữ: ngọc bích, sáng chế, hạnh phúc, thuốc trường sinh, kì lạ, kho báu."
+            },
+            {
+                "k": "match",
+                "min": 25,
+                "t": "Bài tập 1 & 2 Luyện từ và câu giúp em ôn lại 3 công dụng của dấu gạch ngang qua các ngữ liệu về nhà bác học Ma-ri Quy-ri, Hội hữu nghị và hợp tác Việt – Pháp, và câu chuyện cậu bé Lu-i Pa-xtơ đi xin học.",
+                "q": "BƯỚC 6: LUYỆN TỪ VÀ CÂU – CÔNG DỤNG DẤU GẠCH NGANG (Bài tập 1 & 2 SGK tr. 127–128). Em hãy nối mỗi ngữ liệu cần dùng dấu gạch ngang ở cột trái với đúng công dụng của nó ở cột phải nhé!",
+                "h": "Gạch đầu dòng các giải thưởng của Ma-ri Quy-ri là liệt kê; lời thoại thầy Rơ-nê và Lu-i Pa-xtơ là lời nói trực tiếp; Việt – Pháp và khoa học – công nghệ, giáo dục – đào tạo, văn hoá – thể thao là nối từ trong liên danh.",
+                "p": [
+                    [
+                        "Các danh hiệu, giải thưởng của nhà bác học Ma-ri Quy-ri",
+                        "Đánh dấu các ý trong một đoạn liệt kê"
+                    ],
+                    [
+                        "Hội hữu nghị và hợp tác Việt – Pháp",
+                        "Nối các từ ngữ trong một liên danh (hai quốc gia)"
+                    ],
+                    [
+                        "Cuộc trò chuyện giữa thầy Rơ-nê và cậu bé Lu-i Pa-xtơ",
+                        "Đánh dấu lời nói trực tiếp của nhân vật"
+                    ],
+                    [
+                        "Hợp tác khoa học – công nghệ, giáo dục – đào tạo, văn hoá – thể thao",
+                        "Nối các từ ngữ trong một liên danh (các lĩnh vực)"
+                    ]
+                ]
+            },
+            {
+                "k": "group",
+                "min": 30,
+                "t": "Trong phần Luyện tập về dấu gạch ngang, em hãy xếp các cụm từ sau vào đúng 3 giỏ công dụng tương ứng: *1:Con_tên_là_gì, *1:Thưa_thầy_con_là_Lu-i_Pa-xtơ, *1:Thế_thì_được, *2:Giải_thưởng_Nô-ben_Vật_lí, *2:Tiến_sĩ_khoa_học_Vật_lí, *2:Huân_chương_Bắc_đẩu_bội_tinh, *3:Việt_–_Pháp, *3:khoa_học_–_công_nghệ, *3:giáo_dục_–_đào_tạo.",
+                "q": "BƯỚC 7: LUYỆN TỪ VÀ CÂU – PHÂN LOẠI DẤU GẠCH NGANG (Bài tập 1 & 2 SGK). Em hãy chọn từng giỏ công dụng rồi bấm vào các cụm từ thích hợp để xếp vào đúng nhóm nhé!",
+                "cats": [
+                    "Đánh dấu lời nói trực tiếp",
+                    "Đánh dấu các ý liệt kê",
+                    "Nối từ trong liên danh"
+                ]
+            }
+        ],
+        "glossary": "- Thuốc trường sinh: loại thuốc uống vào sẽ sống lâu theo quan niệm của người xưa.\n- Sáng chế: tìm ra, tạo ra một vật mới hoặc cách làm mới chưa từng có trước đó.\n- Liên danh: sự kết hợp nhiều tên gọi, lĩnh vực thành một cụm thống nhất (như Việt – Pháp, khoa học – công nghệ).",
+        "mic": "Tin-tin và Mi-tin được một bà tiên giúp đỡ, đã vượt qua nhiều thử thách, đến nhiều xứ sở để tìm con chim xanh về chữa bệnh cho một bạn hàng xóm. Đoạn trích dưới đây thuật lại việc hai em tới Vương quốc Tương Lai và trò chuyện với những người bạn nhỏ sắp ra đời trong công xưởng xanh.\nCảnh trí: Một gian phòng rộng có những hàng cột và mái vòm bằng ngọc bích. Phòng có một số ghế băng, đồ đạc, cây cối. Có nhiều trẻ em đang chơi đùa hoặc làm việc. Có em đi lại hoặc ngồi suy nghĩ.\nNhân vật: Tin-tin; Mi-tin (em gái Tin-tin); Một số em bé.\nTin-tin: – Cậu đang làm gì với đôi cánh xanh ấy?\nEm bé thứ nhất: – Mình sẽ dùng nó vào việc sáng chế trên Trái Đất.\nTin-tin: – Cậu sáng chế cái gì?\nEm bé thứ nhất: – Khi nào ra đời, mình sẽ chế ra một vật làm cho con người hạnh phúc.\nMi-tin: – Vật đó ăn ngon chứ? Nó có ồn ào không?\nEm bé thứ nhất: – Không đâu, chẳng ồn ào gì cả. Mình chế sắp xong rồi, cậu có muốn xem không?\nTin-tin: – Có chứ! Nó đâu?\nEm bé thứ hai: – Cậu có muốn xem vật mình sáng chế không?\nTin-tin: – Có chứ, cái gì đấy?\nEm bé thứ hai: – Có ba mươi vị thuốc trường sinh ở kia, trong những chiếc lọ xanh.\nEm bé thứ ba: – (Từ trong đám đông đi ra) Mình mang đến một thứ ánh sáng mà chưa ai biết cả. (Em bé toả ra một thứ ánh sáng lạ thường). Thật là kì lạ phải không?\nEm bé thứ tư: – (Kéo tay Tin-tin) Cậu lại đây xem cái máy của mình, nó biết bay trên không như một con chim.\nEm bé thứ năm: – Hãy lại xem cái máy của mình đã. Nó biết dò tìm những kho báu còn giấu kín trên mặt trăng."
     }
 };
